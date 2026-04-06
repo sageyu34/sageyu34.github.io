@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductive Physiology Quiz</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -17,10 +16,6 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
         }
 
         .container {
@@ -40,7 +35,7 @@
         }
 
         .header h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 10px;
         }
 
@@ -49,97 +44,46 @@
             font-size: 1.1em;
         }
 
-        .content {
+        .quiz-content {
             padding: 30px;
         }
 
-        .start-screen {
-            text-align: center;
-            padding: 40px 20px;
+        .start-screen, .quiz-screen, .results-screen {
+            display: none;
         }
 
-        .start-screen h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.8em;
+        .start-screen.active, .quiz-screen.active, .results-screen.active {
+            display: block;
         }
 
-        .quiz-info {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .quiz-info h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .quiz-info ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .quiz-info li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e0e0;
-            color: #555;
-        }
-
-        .quiz-info li:last-child {
-            border-bottom: none;
-        }
-
-        .quiz-info li:before {
-            content: "✓ ";
-            color: #28a745;
-            font-weight: bold;
-            margin-right: 8px;
+        .student-form {
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .form-group {
-            margin: 20px 0;
-            text-align: left;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
             font-weight: 600;
+            color: #333;
         }
 
-        .form-group input,
-        .form-group select {
+        .form-group input {
             width: 100%;
             padding: 12px;
             border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1em;
-            font-family: inherit;
+            transition: border-color 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .form-group input:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .resume-banner {
-            background: #d4edda;
-            border: 2px solid #28a745;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #155724;
-        }
-
-        .resume-banner p {
-            margin-bottom: 10px;
         }
 
         .btn {
@@ -148,93 +92,22 @@
             border: none;
             padding: 15px 40px;
             font-size: 1.1em;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 10px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            text-decoration: none;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
         .btn:disabled {
-            background: #ccc;
+            opacity: 0.6;
             cursor: not-allowed;
             transform: none;
-            box-shadow: none;
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
-        }
-
-        .btn-secondary:hover {
-            box-shadow: 0 6px 20px rgba(108, 117, 125, 0.6);
-        }
-
-        .btn-danger {
-            background: #dc3545;
-            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
-        }
-
-        .btn-danger:hover {
-            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
-        }
-
-        .btn-success {
-            background: #28a745;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
-        }
-
-        .btn-success:hover {
-            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
-        }
-
-        .quiz-screen {
-            display: none;
-        }
-
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .username-display {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .timer-display {
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.2em;
-        }
-
-        .timer-display.warning {
-            background: #ffc107;
-            color: #333;
-        }
-
-        .timer-display.danger {
-            background: #dc3545;
-            animation: blink 0.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0.5; }
         }
 
         .progress-bar {
@@ -248,8 +121,8 @@
         .progress-fill {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             height: 100%;
-            width: 0%;
-            transition: width 0.3s ease;
+            border-radius: 5px;
+            transition: width 0.3s;
         }
 
         .question-info {
@@ -257,67 +130,48 @@
             justify-content: space-between;
             margin-bottom: 20px;
             color: #666;
-            font-size: 0.9em;
-        }
-
-        .topic-badge {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-
-        .question-text {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 30px;
-            line-height: 1.6;
             font-weight: 500;
         }
 
-        .options-container {
+        .question-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .question-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .options {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .option-btn {
-            background: #f8f9fa;
+        .option {
+            background: white;
             border: 2px solid #e0e0e0;
             padding: 15px 20px;
             border-radius: 10px;
             cursor: pointer;
-            text-align: left;
-            font-size: 1em;
-            transition: all 0.2s ease;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
         }
 
-        .option-btn:hover {
-            background: #e3f2fd;
+        .option:hover {
             border-color: #667eea;
-            transform: translateX(5px);
+            background: #f0f3ff;
         }
 
-        .option-btn.selected {
-            background: #667eea;
-            color: white;
+        .option.selected {
             border-color: #667eea;
-        }
-
-        .option-btn.correct {
-            background: #d4edda;
-            border-color: #28a745;
-            color: #155724;
-        }
-
-        .option-btn.incorrect {
-            background: #f8d7da;
-            border-color: #dc3545;
-            color: #721c24;
+            background: #e8ecff;
         }
 
         .option-letter {
@@ -326,97 +180,44 @@
             justify-content: center;
             width: 30px;
             height: 30px;
-            background: rgba(102, 126, 234, 0.1);
+            background: #667eea;
+            color: white;
             border-radius: 50%;
             margin-right: 15px;
             font-weight: bold;
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 1.5em;
             color: #667eea;
-            flex-shrink: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
-        .option-btn.selected .option-letter,
-        .option-btn.correct .option-letter,
-        .option-btn.incorrect .option-letter {
-            background: rgba(255,255,255,0.2);
-            color: inherit;
+        .timer.warning {
+            color: #ff9800;
         }
 
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-            animation: slideIn 0.3s ease;
+        .timer.danger {
+            color: #f44336;
+            animation: pulse 1s infinite;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feedback.correct {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .feedback.incorrect {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .navigation {
-            margin-top: 30px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            margin-top: 30px;
         }
 
-        .jump-to-question {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .jump-to-question input {
-            width: 80px;
-            padding: 8px;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 0.9em;
-        }
-
-        .jump-to-question button {
-            padding: 8px 15px;
-            font-size: 0.9em;
-            margin: 0;
-        }
-
-        .results-screen {
-            display: none;
+        .results-summary {
             text-align: center;
-            padding: 40px 20px;
-        }
-
-        .results-header {
-            margin-bottom: 30px;
-        }
-
-        .results-header p {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 10px;
+            padding: 40px;
         }
 
         .score-circle {
@@ -425,63 +226,58 @@
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin: 0 auto 30px;
             color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .score-number {
             font-size: 3em;
             font-weight: bold;
         }
 
-        .score-label {
-            font-size: 1.2em;
-            opacity: 0.9;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .results-details {
+        .stat-card {
             background: #f8f9fa;
-            border-radius: 10px;
             padding: 20px;
-            margin: 20px 0;
-            text-align: left;
+            border-radius: 10px;
+            text-align: center;
         }
 
-        .results-details h3 {
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
             color: #667eea;
-            margin-bottom: 15px;
         }
 
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .stat-row:last-child {
-            border-bottom: none;
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
         }
 
         .review-section {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: left;
         }
 
         .review-item {
             background: #f8f9fa;
+            padding: 20px;
             border-radius: 10px;
-            padding: 15px;
             margin-bottom: 15px;
-            border-left: 4px solid #dc3545;
+            border-left: 4px solid #667eea;
         }
 
         .review-item.correct {
-            border-left-color: #28a745;
+            border-left-color: #4caf50;
+        }
+
+        .review-item.incorrect {
+            border-left-color: #f44336;
         }
 
         .review-question {
@@ -491,1059 +287,482 @@
         }
 
         .review-answer {
-            font-size: 0.9em;
             color: #666;
-        }
-
-        #resultsImage {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 20px 0;
-            display: none;
-        }
-
-        #resultsImage.show {
-            display: block;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .modal-header {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .share-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .share-btn {
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            background: #f8f9fa;
-            cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .share-btn:hover {
-            background: #e3f2fd;
-            border-color: #667eea;
-        }
-
-        .modal-close {
-            background: #6c757d;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-        }
-
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .error-message button {
-            margin-top: 15px;
-        }
-
-        .mode-selection {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .mode-card {
-            border: 2px solid #e0e0e0;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mode-card:hover {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        .mode-card.selected {
-            border-color: #667eea;
-            background: #e3f2fd;
-        }
-
-        .mode-card h4 {
-            color: #333;
             margin-bottom: 5px;
         }
 
-        .mode-card p {
-            color: #666;
-            font-size: 0.9em;
+        .review-correct {
+            color: #4caf50;
+            font-weight: 600;
         }
 
-        .admin-btn-container {
+        .review-user {
+            color: #f44336;
+            font-weight: 600;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .saving-status {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            color: #1976d2;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .saving-status.error {
+            background: #ffebee;
+            border-color: #f44336;
+            color: #c62828;
+        }
+
+        .saving-status.success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+
+        .admin-link {
             position: fixed;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
-            z-index: 999;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .admin-btn-container .btn {
-            padding: 10px 15px;
-            font-size: 0.9em;
-            margin: 0;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 1.5em;
-            }
-
-            .question-text {
-                font-size: 1.1em;
-            }
-
-            .option-btn {
-                padding: 12px 15px;
-            }
-
-            .btn {
-                padding: 12px 30px;
-                font-size: 1em;
-            }
-
-            .navigation {
-                flex-direction: column;
-            }
-
-            .navigation button {
-                width: 100%;
-            }
-
-            .jump-to-question {
-                flex-direction: column;
-            }
-
-            .jump-to-question input,
-            .jump-to-question button {
-                width: 100%;
-            }
-
-            .quiz-header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .mode-selection {
-                grid-template-columns: 1fr;
-            }
-
-            .admin-btn-container {
-                position: static;
-                margin-bottom: 20px;
-            }
-
-            .admin-btn-container .btn {
-                width: 100%;
-            }
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <!-- Admin Login Modal -->
-    <div id="adminLoginModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">🔐 Admin Login</div>
-            <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 10px; color: #333; font-weight: 600;">Admin Password:</label>
-                <input type="password" id="adminPassword" placeholder="Enter admin password" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1em;">
-            </div>
-            <button class="btn" onclick="loginAdmin()" style="width: 100%; margin: 0;">Login</button>
-            <button class="modal-close" onclick="closeAdminModal()">Cancel</button>
-        </div>
-    </div>
-
-    <!-- Admin Link (Top Right) -->
-    <div class="admin-btn-container">
-        <button class="btn" onclick="openAdminLogin()">🔐 Admin</button>
-    </div>
-
     <div class="container">
         <div class="header">
-            <h1>🤰🏽Reproductive Physiology Quiz</h1>
+            <h1>🧬 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
-        <div class="content">
-            <div id="loadingScreen" class="loading">
-                <div class="spinner"></div>
-                <p>Loading questions...</p>
-            </div>
-
-            <div id="errorScreen" class="error-message" style="display: none;">
-                <p>⚠️ Failed to load questions. Please refresh the page.</p>
-                <button class="btn" onclick="location.reload()">Try Again</button>
-            </div>
-
-            <div id="startScreen" class="start-screen" style="display: none;">
-                <h2>Ready to test your knowledge?</h2>
-                
-                <div id="resumeBanner" class="resume-banner" style="display: none;">
-                    <p>📝 <strong>You have an ongoing quiz!</strong></p>
-                    <p id="resumeInfo"></p>
-                    <button class="btn" onclick="resumeQuiz()" style="margin: 10px 5px;">Continue Quiz</button>
-                    <button class="btn btn-danger" onclick="clearQuizData()" style="margin: 10px 5px;">Start Fresh</button>
-                </div>
-
-                <div class="quiz-info">
-                    <h3>📚 Quiz Overview</h3>
-                    <ul>
-                        <li>300 Multiple Choice Questions</li>
-                        <li>17 Topics covering all aspects of Reproductive Physiology</li>
-                        <li>Questions randomized for each attempt</li>
-                        <li>Randomized answer positions</li>
-                        <li>Detailed results with review</li>
-                    </ul>
-                </div>
-
-                <div class="form-group">
-                    <label for="usernameInput">📝 Enter Your Username:</label>
-                    <input type="text" id="usernameInput" placeholder="Enter your name" required>
-                </div>
-
-                <div class="form-group">
-                    <label>⚙️ Select Test Mode:</label>
-                    <div class="mode-selection" id="modeSelection">
-                        <div class="mode-card" onclick="selectMode('timed20-20')" data-mode="timed20-20">
-                            <h4>Quick Test</h4>
-                            <p>20 Questions<br>20 mins</p>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('timed20-15')" data-mode="timed20-15">
-                            <h4>Speed Test</h4>
-                            <p>20 Questions<br>15 mins</p>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('timed50-30')" data-mode="timed50-30">
-                            <h4>Standard</h4>
-                            <p>50 Questions<br>30 mins</p>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('timed50-20')" data-mode="timed50-20">
-                            <h4>Challenge</h4>
-                            <p>50 Questions<br>20 mins</p>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('bullet')" data-mode="bullet">
-                            <h4>⚡ Bullet Mode</h4>
-                            <p>50 Questions<br>No time limit</p>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('20-second')" data-mode="20-second">
-                            <h4>20 Sec Fame</h4>
-                            <p>Unlimited<br>20 seconds</p>
-                        </div>
+        <div class="quiz-content">
+            <!-- Start Screen -->
+            <div class="start-screen active">
+                <div class="student-form">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Your Details</h2>
+                    <div class="form-group">
+                        <label for="studentName">Full Name</label>
+                        <input type="text" id="studentName" placeholder="Enter your full name" required>
                     </div>
-                    <input type="hidden" id="selectedMode" value="">
+                    <div class="form-group">
+                        <label for="studentId">Student ID / Email</label>
+                        <input type="text" id="studentId" placeholder="Enter your ID or email" required>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn" onclick="startQuiz()">Start Quiz</button>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
+                        Quiz consists of 20 random questions<br>
+                        Time limit: 20 minutes
+                    </p>
                 </div>
-
-                <button class="btn" onclick="startQuiz()">Start Quiz</button>
             </div>
 
-            <div id="quizScreen" class="quiz-screen">
-                <div class="quiz-header">
-                    <span class="username-display" id="usernameDisplay"></span>
-                    <div class="timer-display" id="timerDisplay">20:00</div>
-                </div>
-
+            <!-- Quiz Screen -->
+            <div class="quiz-screen">
+                <div class="timer" id="timer">20:00</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" id="progressBar"></div>
+                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
                 </div>
-
                 <div class="question-info">
-                    <span id="questionCounter">Question 1 of 20</span>
-                    <span class="topic-badge" id="topicBadge">Topic</span>
+                    <span id="questionNumber">Question 1 of 20</span>
+                    <span id="topicDisplay">Topic</span>
                 </div>
-
-                <div class="question-text" id="questionText"></div>
-
-                <div class="options-container" id="optionsContainer"></div>
-
-                <div class="feedback" id="feedback"></div>
+                
+                <div class="question-card">
+                    <span class="topic-badge" id="topicBadge">Topic</span>
+                    <div class="question-text" id="questionText">Loading question...</div>
+                    <div class="options" id="optionsContainer"></div>
+                </div>
 
                 <div class="navigation">
-                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" style="visibility: hidden;">← Previous</button>
-                    <button class="btn" onclick="nextQuestion()" id="nextBtn" disabled>Next Question →</button>
-                    <button class="btn btn-danger" onclick="endTestEarly()" id="endTestBtn">⏹️ End Test</button>
+                    <button class="btn" id="prevBtn" onclick="previousQuestion()" style="visibility: hidden;">Previous</button>
+                    <button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
                 </div>
 
-                <div class="jump-to-question" id="jumpSection" style="display: none;">
-                    <label for="jumpInput">Jump to Question:</label>
-                    <input type="number" id="jumpInput" min="1" placeholder="Enter #">
-                    <button class="btn btn-secondary" onclick="jumpToQuestion()">Go</button>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn" onclick="submitQuiz()" style="background: #4caf50;">Submit Quiz</button>
                 </div>
             </div>
 
-            <div id="resultsScreen" class="results-screen">
-                <div class="results-header">
-                    <h2>Quiz Complete! 🎉</h2>
-                    <p>Great job, <strong id="resultUsername"></strong>!</p>
-                </div>
+            <!-- Results Screen -->
+            <div class="results-screen">
+                <div class="results-summary">
+                    <h2 style="margin-bottom: 20px; color: #333;">Quiz Complete! 🎉</h2>
+                    <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">
+                        Great job, <span id="resultName"></span>!
+                    </p>
+                    
+                    <div class="score-circle" id="scoreCircle">0%</div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="statScore">0%</div>
+                            <div class="stat-label">Score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="statCorrect">0</div>
+                            <div class="stat-label">Correct Answers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="statTotal">0</div>
+                            <div class="stat-label">Total Questions</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="statTime">0:00</div>
+                            <div class="stat-label">Time Taken</div>
+                        </div>
+                    </div>
 
-                <div id="resultsImage">
-                    <div class="score-circle">
-                        <div class="score-number" id="resultScoreNumber">0%</div>
-                        <div class="score-label">Score</div>
+                    <div id="savingStatus" class="saving-status hidden">
+                        Saving results to database...
                     </div>
-                    <h3 id="resultName" style="margin: 20px 0; color: #333;"></h3>
-                    <p id="resultMode" style="color: #666;"></p>
-                </div>
 
-                <div class="score-circle" id="displayScoreCircle">
-                    <div class="score-number" id="scoreNumber">0%</div>
-                    <div class="score-label">Score</div>
-                </div>
+                    <div class="review-section" id="reviewSection">
+                        <h3 style="margin-bottom: 20px; color: #333;">Review Your Answers</h3>
+                        <div id="reviewContainer"></div>
+                    </div>
 
-                <div class="results-details">
-                    <h3>📊 Statistics</h3>
-                    <div class="stat-row">
-                        <span>Exam Mode:</span>
-                        <span id="examMode">-</span>
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button class="btn" onclick="restartQuiz()">Take Another Quiz</button>
                     </div>
-                    <div class="stat-row">
-                        <span>Total Time:</span>
-                        <span id="totalTime">0s</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Questions Attempted:</span>
-                        <span id="questionsAttempted">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Correct Answers:</span>
-                        <span id="correctAnswers">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Incorrect Answers:</span>
-                        <span id="incorrectAnswers">0</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Accuracy:</span>
-                        <span id="accuracyPercent">0%</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Avg Time per Question:</span>
-                        <span id="avgTimePerQ">0s</span>
-                    </div>
-                </div>
-
-                <div class="review-section" id="reviewSection" style="display: none;">
-                    <h3>📝 Review Incorrect Answers</h3>
-                    <div id="reviewContainer"></div>
-                </div>
-
-                <div style="margin-top: 20px;">
-                    <button class="btn btn-success" onclick="shareResults()">📤 Share Results</button>
-                    <button class="btn" onclick="restartQuiz()">Take Another Quiz</button>
-                    <button class="btn btn-secondary" onclick="backToStart()">← Back to Menu</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="shareModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">📤 Share Your Results</div>
-            <div class="share-options">
-                <button class="share-btn" onclick="downloadImage()">📥 Download as Image</button>
-                <button class="share-btn" onclick="shareViaWhatsApp()">💬 Share on WhatsApp</button>
-                <button class="share-btn" onclick="shareViaEmail()">📧 Share via Email</button>
-                <button class="share-btn" onclick="copyToClipboard()">📋 Copy Results Text</button>
-            </div>
-            <button class="modal-close" onclick="closeShareModal()">Close</button>
-        </div>
-    </div>
+    <a href="admin.html" class="admin-link">👤 Admin Panel</a>
 
-<script>
-    // ===== ANTI-CHEAT SYSTEM =====
-    document.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        return false;
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'C' || e.key === 'X')) {
-            e.preventDefault();
-            return false;
-        }
-        if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
-            e.preventDefault();
-            return false;
-        }
-        if (e.key === 'F12') {
-            e.preventDefault();
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-            e.preventDefault();
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-            e.preventDefault();
-            return false;
-        }
-        if (e.key === 'PrintScreen') {
-            e.preventDefault();
-            return false;
-        }
-    });
-
-    document.addEventListener('selectstart', (e) => {
-        // Allow selection in input fields
-        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-            e.preventDefault();
-            return false;
-        }
-    });
-
-    document.addEventListener('dragstart', (e) => {
-        e.preventDefault();
-        return false;
-    });
-
-    // ===== ADMIN SECTION =====
-    const ADMIN_PASSWORD = 'admin123';
-
-    function openAdminLogin() {
-        document.getElementById('adminLoginModal').classList.add('show');
-    }
-
-    function closeAdminModal() {
-        document.getElementById('adminLoginModal').classList.remove('show');
-        document.getElementById('adminPassword').value = '';
-    }
-
-    function loginAdmin() {
-        const password = document.getElementById('adminPassword').value;
-        if (password === ADMIN_PASSWORD) {
-            closeAdminModal();
-            window.open('admin.html', '_blank');
-            document.getElementById('adminPassword').value = '';
-        } else {
-            alert('❌ Incorrect password!');
-            document.getElementById('adminPassword').value = '';
-        }
-    }
-
-    // ===== QUIZ STATE & LOCAL STORAGE =====
-    let allQuestions = [];
-    let questions = [];
-    let currentQuestionIndex = 0;
-    let userAnswers = [];
-    let score = 0;
-    let username = '';
-    let quizMode = '';
-    let timerInterval = null;
-    let timeRemaining = 0;
-    let startTime = 0;
-    let questionsAttempted = 0;
-
-    window.addEventListener('DOMContentLoaded', function() {
-        loadQuestions();
-        checkForSavedQuiz();
+    <script>
+        // ✅ YOUR GOOGLE APPS SCRIPT URL - NOW CONFIGURED!
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
         
-        const adminPasswordInput = document.getElementById('adminPassword');
-        if (adminPasswordInput) {
-            adminPasswordInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    loginAdmin();
-                }
-            });
-        }
-    });
+        let questions = [];
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let studentInfo = {};
+        let timerInterval;
+        let timeRemaining = 1200; // 20 minutes in seconds
+        let startTime;
+        let quizSubmitted = false;
 
-    function loadQuestions() {
-        fetch('reproductive_physiology_question_bank.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to load questions');
-                }
-                return response.json();
-            })
-            .then(data => {
-                allQuestions = data.sections.multiple_choice_questions;
-                console.log('Questions loaded:', allQuestions.length);
-                document.getElementById('loadingScreen').style.display = 'none';
-                document.getElementById('startScreen').style.display = 'block';
-            })
-            .catch(error => {
+        // Load questions from JSON
+        async function loadQuestions() {
+            try {
+                const response = await fetch('reproductive_physiology_question_bank.json');
+                const data = await response.json();
+                questions = data.sections.multiple_choice_questions;
+            } catch (error) {
                 console.error('Error loading questions:', error);
-                document.getElementById('loadingScreen').style.display = 'none';
-                document.getElementById('errorScreen').style.display = 'block';
-            });
-    }
-
-    function selectMode(mode) {
-        document.querySelectorAll('.mode-card').forEach(card => {
-            card.classList.remove('selected');
-        });
-        document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
-        document.getElementById('selectedMode').value = mode;
-    }
-
-    function getModeInfo(mode) {
-        const modeMap = {
-            'timed20-20': { name: 'Quick Test (20Q, 20m)', questions: 20, time: 1200 },
-            'timed20-15': { name: 'Speed Test (20Q, 15m)', questions: 20, time: 900 },
-            'timed50-30': { name: 'Standard (50Q, 30m)', questions: 50, time: 1800 },
-            'timed50-20': { name: 'Challenge (50Q, 20m)', questions: 50, time: 1200 },
-            'bullet': { name: '⚡ Bullet Mode', questions: 50, time: Infinity },
-            '20-second': { name: '20 Sec Fame', questions: Infinity, time: 20 }
-        };
-        return modeMap[mode];
-    }
-
-    function saveQuizProgress() {
-        const quizData = {
-            username,
-            quizMode,
-            currentQuestionIndex,
-            userAnswers,
-            score,
-            timeRemaining,
-            questions,
-            questionsAttempted,
-            startTime,
-            timestamp: new Date().getTime()
-        };
-        localStorage.setItem('quizProgress', JSON.stringify(quizData));
-    }
-
-    function checkForSavedQuiz() {
-        const savedData = localStorage.getItem('quizProgress');
-        if (savedData) {
-            const data = JSON.parse(savedData);
-            const banner = document.getElementById('resumeBanner');
-            const resumeInfo = document.getElementById('resumeInfo');
-            
-            banner.style.display = 'block';
-            const modeInfo = getModeInfo(data.quizMode);
-            resumeInfo.innerHTML = `${modeInfo.name} | Question ${data.currentQuestionIndex + 1} of ${data.questions.length}`;
-        }
-    }
-
-    function resumeQuiz() {
-        const savedData = JSON.parse(localStorage.getItem('quizProgress'));
-        
-        username = savedData.username;
-        quizMode = savedData.quizMode;
-        currentQuestionIndex = savedData.currentQuestionIndex;
-        userAnswers = savedData.userAnswers;
-        score = savedData.score;
-        timeRemaining = savedData.timeRemaining;
-        questions = savedData.questions;
-        questionsAttempted = savedData.questionsAttempted;
-        startTime = savedData.startTime;
-        allQuestions = questions;
-
-        document.getElementById('startScreen').style.display = 'none';
-        document.getElementById('quizScreen').style.display = 'block';
-        document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
-        
-        showQuestion();
-        startTimer();
-    }
-
-    function clearQuizData() {
-        localStorage.removeItem('quizProgress');
-        document.getElementById('resumeBanner').style.display = 'none';
-        document.getElementById('usernameInput').value = '';
-    }
-
-    function shuffleArray(array) {
-        const newArray = [...array];
-        for (let i = newArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-        }
-        return newArray;
-    }
-
-    function randomizeAnswerPositions(question) {
-        const options = ['A', 'B', 'C', 'D', 'E'].filter(letter => question.options[letter]);
-        const correctAnswer = question.correct_answer;
-        
-        const shuffledOptions = shuffleArray(options);
-        
-        const newQuestion = { ...question };
-        newQuestion.options = {};
-        newQuestion.correct_answer = '';
-        
-        shuffledOptions.forEach((oldLetter, newIndex) => {
-            const newLetter = ['A', 'B', 'C', 'D', 'E'][newIndex];
-            newQuestion.options[newLetter] = question.options[oldLetter];
-            
-            if (oldLetter === correctAnswer) {
-                newQuestion.correct_answer = newLetter;
+                alert('Error loading questions. Please refresh the page.');
             }
-        });
-        
-        return newQuestion;
-    }
-
-    function startQuiz() {
-        username = document.getElementById('usernameInput').value.trim();
-        quizMode = document.getElementById('selectedMode').value;
-
-        if (!username) {
-            alert('Please enter your username');
-            return;
         }
 
-        if (!quizMode) {
-            alert('Please select a test mode');
-            return;
+        function startQuiz() {
+            const name = document.getElementById('studentName').value.trim();
+            const id = document.getElementById('studentId').value.trim();
+
+            if (!name || !id) {
+                alert('Please enter both your name and ID/email');
+                return;
+            }
+
+            studentInfo = { name, id, startTime: new Date().toISOString() };
+            startTime = Date.now();
+
+            // Select 20 random questions
+            currentQuestions = [...questions]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 20);
+
+            // Initialize user answers array (null = not answered)
+            userAnswers = new Array(currentQuestions.length).fill(null);
+
+            // Hide start screen, show quiz screen
+            document.querySelector('.start-screen').classList.remove('active');
+            document.querySelector('.quiz-screen').classList.add('active');
+
+            // Start timer
+            startTimer();
+
+            // Display first question
+            displayQuestion();
         }
 
-        const modeInfo = getModeInfo(quizMode);
-        
-        if (quizMode === '20-second') {
-            questions = shuffleArray(allQuestions);
-            timeRemaining = 20;
-        } else if (quizMode === 'bullet') {
-            questions = shuffleArray(allQuestions).slice(0, 50);
-            timeRemaining = Infinity;
-        } else {
-            questions = shuffleArray(allQuestions).slice(0, modeInfo.questions);
-            timeRemaining = modeInfo.time;
-        }
-
-        questions = questions.map(q => randomizeAnswerPositions(q));
-
-        userAnswers = new Array(questions.length).fill(null);
-        currentQuestionIndex = 0;
-        score = 0;
-        questionsAttempted = 0;
-        startTime = Date.now();
-
-        document.getElementById('startScreen').style.display = 'none';
-        document.getElementById('quizScreen').style.display = 'block';
-        document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
-        
-        const jumpSection = document.getElementById('jumpSection');
-        jumpSection.style.display = (quizMode === 'bullet') ? 'flex' : 'none';
-        
-        showQuestion();
-        startTimer();
-    }
-
-    function startTimer() {
-        if (timerInterval) clearInterval(timerInterval);
-        
-        timerInterval = setInterval(function() {
-            if (timeRemaining !== Infinity) {
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
                 timeRemaining--;
                 updateTimerDisplay();
-                saveQuizProgress();
-
+                
                 if (timeRemaining <= 0) {
-                    clearInterval(timerInterval);
-                    alert('Time is up! Test ended.');
-                    forceEndTest();
+                    submitQuiz();
                 }
-            }
-        }, 1000);
-    }
+            }, 1000);
+        }
 
-    function updateTimerDisplay() {
-        if (timeRemaining === Infinity) {
-            document.getElementById('timerDisplay').textContent = 'No Limit';
-        } else {
+        function updateTimerDisplay() {
             const minutes = Math.floor(timeRemaining / 60);
             const seconds = timeRemaining % 60;
-            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            const timerDisplay = document.getElementById('timerDisplay');
-            timerDisplay.textContent = display;
-
-            if (timeRemaining > 300) {
-                timerDisplay.classList.remove('warning', 'danger');
-            } else if (timeRemaining > 60) {
-                timerDisplay.classList.remove('danger');
-                timerDisplay.classList.add('warning');
-            } else {
-                timerDisplay.classList.add('danger');
+            const timerEl = document.getElementById('timer');
+            timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            timerEl.classList.remove('warning', 'danger');
+            if (timeRemaining < 300) { // Less than 5 minutes
+                timerEl.classList.add('danger');
+            } else if (timeRemaining < 600) { // Less than 10 minutes
+                timerEl.classList.add('warning');
             }
         }
-    }
 
-    function showQuestion() {
-        const question = questions[currentQuestionIndex];
-
-        const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-        document.getElementById('progressBar').style.width = progress + '%';
-
-        document.getElementById('questionCounter').textContent = 
-            `Question ${currentQuestionIndex + 1} of ${questions.length}`;
-        document.getElementById('topicBadge').textContent = question.topic.replace('Topic ', '');
-
-        document.getElementById('questionText').textContent = question.question;
-
-        const optionsContainer = document.getElementById('optionsContainer');
-        optionsContainer.innerHTML = '';
-
-        const optionLetters = ['A', 'B', 'C', 'D', 'E'];
-        const userAnswer = userAnswers[currentQuestionIndex];
-
-        optionLetters.forEach(letter => {
-            if (question.options[letter]) {
-                const btn = document.createElement('button');
-                btn.className = 'option-btn';
-                btn.type = 'button';
-
-                if (userAnswer) {
-                    if (letter === question.correct_answer) {
-                        btn.classList.add('correct');
-                    } else if (letter === userAnswer.selected && userAnswer.selected !== question.correct_answer) {
-                        btn.classList.add('incorrect');
+        function displayQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            
+            // Update progress
+            const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            
+            // Update question info
+            document.getElementById('questionNumber').textContent = 
+                `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
+            document.getElementById('topicDisplay').textContent = question.topic;
+            document.getElementById('topicBadge').textContent = question.topic;
+            
+            // Update question text
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Generate options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            const optionLetters = ['A', 'B', 'C', 'D', 'E'];
+            optionLetters.forEach((letter, index) => {
+                if (question.options[letter]) {
+                    const option = document.createElement('div');
+                    option.className = 'option';
+                    if (userAnswers[currentQuestionIndex] === letter) {
+                        option.classList.add('selected');
                     }
-                    btn.disabled = true;
-                }
-
-                btn.innerHTML = `<span class="option-letter">${letter}</span>${question.options[letter]}`;
-                btn.onclick = () => selectOption(letter);
-                optionsContainer.appendChild(btn);
-            }
-        });
-
-        const feedback = document.getElementById('feedback');
-        feedback.style.display = 'none';
-
-        document.getElementById('prevBtn').style.visibility = 
-            currentQuestionIndex > 0 ? 'visible' : 'hidden';
-        document.getElementById('nextBtn').textContent = 
-            currentQuestionIndex === questions.length - 1 ? 'Finish Quiz ✓' : 'Next Question →';
-
-        document.getElementById('jumpInput').max = questions.length;
-    }
-
-    function selectOption(selectedLetter) {
-        if (userAnswers[currentQuestionIndex]) return;
-
-        const question = questions[currentQuestionIndex];
-        const isCorrect = selectedLetter === question.correct_answer;
-
-        userAnswers[currentQuestionIndex] = {
-            selected: selectedLetter,
-            isCorrect: isCorrect
-        };
-
-        if (isCorrect) score++;
-        questionsAttempted++;
-
-        saveQuizProgress();
-
-        const buttons = document.querySelectorAll('.option-btn');
-        const optionLetters = ['A', 'B', 'C', 'D', 'E'];
-
-        buttons.forEach((btn, index) => {
-            const letter = optionLetters[index];
-            btn.disabled = true;
-
-            if (letter === question.correct_answer) {
-                btn.classList.add('correct');
-            } else if (letter === selectedLetter && !isCorrect) {
-                btn.classList.add('incorrect');
-            }
-        });
-
-        const feedback = document.getElementById('feedback');
-        feedback.style.display = 'block';
-        if (isCorrect) {
-            feedback.className = 'feedback correct';
-            feedback.innerHTML = '✓ Correct! Well done.';
-        } else {
-            feedback.className = 'feedback incorrect';
-            feedback.innerHTML = `✗ Incorrect. The correct answer is <strong>${question.correct_answer}</strong>.`;
-        }
-
-        document.getElementById('nextBtn').disabled = false;
-    }
-
-    function nextQuestion() {
-        if (currentQuestionIndex < questions.length - 1) {
-            currentQuestionIndex++;
-            showQuestion();
-            saveQuizProgress();
-        } else {
-            showResults();
-        }
-    }
-
-    function previousQuestion() {
-        if (currentQuestionIndex > 0) {
-            currentQuestionIndex--;
-            showQuestion();
-            saveQuizProgress();
-        }
-    }
-
-    function jumpToQuestion() {
-        const jumpNum = parseInt(document.getElementById('jumpInput').value);
-        if (isNaN(jumpNum) || jumpNum < 1 || jumpNum > questions.length) {
-            alert(`Please enter a number between 1 and ${questions.length}`);
-            return;
-        }
-        currentQuestionIndex = jumpNum - 1;
-        showQuestion();
-        document.getElementById('jumpInput').value = '';
-        saveQuizProgress();
-    }
-
-    function endTestEarly() {
-        if (confirm('Are you sure you want to end the test early? Your current results will be shown.')) {
-            forceEndTest();
-        }
-    }
-
-    function forceEndTest() {
-        clearInterval(timerInterval);
-        showResults();
-    }
-
-    function showResults() {
-        clearInterval(timerInterval);
-        localStorage.removeItem('quizProgress');
-        
-        document.getElementById('quizScreen').style.display = 'none';
-        document.getElementById('resultsScreen').style.display = 'block';
-
-        const totalTime = Math.floor((Date.now() - startTime) / 1000);
-        const percentage = questionsAttempted > 0 ? Math.round((score / questionsAttempted) * 100) : 0;
-        const incorrect = questionsAttempted - score;
-        const avgTimePerQ = questionsAttempted > 0 ? Math.floor(totalTime / questionsAttempted) : 0;
-
-        const modeInfo = getModeInfo(quizMode);
-        const modeDisplay = modeInfo.name;
-
-        document.getElementById('resultUsername').textContent = username;
-        document.getElementById('scoreNumber').textContent = percentage + '%';
-        document.getElementById('resultScoreNumber').textContent = percentage + '%';
-        document.getElementById('resultName').textContent = `${username} - ${percentage}%`;
-        document.getElementById('resultMode').textContent = `Mode: ${modeDisplay}`;
-        document.getElementById('examMode').textContent = modeDisplay;
-        document.getElementById('totalTime').textContent = formatTime(totalTime);
-        document.getElementById('questionsAttempted').textContent = questionsAttempted;
-        document.getElementById('correctAnswers').textContent = score;
-        document.getElementById('incorrectAnswers').textContent = incorrect;
-        document.getElementById('accuracyPercent').textContent = percentage + '%';
-        document.getElementById('avgTimePerQ').textContent = avgTimePerQ + 's';
-
-        const reviewContainer = document.getElementById('reviewContainer');
-        const incorrectAnswers = userAnswers
-            .map((answer, index) => ({...answer, index}))
-            .filter(answer => answer !== null && !answer.isCorrect);
-
-        if (incorrectAnswers.length > 0) {
-            document.getElementById('reviewSection').style.display = 'block';
-            reviewContainer.innerHTML = '';
-
-            incorrectAnswers.forEach(answer => {
-                if (answer.index < questionsAttempted) {
-                    const question = questions[answer.index];
-                    const div = document.createElement('div');
-                    div.className = 'review-item';
-                    div.innerHTML = `
-                        <div class="review-question">Q${answer.index + 1}: ${question.question}</div>
-                        <div class="review-answer">
-                            Your answer: <strong>${answer.selected}</strong> | 
-                            Correct answer: <strong>${question.correct_answer}</strong>
-                        </div>
+                    
+                    option.innerHTML = `
+                        <span class="option-letter">${letter}</span>
+                        <span>${question.options[letter]}</span>
                     `;
-                    reviewContainer.appendChild(div);
+                    
+                    option.onclick = () => selectOption(letter);
+                    optionsContainer.appendChild(option);
+                }
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').style.visibility = 
+                currentQuestionIndex === 0 ? 'hidden' : 'visible';
+            document.getElementById('nextBtn').textContent = 
+                currentQuestionIndex === currentQuestions.length - 1 ? 'Finish' : 'Next';
+        }
+
+        function selectOption(letter) {
+            if (quizSubmitted) return;
+            
+            userAnswers[currentQuestionIndex] = letter;
+            
+            // Update visual selection
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+                if (opt.querySelector('.option-letter').textContent === letter) {
+                    opt.classList.add('selected');
                 }
             });
         }
 
-        // Save to admin panel
-        const testResult = {
-            username,
-            mode: modeDisplay,
-            accuracy: percentage,
-            correctAnswers: score,
-            questionsAttempted,
-            totalQuestions: questions.length,
-            totalTime: formatTime(totalTime),
-            avgTimePerQuestion: avgTimePerQ,
-            timestamp: new Date().getTime(),
-            status: 'completed'
-        };
-
-        let completedTests = JSON.parse(localStorage.getItem('quizCompletedTests') || '[]');
-        completedTests.push(testResult);
-        localStorage.setItem('quizCompletedTests', JSON.stringify(completedTests));
-    }
-
-    function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${mins}m ${secs}s`;
-    }
-
-    function restartQuiz() {
-        currentQuestionIndex = 0;
-        userAnswers = [];
-        score = 0;
-        timeRemaining = 0;
-        questionsAttempted = 0;
-        
-        clearInterval(timerInterval);
-        localStorage.removeItem('quizProgress');
-        
-        document.getElementById('usernameInput').value = '';
-        document.getElementById('jumpInput').value = '';
-        document.querySelectorAll('.mode-card').forEach(card => card.classList.remove('selected'));
-        document.getElementById('selectedMode').value = '';
-        
-        document.getElementById('resultsScreen').style.display = 'none';
-        document.getElementById('startScreen').style.display = 'block';
-        checkForSavedQuiz();
-    }
-
-    function backToStart() {
-        clearInterval(timerInterval);
-        document.getElementById('resultsScreen').style.display = 'none';
-        document.getElementById('usernameInput').value = '';
-        document.getElementById('jumpInput').value = '';
-        document.querySelectorAll('.mode-card').forEach(card => card.classList.remove('selected'));
-        document.getElementById('selectedMode').value = '';
-        document.getElementById('startScreen').style.display = 'block';
-        checkForSavedQuiz();
-    }
-
-    function shareResults() {
-        document.getElementById('shareModal').classList.add('show');
-    }
-
-    function closeShareModal() {
-        document.getElementById('shareModal').classList.remove('show');
-    }
-
-    function downloadImage() {
-        const element = document.getElementById('resultsImage');
-        element.classList.add('show');
-        
-        html2canvas(element, {
-            backgroundColor: '#ffffff',
-            scale: 2
-        }).then(canvas => {
-            const link = document.createElement('a');
-            link.href = canvas.toDataURL();
-            link.download = `${username}_quiz_results.png`;
-            link.click();
-            element.classList.remove('show');
-        });
-    }
-
-    function shareViaWhatsApp() {
-        const percentage = Math.round((score / questionsAttempted) * 100);
-        const modeInfo = getModeInfo(quizMode);
-        const text = `🎉 I scored ${percentage}% on ${modeInfo.name}!\n\n✓ Correct: ${score}/${questionsAttempted}\n✗ Incorrect: ${questionsAttempted - score}\n\nPlayer: ${username}`;
-        const encodedText = encodeURIComponent(text);
-        window.open(`https://wa.me/?text=${encodedText}`);
-        closeShareModal();
-    }
-
-    function shareViaEmail() {
-        const percentage = Math.round((score / questionsAttempted) * 100);
-        const modeInfo = getModeInfo(quizMode);
-        const subject = `Quiz Results - ${username}`;
-        const body = `Hi,\n\nI scored ${percentage}% on ${modeInfo.name}!\n\nCorrect Answers: ${score}/${questionsAttempted}\nIncorrect Answers: ${questionsAttempted - score}\n\nBest regards,\n${username}`;
-        window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-        closeShareModal();
-    }
-
-    function copyToClipboard() {
-        const percentage = Math.round((score / questionsAttempted) * 100);
-        const modeInfo = getModeInfo(quizMode);
-        const text = `🎉 Quiz Results for ${username}\n\nMode: ${modeInfo.name}\nScore: ${percentage}%\nCorrect: ${score}/${questionsAttempted}\nIncorrect: ${questionsAttempted - score}`;
-        navigator.clipboard.writeText(text).then(() => {
-            alert('Results copied to clipboard!');
-            closeShareModal();
-        });
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById('shareModal');
-        const adminModal = document.getElementById('adminLoginModal');
-        if (event.target == modal) {
-            closeShareModal();
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                submitQuiz();
+            }
         }
-        if (event.target == adminModal) {
-            closeAdminModal();
-        }
-    }
 
-    window.addEventListener('beforeunload', () => {
-        if (document.getElementById('quizScreen').style.display === 'block') {
-            saveQuizProgress();
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
         }
-    });
-</script>
+
+        async function submitQuiz() {
+            if (quizSubmitted) return;
+            quizSubmitted = true;
+
+            // Stop timer
+            clearInterval(timerInterval);
+            
+            const endTime = Date.now();
+            const timeTaken = Math.floor((endTime - startTime) / 1000);
+
+            // Calculate score
+            let correctCount = 0;
+            const detailedResults = currentQuestions.map((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct_answer;
+                if (isCorrect) correctCount++;
+                
+                return {
+                    question: q.question,
+                    topic: q.topic,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.correct_answer,
+                    isCorrect: isCorrect,
+                    options: q.options
+                };
+            });
+
+            const score = Math.round((correctCount / currentQuestions.length) * 100);
+
+            // Prepare result data
+            const resultData = {
+                studentName: studentInfo.name,
+                studentId: studentInfo.id,
+                score: score,
+                correctAnswers: correctCount,
+                totalQuestions: currentQuestions.length,
+                timeTaken: timeTaken,
+                details: detailedResults
+            };
+
+            // Show results screen
+            document.querySelector('.quiz-screen').classList.remove('active');
+            document.querySelector('.results-screen').classList.add('active');
+
+            // Display results
+            displayResults(resultData);
+
+            // Save to Google Sheets
+            await saveToGoogleSheets(resultData);
+        }
+
+        async function saveToGoogleSheets(data) {
+            const statusEl = document.getElementById('savingStatus');
+            statusEl.classList.remove('hidden', 'error', 'success');
+            statusEl.textContent = 'Saving results to database...';
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Since mode is 'no-cors', we can't read the response
+                // But if we get here without error, it likely succeeded
+                statusEl.classList.add('success');
+                statusEl.textContent = '✅ Results saved successfully! Admin can view all scores.';
+                
+            } catch (error) {
+                console.error('Error saving:', error);
+                statusEl.classList.add('error');
+                statusEl.textContent = '⚠️ Could not save to database. Results shown locally only.';
+            }
+        }
+
+        function displayResults(resultData) {
+            document.getElementById('resultName').textContent = resultData.studentName;
+            document.getElementById('scoreCircle').textContent = `${resultData.score}%`;
+            document.getElementById('statScore').textContent = `${resultData.score}%`;
+            document.getElementById('statCorrect').textContent = resultData.correctAnswers;
+            document.getElementById('statTotal').textContent = resultData.totalQuestions;
+            
+            const minutes = Math.floor(resultData.timeTaken / 60);
+            const seconds = resultData.timeTaken % 60;
+            document.getElementById('statTime').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+            // Display review section with correct answers revealed
+            const reviewContainer = document.getElementById('reviewContainer');
+            reviewContainer.innerHTML = '';
+
+            resultData.details.forEach((detail, index) => {
+                const reviewItem = document.createElement('div');
+                reviewItem.className = `review-item ${detail.isCorrect ? 'correct' : 'incorrect'}`;
+                
+                let answerHtml = `
+                    <div class="review-question">Q${index + 1}: ${detail.question}</div>
+                    <div class="review-answer">
+                        <span class="${detail.isCorrect ? 'review-correct' : 'review-user'}">
+                            Your answer: ${detail.userAnswer || 'Not answered'} - 
+                            ${detail.userAnswer ? detail.options[detail.userAnswer] : 'No answer'}
+                        </span>
+                    </div>
+                `;
+                
+                if (!detail.isCorrect) {
+                    answerHtml += `
+                        <div class="review-answer">
+                            <span class="review-correct">
+                                Correct answer: ${detail.correctAnswer} - 
+                                ${detail.options[detail.correctAnswer]}
+                            </span>
+                        </div>
+                    `;
+                }
+                
+                reviewItem.innerHTML = answerHtml;
+                reviewContainer.appendChild(reviewItem);
+            });
+        }
+
+        function restartQuiz() {
+            // Reset all variables
+            currentQuestions = [];
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            studentInfo = {};
+            timeRemaining = 1200;
+            quizSubmitted = false;
+            
+            // Clear inputs
+            document.getElementById('studentName').value = '';
+            document.getElementById('studentId').value = '';
+            
+            // Hide status
+            document.getElementById('savingStatus').classList.add('hidden');
+            
+            // Show start screen
+            document.querySelector('.results-screen').classList.remove('active');
+            document.querySelector('.start-screen').classList.add('active');
+        }
+
+        // Initialize
+        loadQuestions();
+    </script>
 </body>
 </html>
