@@ -17,6 +17,10 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .container {
@@ -123,6 +127,20 @@
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .resume-banner {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #155724;
+        }
+
+        .resume-banner p {
+            margin-bottom: 10px;
         }
 
         .btn {
@@ -659,6 +677,15 @@
             <!-- Start Screen -->
             <div id="startScreen" class="start-screen" style="display: none;">
                 <h2>Ready to test your knowledge?</h2>
+                
+                <!-- Resume Quiz Banner -->
+                <div id="resumeBanner" class="resume-banner" style="display: none;">
+                    <p>📝 <strong>You have an ongoing quiz!</strong></p>
+                    <p id="resumeInfo"></p>
+                    <button class="btn" onclick="resumeQuiz()" style="margin: 10px 5px;">Continue Quiz</button>
+                    <button class="btn btn-danger" onclick="clearQuizData()" style="margin: 10px 5px;">Start Fresh</button>
+                </div>
+
                 <div class="quiz-info">
                     <h3>📚 Quiz Overview</h3>
                     <ul>
@@ -790,7 +817,60 @@
     </div>
 
     <script>
-        // Quiz State
+        // ===== ANTI-CHEAT SYSTEM =====
+        // Disable right-click
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable keyboard shortcuts for copying, selecting, taking screenshots
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+C, Ctrl+X (copy, cut)
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'C' || e.key === 'X')) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+S (save)
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+                return false;
+            }
+            // F12 (developer tools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+I (developer tools)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+C (inspect element)
+            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+                return false;
+            }
+            // Print Screen
+            if (e.key === 'PrintScreen') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable text selection
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable drag and drop
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // ===== QUIZ STATE & LOCAL STORAGE =====
         let allQuestions = [];
         let questions = [];
         let currentQuestionIndex = 0;
@@ -804,6 +884,7 @@
         // Load questions when page loads
         window.onload = function() {
             loadQuestions();
+            checkForSavedQuiz();
         };
 
         function loadQuestions() {
@@ -824,6 +905,58 @@
                     document.getElementById('loadingScreen').style.display = 'none';
                     document.getElementById('errorScreen').style.display = 'block';
                 });
+        }
+
+        function saveQuizProgress() {
+            const quizData = {
+                username,
+                quizMode,
+                currentQuestionIndex,
+                userAnswers,
+                score,
+                timeRemaining,
+                questions,
+                timestamp: new Date().getTime()
+            };
+            localStorage.setItem('quizProgress', JSON.stringify(quizData));
+        }
+
+        function checkForSavedQuiz() {
+            const savedData = localStorage.getItem('quizProgress');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                const banner = document.getElementById('resumeBanner');
+                const resumeInfo = document.getElementById('resumeInfo');
+                
+                banner.style.display = 'block';
+                resumeInfo.innerHTML = `Question ${data.currentQuestionIndex + 1} of ${data.questions.length} | Time remaining: ${Math.floor(data.timeRemaining / 60)}m`;
+            }
+        }
+
+        function resumeQuiz() {
+            const savedData = JSON.parse(localStorage.getItem('quizProgress'));
+            
+            username = savedData.username;
+            quizMode = savedData.quizMode;
+            currentQuestionIndex = savedData.currentQuestionIndex;
+            userAnswers = savedData.userAnswers;
+            score = savedData.score;
+            timeRemaining = savedData.timeRemaining;
+            questions = savedData.questions;
+            allQuestions = questions; // Ensure questions are available
+
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'block';
+            document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
+            
+            showQuestion();
+            startTimer();
+        }
+
+        function clearQuizData() {
+            localStorage.removeItem('quizProgress');
+            document.getElementById('resumeBanner').style.display = 'none';
+            document.getElementById('usernameInput').value = '';
         }
 
         function shuffleArray(array) {
@@ -865,6 +998,7 @@
             timerInterval = setInterval(function() {
                 timeRemaining--;
                 updateTimerDisplay();
+                saveQuizProgress(); // Save progress every second
 
                 if (timeRemaining <= 0) {
                     clearInterval(timerInterval);
@@ -975,6 +1109,8 @@
 
             if (isCorrect) score++;
 
+            saveQuizProgress(); // Save after answering
+
             // Update UI
             const buttons = document.querySelectorAll('.option-btn');
             const optionLetters = ['A', 'B', 'C', 'D', 'E'];
@@ -1008,6 +1144,7 @@
             if (currentQuestionIndex < questions.length - 1) {
                 currentQuestionIndex++;
                 showQuestion();
+                saveQuizProgress();
             } else {
                 showResults();
             }
@@ -1017,6 +1154,7 @@
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
                 showQuestion();
+                saveQuizProgress();
             }
         }
 
@@ -1029,6 +1167,7 @@
             currentQuestionIndex = jumpNum - 1;
             showQuestion();
             document.getElementById('jumpInput').value = '';
+            saveQuizProgress();
         }
 
         function endTestEarly() {
@@ -1044,6 +1183,8 @@
 
         function showResults() {
             clearInterval(timerInterval);
+            localStorage.removeItem('quizProgress'); // Clear saved progress
+            
             document.getElementById('quizScreen').style.display = 'none';
             document.getElementById('resultsScreen').style.display = 'block';
 
@@ -1091,8 +1232,9 @@
             score = 0;
             timeRemaining = 0;
             
-            // Clear timer
+            // Clear timer and saved progress
             clearInterval(timerInterval);
+            localStorage.removeItem('quizProgress');
             
             // Reset inputs
             document.getElementById('usernameInput').value = '';
@@ -1101,6 +1243,7 @@
             // Hide results, show start screen
             document.getElementById('resultsScreen').style.display = 'none';
             document.getElementById('startScreen').style.display = 'block';
+            checkForSavedQuiz();
         }
 
         function backToStart() {
@@ -1109,6 +1252,7 @@
             document.getElementById('usernameInput').value = '';
             document.getElementById('jumpInput').value = '';
             document.getElementById('startScreen').style.display = 'block';
+            checkForSavedQuiz();
         }
 
         function shareResults() {
@@ -1167,6 +1311,13 @@
                 closeShareModal();
             }
         }
+
+        // Save progress before leaving page
+        window.addEventListener('beforeunload', () => {
+            if (document.getElementById('quizScreen').style.display === 'block') {
+                saveQuizProgress();
+            }
+        });
     </script>
 </body>
 </html>
