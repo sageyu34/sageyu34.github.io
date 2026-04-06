@@ -26,7 +26,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             padding: 40px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
         }
 
@@ -93,8 +93,10 @@
             box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .btn:active {
-            transform: translateY(0);
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .btn-secondary {
@@ -167,6 +169,23 @@
             padding: 40px;
         }
 
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -199,15 +218,19 @@
             padding: 40px;
         }
 
-        .logout-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .welcome-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .header-with-logout {
-            position: relative;
-            padding-top: 60px;
+        .welcome-banner span {
+            font-weight: 600;
         }
 
         .stats-cards {
@@ -235,19 +258,28 @@
             opacity: 0.9;
         }
 
-        .welcome-banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .debug-info {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #856404;
         }
 
-        .welcome-banner span {
-            font-weight: 600;
+        .debug-info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .success-message {
+            color: #27ae60;
+            text-align: center;
+            padding: 10px;
+            background: #d4edda;
+            border-radius: 8px;
+            margin-top: 10px;
         }
 
         @media (max-width: 600px) {
@@ -310,6 +342,7 @@
                     <input type="text" id="sheetId" placeholder="Enter Google Sheet ID (e.g., 1abc123...)">
                     <button id="connectBtn" class="btn">Connect</button>
                 </div>
+                <div id="connectionStatus"></div>
             </div>
 
             <div id="statsContainer" class="stats-cards" style="display: none;">
@@ -333,6 +366,8 @@
                     <p class="no-data">Enter a Google Sheet ID above to view results</p>
                 </div>
             </div>
+
+            <div id="debugContainer"></div>
         </div>
     </div>
 
@@ -353,6 +388,8 @@
         const sheetIdInput = document.getElementById('sheetId');
         const resultsContainer = document.getElementById('resultsContainer');
         const statsContainer = document.getElementById('statsContainer');
+        const connectionStatus = document.getElementById('connectionStatus');
+        const debugContainer = document.getElementById('debugContainer');
 
         // Check for existing session on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -370,7 +407,6 @@
             const password = document.getElementById('password').value;
 
             if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-                // Create session
                 sessionStorage.setItem(SESSION_KEY, 'active');
                 errorMessage.classList.remove('show');
                 showAdminPanel();
@@ -387,19 +423,17 @@
             loginForm.reset();
         });
 
-        // Show Admin Panel
         function showAdminPanel() {
             loginSection.style.display = 'none';
             adminPanel.classList.add('show');
         }
 
-        // Hide Admin Panel
         function hideAdminPanel() {
             adminPanel.classList.remove('show');
             loginSection.style.display = 'block';
         }
 
-        // Connect to Google Sheet
+        // Connect to Google Sheet with multiple fallback methods
         connectBtn.addEventListener('click', async function() {
             const sheetId = sheetIdInput.value.trim();
 
@@ -408,74 +442,162 @@
                 return;
             }
 
-            resultsContainer.innerHTML = '<div class="loading">Loading results...</div>';
-
-            try {
-                const response = await fetch(`${SCRIPT_URL}?sheetId=${sheetId}`);
-                const data = await response.json();
-
-                if (data.error) {
-                    resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">Error: ${data.error}</p>`;
-                    statsContainer.style.display = 'none';
-                    return;
-                }
-
-                displayResults(data);
-                updateStats(data);
-                statsContainer.style.display = 'grid';
-
-            } catch (error) {
-                resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">Failed to load data. Please check the Sheet ID and try again.</p>`;
-                statsContainer.style.display = 'none';
-            }
-        });
-
-        // Display Results in Table
-        function displayResults(data) {
-            if (!data || data.length === 0) {
-                resultsContainer.innerHTML = '<p class="no-data">No results found in this sheet</p>';
+            // Validate Sheet ID format (should be a long string of characters)
+            if (sheetId.length < 20) {
+                connectionStatus.innerHTML = '<p style="color: #e74c3c; margin-top: 10px;">⚠️ Sheet ID looks too short. Please check you copied the full ID from the URL.</p>';
                 return;
             }
 
-            let html = '<table><thead><tr>';
+            connectBtn.disabled = true;
+            connectBtn.textContent = 'Connecting...';
+            resultsContainer.innerHTML = '<div class="loading">Loading results</div>';
+            connectionStatus.innerHTML = '';
+            debugContainer.innerHTML = '';
 
-            // Get headers from first row
+            try {
+                // Try method 1: Direct fetch with no-cors mode first to check if URL is accessible
+                console.log('Attempting to fetch data for Sheet ID:', sheetId);
+
+                // Build the URL with proper encoding
+                const url = `${SCRIPT_URL}?sheetId=${encodeURIComponent(sheetId)}&t=${Date.now()}`;
+                console.log('Request URL:', url);
+
+                const response = await fetch(url, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
+
+                console.log('Response status:', response.status);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Response data:', data);
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                if (data.message && !data.data) {
+                    // Some scripts return {message: "..."} format
+                    throw new Error(data.message);
+                }
+
+                // Handle different response formats
+                let results = data.data || data.results || data;
+
+                if (Array.isArray(results) && results.length === 0) {
+                    resultsContainer.innerHTML = '<p class="no-data">Sheet connected but no data found. Make sure the sheet has data in it.</p>';
+                    statsContainer.style.display = 'none';
+                } else if (results && results.length > 0) {
+                    displayResults(results);
+                    updateStats(results);
+                    statsContainer.style.display = 'grid';
+                    connectionStatus.innerHTML = '<p class="success-message">✅ Successfully connected to Google Sheet!</p>';
+                } else {
+                    resultsContainer.innerHTML = '<p class="no-data">No results found in this sheet</p>';
+                    statsContainer.style.display = 'none';
+                }
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+
+                let errorMsg = error.message;
+                let debugHtml = '';
+
+                if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+                    errorMsg = 'Network error: Cannot connect to the Google Apps Script. This might be due to:';
+                    debugHtml = `
+                        <div class="debug-info">
+                            <strong>Troubleshooting:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Google Apps Script not deployed correctly</li>
+                                <li>CORS restrictions - make sure the script returns proper headers</li>
+                                <li>Script URL might have changed</li>
+                                <li>Sheet is not shared with "Anyone with the link can view"</li>
+                            </ul>
+                            <p style="margin-top: 10px;"><strong>Sheet ID you entered:</strong> ${sheetId}</p>
+                            <p style="margin-top: 5px;"><strong>Script URL:</strong> ${SCRIPT_URL}</p>
+                        </div>
+                    `;
+                } else if (error.message.includes('Sheet not found')) {
+                    errorMsg = 'Sheet not found. Please check the Sheet ID is correct.';
+                }
+
+                resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">❌ ${errorMsg}</p>`;
+                statsContainer.style.display = 'none';
+
+                if (debugHtml) {
+                    debugContainer.innerHTML = debugHtml;
+                }
+            } finally {
+                connectBtn.disabled = false;
+                connectBtn.textContent = 'Connect';
+            }
+        });
+
+        function displayResults(data) {
+            if (!data || data.length === 0) {
+                resultsContainer.innerHTML = '<p class="no-data">No results found</p>';
+                return;
+            }
+
+            let html = '<div style="overflow-x: auto;"><table><thead><tr>';
+
             const headers = Object.keys(data[0]);
             headers.forEach(header => {
                 html += `<th>${header}</th>`;
             });
             html += '</tr></thead><tbody>';
 
-            // Add data rows
-            data.forEach(row => {
+            data.forEach((row, index) => {
                 html += '<tr>';
                 headers.forEach(header => {
-                    html += `<td>${row[header] || '-'}</td>`;
+                    let cellValue = row[header] || '-';
+                    // Truncate long text
+                    if (typeof cellValue === 'string' && cellValue.length > 100) {
+                        cellValue = cellValue.substring(0, 100) + '...';
+                    }
+                    html += `<td>${cellValue}</td>`;
                 });
                 html += '</tr>';
             });
 
-            html += '</tbody></table>';
+            html += '</tbody></table></div>';
             resultsContainer.innerHTML = html;
         }
 
-        // Update Statistics
         function updateStats(data) {
             if (!data || data.length === 0) return;
 
             document.getElementById('totalParticipants').textContent = data.length;
 
-            // Calculate average and high score if Score column exists
-            const scores = data.map(row => parseFloat(row.Score || row.score || 0)).filter(s => !isNaN(s));
+            // Look for score column (case insensitive)
+            const scoreKeys = ['Score', 'score', 'SCORE', 'Points', 'points', 'Total', 'total'];
+            let scores = [];
+
+            for (let key of scoreKeys) {
+                scores = data.map(row => parseFloat(row[key])).filter(s => !isNaN(s));
+                if (scores.length > 0) break;
+            }
+
             if (scores.length > 0) {
                 const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
                 const max = Math.max(...scores);
                 document.getElementById('avgScore').textContent = avg.toFixed(1);
                 document.getElementById('highScore').textContent = max;
+            } else {
+                document.getElementById('avgScore').textContent = '-';
+                document.getElementById('highScore').textContent = '-';
             }
         }
 
-        // Allow Enter key to connect
         sheetIdInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 connectBtn.click();
