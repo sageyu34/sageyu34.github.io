@@ -45,17 +45,25 @@
             padding: 20px;
         }
 
-        .start-screen, .quiz-screen, .results-screen, .login-screen {
+        .start-screen, .quiz-screen, .results-screen, .login-screen, .resume-screen {
             display: none;
         }
 
-        .start-screen.active, .quiz-screen.active, .results-screen.active, .login-screen.active {
+        .start-screen.active, .quiz-screen.active, .results-screen.active, .login-screen.active, .resume-screen.active {
             display: block;
         }
 
-        .student-form, .login-form {
+        .student-form, .login-form, .resume-box {
             max-width: 500px;
             margin: 0 auto;
+        }
+
+        .resume-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
         }
 
         .form-group {
@@ -148,6 +156,10 @@
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
         }
 
         .progress-bar {
@@ -431,7 +443,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1> 🤱🏽Reproductive Physiology Quiz</h1>
+            <h1>🧬 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
@@ -451,6 +463,25 @@
                     <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
                         Contact administrator for access token
                     </p>
+                </div>
+            </div>
+
+            <!-- Resume Screen -->
+            <div class="resume-screen">
+                <div class="resume-box">
+                    <h2 style="margin-bottom: 20px; color: #1976d2;">⏸️ Test in Progress</h2>
+                    <p style="margin-bottom: 10px; color: #333; font-size: 1.1em;">
+                        You have an unfinished test, <span id="resumeStudentName"></span>!
+                    </p>
+                    <p style="margin-bottom: 20px; color: #666;">
+                        Mode: <strong id="resumeMode"></strong><br>
+                        Question <span id="resumeQuestion"></span> of <span id="resumeTotal"></span><br>
+                        Time remaining: <span id="resumeTime"></span>
+                    </p>
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn" onclick="resumeQuiz()">Resume Test</button>
+                        <button class="btn btn-danger" onclick="abandonQuiz()">Abandon & Start New</button>
+                    </div>
                 </div>
             </div>
 
@@ -555,7 +586,7 @@
                     </div>
 
                     <div id="savingStatus" class="saving-status hidden">
-                        Clearing...
+                        Saving results...
                     </div>
 
                     <div class="review-section" id="reviewSection">
@@ -578,7 +609,7 @@
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
         
         // ✅ VALID ACCESS TOKENS - Add your tokens here
-        const VALID_TOKENS = ['BEEBAH', 'ZOROGIRL', 'SIDI', 'ADORE', 'RUKKY', 'TWIN', 'BOLU', 'OLA', 'TEST'];
+        const VALID_TOKENS = ['TOKEN123', 'TEST2024', 'ADMIN99', 'STUDENT1', 'SAGE2024'];
         
         let questions = [];
         let currentQuestions = [];
@@ -603,7 +634,94 @@
         // Load questions when page loads
         document.addEventListener('DOMContentLoaded', function() {
             loadQuestions();
+            checkForResume();
         });
+
+        // Check if there's a test in progress
+        function checkForResume() {
+            const savedState = sessionStorage.getItem('quizState');
+            if (savedState) {
+                const state = JSON.parse(savedState);
+                if (!state.submitted && state.studentInfo && state.studentInfo.name) {
+                    // Show resume screen
+                    document.querySelector('.login-screen').classList.remove('active');
+                    document.querySelector('.resume-screen').classList.add('active');
+                    
+                    document.getElementById('resumeStudentName').textContent = state.studentInfo.name;
+                    document.getElementById('resumeMode').textContent = state.modeName || 'Unknown';
+                    document.getElementById('resumeQuestion').textContent = state.currentQuestionIndex + 1;
+                    document.getElementById('resumeTotal').textContent = state.totalQuestions;
+                    
+                    const minutes = Math.floor(state.timeRemaining / 60);
+                    const seconds = state.timeRemaining % 60;
+                    document.getElementById('resumeTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }
+        }
+
+        function resumeQuiz() {
+            const savedState = sessionStorage.getItem('quizState');
+            if (!savedState) return;
+            
+            const state = JSON.parse(savedState);
+            
+            // Restore all state
+            currentQuestions = state.currentQuestions;
+            currentQuestionIndex = state.currentQuestionIndex;
+            userAnswers = state.userAnswers;
+            studentInfo = state.studentInfo;
+            selectedMode = state.selectedMode;
+            timeRemaining = state.timeRemaining;
+            startTime = Date.now() - (state.elapsedTime || 0);
+            quizSubmitted = false;
+            fameModeActive = selectedMode === 'fame';
+            fameQuestionsAttempted = state.fameQuestionsAttempted || 0;
+            
+            // Switch to quiz screen
+            document.querySelector('.resume-screen').classList.remove('active');
+            document.querySelector('.quiz-screen').classList.add('active');
+            
+            // Restart timer if needed
+            const mode = TEST_MODES[selectedMode];
+            if (mode.time > 0) {
+                startTimer();
+            } else {
+                document.getElementById('timer').textContent = 'No limit';
+            }
+            
+            displayQuestion();
+        }
+
+        function abandonQuiz() {
+            if (!confirm('Are you sure you want to abandon your current test? This cannot be undone.')) {
+                return;
+            }
+            
+            // Clear saved state
+            sessionStorage.removeItem('quizState');
+            
+            // Go to start screen
+            document.querySelector('.resume-screen').classList.remove('active');
+            document.querySelector('.login-screen').classList.add('active');
+        }
+
+        // Save current state to sessionStorage
+        function saveState() {
+            const state = {
+                currentQuestions: currentQuestions,
+                currentQuestionIndex: currentQuestionIndex,
+                userAnswers: userAnswers,
+                studentInfo: studentInfo,
+                selectedMode: selectedMode,
+                modeName: TEST_MODES[selectedMode]?.name,
+                timeRemaining: timeRemaining,
+                totalQuestions: currentQuestions.length,
+                elapsedTime: Date.now() - startTime,
+                fameQuestionsAttempted: fameQuestionsAttempted,
+                submitted: quizSubmitted
+            };
+            sessionStorage.setItem('quizState', JSON.stringify(state));
+        }
 
         async function loadQuestions() {
             try {
@@ -624,7 +742,14 @@
             if (VALID_TOKENS.includes(token)) {
                 errorEl.classList.add('hidden');
                 document.querySelector('.login-screen').classList.remove('active');
-                document.querySelector('.start-screen').classList.add('active');
+                
+                // Check if resuming
+                const savedState = sessionStorage.getItem('quizState');
+                if (savedState && !JSON.parse(savedState).submitted) {
+                    document.querySelector('.resume-screen').classList.add('active');
+                } else {
+                    document.querySelector('.start-screen').classList.add('active');
+                }
             } else {
                 errorEl.classList.remove('hidden');
             }
@@ -690,6 +815,8 @@
                 document.getElementById('timer').textContent = 'No limit';
             }
             
+            // Save initial state
+            saveState();
             displayQuestion();
         }
 
@@ -698,6 +825,7 @@
             timerInterval = setInterval(() => {
                 timeRemaining--;
                 updateTimerDisplay();
+                saveState(); // Save every second
                 
                 if (timeRemaining <= 0) {
                     submitQuiz();
@@ -770,6 +898,7 @@
             }
             
             userAnswers[currentQuestionIndex] = letter;
+            saveState(); // Save after each answer
             
             const options = document.querySelectorAll('.option');
             options.forEach(opt => {
@@ -783,6 +912,7 @@
                 setTimeout(() => {
                     if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
                         currentQuestionIndex++;
+                        saveState();
                         displayQuestion();
                     }
                 }, 300);
@@ -793,6 +923,7 @@
             if (selectedMode === 'fame') {
                 if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
                     currentQuestionIndex++;
+                    saveState();
                     displayQuestion();
                 } else {
                     submitQuiz();
@@ -800,6 +931,7 @@
             } else {
                 if (currentQuestionIndex < currentQuestions.length - 1) {
                     currentQuestionIndex++;
+                    saveState();
                     displayQuestion();
                 } else {
                     submitQuiz();
@@ -810,6 +942,7 @@
         function previousQuestion() {
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
+                saveState();
                 displayQuestion();
             }
         }
@@ -862,6 +995,9 @@
                 timeTaken: timeTaken,
                 details: detailedResults
             };
+
+            // Mark as submitted in sessionStorage
+            saveState();
 
             document.querySelector('.quiz-screen').classList.remove('active');
             document.querySelector('.results-screen').classList.add('active');
@@ -937,6 +1073,9 @@
         }
 
         function restartQuiz() {
+            // Clear session storage
+            sessionStorage.removeItem('quizState');
+            
             currentQuestions = [];
             currentQuestionIndex = 0;
             userAnswers = [];
@@ -956,6 +1095,13 @@
             document.querySelector('.results-screen').classList.remove('active');
             document.querySelector('.login-screen').classList.add('active');
         }
+
+        // Auto-save before page unload
+        window.addEventListener('beforeunload', function() {
+            if (!quizSubmitted && currentQuestions.length > 0) {
+                saveState();
+            }
+        });
     </script>
 </body>
 </html>
