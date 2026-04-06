@@ -486,7 +486,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤱🏽 Reproductive Physiology Quiz</h1>
+            <h1>🧬 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
@@ -506,7 +506,7 @@
                         </button>
                     </div>
                     <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
-                        Contact Sage for access token<br>
+                        Contact administrator for access token<br>
                         <small>One token = One device activation</small>
                     </p>
                 </div>
@@ -538,7 +538,7 @@
                         Token: <span id="revokedToken"></span><br>
                         Contact administrator for assistance.
                     </p>
-                    <button class="btn" onclick="backToLogin()">Back to Login</button>
+                    <button class="btn" onclick="clearAndGoBack()">Clear & Back to Login</button>
                 </div>
             </div>
 
@@ -754,7 +754,7 @@
             checkExistingActivation();
         });
 
-        // Check if this device already has an active token
+        // Check if this device already has an active token - ALWAYS verify with server
         async function checkExistingActivation() {
             const savedToken = localStorage.getItem('quizActivation');
             
@@ -762,7 +762,7 @@
                 const activationData = JSON.parse(savedToken);
                 currentToken = activationData.token;
                 
-                // Try to verify with server, but allow offline fallback
+                // Always verify with server first
                 try {
                     const result = await fetchWithTimeout(
                         `${SCRIPT_URL}?action=verify&token=${encodeURIComponent(currentToken)}&deviceId=${encodeURIComponent(getDeviceFingerprint())}`,
@@ -771,32 +771,33 @@
                     );
                     
                     if (result.revoked) {
-                        showRevokedScreen(currentToken);
+                        // Token revoked - clear local storage
                         localStorage.removeItem('quizActivation');
+                        showRevokedScreen(currentToken);
                         return;
                     }
                     
                     if (result.valid) {
+                        // Token still valid
                         activatedName = result.name;
+                        offlineMode = false;
                         checkForResume();
+                        return;
                     } else {
-                        // Token invalid but we have local data - might be network issue
-                        // Allow offline mode if previously activated
-                        if (activationData.deviceId === getDeviceFingerprint()) {
-                            activatedName = activationData.name;
-                            offlineMode = true;
-                            checkForResume();
-                        } else {
-                            localStorage.removeItem('quizActivation');
-                        }
+                        // Token not valid anymore (reset to AVAILABLE or different device)
+                        localStorage.removeItem('quizActivation');
+                        // Stay on login screen
+                        return;
                     }
                 } catch (error) {
                     console.error('Verification error:', error);
-                    // Network error - allow offline mode if previously activated on this device
+                    // Network error - allow offline mode if device matches
                     if (activationData.deviceId === getDeviceFingerprint()) {
                         activatedName = activationData.name;
                         offlineMode = true;
                         checkForResume();
+                    } else {
+                        localStorage.removeItem('quizActivation');
                     }
                 }
             }
@@ -835,6 +836,18 @@
         function showOfflineScreen() {
             document.querySelector('.login-screen').classList.remove('active');
             document.querySelector('.offline-screen').classList.add('active');
+        }
+
+        function clearAndGoBack() {
+            // Clear all stored data
+            localStorage.removeItem('quizActivation');
+            sessionStorage.removeItem('quizState');
+            currentToken = null;
+            activatedName = '';
+            
+            document.querySelector('.revoked-screen').classList.remove('active');
+            document.querySelector('.login-screen').classList.add('active');
+            document.getElementById('accessToken').value = '';
         }
 
         async function activateToken() {
@@ -928,12 +941,6 @@
             } else {
                 document.querySelector('.start-screen').classList.add('active');
             }
-        }
-
-        function backToLogin() {
-            document.querySelector('.revoked-screen').classList.remove('active');
-            document.querySelector('.login-screen').classList.add('active');
-            document.getElementById('accessToken').value = '';
         }
 
         function checkForResume() {
@@ -1288,24 +1295,23 @@
             statusEl.textContent = 'Saving results...';
 
             try {
+                // Use legacy format that matches your original admin.html
+                const legacyData = {
+                    studentName: data.studentName,
+                    studentId: data.studentId,
+                    score: data.score + '%',
+                    correctAnswers: data.correctAnswers,
+                    totalQuestions: data.totalQuestions,
+                    timeTaken: data.timeTaken,
+                    details: data.details
+                };
+                
                 const result = await fetchWithTimeout(
                     SCRIPT_URL,
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            action: 'saveResult',
-                            data: {
-                                name: data.studentName,
-                                userId: data.studentId,
-                                mode: data.mode,
-                                totalQuestions: data.totalQuestions,
-                                correctAnswers: data.correctAnswers,
-                                percentage: data.score,
-                                totalTime: data.timeTaken,
-                                deviceId: getDeviceFingerprint()
-                            }
-                        })
+                        body: JSON.stringify(legacyData)
                     },
                     10000
                 );
@@ -1315,7 +1321,7 @@
                     statusEl.textContent = '✅ Results saved!';
                 } else {
                     statusEl.classList.add('error');
-                    statusEl.textContent = '⚠️ Save failed - ' + (result.message || 'Unknown error');
+                    statusEl.textContent = '⚠️ Save failed - ' + (result.message || result.error || 'Unknown error');
                 }
             } catch (error) {
                 console.error('Save error:', error);
