@@ -431,7 +431,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤰🏽Reproductive Physiology Quiz</h1>
+            <h1> 🤱🏽Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
@@ -460,7 +460,11 @@
                     <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Your Details</h2>
                     <div class="form-group">
                         <label for="studentName">Full Name</label>
-                        <input type="text" id="studentName" placeholder="Enter your username" required>
+                        <input type="text" id="studentName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentId">Student ID / Email</label>
+                        <input type="text" id="studentId" placeholder="Enter your ID or email" required>
                     </div>
                     
                     <h3 style="margin: 30px 0 15px; color: #333;">Select Test Mode</h3>
@@ -551,7 +555,7 @@
                     </div>
 
                     <div id="savingStatus" class="saving-status hidden">
-                        Saving results...
+                        Clearing...
                     </div>
 
                     <div class="review-section" id="reviewSection">
@@ -573,8 +577,8 @@
         // ✅ YOUR GOOGLE APPS SCRIPT URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
         
-        // ✅ VALID ACCESS TOKENS (add more as needed)
-        const VALID_TOKENS = ['BEEBAH', 'ZOROGIRL', 'SIDI', 'BOLU', 'OLA', 'RUKKY', 'NOX', 'TWIN'];
+        // ✅ VALID ACCESS TOKENS - Add your tokens here
+        const VALID_TOKENS = ['BEEBAH', 'ZOROGIRL', 'SIDI', 'ADORE', 'RUKKY', 'TWIN', 'BOLU', 'OLA', 'TEST'];
         
         let questions = [];
         let currentQuestions = [];
@@ -590,17 +594,23 @@
         let fameQuestionsAttempted = 0;
 
         const TEST_MODES = {
-            beginner: { questions: 20, time: 900, name: 'Beginner' },      // 15 mins
-            advanced: { questions: 50, time: 1800, name: 'Advanced' },   // 30 mins
-            bullet: { questions: 50, time: 0, name: 'Bullet' },         // No limit
-            fame: { questions: 999, time: 60, name: '60 Seconds of Fame' } // 60 secs, unlimited
+            beginner: { questions: 20, time: 900, name: 'Beginner' },
+            advanced: { questions: 50, time: 1800, name: 'Advanced' },
+            bullet: { questions: 50, time: 0, name: 'Bullet' },
+            fame: { questions: 999, time: 60, name: '60 Seconds of Fame' }
         };
+
+        // Load questions when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestions();
+        });
 
         async function loadQuestions() {
             try {
                 const response = await fetch('reproductive_physiology_question_bank.json');
                 const data = await response.json();
                 questions = data.sections.multiple_choice_questions;
+                console.log('Loaded', questions.length, 'questions');
             } catch (error) {
                 console.error('Error loading questions:', error);
                 alert('Error loading questions. Please refresh the page.');
@@ -630,6 +640,8 @@
         }
 
         function startQuiz() {
+            console.log('Start quiz clicked');
+            
             const name = document.getElementById('studentName').value.trim();
             const id = document.getElementById('studentId').value.trim();
 
@@ -645,8 +657,8 @@
 
             const mode = TEST_MODES[selectedMode];
             studentInfo = { 
-                name, 
-                id, 
+                name: name, 
+                id: id, 
                 mode: mode.name,
                 startTime: new Date().toISOString() 
             };
@@ -655,7 +667,6 @@
 
             // Select questions based on mode
             if (selectedMode === 'fame') {
-                // For fame mode, shuffle all questions but we'll only use what they can answer
                 currentQuestions = [...questions].sort(() => Math.random() - 0.5);
                 fameQuestionsAttempted = 0;
             } else {
@@ -668,16 +679,17 @@
 
             // Set timer
             timeRemaining = mode.time;
-            if (mode.time === 0) {
-                document.getElementById('timer').textContent = 'No limit';
-            }
 
+            // Switch screens
             document.querySelector('.start-screen').classList.remove('active');
             document.querySelector('.quiz-screen').classList.add('active');
 
             if (mode.time > 0) {
                 startTimer();
+            } else {
+                document.getElementById('timer').textContent = 'No limit';
             }
+            
             displayQuestion();
         }
 
@@ -710,9 +722,7 @@
         function displayQuestion() {
             const question = currentQuestions[currentQuestionIndex];
             
-            // Update progress
-            const total = selectedMode === 'fame' ? Math.max(fameQuestionsAttempted, 1) : currentQuestions.length;
-            const progress = ((currentQuestionIndex + 1) / total) * 100;
+            const progress = ((currentQuestionIndex + 1) / (selectedMode === 'fame' ? Math.max(fameQuestionsAttempted, 1) : currentQuestions.length)) * 100;
             document.getElementById('progressBar').style.width = `${progress}%`;
             
             document.getElementById('questionNumber').textContent = 
@@ -769,10 +779,9 @@
                 }
             });
 
-            // Auto-advance in fame mode after short delay
             if (selectedMode === 'fame') {
                 setTimeout(() => {
-                    if (currentQuestionIndex < currentQuestions.length - 1) {
+                    if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
                         currentQuestionIndex++;
                         displayQuestion();
                     }
@@ -814,19 +823,16 @@
             const endTime = Date.now();
             const timeTaken = Math.floor((endTime - startTime) / 1000);
 
-            // For fame mode, only count attempted questions
             let questionsToGrade = currentQuestions;
             let answersToGrade = userAnswers;
             
             if (selectedMode === 'fame') {
-                // Only include questions that were attempted (seen/answered)
                 const attemptedIndices = userAnswers.map((a, i) => a !== null ? i : -1).filter(i => i !== -1);
                 questionsToGrade = attemptedIndices.map(i => currentQuestions[i]);
                 answersToGrade = attemptedIndices.map(i => userAnswers[i]);
                 fameQuestionsAttempted = attemptedIndices.length;
             }
 
-            // Calculate score
             let correctCount = 0;
             const detailedResults = questionsToGrade.map((q, index) => {
                 const userAnswer = answersToGrade[index];
@@ -950,8 +956,6 @@
             document.querySelector('.results-screen').classList.remove('active');
             document.querySelector('.login-screen').classList.add('active');
         }
-
-        loadQuestions();
     </script>
 </body>
 </html>
