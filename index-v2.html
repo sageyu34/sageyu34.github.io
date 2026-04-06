@@ -45,20 +45,20 @@
             padding: 20px;
         }
 
-        .start-screen, .quiz-screen, .results-screen, .login-screen, .resume-screen, .device-locked-screen {
+        .start-screen, .quiz-screen, .results-screen, .login-screen, .resume-screen, .activation-screen, .revoked-screen {
             display: none;
         }
 
-        .start-screen.active, .quiz-screen.active, .results-screen.active, .login-screen.active, .resume-screen.active, .device-locked-screen.active {
+        .start-screen.active, .quiz-screen.active, .results-screen.active, .login-screen.active, .resume-screen.active, .activation-screen.active, .revoked-screen.active {
             display: block;
         }
 
-        .student-form, .login-form, .resume-box, .device-box {
+        .student-form, .login-form, .resume-box, .activation-box, .revoked-box {
             max-width: 500px;
             margin: 0 auto;
         }
 
-        .resume-box, .device-box {
+        .resume-box {
             background: #e3f2fd;
             border: 2px solid #2196f3;
             padding: 30px;
@@ -66,14 +66,20 @@
             text-align: center;
         }
 
-        .device-box {
-            background: #ffebee;
-            border-color: #f44336;
+        .activation-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
         }
 
-        .device-box.activated {
-            background: #e8f5e9;
-            border-color: #4caf50;
+        .revoked-box {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
         }
 
         .form-group {
@@ -170,10 +176,6 @@
 
         .btn-danger {
             background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
         }
 
         .progress-bar {
@@ -437,15 +439,19 @@
             font-size: 0.9em;
         }
 
-        .device-info {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            text-align: left;
-            font-family: monospace;
-            font-size: 0.85em;
-            word-break: break-all;
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         @media (max-width: 600px) {
@@ -468,43 +474,57 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤱🏽 Reproductive Physiology Quiz</h1>
+            <h1>🧬 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
         <div class="quiz-content">
-            <!-- Login Screen -->
+            <!-- Login/Activation Screen -->
             <div class="login-screen active">
                 <div class="login-form">
-                    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Access Token</h2>
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Activate Your Token</h2>
                     <div class="form-group">
                         <label for="accessToken">Access Token</label>
                         <input type="password" id="accessToken" placeholder="Enter your access token" required>
-                        <div id="tokenError" class="error-message hidden">Invalid or already used token on another device</div>
+                        <div id="tokenError" class="error-message hidden"></div>
                     </div>
                     <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn" onclick="verifyToken()">Continue</button>
+                        <button class="btn" onclick="activateToken()" id="activateBtn">
+                            <span id="btnText">Activate</span>
+                        </button>
                     </div>
                     <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
-                        Contact Sage for access token<br>
-                        <small>Each token can only be used on one device</small>
+                        Contact administrator for access token<br>
+                        <small>One token = One device activation</small>
                     </p>
                 </div>
             </div>
 
-            <!-- Device Locked Screen (Token used elsewhere) -->
-            <div class="device-locked-screen">
-                <div class="device-box">
-                    <h2 style="margin-bottom: 20px; color: #c62828;">🔒 Token Already Activated</h2>
+            <!-- Activation Success Screen -->
+            <div class="activation-screen">
+                <div class="activation-box">
+                    <h2 style="margin-bottom: 20px; color: #2e7d32;">✅ Activation Successful!</h2>
                     <p style="margin-bottom: 15px; color: #333;">
-                        This token has already been activated on another device.
+                        This device is now activated for <span id="activatedToken"></span>
                     </p>
-                    <div class="device-info" id="lockedDeviceInfo">
-                        <!-- Shows where token was activated -->
-                    </div>
                     <p style="margin-bottom: 20px; color: #666; font-size: 0.9em;">
-                        Each token can only be used on one device to prevent sharing.<br>
-                        Please request a new token from your administrator.
+                        You won't need to enter the token again on this device.<br>
+                        Contact administrator if you need to move to a different device.
+                    </p>
+                    <button class="btn" onclick="proceedToQuiz()">Continue to Quiz</button>
+                </div>
+            </div>
+
+            <!-- Revoked Screen -->
+            <div class="revoked-screen">
+                <div class="revoked-box">
+                    <h2 style="margin-bottom: 20px; color: #c62828;">🚫 Access Revoked</h2>
+                    <p style="margin-bottom: 15px; color: #333;">
+                        Your access has been revoked by the administrator.
+                    </p>
+                    <p style="margin-bottom: 20px; color: #666; font-size: 0.9em;">
+                        Token: <span id="revokedToken"></span><br>
+                        Contact administrator for assistance.
                     </p>
                     <button class="btn" onclick="backToLogin()">Back to Login</button>
                 </div>
@@ -646,14 +666,10 @@
         </div>
     </div>
 
-    <a href="admin.html" class="admin-link">🧙🏽‍♀️ Admin</a>
+    <a href="admin.html" class="admin-link">👤 Admin</a>
 
     <script>
-        // ✅ YOUR GOOGLE APPS SCRIPT URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
-        
-        // ✅ VALID ACCESS TOKENS - Master list (admin distributes these)
-        const VALID_TOKENS = ['BEEBAH', 'ZOROGIRL', 'SIDI', 'TWIN', 'RUKKY', 'ADORE', 'BOLU', 'OLA', 'TEST', 'NOX'];
         
         let questions = [];
         let currentQuestions = [];
@@ -676,7 +692,6 @@
             fame: { questions: 999, time: 60, name: '60 Seconds of Fame' }
         };
 
-        // Generate a device fingerprint
         function getDeviceFingerprint() {
             const nav = window.navigator;
             const screen = window.screen;
@@ -689,7 +704,6 @@
                 new Date().getTimezoneOffset()
             ].join('|');
             
-            // Simple hash of device info
             let hash = 0;
             for (let i = 0; i < deviceInfo.length; i++) {
                 const char = deviceInfo.charCodeAt(i);
@@ -699,62 +713,143 @@
             return 'dev_' + Math.abs(hash).toString(16);
         }
 
-        // Check if token is already bound to this or another device
-        function checkTokenStatus(token) {
-            const tokenKey = 'token_' + token;
-            const stored = localStorage.getItem(tokenKey);
-            
-            if (!stored) {
-                // Token not used yet - available
-                return { status: 'available', device: null };
-            }
-            
-            const data = JSON.parse(stored);
-            const currentDevice = getDeviceFingerprint();
-            
-            if (data.device === currentDevice) {
-                // Token belongs to this device
-                return { status: 'owned', device: data.device, activated: data.activated };
-            } else {
-                // Token belongs to another device
-                return { status: 'locked', device: data.device, activated: data.activated };
-            }
-        }
-
-        // Activate token on this device
-        function activateToken(token) {
-            const tokenKey = 'token_' + token;
-            const deviceId = getDeviceFingerprint();
-            
-            localStorage.setItem(tokenKey, JSON.stringify({
-                device: deviceId,
-                activated: new Date().toISOString(),
-                used: false
-            }));
-        }
-
-        // Load questions when page loads
         document.addEventListener('DOMContentLoaded', function() {
             loadQuestions();
-            checkForResume();
+            checkExistingActivation();
         });
 
-        // Check if there's a test in progress
-        function checkForResume() {
-            // First check if we have an active token on this device
-            for (let token of VALID_TOKENS) {
-                const status = checkTokenStatus(token);
-                if (status.status === 'owned') {
-                    currentToken = token;
-                    break;
+        // Check if this device already has an active token
+        async function checkExistingActivation() {
+            const savedToken = localStorage.getItem('activatedToken');
+            
+            if (savedToken) {
+                // Verify it's still valid (not revoked)
+                try {
+                    const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=verifyActivation&token=${savedToken}&deviceId=${getDeviceFingerprint()}`);
+                    const data = await response.json();
+                    
+                    if (data.valid) {
+                        currentToken = savedToken;
+                        // Check for resume
+                        checkForResume();
+                    } else {
+                        // Token revoked or invalid
+                        localStorage.removeItem('activatedToken');
+                        if (data.message.includes('revoked')) {
+                            showRevokedScreen(savedToken);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Verification error:', error);
                 }
             }
+        }
+
+        function showRevokedScreen(token) {
+            document.querySelector('.login-screen').classList.remove('active');
+            document.querySelector('.revoked-screen').classList.add('active');
+            document.getElementById('revokedToken').textContent = token;
+        }
+
+        async function activateToken() {
+            const token = document.getElementById('accessToken').value.trim().toUpperCase();
+            const errorEl = document.getElementById('tokenError');
+            const btn = document.getElementById('activateBtn');
+            const btnText = document.getElementById('btnText');
             
+            if (!token) {
+                errorEl.textContent = 'Please enter a token';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            
+            btn.disabled = true;
+            btnText.innerHTML = '<span class="loading"></span> Checking...';
+            
+            try {
+                // Check token status
+                const checkResponse = await fetch(`${GOOGLE_SCRIPT_URL}?action=checkToken&token=${token}`);
+                const checkData = await checkResponse.json();
+                
+                if (!checkData.exists) {
+                    errorEl.textContent = 'Invalid token';
+                    errorEl.classList.remove('hidden');
+                    btn.disabled = false;
+                    btnText.textContent = 'Activate';
+                    return;
+                }
+                
+                if (checkData.status === 'REVOKED') {
+                    showRevokedScreen(token);
+                    return;
+                }
+                
+                if (checkData.status === 'ACTIVATED') {
+                    if (checkData.deviceId === getDeviceFingerprint()) {
+                        // Same device, already activated
+                        currentToken = token;
+                        localStorage.setItem('activatedToken', token);
+                        proceedToQuiz();
+                        return;
+                    } else {
+                        errorEl.textContent = 'Token already activated on another device';
+                        errorEl.classList.remove('hidden');
+                        btn.disabled = false;
+                        btnText.textContent = 'Activate';
+                        return;
+                    }
+                }
+                
+                // Token is AVAILABLE - activate it
+                btnText.textContent = 'Activating...';
+                const activateResponse = await fetch(`${GOOGLE_SCRIPT_URL}?action=activateToken&token=${token}&deviceId=${getDeviceFingerprint()}&studentName=Pending`);
+                const activateData = await activateResponse.json();
+                
+                if (activateData.success) {
+                    currentToken = token;
+                    localStorage.setItem('activatedToken', token);
+                    document.getElementById('activatedToken').textContent = token;
+                    document.querySelector('.login-screen').classList.remove('active');
+                    document.querySelector('.activation-screen').classList.add('active');
+                } else {
+                    errorEl.textContent = activateData.message || 'Activation failed';
+                    errorEl.classList.remove('hidden');
+                    btn.disabled = false;
+                    btnText.textContent = 'Activate';
+                }
+                
+            } catch (error) {
+                console.error('Activation error:', error);
+                errorEl.textContent = 'Network error. Please try again.';
+                errorEl.classList.remove('hidden');
+                btn.disabled = false;
+                btnText.textContent = 'Activate';
+            }
+        }
+
+        function proceedToQuiz() {
+            document.querySelector('.activation-screen').classList.remove('active');
+            
+            // Check for resume
             const savedState = sessionStorage.getItem('quizState');
-            if (savedState && currentToken) {
+            if (savedState && !JSON.parse(savedState).submitted) {
+                document.querySelector('.resume-screen').classList.add('active');
+            } else {
+                document.querySelector('.start-screen').classList.add('active');
+            }
+        }
+
+        function backToLogin() {
+            document.querySelector('.revoked-screen').classList.remove('active');
+            document.querySelector('.login-screen').classList.add('active');
+            document.getElementById('accessToken').value = '';
+        }
+
+        function checkForResume() {
+            const savedState = sessionStorage.getItem('quizState');
+            if (savedState) {
                 const state = JSON.parse(savedState);
                 if (!state.submitted && state.studentInfo && state.studentInfo.name) {
-                    // Show resume screen
                     document.querySelector('.login-screen').classList.remove('active');
                     document.querySelector('.resume-screen').classList.add('active');
                     
@@ -766,7 +861,13 @@
                     const minutes = Math.floor(state.timeRemaining / 60);
                     const seconds = state.timeRemaining % 60;
                     document.getElementById('resumeTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                } else {
+                    document.querySelector('.login-screen').classList.remove('active');
+                    document.querySelector('.start-screen').classList.add('active');
                 }
+            } else {
+                document.querySelector('.login-screen').classList.remove('active');
+                document.querySelector('.start-screen').classList.add('active');
             }
         }
 
@@ -776,7 +877,6 @@
             
             const state = JSON.parse(savedState);
             
-            // Restore all state
             currentQuestions = state.currentQuestions;
             currentQuestionIndex = state.currentQuestionIndex;
             userAnswers = state.userAnswers;
@@ -788,11 +888,9 @@
             fameModeActive = selectedMode === 'fame';
             fameQuestionsAttempted = state.fameQuestionsAttempted || 0;
             
-            // Switch to quiz screen
             document.querySelector('.resume-screen').classList.remove('active');
             document.querySelector('.quiz-screen').classList.add('active');
             
-            // Restart timer if needed
             const mode = TEST_MODES[selectedMode];
             if (mode.time > 0) {
                 startTimer();
@@ -808,21 +906,12 @@
                 return;
             }
             
-            // Clear saved state but keep token active
             sessionStorage.removeItem('quizState');
             
-            // Go to start screen
             document.querySelector('.resume-screen').classList.remove('active');
             document.querySelector('.start-screen').classList.add('active');
         }
 
-        function backToLogin() {
-            document.querySelector('.device-locked-screen').classList.remove('active');
-            document.querySelector('.login-screen').classList.add('active');
-            document.getElementById('accessToken').value = '';
-        }
-
-        // Save current state to sessionStorage
         function saveState() {
             const state = {
                 currentQuestions: currentQuestions,
@@ -852,54 +941,6 @@
             }
         }
 
-        function verifyToken() {
-            const token = document.getElementById('accessToken').value.trim().toUpperCase();
-            const errorEl = document.getElementById('tokenError');
-            
-            // Check if token is valid
-            if (!VALID_TOKENS.includes(token)) {
-                errorEl.textContent = 'Invalid access token';
-                errorEl.classList.remove('hidden');
-                return;
-            }
-            
-            // Check token device binding
-            const status = checkTokenStatus(token);
-            
-            if (status.status === 'locked') {
-                // Token used on another device - show locked screen
-                document.querySelector('.login-screen').classList.remove('active');
-                document.querySelector('.device-locked-screen').classList.add('active');
-                
-                // Show info about when/where it was activated
-                const activatedDate = status.activated ? new Date(status.activated).toLocaleString() : 'Unknown';
-                document.getElementById('lockedDeviceInfo').innerHTML = `
-                    <strong>Activated:</strong> ${activatedDate}<br>
-                    <strong>Device ID:</strong> ${status.device.substring(0, 20)}...<br>
-                    <small>This token is permanently bound to that device</small>
-                `;
-                return;
-            }
-            
-            // Token is available or owned by this device
-            if (status.status === 'available') {
-                // First time use - activate on this device
-                activateToken(token);
-            }
-            
-            currentToken = token;
-            errorEl.classList.add('hidden');
-            document.querySelector('.login-screen').classList.remove('active');
-            
-            // Check for resume
-            const savedState = sessionStorage.getItem('quizState');
-            if (savedState && !JSON.parse(savedState).submitted) {
-                document.querySelector('.resume-screen').classList.add('active');
-            } else {
-                document.querySelector('.start-screen').classList.add('active');
-            }
-        }
-
         function selectMode(mode) {
             selectedMode = mode;
             document.querySelectorAll('.mode-card').forEach(card => {
@@ -910,8 +951,6 @@
         }
 
         function startQuiz() {
-            console.log('Start quiz clicked');
-            
             const name = document.getElementById('studentName').value.trim();
             const id = document.getElementById('studentId').value.trim();
 
@@ -935,7 +974,6 @@
             startTime = Date.now();
             fameModeActive = selectedMode === 'fame';
 
-            // Select questions based on mode
             if (selectedMode === 'fame') {
                 currentQuestions = [...questions].sort(() => Math.random() - 0.5);
                 fameQuestionsAttempted = 0;
@@ -946,11 +984,8 @@
             }
 
             userAnswers = new Array(currentQuestions.length).fill(null);
-
-            // Set timer
             timeRemaining = mode.time;
 
-            // Switch screens
             document.querySelector('.start-screen').classList.remove('active');
             document.querySelector('.quiz-screen').classList.add('active');
 
@@ -960,7 +995,6 @@
                 document.getElementById('timer').textContent = 'No limit';
             }
             
-            // Save initial state
             saveState();
             displayQuestion();
         }
@@ -970,7 +1004,7 @@
             timerInterval = setInterval(() => {
                 timeRemaining--;
                 updateTimerDisplay();
-                saveState(); // Save every second
+                saveState();
                 
                 if (timeRemaining <= 0) {
                     submitQuiz();
@@ -1043,7 +1077,7 @@
             }
             
             userAnswers[currentQuestionIndex] = letter;
-            saveState(); // Save after each answer
+            saveState();
             
             const options = document.querySelectorAll('.option');
             options.forEach(opt => {
@@ -1141,17 +1175,7 @@
                 details: detailedResults
             };
 
-            // Mark as submitted in sessionStorage
             saveState();
-
-            // Mark token as used in localStorage
-            if (currentToken) {
-                const tokenKey = 'token_' + currentToken;
-                const tokenData = JSON.parse(localStorage.getItem(tokenKey) || '{}');
-                tokenData.used = true;
-                tokenData.usedDate = new Date().toISOString();
-                localStorage.setItem(tokenKey, JSON.stringify(tokenData));
-            }
 
             document.querySelector('.quiz-screen').classList.remove('active');
             document.querySelector('.results-screen').classList.add('active');
@@ -1227,7 +1251,6 @@
         }
 
         function restartQuiz() {
-            // Clear session storage
             sessionStorage.removeItem('quizState');
             
             currentQuestions = [];
@@ -1242,15 +1265,13 @@
             
             document.getElementById('studentName').value = '';
             document.getElementById('studentId').value = '';
-            document.getElementById('accessToken').value = '';
             document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
             document.getElementById('savingStatus').classList.add('hidden');
             
             document.querySelector('.results-screen').classList.remove('active');
-            document.querySelector('.login-screen').classList.add('active');
+            document.querySelector('.start-screen').classList.add('active');
         }
 
-        // Auto-save before page unload
         window.addEventListener('beforeunload', function() {
             if (!quizSubmitted && currentQuestions.length > 0) {
                 saveState();
