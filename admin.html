@@ -3,36 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>Admin Panel - Quiz Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .admin-content {
+            padding: 30px;
+        }
+
+        .setup-notice {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1em;
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1em;
+            background: white;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .results-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .results-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .score-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .score-excellent { background: #4caf50; }
+        .score-good { background: #8bc34a; }
+        .score-average { background: #ffc107; color: #333; }
+        .score-poor { background: #ff9800; }
+        .score-fail { background: #f44336; }
+
+        .detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .detail-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .student-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            width: 150px;
+            color: #667eea;
+        }
+
+        .info-value {
+            color: #333;
+            flex: 1;
+        }
+
+        .question-review {
+            margin-top: 20px;
+        }
+
+        .review-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .review-item.correct {
+            border-left-color: #4caf50;
+        }
+
+        .review-item.incorrect {
+            border-left-color: #f44336;
+        }
+
+        .review-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .correct-answer {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .user-answer {
+            color: #f44336;
+            font-weight: 600;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sheet-link {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sheet-link a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Admin Panel</h1>
-    </header>
-    <section>
-        <h2>Statistics</h2>
-        <div id="statistics">
-            <p>Active Users: <span id="active-users">0</span></p>
-            <p>Completed Tests: <span id="completed-tests">0</span></p>
+    <div class="container">
+        <div class="header">
+            <h1>👨‍💼 Admin Panel</h1>
+            <p>View all quiz results from Google Sheets</p>
         </div>
-        <h2>Filters</h2>
-        <form id="filter-form">
-            <label for="date">Date:</label>
-            <input type="date" id="date">
-            <label for="status">Status:</label>
-            <select id="status">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="in-progress">In Progress</option>
-            </select>
-            <button type="submit">Filter</button>
-        </form>
-        <button id="export-btn">Export Results</button>
-    </section>
-    <footer>
-        <p>&copy; 2026 Sageyu34. All rights reserved.</p>
-    </footer>
+
+        <div class="admin-content">
+            <a href="index.html" class="back-link">← Back to Quiz</a>
+
+            <!-- Setup Notice -->
+            <div id="setupNotice" class="setup-notice">
+                <h3 style="margin-bottom: 10px;">⚠️ Setup Required</h3>
+                <p>To view results, you need to:</p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Create a Google Sheet with the Apps Script</li>
+                    <li>Share the sheet (View access) with anyone who has the link</li>
+                    <li>Paste your Sheet ID below:</li>
+                </ol>
+                <div style="margin-top: 15px;">
+                    <input type="text" id="sheetIdInput" placeholder="Paste Google Sheet ID here..." 
+                           style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ccc;">
+                    <button class="btn" onclick="loadFromSheet()" style="margin-left: 10px;">Load Results</button>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.9em;">
+                    <strong>How to get Sheet ID:</strong> Open your Google Sheet, look at the URL: 
+                    <code>https://docs.google.com/spreadsheets/d/<strong>SHEET_ID_HERE</strong>/edit</code>
+                </p>
+            </div>
+
+            <!-- Sheet Link -->
+            <div id="sheetLink" class="sheet-link hidden">
+                <a id="sheetUrl" href="#" target="_blank">📊 Open Full Google Sheet (for editing/exporting)</a>
+            </div>
+
+            <!-- Statistics -->
+            <div id="statsSection" class="stats-overview hidden">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalTests">0</div>
+                    <div class="stat-label">Total Tests</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgScore">0%</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="highestScore">0%</div>
+                    <div class="stat-label">Highest Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="passRate">0%</div>
+                    <div class="stat-label">Pass Rate (>60%)</div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div id="controlsSection" class="controls hidden">
+                <input type="text" class="search-box" id="searchBox" 
+                       placeholder="Search by name or ID..." onkeyup="filterResults()">
+                <select class="filter-select" id="scoreFilter" onchange="filterResults()">
+                    <option value="all">All Scores</option>
+                    <option value="excellent">Excellent (90-100%)</option>
+                    <option value="good">Good (70-89%)</option>
+                    <option value="average">Average (60-69%)</option>
+                    <option value="poor">Poor (40-59%)</option>
+                    <option value="fail">Fail (<40%)</option>
+                </select>
+                <select class="filter-select" id="sortBy" onchange="sortResults()">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="score-high">Highest Score</option>
+                    <option value="score-low">Lowest Score</option>
+                    <option value="name">Name (A-Z)</option>
+                </select>
+                <button class="btn btn-success" onclick="exportResults()">📥 Export CSV</button>
+                <button class="btn" onclick="refreshData()">🔄 Refresh</button>
+            </div>
+
+            <!-- Results Table -->
+            <div id="resultsContainer" class="hidden">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student Name</th>
+                            <th>Student ID</th>
+                            <th>Score</th>
+                            <th>Correct</th>
+                            <th>Time Taken</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="noResults" class="no-results hidden">
+                <div style="font-size: 4em; margin-bottom: 20px;">📭</div>
+                <h3>No Results Found</h3>
+                <p>No quiz results in the sheet yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="detail-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Test Result Details</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let allResults = [];
+        let filteredResults = [];
+        let sheetId = '';
+
+        async function loadFromSheet() {
+            sheetId = document.getElementById('sheetIdInput').value.trim();
+            
+            if (!sheetId) {
+                alert('Please enter a Google Sheet ID');
+                return;
+            }
+
+            // Remove any extra URL parts if they pasted a full URL
+            sheetId = sheetId.replace(/.*\/d\//, '').replace(/\/.*$/, '');
+
+            try {
+                // Try to fetch the sheet as CSV (public sheets only)
+                const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
+                
+                const response = await fetch(csvUrl);
+                
+                if (!response.ok) {
+                    throw new Error('Could not access sheet. Make sure it is shared publicly (View access).');
+                }
+
+                const csvText = await response.text();
+                const results = parseCSV(csvText);
+                
+                allResults = results.map((row, index) => ({
+                    id: index,
+                    date: row[0] || '',
+                    studentName: row[1] || '',
+                    studentId: row[2] || '',
+                    score: parseInt(row[3]) || 0,
+                    correctAnswers: parseInt(row[4]) || 0,
+                    totalQuestions: parseInt(row[5]) || 0,
+                    timeTaken: parseInt(row[6]) || 0,
+                    details: row[7] || '[]'
+                })).filter(r => r.studentName); // Filter out empty rows
+
+                // Update UI
+                document.getElementById('setupNotice').classList.add('hidden');
+                document.getElementById('statsSection').classList.remove('hidden');
+                document.getElementById('controlsSection').classList.remove('hidden');
+                document.getElementById('resultsContainer').classList.remove('hidden');
+                document.getElementById('sheetLink').classList.remove('hidden');
+                
+                // Set sheet link
+                document.getElementById('sheetUrl').href = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+
+                filteredResults = [...allResults];
+                updateStats();
+                displayResults();
+
+            } catch (error) {
+                alert('Error loading sheet: ' + error.message + '\n\nMake sure your Google Sheet is shared with "Anyone with the link" (Viewer access).');
+            }
+        }
+
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n');
+            return lines.slice(1).map(line => {
+                // Simple CSV parsing (handles basic cases)
+                const result = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        result.push(current.trim());
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                result.push(current.trim());
+                return result;
+            }).filter(row => row.length > 1);
+        }
+
+        function updateStats() {
+            const total = allResults.length;
+            document.getElementById('totalTests').textContent = total;
+
+            if (total === 0) {
+                document.getElementById('avgScore').textContent = '0%';
+                document.getElementById('highestScore').textContent = '0%';
+                document.getElementById('passRate').textContent = '0%';
+                return;
+            }
+
+            const avgScore = Math.round(
+                allResults.reduce((sum, r) => sum + r.score, 0) / total
+            );
+            const highestScore = Math.max(...allResults.map(r => r.score));
+            const passCount = allResults.filter(r => r.score >= 60).length;
+            const passRate = Math.round((passCount / total) * 100);
+
+            document.getElementById('avgScore').textContent = `${avgScore}%`;
+            document.getElementById('highestScore').textContent = `${highestScore}%`;
+            document.getElementById('passRate').textContent = `${passRate}%`;
+        }
+
+        function displayResults() {
+            const tbody = document.getElementById('resultsTableBody');
+            const noResults = document.getElementById('noResults');
+
+            if (filteredResults.length === 0) {
+                document.getElementById('resultsContainer').classList.add('hidden');
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('resultsContainer').classList.remove('hidden');
+            noResults.classList.add('hidden');
+
+            tbody.innerHTML = filteredResults.map(result => {
+                const date = new Date(result.date).toLocaleString();
+                const minutes = Math.floor(result.timeTaken / 60);
+                const seconds = result.timeTaken % 60;
+                const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                let scoreClass = 'score-fail';
+                if (result.score >= 90) scoreClass = 'score-excellent';
+                else if (result.score >= 70) scoreClass = 'score-good';
+                else if (result.score >= 60) scoreClass = 'score-average';
+                else if (result.score >= 40) scoreClass = 'score-poor';
+
+                return `
+                    <tr>
+                        <td>${date}</td>
+                        <td>${escapeHtml(result.studentName)}</td>
+                        <td>${escapeHtml(result.studentId)}</td>
+                        <td><span class="score-badge ${scoreClass}">${result.score}%</span></td>
+                        <td>${result.correctAnswers}/${result.totalQuestions}</td>
+                        <td>${timeStr}</td>
+                        <td>
+                            <button class="btn" onclick="viewDetails(${result.id})" 
+                                    style="padding: 8px 15px; font-size: 0.9em;">View Details</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function filterResults() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const scoreFilter = document.getElementById('scoreFilter').value;
+
+            filteredResults = allResults.filter(result => {
+                const matchesSearch = 
+                    result.studentName.toLowerCase().includes(searchTerm) ||
+                    result.studentId.toLowerCase().includes(searchTerm);
+                
+                let matchesScore = true;
+                if (scoreFilter === 'excellent') matchesScore = result.score >= 90;
+                else if (scoreFilter === 'good') matchesScore = result.score >= 70 && result.score < 90;
+                else if (scoreFilter === 'average') matchesScore = result.score >= 60 && result.score < 70;
+                else if (scoreFilter === 'poor') matchesScore = result.score >= 40 && result.score < 60;
+                else if (scoreFilter === 'fail') matchesScore = result.score < 40;
+
+                return matchesSearch && matchesScore;
+            });
+
+            sortResults();
+        }
+
+        function sortResults() {
+            const sortBy = document.getElementById('sortBy').value;
+            
+            filteredResults.sort((a, b) => {
+                switch(sortBy) {
+                    case 'newest': return new Date(b.date) - new Date(a.date);
+                    case 'oldest': return new Date(a.date) - new Date(b.date);
+                    case 'score-high': return b.score - a.score;
+                    case 'score-low': return a.score - b.score;
+                    case 'name': return a.studentName.localeCompare(b.studentName);
+                    default: return 0;
+                }
+            });
+
+            displayResults();
+        }
+
+        function viewDetails(id) {
+            const result = allResults.find(r => r.id === id);
+            if (!result) return;
+
+            const modalContent = document.getElementById('modalContent');
+            const minutes = Math.floor(result.timeTaken / 60);
+            const seconds = result.timeTaken % 60;
+
+            let detailsHtml = `
+                <div class="student-info">
+                    <div class="info-row">
+                        <div class="info-label">Student Name:</div>
+                        <div class="info-value">${escapeHtml(result.studentName)}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Student ID:</div>
+                        <div class="info-value">${escapeHtml(result.studentId)}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Score:</div>
+                        <div class="info-value" style="font-size: 1.2em; font-weight: bold; color: ${result.score >= 60 ? '#4caf50' : '#f44336'};">
+                            ${result.score}% (${result.correctAnswers}/${result.totalQuestions} correct)
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Time Taken:</div>
+                        <div class="info-value">${minutes}:${seconds.toString().padStart(2, '0')}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Date:</div>
+                        <div class="info-value">${new Date(result.date).toLocaleString()}</div>
+                    </div>
+                </div>
+                <div class="question-review">
+                    <h3 style="margin-bottom: 20px; color: #333;">Question Review</h3>
+            `;
+
+            try {
+                const details = JSON.parse(result.details);
+                details.forEach((detail, index) => {
+                    const isCorrect = detail.isCorrect;
+                    detailsHtml += `
+                        <div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">
+                            <div class="review-question">Q${index + 1}: ${detail.question}</div>
+                            <div style="color: #666; font-size: 0.9em; margin-bottom: 8px;">Topic: ${detail.topic}</div>
+                            <div>
+                                <span class="${isCorrect ? 'correct-answer' : 'user-answer'}">
+                                    Your Answer: ${detail.userAnswer || 'Not answered'} - 
+                                    ${detail.userAnswer ? detail.options[detail.userAnswer] : 'No answer'}
+                                </span>
+                            </div>
+                            ${!isCorrect ? `
+                                <div style="margin-top: 5px;">
+                                    <span class="correct-answer">
+                                        Correct Answer: ${detail.correctAnswer} - 
+                                        ${detail.options[detail.correctAnswer]}
+                                    </span>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+            } catch (e) {
+                detailsHtml += '<p>Error parsing details</p>';
+            }
+
+            detailsHtml += '</div>';
+            modalContent.innerHTML = detailsHtml;
+            document.getElementById('detailModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').classList.remove('active');
+        }
+
+        function refreshData() {
+            loadFromSheet();
+        }
+
+        function exportResults() {
+            if (allResults.length === 0) {
+                alert('No results to export!');
+                return;
+            }
+
+            let csv = 'Date,Student Name,Student ID,Score (%),Correct Answers,Total Questions,Time Taken (seconds),Pass/Fail\n';
+            
+            allResults.forEach(r => {
+                const passFail = r.score >= 60 ? 'Pass' : 'Fail';
+                csv += `"${r.date}","${r.studentName}","${r.studentId}",${r.score},${r.correctAnswers},${r.totalQuestions},${r.timeTaken},${passFail}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `quiz-results-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('detailModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
 </body>
 </html>
