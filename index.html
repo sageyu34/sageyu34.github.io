@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductive Physiology Quiz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -167,6 +168,15 @@
             box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
         }
 
+        .btn-success {
+            background: #28a745;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-success:hover {
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+        }
+
         /* Quiz Screen */
         .quiz-screen {
             display: none;
@@ -185,6 +195,30 @@
             color: #667eea;
             font-weight: 600;
             font-size: 1.1em;
+        }
+
+        .timer-display {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        .timer-display.warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .timer-display.danger {
+            background: #dc3545;
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
         }
 
         .progress-bar {
@@ -220,57 +254,7 @@
         }
 
         .question-text {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option-btn {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            padding: 15px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 1em;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .option-btn:hover {
-            background: #e3f2fd;
-            border-color: #667eea;
-            transform: translateX(5px);
-        }
-
-        .option-btn.selected {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-
-        .option-btn.correct {
-            background: #d4edda;
-            border-color: #28a745;
-            color: #155724;
-        }
-
-        .option-btn.incorrect {
-            background: #f8d7da;
-            border-color: #dc3545;
-            color: #721c24;
-        }
-
-        .option-letter {
+            font-size: 1.3.option-letter {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -446,6 +430,85 @@
             color: #666;
         }
 
+        /* Results Image */
+        #resultsImage {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        #resultsImage.show {
+            display: block;
+        }
+
+        /* Share Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .share-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .share-btn {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: #e3f2fd;
+            border-color: #667eea;
+        }
+
+        .modal-close {
+            background: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
         .loading {
             text-align: center;
             padding: 40px;
@@ -515,13 +578,18 @@
             .jump-to-question button {
                 width: 100%;
             }
+
+            .quiz-header {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🫄 Reproductive Physiology Quiz</h1>
+            <h1>🧬 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
@@ -560,8 +628,8 @@
                 <div class="form-group">
                     <label for="difficultySelect">⚙️ Select Test Type:</label>
                     <select id="difficultySelect">
-                        <option value="beginner">🟢 Beginner (20 Questions)</option>
-                        <option value="advanced">🔴 Advanced (50 Questions)</option>
+                        <option value="beginner">🟢 Beginner (20 Questions - 20 mins)</option>
+                        <option value="advanced">🔴 Advanced (50 Questions - 30 mins)</option>
                     </select>
                 </div>
 
@@ -572,6 +640,7 @@
             <div id="quizScreen" class="quiz-screen">
                 <div class="quiz-header">
                     <span class="username-display" id="usernameDisplay"></span>
+                    <div class="timer-display" id="timerDisplay">20:00</div>
                 </div>
 
                 <div class="progress-bar">
@@ -609,7 +678,15 @@
                     <p>Great job, <strong id="resultUsername"></strong>!</p>
                 </div>
 
-                <div class="score-circle">
+                <div id="resultsImage">
+                    <div class="score-circle">
+                        <div class="score-number" id="resultScoreNumber">0%</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <h3 id="resultName" style="margin: 20px 0; color: #333;"></h3>
+                </div>
+
+                <div class="score-circle" id="displayScoreCircle">
                     <div class="score-number" id="scoreNumber">0%</div>
                     <div class="score-label">Score</div>
                 </div>
@@ -639,9 +716,26 @@
                     <div id="reviewContainer"></div>
                 </div>
 
-                <button class="btn" onclick="backToStart()">← Back to Menu</button>
-                <button class="btn btn-secondary" onclick="startQuiz()">Take Another Quiz</button>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-success" onclick="shareResults()">📤 Share Results</button>
+                    <button class="btn" onclick="restartQuiz()">Take Another Quiz</button>
+                    <button class="btn btn-secondary" onclick="backToStart()">← Back to Menu</button>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">📤 Share Your Results</div>
+            <div class="share-options">
+                <button class="share-btn" onclick="downloadImage()">📥 Download as Image</button>
+                <button class="share-btn" onclick="shareViaWhatsApp()">💬 Share on WhatsApp</button>
+                <button class="share-btn" onclick="shareViaEmail()">📧 Share via Email</button>
+                <button class="share-btn" onclick="copyToClipboard()">📋 Copy Results Text</button>
+            </div>
+            <button class="modal-close" onclick="closeShareModal()">Close</button>
         </div>
     </div>
 
@@ -654,6 +748,8 @@
         let score = 0;
         let username = '';
         let quizMode = 'beginner';
+        let timerInterval = null;
+        let timeRemaining = 0;
 
         // Load questions when page loads
         window.onload = function() {
@@ -698,6 +794,7 @@
 
             quizMode = document.getElementById('difficultySelect').value;
             const questionCount = quizMode === 'beginner' ? 20 : 50;
+            timeRemaining = quizMode === 'beginner' ? 20 * 60 : 30 * 60; // 20 or 30 minutes
 
             questions = shuffleArray(allQuestions).slice(0, questionCount);
             userAnswers = new Array(questions.length).fill(null);
@@ -707,7 +804,42 @@
             document.getElementById('startScreen').style.display = 'none';
             document.getElementById('quizScreen').style.display = 'block';
             document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
+            
             showQuestion();
+            startTimer();
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            timerInterval = setInterval(function() {
+                timeRemaining--;
+                updateTimerDisplay();
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    alert('Time is up! Test ended.');
+                    forceEndTest();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            const timerDisplay = document.getElementById('timerDisplay');
+            timerDisplay.textContent = display;
+
+            // Change colors based on time remaining
+            if (timeRemaining > 300) {
+                timerDisplay.classList.remove('warning', 'danger');
+            } else if (timeRemaining > 60) {
+                timerDisplay.classList.remove('danger');
+                timerDisplay.classList.add('warning');
+            } else {
+                timerDisplay.classList.add('danger');
+            }
         }
 
         function showQuestion() {
@@ -738,7 +870,6 @@
                     btn.className = 'option-btn';
                     btn.type = 'button';
 
-                    // Show correct/incorrect styling if already answered
                     if (userAnswer) {
                         if (letter === question.correct_answer) {
                             btn.classList.add('correct');
@@ -852,11 +983,17 @@
 
         function endTestEarly() {
             if (confirm('Are you sure you want to end the test early? Your current results will be shown.')) {
-                showResults();
+                forceEndTest();
             }
         }
 
+        function forceEndTest() {
+            clearInterval(timerInterval);
+            showResults();
+        }
+
         function showResults() {
+            clearInterval(timerInterval);
             document.getElementById('quizScreen').style.display = 'none';
             document.getElementById('resultsScreen').style.display = 'block';
 
@@ -865,6 +1002,8 @@
 
             document.getElementById('resultUsername').textContent = username;
             document.getElementById('scoreNumber').textContent = percentage + '%';
+            document.getElementById('resultScoreNumber').textContent = percentage + '%';
+            document.getElementById('resultName').textContent = `${username} - ${percentage}%`;
             document.getElementById('totalQuestions').textContent = questions.length;
             document.getElementById('correctAnswers').textContent = score;
             document.getElementById('incorrectAnswers').textContent = incorrect;
@@ -895,11 +1034,88 @@
             }
         }
 
+        function restartQuiz() {
+            // Reset all variables
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            timeRemaining = 0;
+            
+            // Clear timer
+            clearInterval(timerInterval);
+            
+            // Reset inputs
+            document.getElementById('usernameInput').value = '';
+            document.getElementById('jumpInput').value = '';
+            
+            // Hide results, show start screen
+            document.getElementById('resultsScreen').style.display = 'none';
+            document.getElementById('startScreen').style.display = 'block';
+        }
+
         function backToStart() {
+            clearInterval(timerInterval);
             document.getElementById('resultsScreen').style.display = 'none';
             document.getElementById('usernameInput').value = '';
             document.getElementById('jumpInput').value = '';
             document.getElementById('startScreen').style.display = 'block';
+        }
+
+        function shareResults() {
+            document.getElementById('shareModal').classList.add('show');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.remove('show');
+        }
+
+        function downloadImage() {
+            const element = document.getElementById('resultsImage');
+            element.classList.add('show');
+            
+            html2canvas(element, {
+                backgroundColor: '#ffffff',
+                scale: 2
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = `${username}_quiz_results.png`;
+                link.click();
+                element.classList.remove('show');
+            });
+        }
+
+        function shareViaWhatsApp() {
+            const percentage = Math.round((score / questions.length) * 100);
+            const text = `🎉 I scored ${percentage}% on the Reproductive Physiology Quiz!\n\n✓ Correct: ${score}\n✗ Incorrect: ${questions.length - score}\n\nPlayer: ${username}`;
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/?text=${encodedText}`);
+            closeShareModal();
+        }
+
+        function shareViaEmail() {
+            const percentage = Math.round((score / questions.length) * 100);
+            const subject = `Quiz Results - ${username}`;
+            const body = `Hi,\n\nI scored ${percentage}% on the Reproductive Physiology Quiz!\n\nCorrect Answers: ${score}\nIncorrect Answers: ${questions.length - score}\nTotal Questions: ${questions.length}\n\nBest regards,\n${username}`;
+            window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+            closeShareModal();
+        }
+
+        function copyToClipboard() {
+            const percentage = Math.round((score / questions.length) * 100);
+            const text = `🎉 Quiz Results for ${username}\n\nScore: ${percentage}%\nCorrect: ${score}\nIncorrect: ${questions.length - score}\nTotal: ${questions.length} questions`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Results copied to clipboard!');
+                closeShareModal();
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('shareModal');
+            if (event.target == modal) {
+                closeShareModal();
+            }
         }
     </script>
 </body>
