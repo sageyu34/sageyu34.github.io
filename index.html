@@ -570,6 +570,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 15px;
+            width: 100%;
         }
 
         .loading {
@@ -642,6 +643,19 @@
             font-size: 0.9em;
         }
 
+        .admin-btn-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .admin-btn-container .btn {
+            padding: 10px 15px;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
         @media (max-width: 600px) {
             .header h1 {
                 font-size: 1.5em;
@@ -685,10 +699,37 @@
             .mode-selection {
                 grid-template-columns: 1fr;
             }
+
+            .admin-btn-container {
+                position: static;
+                margin-bottom: 20px;
+            }
+
+            .admin-btn-container .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">🔐 Admin Login</div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 10px; color: #333; font-weight: 600;">Admin Password:</label>
+                <input type="password" id="adminPassword" placeholder="Enter admin password" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1em;">
+            </div>
+            <button class="btn" onclick="loginAdmin()" style="width: 100%; margin: 0;">Login</button>
+            <button class="modal-close" onclick="closeAdminModal()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Admin Link (Top Right) -->
+    <div class="admin-btn-container">
+        <button class="btn" onclick="openAdminLogin()">🔐 Admin</button>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1>🧬 Reproductive Physiology Quiz</h1>
@@ -923,6 +964,30 @@
             return false;
         });
 
+        // ===== ADMIN SECTION =====
+        const ADMIN_PASSWORD = 'admin123';
+
+        function openAdminLogin() {
+            document.getElementById('adminLoginModal').classList.add('show');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminLoginModal').classList.remove('show');
+            document.getElementById('adminPassword').value = '';
+        }
+
+        function loginAdmin() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                closeAdminModal();
+                window.open('admin.html', '_blank');
+                document.getElementById('adminPassword').value = '';
+            } else {
+                alert('❌ Incorrect password!');
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
         // ===== QUIZ STATE & LOCAL STORAGE =====
         let allQuestions = [];
         let questions = [];
@@ -939,6 +1004,15 @@
         window.onload = function() {
             loadQuestions();
             checkForSavedQuiz();
+            
+            const adminPasswordInput = document.getElementById('adminPassword');
+            if (adminPasswordInput) {
+                adminPasswordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        loginAdmin();
+                    }
+                });
+            }
         };
 
         function loadQuestions() {
@@ -1181,174 +1255,7 @@
                     if (userAnswer) {
                         if (letter === question.correct_answer) {
                             btn.classList.add('correct');
-                        } else if (letter === userAnswer.selected && userAnswer.selected !== question.correct_answer) {
-                            btn.classList.add('incorrect');
-                        }
-                        btn.disabled = true;
-                    }
-
-                    btn.innerHTML = `<span class="option-letter">${letter}</span>${question.options[letter]}`;
-                    btn.onclick = () => selectOption(letter);
-                    optionsContainer.appendChild(btn);
-                }
-            });
-
-            const feedback = document.getElementById('feedback');
-            feedback.style.display = 'none';
-
-            document.getElementById('prevBtn').style.visibility = 
-                currentQuestionIndex > 0 ? 'visible' : 'hidden';
-            document.getElementById('nextBtn').textContent = 
-                currentQuestionIndex === questions.length - 1 ? 'Finish Quiz ✓' : 'Next Question →';
-
-            document.getElementById('jumpInput').max = questions.length;
-        }
-
-        function selectOption(selectedLetter) {
-            if (userAnswers[currentQuestionIndex]) return;
-
-            const question = questions[currentQuestionIndex];
-            const isCorrect = selectedLetter === question.correct_answer;
-
-            userAnswers[currentQuestionIndex] = {
-                selected: selectedLetter,
-                isCorrect: isCorrect
-            };
-
-            if (isCorrect) score++;
-            questionsAttempted++;
-
-            saveQuizProgress();
-
-            const buttons = document.querySelectorAll('.option-btn');
-            const optionLetters = ['A', 'B', 'C', 'D', 'E'];
-
-            buttons.forEach((btn, index) => {
-                const letter = optionLetters[index];
-                btn.disabled = true;
-
-                if (letter === question.correct_answer) {
-                    btn.classList.add('correct');
-                } else if (letter === selectedLetter && !isCorrect) {
-                    btn.classList.add('incorrect');
-                }
-            });
-
-            const feedback = document.getElementById('feedback');
-            feedback.style.display = 'block';
-            if (isCorrect) {
-                feedback.className = 'feedback correct';
-                feedback.innerHTML = '✓ Correct! Well done.';
-            } else {
-                feedback.className = 'feedback incorrect';
-                feedback.innerHTML = `✗ Incorrect. The correct answer is <strong>${question.correct_answer}</strong>.`;
-            }
-
-            document.getElementById('nextBtn').disabled = false;
-        }
-
-        function nextQuestion() {
-            if (currentQuestionIndex < questions.length - 1) {
-                currentQuestionIndex++;
-                showQuestion();
-                saveQuizProgress();
-            } else {
-                showResults();
-            }
-        }
-
-        function previousQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                showQuestion();
-                saveQuizProgress();
-            }
-        }
-
-        function jumpToQuestion() {
-            const jumpNum = parseInt(document.getElementById('jumpInput').value);
-            if (isNaN(jumpNum) || jumpNum < 1 || jumpNum > questions.length) {
-                alert(`Please enter a number between 1 and ${questions.length}`);
-                return;
-            }
-            currentQuestionIndex = jumpNum - 1;
-            showQuestion();
-            document.getElementById('jumpInput').value = '';
-            saveQuizProgress();
-        }
-
-        function endTestEarly() {
-            if (confirm('Are you sure you want to end the test early? Your current results will be shown.')) {
-                forceEndTest();
-            }
-        }
-
-        function forceEndTest() {
-            clearInterval(timerInterval);
-            showResults();
-        }
-
-        function showResults() {
-            clearInterval(timerInterval);
-            localStorage.removeItem('quizProgress');
-            
-            document.getElementById('quizScreen').style.display = 'none';
-            document.getElementById('resultsScreen').style.display = 'block';
-
-            const totalTime = Math.floor((Date.now() - startTime) / 1000);
-            const percentage = questionsAttempted > 0 ? Math.round((score / questionsAttempted) * 100) : 0;
-            const incorrect = questionsAttempted - score;
-            const avgTimePerQ = questionsAttempted > 0 ? Math.floor(totalTime / questionsAttempted) : 0;
-
-            const modeInfo = getModeInfo(quizMode);
-            const modeDisplay = modeInfo.name;
-
-            document.getElementById('resultUsername').textContent = username;
-            document.getElementById('scoreNumber').textContent = percentage + '%';
-            document.getElementById('resultScoreNumber').textContent = percentage + '%';
-            document.getElementById('resultName').textContent = `${username} - ${percentage}%`;
-            document.getElementById('resultMode').textContent = `Mode: ${modeDisplay}`;
-            document.getElementById('examMode').textContent = modeDisplay;
-            document.getElementById('totalTime').textContent = formatTime(totalTime);
-            document.getElementById('questionsAttempted').textContent = questionsAttempted;
-            document.getElementById('correctAnswers').textContent = score;
-            document.getElementById('incorrectAnswers').textContent = incorrect;
-            document.getElementById('accuracyPercent').textContent = percentage + '%';
-            document.getElementById('avgTimePerQ').textContent = avgTimePerQ + 's';
-
-            const reviewContainer = document.getElementById('reviewContainer');
-            const incorrectAnswers = userAnswers.map((answer, index) => ({...answer, index}))
-                .filter(answer => answer && !answer.isCorrect);
-
-            if (incorrectAnswers.length > 0) {
-                document.getElementById('reviewSection').style.display = 'block';
-                reviewContainer.innerHTML = '';
-
-                incorrectAnswers.forEach(answer => {
-                    const question = questions[answer.index];
-                    const div = document.createElement('div');
-                    div.className = 'review-item';
-                    div.innerHTML = `
-                        <div class="review-question">Q${answer.index + 1}: ${question.question}</div>
-                        <div class="review-answer">
-                            Your answer: <strong>${answer.selected}</strong> | 
-                            Correct answer: <strong>${question.correct_answer}</strong>
-                        </div>
-                    `;
-                    reviewContainer.appendChild(div);
-                });
-            }
-
-            // Save to admin panel
-            const testResult = {
-                username,
-                mode: modeDisplay,
-                accuracy: percentage,
-                correctAnswers: score,
-                questionsAttempted,
-                totalQuestions: questions.length,
-                totalTime: formatTime(totalTime),
-                avgTimePerQuestion: avgTimePerQ,
+                        } else if (letter === userAnswer.selected && userAnswer.selected !== question.correct_answer) {TimePerQuestion: avgTimePerQ,
                 timestamp: new Date().getTime(),
                 status: 'completed'
             };
@@ -1449,8 +1356,12 @@
 
         window.onclick = function(event) {
             const modal = document.getElementById('shareModal');
+            const adminModal = document.getElementById('adminLoginModal');
             if (event.target == modal) {
                 closeShareModal();
+            }
+            if (event.target == adminModal) {
+                closeAdminModal();
             }
         }
 
