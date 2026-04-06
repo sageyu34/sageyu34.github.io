@@ -15,138 +15,47 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 10px;
-            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
         .container {
-            min-width: 320px;
-            max-width: 900px;
-            margin: 0 auto;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
         }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .activation-section {
             text-align: center;
         }
 
-        .header h1 {
-            font-size: clamp(1.5em, 5vw, 2.5em);
-            margin-bottom: 10px;
-        }
-
-        .quiz-content {
-            padding: 20px;
-        }
-
-        .start-screen, .quiz-screen, .results-screen, .login-screen, .resume-screen, .activation-screen, .revoked-screen {
-            display: none;
-        }
-
-        .start-screen.active, .quiz-screen.active, .results-screen.active, .login-screen.active, .resume-screen.active, .activation-screen.active, .revoked-screen.active {
-            display: block;
-        }
-
-        .student-form, .login-form, .resume-box, .activation-box, .revoked-box {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .resume-box {
-            background: #e3f2fd;
-            border: 2px solid #2196f3;
-            padding: 30px;
-            border-radius: 15px;
+        .token-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid #ddd;
+            border-radius: 10px;
             text-align: center;
-        }
-
-        .activation-box {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .revoked-box {
-            background: #ffebee;
-            border: 2px solid #f44336;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .form-group {
+            text-transform: uppercase;
             margin-bottom: 20px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus, .form-group select:focus {
+        .token-input:focus {
             outline: none;
             border-color: #667eea;
-        }
-
-        .mode-selection {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .mode-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .mode-card:hover {
-            border-color: #667eea;
-            background: #f0f3ff;
-        }
-
-        .mode-card.selected {
-            border-color: #667eea;
-            background: #e8ecff;
-        }
-
-        .mode-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .mode-title {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .mode-desc {
-            font-size: 0.9em;
-            color: #666;
         }
 
         .btn {
@@ -158,9 +67,6 @@
             border-radius: 30px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
-            text-decoration: none;
-            white-space: nowrap;
         }
 
         .btn:hover {
@@ -174,45 +80,72 @@
             transform: none;
         }
 
-        .btn-danger {
-            background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
-        }
-
-        .progress-bar {
-            background: #e0e0e0;
-            height: 10px;
-            border-radius: 5px;
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 20px;
-            overflow: hidden;
         }
 
-        .progress-fill {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100%;
-            border-radius: 5px;
-            transition: width 0.3s;
-        }
-
-        .question-info {
-            display: flex;
-            justify-content: space-between;
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 20px;
-            color: #666;
-            font-weight: 500;
-            flex-wrap: wrap;
-            gap: 10px;
+        }
+
+        .user-form {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .quiz-section {
+            display: none;
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .question-card {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             margin-bottom: 20px;
-            min-width: 280px;
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .question-text {
-            font-size: clamp(1em, 4vw, 1.2em);
+            font-size: 1.2em;
             color: #333;
             margin-bottom: 20px;
             line-height: 1.6;
@@ -226,14 +159,11 @@
 
         .option {
             background: white;
-            border: 2px solid #e0e0e0;
             padding: 15px;
+            border: 2px solid #ddd;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
         }
 
         .option:hover {
@@ -243,200 +173,150 @@
 
         .option.selected {
             border-color: #667eea;
-            background: #e8ecff;
-        }
-
-        .option-letter {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 30px;
-            height: 30px;
             background: #667eea;
             color: white;
-            border-radius: 50%;
-            font-weight: bold;
-            flex-shrink: 0;
         }
 
-        .timer {
-            text-align: center;
-            font-size: clamp(1.2em, 4vw, 1.5em);
-            color: #667eea;
-            margin-bottom: 20px;
-            font-weight: bold;
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
         }
 
-        .timer.warning {
-            color: #ff9800;
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
         }
 
-        .timer.danger {
-            color: #f44336;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .navigation {
+        .quiz-controls {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
-            gap: 10px;
-            flex-wrap: wrap;
         }
 
-        .results-summary {
+        .results-section {
+            display: none;
             text-align: center;
-            padding: 20px;
         }
 
-        .score-circle {
-            width: clamp(150px, 40vw, 200px);
-            height: clamp(150px, 40vw, 200px);
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            color: white;
-            font-size: clamp(2em, 6vw, 3em);
-            font-weight: bold;
+        .score-display {
+            font-size: 3em;
+            color: #667eea;
+            margin: 20px 0;
         }
 
-        .stats-grid {
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .stat-card {
             background: #f8f9fa;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
-            text-align: center;
         }
 
         .stat-value {
-            font-size: clamp(1.5em, 4vw, 2em);
-            font-weight: bold;
+            font-size: 2em;
             color: #667eea;
+            font-weight: bold;
         }
 
         .stat-label {
             color: #666;
             margin-top: 5px;
-            font-size: 0.9em;
         }
 
-        .review-section {
-            margin-top: 30px;
-            text-align: left;
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-
-        .review-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
-        }
-
-        .review-item.correct {
-            border-left-color: #4caf50;
-        }
-
-        .review-item.incorrect {
-            border-left-color: #f44336;
-        }
-
-        .review-question {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-            font-size: clamp(0.9em, 3vw, 1em);
-        }
-
-        .review-answer {
-            color: #666;
-            margin-bottom: 5px;
-            font-size: clamp(0.85em, 3vw, 0.95em);
-        }
-
-        .review-correct {
-            color: #4caf50;
-            font-weight: 600;
-        }
-
-        .review-user {
-            color: #f44336;
-            font-weight: 600;
-        }
-
-        .topic-badge {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-
-        .saving-status {
-            background: #e3f2fd;
-            border: 1px solid #2196f3;
-            color: #1976d2;
-            padding: 15px;
-            border-radius: 10px;
+        .mode-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin: 20px 0;
-            text-align: center;
         }
 
-        .saving-status.error {
-            background: #ffebee;
-            border-color: #f44336;
-            color: #c62828;
+        .mode-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
-        .saving-status.success {
-            background: #e8f5e9;
-            border-color: #4caf50;
-            color: #2e7d32;
+        .mode-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
         }
 
-        .admin-link {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.9);
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
+        .mode-card.selected {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .mode-card h3 {
             color: #667eea;
-            font-weight: 600;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 100;
+            margin-bottom: 10px;
+        }
+
+        .mode-card p {
+            color: #666;
+            font-size: 0.9em;
         }
 
         .hidden {
             display: none !important;
         }
 
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-size: 0.9em;
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification.success {
+            background: #28a745;
+        }
+
+        .notification.error {
+            background: #dc3545;
+        }
+
+        .review-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .review-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .review-item.correct {
+            border-left: 4px solid #28a745;
+        }
+
+        .review-item.incorrect {
+            border-left: 4px solid #dc3545;
         }
 
         .loading {
@@ -447,6 +327,7 @@
             border-top: 3px solid #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            margin-left: 10px;
         }
 
         @keyframes spin {
@@ -454,827 +335,692 @@
             100% { transform: rotate(360deg); }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
-                min-height: 100vh;
-            }
-            
-            body {
-                padding: 0;
-            }
-            
-            .mode-selection {
-                grid-template-columns: 1fr;
-            }
+        .revoked-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .paused-section {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🧬 Reproductive Physiology Quiz</h1>
-            <p>Test your knowledge with 300+ questions</p>
+        <!-- Token Activation Section -->
+        <div id="activationSection" class="activation-section">
+            <h1>🔐 Activate Your Token</h1>
+            <p style="margin-bottom: 20px; color: #666;">Contact administrator for access token</p>
+            <div id="activationMessage"></div>
+            <input type="text" id="tokenInput" class="token-input" placeholder="ENTER TOKEN" maxlength="20">
+            <br>
+            <button class="btn" id="activateBtn" onclick="activateToken()">Activate</button>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">One token = One device activation</p>
         </div>
 
-        <div class="quiz-content">
-            <!-- Login/Activation Screen -->
-            <div class="login-screen active">
-                <div class="login-form">
-                    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Activate Your Token</h2>
-                    <div class="form-group">
-                        <label for="accessToken">Access Token</label>
-                        <input type="password" id="accessToken" placeholder="Enter your access token" required>
-                        <div id="tokenError" class="error-message hidden"></div>
-                    </div>
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn" onclick="activateToken()" id="activateBtn">
-                            <span id="btnText">Activate</span>
-                        </button>
-                    </div>
-                    <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
-                        Contact administrator for access token<br>
-                        <small>One token = One device activation</small>
-                    </p>
+        <!-- Success Message -->
+        <div id="successSection" class="hidden">
+            <div class="success-message">
+                <h2>✅ Activation Successful!</h2>
+                <p>This device is now activated for <strong id="activatedName"></strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em;">You won't need to enter the token again on this device.</p>
+            </div>
+        </div>
+
+        <!-- Revoked Message -->
+        <div id="revokedSection" class="hidden">
+            <div class="revoked-message">
+                <h2>🚫 Access Revoked</h2>
+                <p>Your access has been revoked by the administrator.</p>
+                <p style="margin-top: 15px;">Token: <strong id="revokedToken"></strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em;">Contact administrator for assistance.</p>
+            </div>
+        </div>
+
+        <!-- Paused Test Section -->
+        <div id="pausedSection" class="hidden">
+            <div class="paused-section">
+                <h3>⏸️ Test in Progress</h3>
+                <p>Welcome back, <strong id="pausedName"></strong>!</p>
+                <p id="pausedDetails" style="margin-top: 10px;"></p>
+                <button class="btn" onclick="resumeTest()" style="margin-top: 15px;">Resume Test</button>
+            </div>
+        </div>
+
+        <!-- User Details Form -->
+        <div id="userFormSection" class="user-form">
+            <h1>Enter Your Details</h1>
+            <div class="form-group">
+                <label for="userName">Full Name</label>
+                <input type="text" id="userName" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="userId">Student ID / Email</label>
+                <input type="text" id="userId" placeholder="Enter your student ID or email">
+            </div>
+            
+            <h3 style="margin: 30px 0 15px;">Select Test Mode</h3>
+            <div class="mode-selection">
+                <div class="mode-card" onclick="selectMode('beginner')" data-mode="beginner">
+                    <h3>🌱 Beginner</h3>
+                    <p>20 questions<br>15 minutes</p>
+                </div>
+                <div class="mode-card" onclick="selectMode('advanced')" data-mode="advanced">
+                    <h3>🎯 Advanced</h3>
+                    <p>50 questions<br>30 minutes</p>
+                </div>
+                <div class="mode-card" onclick="selectMode('bullet')" data-mode="bullet">
+                    <h3>⚡ Bullet</h3>
+                    <p>50 questions<br>No time limit</p>
+                </div>
+                <div class="mode-card" onclick="selectMode('fame')" data-mode="fame">
+                    <h3>🔥 60 Seconds of Fame</h3>
+                    <p>Unlimited questions<br>60 seconds only!</p>
                 </div>
             </div>
+            <p id="modeError" style="color: #dc3545; margin-top: 10px; display: none;">Please select a test mode</p>
+            <button class="btn" onclick="startQuiz()" style="margin-top: 30px; width: 100%;">Start Quiz</button>
+        </div>
 
-            <!-- Activation Success Screen -->
-            <div class="activation-screen">
-                <div class="activation-box">
-                    <h2 style="margin-bottom: 20px; color: #2e7d32;">✅ Activation Successful!</h2>
-                    <p style="margin-bottom: 15px; color: #333;">
-                        This device is now activated for <span id="activatedToken"></span>
-                    </p>
-                    <p style="margin-bottom: 20px; color: #666; font-size: 0.9em;">
-                        You won't need to enter the token again on this device.<br>
-                        Contact administrator if you need to move to a different device.
-                    </p>
-                    <button class="btn" onclick="proceedToQuiz()">Continue to Quiz</button>
+        <!-- Quiz Section -->
+        <div id="quizSection" class="quiz-section">
+            <div class="timer" id="timer">00:00</div>
+            <div class="question-card">
+                <div class="question-number" id="questionNumber">Question 1 of 20</div>
+                <div class="question-text" id="questionText">Loading question...</div>
+                <div class="options" id="optionsContainer">
+                    <!-- Options will be inserted here -->
                 </div>
             </div>
+            <div class="quiz-controls">
+                <button class="btn" onclick="previousQuestion()" id="prevBtn">Previous</button>
+                <button class="btn" onclick="nextQuestion()" id="nextBtn">Next</button>
+            </div>
+        </div>
 
-            <!-- Revoked Screen -->
-            <div class="revoked-screen">
-                <div class="revoked-box">
-                    <h2 style="margin-bottom: 20px; color: #c62828;">🚫 Access Revoked</h2>
-                    <p style="margin-bottom: 15px; color: #333;">
-                        Your access has been revoked by the administrator.
-                    </p>
-                    <p style="margin-bottom: 20px; color: #666; font-size: 0.9em;">
-                        Token: <span id="revokedToken"></span><br>
-                        Contact administrator for assistance.
-                    </p>
-                    <button class="btn" onclick="backToLogin()">Back to Login</button>
-                </div>
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section">
+            <h1>Quiz Complete! 🎉</h1>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Great job, <span id="resultName"></span>!</p>
+            
+            <div class="score-display" id="scoreDisplay">0%</div>
+            
+            <div class="stats" id="statsContainer">
+                <!-- Stats will be inserted here -->
             </div>
 
-            <!-- Resume Screen -->
-            <div class="resume-screen">
-                <div class="resume-box">
-                    <h2 style="margin-bottom: 20px; color: #1976d2;">⏸️ Test in Progress</h2>
-                    <p style="margin-bottom: 10px; color: #333; font-size: 1.1em;">
-                        Welcome back, <span id="resumeStudentName"></span>!
-                    </p>
-                    <p style="margin-bottom: 20px; color: #666;">
-                        Mode: <strong id="resumeMode"></strong><br>
-                        Question <span id="resumeQuestion"></span> of <span id="resumeTotal"></span><br>
-                        Time remaining: <span id="resumeTime"></span>
-                    </p>
-                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                        <button class="btn" onclick="resumeQuiz()">Resume Test</button>
-                        <button class="btn btn-danger" onclick="abandonQuiz()">Abandon & Start New</button>
-                    </div>
-                </div>
+            <div id="savingResults" style="margin: 20px 0;">
+                <p>Saving results... <span class="loading"></span></p>
             </div>
 
-            <!-- Start Screen -->
-            <div class="start-screen">
-                <div class="student-form">
-                    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Your Details</h2>
-                    <div class="form-group">
-                        <label for="studentName">Full Name</label>
-                        <input type="text" id="studentName" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="studentId">Student ID / Email</label>
-                        <input type="text" id="studentId" placeholder="Enter your ID or email" required>
-                    </div>
-                    
-                    <h3 style="margin: 30px 0 15px; color: #333;">Select Test Mode</h3>
-                    <div class="mode-selection">
-                        <div class="mode-card" onclick="selectMode('beginner')" data-mode="beginner">
-                            <div class="mode-icon">🌱</div>
-                            <div class="mode-title">Beginner</div>
-                            <div class="mode-desc">20 questions<br>15 minutes</div>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('advanced')" data-mode="advanced">
-                            <div class="mode-icon">🎯</div>
-                            <div class="mode-title">Advanced</div>
-                            <div class="mode-desc">50 questions<br>30 minutes</div>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('bullet')" data-mode="bullet">
-                            <div class="mode-icon">⚡</div>
-                            <div class="mode-title">Bullet</div>
-                            <div class="mode-desc">50 questions<br>No time limit</div>
-                        </div>
-                        <div class="mode-card" onclick="selectMode('fame')" data-mode="fame">
-                            <div class="mode-icon">🔥</div>
-                            <div class="mode-title">60 Seconds of Fame</div>
-                            <div class="mode-desc">Unlimited questions<br>60 seconds only!</div>
-                        </div>
-                    </div>
-                    <div id="modeError" class="error-message hidden" style="text-align: center;">Please select a test mode</div>
-                    
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn" onclick="startQuiz()">Start Quiz</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quiz Screen -->
-            <div class="quiz-screen">
-                <div class="timer" id="timer">00:00</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
-                </div>
-                <div class="question-info">
-                    <span id="questionNumber">Question 1 of 20</span>
-                    <span id="topicDisplay">Topic</span>
-                </div>
-                
-                <div class="question-card">
-                    <span class="topic-badge" id="topicBadge">Topic</span>
-                    <div class="question-text" id="questionText">Loading question...</div>
-                    <div class="options" id="optionsContainer"></div>
-                </div>
-
-                <div class="navigation">
-                    <button class="btn" id="prevBtn" onclick="previousQuestion()" style="visibility: hidden;">Previous</button>
-                    <button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
-                </div>
-
-                <div style="text-align: center; margin-top: 20px;">
-                    <button class="btn" onclick="submitQuiz()" style="background: #4caf50;">Submit Quiz</button>
-                </div>
-            </div>
-
-            <!-- Results Screen -->
-            <div class="results-screen">
-                <div class="results-summary">
-                    <h2 style="margin-bottom: 20px; color: #333;">Quiz Complete! 🎉</h2>
-                    <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">
-                        Great job, <span id="resultName"></span>!
-                    </p>
-                    
-                    <div class="score-circle" id="scoreCircle">0%</div>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value" id="statScore">0%</div>
-                            <div class="stat-label">Score</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="statCorrect">0</div>
-                            <div class="stat-label">Correct</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="statTotal">0</div>
-                            <div class="stat-label">Total</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="statTime">0:00</div>
-                            <div class="stat-label">Time</div>
-                        </div>
-                    </div>
-
-                    <div id="savingStatus" class="saving-status hidden">
-                        Saving results...
-                    </div>
-
-                    <div class="review-section" id="reviewSection">
-                        <h3 style="margin-bottom: 20px; color: #333;">Review Your Answers</h3>
-                        <div id="reviewContainer"></div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 40px;">
-                        <button class="btn" onclick="restartQuiz()">Take Another Quiz</button>
-                    </div>
-                </div>
+            <button class="btn" onclick="restartQuiz()" style="margin-top: 20px;">Take Another Quiz</button>
+            
+            <div class="review-section" id="reviewSection">
+                <h3 style="margin-bottom: 20px;">Review Your Answers</h3>
+                <!-- Review items will be inserted here -->
             </div>
         </div>
     </div>
 
-    <a href="admin.html" class="admin-link">👤 Admin</a>
-
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
+        // Google Apps Script URL - REPLACE WITH YOUR DEPLOYED SCRIPT URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
         
+        // Quiz data
         let questions = [];
-        let currentQuestions = [];
-        let currentQuestionIndex = 0;
+        let currentQuestion = 0;
         let userAnswers = [];
-        let studentInfo = {};
-        let timerInterval;
-        let timeRemaining = 0;
-        let startTime;
-        let quizSubmitted = false;
         let selectedMode = null;
-        let fameModeActive = false;
-        let fameQuestionsAttempted = 0;
-        let currentToken = null;
+        let timer = null;
+        let timeRemaining = 0;
+        let quizStartTime = null;
+        let deviceId = null;
 
-        const TEST_MODES = {
-            beginner: { questions: 20, time: 900, name: 'Beginner' },
-            advanced: { questions: 50, time: 1800, name: 'Advanced' },
-            bullet: { questions: 50, time: 0, name: 'Bullet' },
-            fame: { questions: 999, time: 60, name: '60 Seconds of Fame' }
-        };
+        // Session persistence keys
+        const SESSION_KEY = 'quizSession';
+        const ACTIVATION_KEY = 'quizActivation';
 
-        function getDeviceFingerprint() {
-            const nav = window.navigator;
-            const screen = window.screen;
-            const deviceInfo = [
-                nav.userAgent,
-                nav.language,
-                nav.platform,
-                screen.width + 'x' + screen.height,
-                screen.colorDepth,
-                new Date().getTimezoneOffset()
-            ].join('|');
-            
-            let hash = 0;
-            for (let i = 0; i < deviceInfo.length; i++) {
-                const char = deviceInfo.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash;
+        // Generate or get device ID
+        function getDeviceId() {
+            let id = localStorage.getItem('deviceId');
+            if (!id) {
+                id = 'dev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+                localStorage.setItem('deviceId', id);
             }
-            return 'dev_' + Math.abs(hash).toString(16);
+            return id;
         }
 
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadQuestions();
+            deviceId = getDeviceId();
             checkExistingActivation();
+            loadQuestions();
         });
 
-        // Check if this device already has an active token
-        async function checkExistingActivation() {
-            const savedToken = localStorage.getItem('activatedToken');
+        // Check for existing activation on page load
+        function checkExistingActivation() {
+            const activation = localStorage.getItem(ACTIVATION_KEY);
+            const session = sessionStorage.getItem(SESSION_KEY);
             
-            if (savedToken) {
-                // Verify it's still valid (not revoked)
-                try {
-                    const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=verifyActivation&token=${savedToken}&deviceId=${getDeviceFingerprint()}`);
-                    const data = await response.json();
-                    
-                    if (data.valid) {
-                        currentToken = savedToken;
-                        // Check for resume
-                        checkForResume();
-                    } else {
-                        // Token revoked or invalid
-                        localStorage.removeItem('activatedToken');
-                        if (data.message.includes('revoked')) {
-                            showRevokedScreen(savedToken);
-                        }
-                    }
-                } catch (error) {
-                    console.error('Verification error:', error);
+            if (activation) {
+                const data = JSON.parse(activation);
+                // Verify activation is still valid with server
+                verifyActivation(data.token);
+            }
+            
+            // Restore session if exists
+            if (session) {
+                const sessionData = JSON.parse(session);
+                if (sessionData.inProgress) {
+                    restoreSession(sessionData);
                 }
             }
         }
 
-        function showRevokedScreen(token) {
-            document.querySelector('.login-screen').classList.remove('active');
-            document.querySelector('.revoked-screen').classList.add('active');
+        // Verify activation with server
+        async function verifyActivation(token) {
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=verify&token=${encodeURIComponent(token)}&deviceId=${encodeURIComponent(deviceId)}`);
+                const result = await response.json();
+                
+                if (result.revoked) {
+                    showRevoked(token);
+                    localStorage.removeItem(ACTIVATION_KEY);
+                    return;
+                }
+                
+                if (result.valid) {
+                    document.getElementById('activationSection').classList.add('hidden');
+                    document.getElementById('successSection').classList.remove('hidden');
+                    document.getElementById('activatedName').textContent = result.name;
+                    
+                    setTimeout(() => {
+                        document.getElementById('successSection').classList.add('hidden');
+                        document.getElementById('userFormSection').classList.remove('hidden');
+                        document.getElementById('userFormSection').style.display = 'block';
+                    }, 2000);
+                } else {
+                    localStorage.removeItem(ACTIVATION_KEY);
+                }
+            } catch (error) {
+                console.error('Verification error:', error);
+            }
+        }
+
+        // Show revoked message
+        function showRevoked(token) {
+            document.getElementById('activationSection').classList.add('hidden');
+            document.getElementById('revokedSection').classList.remove('hidden');
             document.getElementById('revokedToken').textContent = token;
         }
 
+        // Activate token with Google Sheets
         async function activateToken() {
-            const token = document.getElementById('accessToken').value.trim().toUpperCase();
-            const errorEl = document.getElementById('tokenError');
+            const tokenInput = document.getElementById('tokenInput');
+            const token = tokenInput.value.trim().toUpperCase();
             const btn = document.getElementById('activateBtn');
-            const btnText = document.getElementById('btnText');
             
             if (!token) {
-                errorEl.textContent = 'Please enter a token';
-                errorEl.classList.remove('hidden');
+                showNotification('Please enter a token', 'error');
                 return;
             }
             
             btn.disabled = true;
-            btnText.innerHTML = '<span class="loading"></span> Checking...';
+            btn.innerHTML = 'Activating... <span class="loading"></span>';
             
             try {
-                // Check token status
-                const checkResponse = await fetch(`${GOOGLE_SCRIPT_URL}?action=checkToken&token=${token}`);
-                const checkData = await checkResponse.json();
+                const response = await fetch(`${SCRIPT_URL}?action=activate&token=${encodeURIComponent(token)}&deviceId=${encodeURIComponent(deviceId)}`);
+                const result = await response.json();
                 
-                if (!checkData.exists) {
-                    errorEl.textContent = 'Invalid token';
-                    errorEl.classList.remove('hidden');
-                    btn.disabled = false;
-                    btnText.textContent = 'Activate';
-                    return;
-                }
-                
-                if (checkData.status === 'REVOKED') {
-                    showRevokedScreen(token);
-                    return;
-                }
-                
-                if (checkData.status === 'ACTIVATED') {
-                    if (checkData.deviceId === getDeviceFingerprint()) {
-                        // Same device, already activated
-                        currentToken = token;
-                        localStorage.setItem('activatedToken', token);
-                        proceedToQuiz();
-                        return;
-                    } else {
-                        errorEl.textContent = 'Token already activated on another device';
-                        errorEl.classList.remove('hidden');
-                        btn.disabled = false;
-                        btnText.textContent = 'Activate';
-                        return;
-                    }
-                }
-                
-                // Token is AVAILABLE - activate it
-                btnText.textContent = 'Activating...';
-                const activateResponse = await fetch(`${GOOGLE_SCRIPT_URL}?action=activateToken&token=${token}&deviceId=${getDeviceFingerprint()}&studentName=Pending`);
-                const activateData = await activateResponse.json();
-                
-                if (activateData.success) {
-                    currentToken = token;
-                    localStorage.setItem('activatedToken', token);
-                    document.getElementById('activatedToken').textContent = token;
-                    document.querySelector('.login-screen').classList.remove('active');
-                    document.querySelector('.activation-screen').classList.add('active');
+                if (result.success) {
+                    // Save activation locally
+                    const activationData = {
+                        token: token,
+                        name: result.name,
+                        deviceId: deviceId,
+                        activatedAt: new Date().toISOString()
+                    };
+                    localStorage.setItem(ACTIVATION_KEY, JSON.stringify(activationData));
+                    
+                    showNotification(`Welcome, ${result.name}! Activation successful.`, 'success');
+                    
+                    document.getElementById('activationSection').classList.add('hidden');
+                    document.getElementById('successSection').classList.remove('hidden');
+                    document.getElementById('activatedName').textContent = result.name;
+                    
+                    setTimeout(() => {
+                        document.getElementById('successSection').classList.add('hidden');
+                        document.getElementById('userFormSection').classList.remove('hidden');
+                        document.getElementById('userFormSection').style.display = 'block';
+                    }, 2000);
                 } else {
-                    errorEl.textContent = activateData.message || 'Activation failed';
-                    errorEl.classList.remove('hidden');
-                    btn.disabled = false;
-                    btnText.textContent = 'Activate';
+                    showNotification(result.message || 'Invalid token', 'error');
                 }
-                
             } catch (error) {
                 console.error('Activation error:', error);
-                errorEl.textContent = 'Network error. Please try again.';
-                errorEl.classList.remove('hidden');
+                showNotification('Network error. Please try again.', 'error');
+            } finally {
                 btn.disabled = false;
-                btnText.textContent = 'Activate';
+                btn.textContent = 'Activate';
             }
         }
 
-        function proceedToQuiz() {
-            document.querySelector('.activation-screen').classList.remove('active');
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
             
-            // Check for resume
-            const savedState = sessionStorage.getItem('quizState');
-            if (savedState && !JSON.parse(savedState).submitted) {
-                document.querySelector('.resume-screen').classList.add('active');
-            } else {
-                document.querySelector('.start-screen').classList.add('active');
-            }
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
         }
 
-        function backToLogin() {
-            document.querySelector('.revoked-screen').classList.remove('active');
-            document.querySelector('.login-screen').classList.add('active');
-            document.getElementById('accessToken').value = '';
+        // Show user details form
+        function showUserDetailsForm(name) {
+            document.getElementById('userFormSection').classList.remove('hidden');
+            document.getElementById('userFormSection').style.display = 'block';
         }
 
-        function checkForResume() {
-            const savedState = sessionStorage.getItem('quizState');
-            if (savedState) {
-                const state = JSON.parse(savedState);
-                if (!state.submitted && state.studentInfo && state.studentInfo.name) {
-                    document.querySelector('.login-screen').classList.remove('active');
-                    document.querySelector('.resume-screen').classList.add('active');
-                    
-                    document.getElementById('resumeStudentName').textContent = state.studentInfo.name;
-                    document.getElementById('resumeMode').textContent = state.modeName || 'Unknown';
-                    document.getElementById('resumeQuestion').textContent = state.currentQuestionIndex + 1;
-                    document.getElementById('resumeTotal').textContent = state.totalQuestions;
-                    
-                    const minutes = Math.floor(state.timeRemaining / 60);
-                    const seconds = state.timeRemaining % 60;
-                    document.getElementById('resumeTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                } else {
-                    document.querySelector('.login-screen').classList.remove('active');
-                    document.querySelector('.start-screen').classList.add('active');
-                }
-            } else {
-                document.querySelector('.login-screen').classList.remove('active');
-                document.querySelector('.start-screen').classList.add('active');
-            }
-        }
-
-        function resumeQuiz() {
-            const savedState = sessionStorage.getItem('quizState');
-            if (!savedState) return;
-            
-            const state = JSON.parse(savedState);
-            
-            currentQuestions = state.currentQuestions;
-            currentQuestionIndex = state.currentQuestionIndex;
-            userAnswers = state.userAnswers;
-            studentInfo = state.studentInfo;
-            selectedMode = state.selectedMode;
-            timeRemaining = state.timeRemaining;
-            startTime = Date.now() - (state.elapsedTime || 0);
-            quizSubmitted = false;
-            fameModeActive = selectedMode === 'fame';
-            fameQuestionsAttempted = state.fameQuestionsAttempted || 0;
-            
-            document.querySelector('.resume-screen').classList.remove('active');
-            document.querySelector('.quiz-screen').classList.add('active');
-            
-            const mode = TEST_MODES[selectedMode];
-            if (mode.time > 0) {
-                startTimer();
-            } else {
-                document.getElementById('timer').textContent = 'No limit';
-            }
-            
-            displayQuestion();
-        }
-
-        function abandonQuiz() {
-            if (!confirm('Are you sure you want to abandon your current test? This cannot be undone.')) {
-                return;
-            }
-            
-            sessionStorage.removeItem('quizState');
-            
-            document.querySelector('.resume-screen').classList.remove('active');
-            document.querySelector('.start-screen').classList.add('active');
-        }
-
-        function saveState() {
-            const state = {
-                currentQuestions: currentQuestions,
-                currentQuestionIndex: currentQuestionIndex,
-                userAnswers: userAnswers,
-                studentInfo: studentInfo,
-                selectedMode: selectedMode,
-                modeName: TEST_MODES[selectedMode]?.name,
-                timeRemaining: timeRemaining,
-                totalQuestions: currentQuestions.length,
-                elapsedTime: Date.now() - startTime,
-                fameQuestionsAttempted: fameQuestionsAttempted,
-                submitted: quizSubmitted
-            };
-            sessionStorage.setItem('quizState', JSON.stringify(state));
-        }
-
-        async function loadQuestions() {
-            try {
-                const response = await fetch('reproductive_physiology_question_bank.json');
-                const data = await response.json();
-                questions = data.sections.multiple_choice_questions;
-                console.log('Loaded', questions.length, 'questions');
-            } catch (error) {
-                console.error('Error loading questions:', error);
-                alert('Error loading questions. Please refresh the page.');
-            }
-        }
-
+        // Select mode
         function selectMode(mode) {
             selectedMode = mode;
             document.querySelectorAll('.mode-card').forEach(card => {
                 card.classList.remove('selected');
             });
             document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
-            document.getElementById('modeError').classList.add('hidden');
+            document.getElementById('modeError').style.display = 'none';
         }
 
+        // Load questions from JSON
+        async function loadQuestions() {
+            try {
+                const response = await fetch('reproductive_physiology_question_bank.json');
+                const data = await response.json();
+                questions = data.sections.multiple_choice_questions;
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                showNotification('Error loading questions. Please refresh.', 'error');
+            }
+        }
+
+        // Start quiz
         function startQuiz() {
-            const name = document.getElementById('studentName').value.trim();
-            const id = document.getElementById('studentId').value.trim();
-
-            if (!name || !id) {
-                alert('Please enter both your name and ID/email');
+            const name = document.getElementById('userName').value.trim();
+            const userId = document.getElementById('userId').value.trim();
+            
+            if (!name || !userId) {
+                showNotification('Please fill in all fields', 'error');
                 return;
-            }
-
-            if (!selectedMode) {
-                document.getElementById('modeError').classList.remove('hidden');
-                return;
-            }
-
-            const mode = TEST_MODES[selectedMode];
-            studentInfo = { 
-                name: name, 
-                id: id, 
-                mode: mode.name,
-                startTime: new Date().toISOString() 
-            };
-            startTime = Date.now();
-            fameModeActive = selectedMode === 'fame';
-
-            if (selectedMode === 'fame') {
-                currentQuestions = [...questions].sort(() => Math.random() - 0.5);
-                fameQuestionsAttempted = 0;
-            } else {
-                currentQuestions = [...questions]
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, mode.questions);
-            }
-
-            userAnswers = new Array(currentQuestions.length).fill(null);
-            timeRemaining = mode.time;
-
-            document.querySelector('.start-screen').classList.remove('active');
-            document.querySelector('.quiz-screen').classList.add('active');
-
-            if (mode.time > 0) {
-                startTimer();
-            } else {
-                document.getElementById('timer').textContent = 'No limit';
             }
             
-            saveState();
+            if (!selectedMode) {
+                document.getElementById('modeError').style.display = 'block';
+                return;
+            }
+            
+            // Configure quiz based on mode
+            let numQuestions, timeLimit;
+            switch(selectedMode) {
+                case 'beginner':
+                    numQuestions = 20;
+                    timeLimit = 15 * 60; // 15 minutes
+                    break;
+                case 'advanced':
+                    numQuestions = 50;
+                    timeLimit = 30 * 60; // 30 minutes
+                    break;
+                case 'bullet':
+                    numQuestions = 50;
+                    timeLimit = null; // No time limit
+                    break;
+                case 'fame':
+                    numQuestions = 1000; // Unlimited
+                    timeLimit = 60; // 60 seconds
+                    break;
+            }
+            
+            // Shuffle and select questions
+            const shuffled = [...questions].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, Math.min(numQuestions, shuffled.length));
+            
+            // Initialize quiz state
+            currentQuestion = 0;
+            userAnswers = new Array(selected.length).fill(null);
+            timeRemaining = timeLimit;
+            quizStartTime = Date.now();
+            
+            // Save session
+            const sessionData = {
+                inProgress: true,
+                name: name,
+                userId: userId,
+                mode: selectedMode,
+                questions: selected,
+                currentQuestion: 0,
+                userAnswers: userAnswers,
+                timeRemaining: timeRemaining,
+                startTime: quizStartTime
+            };
+            saveSession(sessionData);
+            
+            // Hide form, show quiz
+            document.getElementById('userFormSection').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('quizSection').style.display = 'block';
+            
+            // Start timer if applicable
+            if (timeLimit) {
+                startTimer();
+            }
+            
             displayQuestion();
         }
 
+        // Save session to sessionStorage
+        function saveSession(data) {
+            sessionStorage.setItem(SESSION_KEY, JSON.stringify(data));
+        }
+
+        // Restore session
+        function restoreSession(data) {
+            document.getElementById('pausedSection').classList.remove('hidden');
+            document.getElementById('pausedName').textContent = data.name;
+            
+            const modeNames = {
+                'beginner': 'Beginner (20 questions, 15 min)',
+                'advanced': 'Advanced (50 questions, 30 min)',
+                'bullet': 'Bullet (50 questions, no time limit)',
+                'fame': '60 Seconds of Fame (unlimited, 60 sec)'
+            };
+            
+            document.getElementById('pausedDetails').textContent = 
+                `Mode: ${modeNames[data.mode] || data.mode} | Question ${data.currentQuestion + 1} of ${data.questions.length}`;
+            
+            // Store for resume
+            window.pausedSession = data;
+        }
+
+        // Resume test
+        function resumeTest() {
+            const data = window.pausedSession;
+            if (!data) return;
+            
+            currentQuestion = data.currentQuestion;
+            userAnswers = data.userAnswers;
+            timeRemaining = data.timeRemaining;
+            quizStartTime = data.startTime;
+            questions = data.questions;
+            
+            document.getElementById('pausedSection').classList.add('hidden');
+            document.getElementById('userFormSection').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('quizSection').style.display = 'block';
+            
+            if (timeRemaining) {
+                startTimer();
+            }
+            
+            displayQuestion();
+        }
+
+        // Timer
         function startTimer() {
             updateTimerDisplay();
-            timerInterval = setInterval(() => {
+            timer = setInterval(() => {
                 timeRemaining--;
                 updateTimerDisplay();
-                saveState();
+                updateSessionTimer();
                 
                 if (timeRemaining <= 0) {
-                    submitQuiz();
+                    clearInterval(timer);
+                    finishQuiz();
                 }
             }, 1000);
         }
 
+        // Update timer display
         function updateTimerDisplay() {
             const minutes = Math.floor(timeRemaining / 60);
             const seconds = timeRemaining % 60;
-            const timerEl = document.getElementById('timer');
-            timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-            
-            timerEl.classList.remove('warning', 'danger');
-            if (timeRemaining < 10) {
-                timerEl.classList.add('danger');
-            } else if (timeRemaining < 60) {
-                timerEl.classList.add('warning');
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Update session timer
+        function updateSessionTimer() {
+            const session = JSON.parse(sessionStorage.getItem(SESSION_KEY));
+            if (session) {
+                session.timeRemaining = timeRemaining;
+                session.currentQuestion = currentQuestion;
+                session.userAnswers = userAnswers;
+                saveSession(session);
             }
         }
 
+        // Display current question
         function displayQuestion() {
-            const question = currentQuestions[currentQuestionIndex];
-            
-            const progress = ((currentQuestionIndex + 1) / (selectedMode === 'fame' ? Math.max(fameQuestionsAttempted, 1) : currentQuestions.length)) * 100;
-            document.getElementById('progressBar').style.width = `${progress}%`;
-            
+            const q = questions[currentQuestion];
             document.getElementById('questionNumber').textContent = 
-                selectedMode === 'fame' 
-                    ? `Question ${currentQuestionIndex + 1} (Attempted: ${fameQuestionsAttempted})`
-                    : `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
-            document.getElementById('topicDisplay').textContent = question.topic;
-            document.getElementById('topicBadge').textContent = question.topic;
-            document.getElementById('questionText').textContent = question.question;
+                `Question ${currentQuestion + 1} of ${questions.length}`;
+            document.getElementById('questionText').textContent = q.question;
             
             const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
             
-            const optionLetters = ['A', 'B', 'C', 'D', 'E'];
-            optionLetters.forEach((letter) => {
-                if (question.options[letter]) {
+            const optionLabels = ['A', 'B', 'C', 'D', 'E'];
+            optionLabels.forEach((label, index) => {
+                if (q.options[label]) {
                     const option = document.createElement('div');
                     option.className = 'option';
-                    if (userAnswers[currentQuestionIndex] === letter) {
+                    option.textContent = `${label}. ${q.options[label]}`;
+                    option.onclick = () => selectAnswer(index, label);
+                    
+                    if (userAnswers[currentQuestion] === label) {
                         option.classList.add('selected');
                     }
                     
-                    option.innerHTML = `
-                        <span class="option-letter">${letter}</span>
-                        <span>${question.options[letter]}</span>
-                    `;
-                    
-                    option.onclick = () => selectOption(letter);
                     optionsContainer.appendChild(option);
                 }
             });
-
+            
+            // Update button states
             document.getElementById('prevBtn').style.visibility = 
-                currentQuestionIndex === 0 ? 'hidden' : 'visible';
+                currentQuestion === 0 ? 'hidden' : 'visible';
             document.getElementById('nextBtn').textContent = 
-                (selectedMode === 'fame' || currentQuestionIndex === currentQuestions.length - 1) 
-                    ? 'Finish' : 'Next';
+                currentQuestion === questions.length - 1 ? 'Finish' : 'Next';
         }
 
-        function selectOption(letter) {
-            if (quizSubmitted) return;
+        // Select answer
+        function selectAnswer(index, label) {
+            userAnswers[currentQuestion] = label;
             
-            if (selectedMode === 'fame' && !userAnswers[currentQuestionIndex]) {
-                fameQuestionsAttempted++;
-            }
-            
-            userAnswers[currentQuestionIndex] = letter;
-            saveState();
-            
-            const options = document.querySelectorAll('.option');
-            options.forEach(opt => {
+            document.querySelectorAll('.option').forEach((opt, i) => {
                 opt.classList.remove('selected');
-                if (opt.querySelector('.option-letter').textContent === letter) {
+                if (i === index) {
                     opt.classList.add('selected');
                 }
             });
-
-            if (selectedMode === 'fame') {
-                setTimeout(() => {
-                    if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
-                        currentQuestionIndex++;
-                        saveState();
-                        displayQuestion();
-                    }
-                }, 300);
-            }
+            
+            updateSessionTimer();
         }
 
+        // Next question
         function nextQuestion() {
-            if (selectedMode === 'fame') {
-                if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
-                    currentQuestionIndex++;
-                    saveState();
-                    displayQuestion();
-                } else {
-                    submitQuiz();
-                }
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
             } else {
-                if (currentQuestionIndex < currentQuestions.length - 1) {
-                    currentQuestionIndex++;
-                    saveState();
-                    displayQuestion();
-                } else {
-                    submitQuiz();
-                }
+                finishQuiz();
             }
         }
 
+        // Previous question
         function previousQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                saveState();
+            if (currentQuestion > 0) {
+                currentQuestion--;
                 displayQuestion();
             }
         }
 
-        async function submitQuiz() {
-            if (quizSubmitted) return;
-            quizSubmitted = true;
-
-            clearInterval(timerInterval);
-            
-            const endTime = Date.now();
-            const timeTaken = Math.floor((endTime - startTime) / 1000);
-
-            let questionsToGrade = currentQuestions;
-            let answersToGrade = userAnswers;
-            
-            if (selectedMode === 'fame') {
-                const attemptedIndices = userAnswers.map((a, i) => a !== null ? i : -1).filter(i => i !== -1);
-                questionsToGrade = attemptedIndices.map(i => currentQuestions[i]);
-                answersToGrade = attemptedIndices.map(i => userAnswers[i]);
-                fameQuestionsAttempted = attemptedIndices.length;
+        // Finish quiz
+        function finishQuiz() {
+            if (timer) {
+                clearInterval(timer);
             }
-
-            let correctCount = 0;
-            const detailedResults = questionsToGrade.map((q, index) => {
-                const userAnswer = answersToGrade[index];
-                const isCorrect = userAnswer === q.correct_answer;
-                if (isCorrect) correctCount++;
-                
-                return {
-                    question: q.question,
-                    topic: q.topic,
-                    userAnswer: userAnswer,
-                    correctAnswer: q.correct_answer,
-                    isCorrect: isCorrect,
-                    options: q.options
-                };
-            });
-
-            const totalQuestions = questionsToGrade.length;
-            const score = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
-
-            const resultData = {
-                studentName: studentInfo.name,
-                studentId: studentInfo.id,
-                mode: studentInfo.mode,
-                score: score,
-                correctAnswers: correctCount,
-                totalQuestions: totalQuestions,
-                timeTaken: timeTaken,
-                details: detailedResults
-            };
-
-            saveState();
-
-            document.querySelector('.quiz-screen').classList.remove('active');
-            document.querySelector('.results-screen').classList.add('active');
-
-            displayResults(resultData);
-            await saveToGoogleSheets(resultData);
-        }
-
-        async function saveToGoogleSheets(data) {
-            const statusEl = document.getElementById('savingStatus');
-            statusEl.classList.remove('hidden', 'error', 'success');
-            statusEl.textContent = 'Saving results...';
-
-            try {
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                statusEl.classList.add('success');
-                statusEl.textContent = '✅ Results saved!';
-                
-            } catch (error) {
-                statusEl.classList.add('error');
-                statusEl.textContent = '⚠️ Save failed';
-            }
-        }
-
-        function displayResults(resultData) {
-            document.getElementById('resultName').textContent = resultData.studentName;
-            document.getElementById('scoreCircle').textContent = `${resultData.score}%`;
-            document.getElementById('statScore').textContent = `${resultData.score}%`;
-            document.getElementById('statCorrect').textContent = resultData.correctAnswers;
-            document.getElementById('statTotal').textContent = resultData.totalQuestions;
             
-            const minutes = Math.floor(resultData.timeTaken / 60);
-            const seconds = resultData.timeTaken % 60;
-            document.getElementById('statTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-            const reviewContainer = document.getElementById('reviewContainer');
-            reviewContainer.innerHTML = '';
-
-            resultData.details.forEach((detail, index) => {
-                const reviewItem = document.createElement('div');
-                reviewItem.className = `review-item ${detail.isCorrect ? 'correct' : 'incorrect'}`;
-                
-                let answerHtml = `
-                    <div class="review-question">Q${index + 1}: ${detail.question}</div>
-                    <div class="review-answer">
-                        <span class="${detail.isCorrect ? 'review-correct' : 'review-user'}">
-                            Your answer: ${detail.userAnswer || 'Not answered'} - 
-                            ${detail.userAnswer ? detail.options[detail.userAnswer] : 'No answer'}
-                        </span>
-                    </div>
-                `;
-                
-                if (!detail.isCorrect) {
-                    answerHtml += `
-                        <div class="review-answer">
-                            <span class="review-correct">
-                                Correct answer: ${detail.correctAnswer} - 
-                                ${detail.options[detail.correctAnswer]}
-                            </span>
-                        </div>
-                    `;
+            const session = JSON.parse(sessionStorage.getItem(SESSION_KEY));
+            const name = session ? session.name : document.getElementById('userName').value;
+            const userId = session ? session.userId : document.getElementById('userId').value;
+            const mode = session ? session.mode : selectedMode;
+            
+            // Calculate results
+            let correct = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === questions[index].correct_answer) {
+                    correct++;
                 }
+            });
+            
+            const totalTime = Math.floor((Date.now() - quizStartTime) / 1000);
+            const percentage = Math.round((correct / questions.length) * 100);
+            
+            // Clear session
+            sessionStorage.removeItem(SESSION_KEY);
+            
+            // Display results
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
+            document.getElementById('resultsSection').style.display = 'block';
+            
+            document.getElementById('resultName').textContent = name;
+            document.getElementById('scoreDisplay').textContent = `${percentage}%`;
+            
+            // Stats
+            const statsContainer = document.getElementById('statsContainer');
+            statsContainer.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">${mode}</div>
+                    <div class="stat-label">Exam Mode</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${formatTime(totalTime)}</div>
+                    <div class="stat-label">Total Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${questions.length}</div>
+                    <div class="stat-label">Questions Attempted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${correct}</div>
+                    <div class="stat-label">Correct Answers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${questions.length - correct}</div>
+                    <div class="stat-label">Incorrect Answers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${percentage}%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+            `;
+            
+            // Review section
+            const reviewSection = document.getElementById('reviewSection');
+            reviewSection.innerHTML = '<h3 style="margin-bottom: 20px;">Review Your Answers</h3>';
+            
+            questions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === q.correct_answer;
                 
-                reviewItem.innerHTML = answerHtml;
-                reviewContainer.appendChild(reviewItem);
+                const reviewItem = document.createElement('div');
+                reviewItem.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
+                reviewItem.innerHTML = `
+                    <p style="font-weight: bold; margin-bottom: 10px;">
+                        Question ${index + 1}: ${q.topic}
+                    </p>
+                    <p style="margin-bottom: 10px;">${q.question}</p>
+                    <p style="color: ${isCorrect ? '#28a745' : '#dc3545'};">
+                        Your answer: ${userAnswer || 'Not answered'} 
+                        ${isCorrect ? '✓' : '✗'}
+                    </p>
+                    ${!isCorrect ? `<p style="color: #28a745;">Correct answer: ${q.correct_answer}</p>` : ''}
+                `;
+                reviewSection.appendChild(reviewItem);
+            });
+            
+            // Save to Google Sheets
+            saveResults({
+                name: name,
+                userId: userId,
+                mode: mode,
+                totalQuestions: questions.length,
+                correctAnswers: correct,
+                percentage: percentage,
+                totalTime: totalTime,
+                date: new Date().toISOString(),
+                deviceId: deviceId
             });
         }
 
-        function restartQuiz() {
-            sessionStorage.removeItem('quizState');
-            
-            currentQuestions = [];
-            currentQuestionIndex = 0;
-            userAnswers = [];
-            studentInfo = {};
-            timeRemaining = 0;
-            quizSubmitted = false;
-            selectedMode = null;
-            fameModeActive = false;
-            fameQuestionsAttempted = 0;
-            
-            document.getElementById('studentName').value = '';
-            document.getElementById('studentId').value = '';
-            document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
-            document.getElementById('savingStatus').classList.add('hidden');
-            
-            document.querySelector('.results-screen').classList.remove('active');
-            document.querySelector('.start-screen').classList.add('active');
+        // Format time
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}m ${secs}s`;
         }
 
-        window.addEventListener('beforeunload', function() {
-            if (!quizSubmitted && currentQuestions.length > 0) {
-                saveState();
+        // Save results to Google Sheets
+        async function saveResults(data) {
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'saveResult',
+                        data: data
+                    })
+                });
+                
+                const result = await response.json();
+                
+                document.getElementById('savingResults').innerHTML = 
+                    result.success ? 
+                    '<p style="color: #28a745;">✓ Results saved successfully!</p>' :
+                    '<p style="color: #dc3545;">Failed to save results</p>';
+            } catch (error) {
+                console.error('Save error:', error);
+                document.getElementById('savingResults').innerHTML = 
+                    '<p style="color: #dc3545;">Failed to save results</p>';
+            }
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('userFormSection').classList.remove('hidden');
+            document.getElementById('userFormSection').style.display = 'block';
+            
+            // Reset form
+            document.getElementById('userName').value = '';
+            document.getElementById('userId').value = '';
+            document.querySelectorAll('.mode-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            selectedMode = null;
+        }
+
+        // Handle Enter key on token input
+        document.getElementById('tokenInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                activateToken();
             }
         });
     </script>
