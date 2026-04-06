@@ -920,456 +920,630 @@
         </div>
     </div>
 
-    <script>
-        // ===== ANTI-CHEAT SYSTEM =====
-        document.addEventListener('contextmenu', (e) => {
+<script>
+    // ===== ANTI-CHEAT SYSTEM =====
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'C' || e.key === 'X')) {
             e.preventDefault();
             return false;
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'C' || e.key === 'X')) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-                e.preventDefault();
-                return false;
-            }
-            if (e.key === 'PrintScreen') {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        document.addEventListener('selectstart', (e) => {
-            e.preventDefault();
-            return false;
-        });
-
-        document.addEventListener('dragstart', (e) => {
-            e.preventDefault();
-            return false;
-        });
-
-        // ===== ADMIN SECTION =====
-        const ADMIN_PASSWORD = 'admin123';
-
-        function openAdminLogin() {
-            document.getElementById('adminLoginModal').classList.add('show');
         }
+        if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+            e.preventDefault();
+            return false;
+        }
+        if (e.key === 'F12') {
+            e.preventDefault();
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+            e.preventDefault();
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+            e.preventDefault();
+            return false;
+        }
+        if (e.key === 'PrintScreen') {
+            e.preventDefault();
+            return false;
+        }
+    });
 
-        function closeAdminModal() {
-            document.getElementById('adminLoginModal').classList.remove('show');
+    document.addEventListener('selectstart', (e) => {
+        // Allow selection in input fields
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    document.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+        return false;
+    });
+
+    // ===== ADMIN SECTION =====
+    const ADMIN_PASSWORD = 'admin123';
+
+    function openAdminLogin() {
+        document.getElementById('adminLoginModal').classList.add('show');
+    }
+
+    function closeAdminModal() {
+        document.getElementById('adminLoginModal').classList.remove('show');
+        document.getElementById('adminPassword').value = '';
+    }
+
+    function loginAdmin() {
+        const password = document.getElementById('adminPassword').value;
+        if (password === ADMIN_PASSWORD) {
+            closeAdminModal();
+            window.open('admin.html', '_blank');
+            document.getElementById('adminPassword').value = '';
+        } else {
+            alert('❌ Incorrect password!');
             document.getElementById('adminPassword').value = '';
         }
+    }
 
-        function loginAdmin() {
-            const password = document.getElementById('adminPassword').value;
-            if (password === ADMIN_PASSWORD) {
-                closeAdminModal();
-                window.open('admin.html', '_blank');
-                document.getElementById('adminPassword').value = '';
-            } else {
-                alert('❌ Incorrect password!');
-                document.getElementById('adminPassword').value = '';
-            }
+    // ===== QUIZ STATE & LOCAL STORAGE =====
+    let allQuestions = [];
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = [];
+    let score = 0;
+    let username = '';
+    let quizMode = '';
+    let timerInterval = null;
+    let timeRemaining = 0;
+    let startTime = 0;
+    let questionsAttempted = 0;
+
+    window.addEventListener('DOMContentLoaded', function() {
+        loadQuestions();
+        checkForSavedQuiz();
+        
+        const adminPasswordInput = document.getElementById('adminPassword');
+        if (adminPasswordInput) {
+            adminPasswordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginAdmin();
+                }
+            });
         }
+    });
 
-        // ===== QUIZ STATE & LOCAL STORAGE =====
-        let allQuestions = [];
-        let questions = [];
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
-        let score = 0;
-        let username = '';
-        let quizMode = '';
-        let timerInterval = null;
-        let timeRemaining = 0;
-        let startTime = 0;
-        let questionsAttempted = 0;
+    function loadQuestions() {
+        fetch('reproductive_physiology_question_bank.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load questions');
+                }
+                return response.json();
+            })
+            .then(data => {
+                allQuestions = data.sections.multiple_choice_questions;
+                console.log('Questions loaded:', allQuestions.length);
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.getElementById('startScreen').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error loading questions:', error);
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.getElementById('errorScreen').style.display = 'block';
+            });
+    }
 
-        window.onload = function() {
-            loadQuestions();
-            checkForSavedQuiz();
-            
-            const adminPasswordInput = document.getElementById('adminPassword');
-            if (adminPasswordInput) {
-                adminPasswordInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        loginAdmin();
-                    }
-                });
-            }
+    function selectMode(mode) {
+        document.querySelectorAll('.mode-card').forEach(card => {
+            card.classList.remove('selected');
+        });
+        document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
+        document.getElementById('selectedMode').value = mode;
+    }
+
+    function getModeInfo(mode) {
+        const modeMap = {
+            'timed20-20': { name: 'Quick Test (20Q, 20m)', questions: 20, time: 1200 },
+            'timed20-15': { name: 'Speed Test (20Q, 15m)', questions: 20, time: 900 },
+            'timed50-30': { name: 'Standard (50Q, 30m)', questions: 50, time: 1800 },
+            'timed50-20': { name: 'Challenge (50Q, 20m)', questions: 50, time: 1200 },
+            'bullet': { name: '⚡ Bullet Mode', questions: 50, time: Infinity },
+            '20-second': { name: '20 Sec Fame', questions: Infinity, time: 20 }
         };
+        return modeMap[mode];
+    }
 
-        function loadQuestions() {
-            fetch('reproductive_physiology_question_bank.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load questions');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    allQuestions = data.sections.multiple_choice_questions;
-                    document.getElementById('loadingScreen').style.display = 'none';
-                    document.getElementById('startScreen').style.display = 'block';
-                })
-                .catch(error => {
-                    console.error('Error loading questions:', error);
-                    document.getElementById('loadingScreen').style.display = 'none';
-                    document.getElementById('errorScreen').style.display = 'block';
-                });
-        }
+    function saveQuizProgress() {
+        const quizData = {
+            username,
+            quizMode,
+            currentQuestionIndex,
+            userAnswers,
+            score,
+            timeRemaining,
+            questions,
+            questionsAttempted,
+            startTime,
+            timestamp: new Date().getTime()
+        };
+        localStorage.setItem('quizProgress', JSON.stringify(quizData));
+    }
 
-        function selectMode(mode) {
-            document.querySelectorAll('.mode-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
-            document.getElementById('selectedMode').value = mode;
-        }
-
-        function getModeInfo(mode) {
-            const modeMap = {
-                'timed20-20': { name: 'Quick Test (20Q, 20m)', questions: 20, time: 1200 },
-                'timed20-15': { name: 'Speed Test (20Q, 15m)', questions: 20, time: 900 },
-                'timed50-30': { name: 'Standard (50Q, 30m)', questions: 50, time: 1800 },
-                'timed50-20': { name: 'Challenge (50Q, 20m)', questions: 50, time: 1200 },
-                'bullet': { name: '⚡ Bullet Mode', questions: 50, time: Infinity },
-                '20-second': { name: '20 Sec Fame', questions: Infinity, time: 20 }
-            };
-            return modeMap[mode];
-        }
-
-        function saveQuizProgress() {
-            const quizData = {
-                username,
-                quizMode,
-                currentQuestionIndex,
-                userAnswers,
-                score,
-                timeRemaining,
-                questions,
-                questionsAttempted,
-                startTime,
-                timestamp: new Date().getTime()
-            };
-            localStorage.setItem('quizProgress', JSON.stringify(quizData));
-        }
-
-        function checkForSavedQuiz() {
-            const savedData = localStorage.getItem('quizProgress');
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                const banner = document.getElementById('resumeBanner');
-                const resumeInfo = document.getElementById('resumeInfo');
-                
-                banner.style.display = 'block';
-                const modeInfo = getModeInfo(data.quizMode);
-                resumeInfo.innerHTML = `${modeInfo.name} | Question ${data.currentQuestionIndex + 1} of ${data.questions.length}`;
-            }
-        }
-
-        function resumeQuiz() {
-            const savedData = JSON.parse(localStorage.getItem('quizProgress'));
+    function checkForSavedQuiz() {
+        const savedData = localStorage.getItem('quizProgress');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            const banner = document.getElementById('resumeBanner');
+            const resumeInfo = document.getElementById('resumeInfo');
             
-            username = savedData.username;
-            quizMode = savedData.quizMode;
-            currentQuestionIndex = savedData.currentQuestionIndex;
-            userAnswers = savedData.userAnswers;
-            score = savedData.score;
-            timeRemaining = savedData.timeRemaining;
-            questions = savedData.questions;
-            questionsAttempted = savedData.questionsAttempted;
-            startTime = savedData.startTime;
-            allQuestions = questions;
+            banner.style.display = 'block';
+            const modeInfo = getModeInfo(data.quizMode);
+            resumeInfo.innerHTML = `${modeInfo.name} | Question ${data.currentQuestionIndex + 1} of ${data.questions.length}`;
+        }
+    }
 
-            document.getElementById('startScreen').style.display = 'none';
-            document.getElementById('quizScreen').style.display = 'block';
-            document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
+    function resumeQuiz() {
+        const savedData = JSON.parse(localStorage.getItem('quizProgress'));
+        
+        username = savedData.username;
+        quizMode = savedData.quizMode;
+        currentQuestionIndex = savedData.currentQuestionIndex;
+        userAnswers = savedData.userAnswers;
+        score = savedData.score;
+        timeRemaining = savedData.timeRemaining;
+        questions = savedData.questions;
+        questionsAttempted = savedData.questionsAttempted;
+        startTime = savedData.startTime;
+        allQuestions = questions;
+
+        document.getElementById('startScreen').style.display = 'none';
+        document.getElementById('quizScreen').style.display = 'block';
+        document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
+        
+        showQuestion();
+        startTimer();
+    }
+
+    function clearQuizData() {
+        localStorage.removeItem('quizProgress');
+        document.getElementById('resumeBanner').style.display = 'none';
+        document.getElementById('usernameInput').value = '';
+    }
+
+    function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
+
+    function randomizeAnswerPositions(question) {
+        const options = ['A', 'B', 'C', 'D', 'E'].filter(letter => question.options[letter]);
+        const correctAnswer = question.correct_answer;
+        
+        const shuffledOptions = shuffleArray(options);
+        
+        const newQuestion = { ...question };
+        newQuestion.options = {};
+        newQuestion.correct_answer = '';
+        
+        shuffledOptions.forEach((oldLetter, newIndex) => {
+            const newLetter = ['A', 'B', 'C', 'D', 'E'][newIndex];
+            newQuestion.options[newLetter] = question.options[oldLetter];
             
-            showQuestion();
-            startTimer();
-        }
-
-        function clearQuizData() {
-            localStorage.removeItem('quizProgress');
-            document.getElementById('resumeBanner').style.display = 'none';
-            document.getElementById('usernameInput').value = '';
-        }
-
-        function shuffleArray(array) {
-            const newArray = [...array];
-            for (let i = newArray.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-            }
-            return newArray;
-        }
-
-        function randomizeAnswerPositions(question) {
-            const options = ['A', 'B', 'C', 'D', 'E'].filter(letter => question.options[letter]);
-            const correctAnswer = question.correct_answer;
-            
-            const shuffledOptions = shuffleArray(options);
-            
-            const newQuestion = { ...question };
-            newQuestion.options = {};
-            newQuestion.correct_answer = '';
-            
-            shuffledOptions.forEach((oldLetter, newIndex) => {
-                const newLetter = ['A', 'B', 'C', 'D', 'E'][newIndex];
-                newQuestion.options[newLetter] = question.options[oldLetter];
-                
-                if (oldLetter === correctAnswer) {
-                    newQuestion.correct_answer = newLetter;
-                }
-            });
-            
-            return newQuestion;
-        }
-
-        function startQuiz() {
-            username = document.getElementById('usernameInput').value.trim();
-            quizMode = document.getElementById('selectedMode').value;
-
-            if (!username) {
-                alert('Please enter your username');
-                return;
-            }
-
-            if (!quizMode) {
-                alert('Please select a test mode');
-                return;
-            }
-
-            const modeInfo = getModeInfo(quizMode);
-            
-            if (quizMode === '20-second') {
-                questions = shuffleArray(allQuestions);
-                timeRemaining = 20;
-            } else if (quizMode === 'bullet') {
-                questions = shuffleArray(allQuestions).slice(0, 50);
-                timeRemaining = Infinity;
-            } else {
-                questions = shuffleArray(allQuestions).slice(0, modeInfo.questions);
-                timeRemaining = modeInfo.time;
-            }
-
-            questions = questions.map(q => randomizeAnswerPositions(q));
-
-            userAnswers = new Array(questions.length).fill(null);
-            currentQuestionIndex = 0;
-            score = 0;
-            questionsAttempted = 0;
-            startTime = Date.now();
-
-            document.getElementById('startScreen').style.display = 'none';
-            document.getElementById('quizScreen').style.display = 'block';
-            document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
-            
-            const jumpSection = document.getElementById('jumpSection');
-            jumpSection.style.display = (quizMode === 'bullet') ? 'flex' : 'none';
-            
-            showQuestion();
-            startTimer();
-        }
-
-        function startTimer() {
-            if (timerInterval) clearInterval(timerInterval);
-            
-            timerInterval = setInterval(function() {
-                if (timeRemaining !== Infinity) {
-                    timeRemaining--;
-                    updateTimerDisplay();
-                    saveQuizProgress();
-
-                    if (timeRemaining <= 0) {
-                        clearInterval(timerInterval);
-                        alert('Time is up! Test ended.');
-                        forceEndTest();
-                    }
-                }
-            }, 1000);
-        }
-
-        function updateTimerDisplay() {
-            if (timeRemaining === Infinity) {
-                document.getElementById('timerDisplay').textContent = 'No Limit';
-            } else {
-                const minutes = Math.floor(timeRemaining / 60);
-                const seconds = timeRemaining % 60;
-                const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                const timerDisplay = document.getElementById('timerDisplay');
-                timerDisplay.textContent = display;
-
-                if (timeRemaining > 300) {
-                    timerDisplay.classList.remove('warning', 'danger');
-                } else if (timeRemaining > 60) {
-                    timerDisplay.classList.remove('danger');
-                    timerDisplay.classList.add('warning');
-                } else {
-                    timerDisplay.classList.add('danger');
-                }
-            }
-        }
-
-        function showQuestion() {
-            const question = questions[currentQuestionIndex];
-
-            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-
-            document.getElementById('questionCounter').textContent = 
-                `Question ${currentQuestionIndex + 1} of ${questions.length}`;
-            document.getElementById('topicBadge').textContent = question.topic.replace('Topic ', '');
-
-            document.getElementById('questionText').textContent = question.question;
-
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = '';
-
-            const optionLetters = ['A', 'B', 'C', 'D', 'E'];
-            const userAnswer = userAnswers[currentQuestionIndex];
-
-            optionLetters.forEach(letter => {
-                if (question.options[letter]) {
-                    const btn = document.createElement('button');
-                    btn.className = 'option-btn';
-                    btn.type = 'button';
-
-                    if (userAnswer) {
-                        if (letter === question.correct_answer) {
-                            btn.classList.add('correct');
-                        } else if (letter === userAnswer.selected && userAnswer.selected !== question.correct_answer) {TimePerQuestion: avgTimePerQ,
-                timestamp: new Date().getTime(),
-                status: 'completed'
-            };
-
-            let completedTests = JSON.parse(localStorage.getItem('quizCompletedTests') || '[]');
-            completedTests.push(testResult);
-            localStorage.setItem('quizCompletedTests', JSON.stringify(completedTests));
-        }
-
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins}m ${secs}s`;
-        }
-
-        function restartQuiz() {
-            currentQuestionIndex = 0;
-            userAnswers = [];
-            score = 0;
-            timeRemaining = 0;
-            questionsAttempted = 0;
-            
-            clearInterval(timerInterval);
-            localStorage.removeItem('quizProgress');
-            
-            document.getElementById('usernameInput').value = '';
-            document.getElementById('jumpInput').value = '';
-            document.querySelectorAll('.mode-card').forEach(card => card.classList.remove('selected'));
-            document.getElementById('selectedMode').value = '';
-            
-            document.getElementById('resultsScreen').style.display = 'none';
-            document.getElementById('startScreen').style.display = 'block';
-            checkForSavedQuiz();
-        }
-
-        function backToStart() {
-            clearInterval(timerInterval);
-            document.getElementById('resultsScreen').style.display = 'none';
-            document.getElementById('usernameInput').value = '';
-            document.getElementById('jumpInput').value = '';
-            document.querySelectorAll('.mode-card').forEach(card => card.classList.remove('selected'));
-            document.getElementById('selectedMode').value = '';
-            document.getElementById('startScreen').style.display = 'block';
-            checkForSavedQuiz();
-        }
-
-        function shareResults() {
-            document.getElementById('shareModal').classList.add('show');
-        }
-
-        function closeShareModal() {
-            document.getElementById('shareModal').classList.remove('show');
-        }
-
-        function downloadImage() {
-            const element = document.getElementById('resultsImage');
-            element.classList.add('show');
-            
-            html2canvas(element, {
-                backgroundColor: '#ffffff',
-                scale: 2
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL();
-                link.download = `${username}_quiz_results.png`;
-                link.click();
-                element.classList.remove('show');
-            });
-        }
-
-        function shareViaWhatsApp() {
-            const percentage = Math.round((score / questionsAttempted) * 100);
-            const modeInfo = getModeInfo(quizMode);
-            const text = `🎉 I scored ${percentage}% on ${modeInfo.name}!\n\n✓ Correct: ${score}/${questionsAttempted}\n✗ Incorrect: ${questionsAttempted - score}\n\nPlayer: ${username}`;
-            const encodedText = encodeURIComponent(text);
-            window.open(`https://wa.me/?text=${encodedText}`);
-            closeShareModal();
-        }
-
-        function shareViaEmail() {
-            const percentage = Math.round((score / questionsAttempted) * 100);
-            const modeInfo = getModeInfo(quizMode);
-            const subject = `Quiz Results - ${username}`;
-            const body = `Hi,\n\nI scored ${percentage}% on ${modeInfo.name}!\n\nCorrect Answers: ${score}/${questionsAttempted}\nIncorrect Answers: ${questionsAttempted - score}\n\nBest regards,\n${username}`;
-            window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-            closeShareModal();
-        }
-
-        function copyToClipboard() {
-            const percentage = Math.round((score / questionsAttempted) * 100);
-            const modeInfo = getModeInfo(quizMode);
-            const text = `🎉 Quiz Results for ${username}\n\nMode: ${modeInfo.name}\nScore: ${percentage}%\nCorrect: ${score}/${questionsAttempted}\nIncorrect: ${questionsAttempted - score}`;
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Results copied to clipboard!');
-                closeShareModal();
-            });
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('shareModal');
-            const adminModal = document.getElementById('adminLoginModal');
-            if (event.target == modal) {
-                closeShareModal();
-            }
-            if (event.target == adminModal) {
-                closeAdminModal();
-            }
-        }
-
-        window.addEventListener('beforeunload', () => {
-            if (document.getElementById('quizScreen').style.display === 'block') {
-                saveQuizProgress();
+            if (oldLetter === correctAnswer) {
+                newQuestion.correct_answer = newLetter;
             }
         });
-    </script>
+        
+        return newQuestion;
+    }
+
+    function startQuiz() {
+        username = document.getElementById('usernameInput').value.trim();
+        quizMode = document.getElementById('selectedMode').value;
+
+        if (!username) {
+            alert('Please enter your username');
+            return;
+        }
+
+        if (!quizMode) {
+            alert('Please select a test mode');
+            return;
+        }
+
+        const modeInfo = getModeInfo(quizMode);
+        
+        if (quizMode === '20-second') {
+            questions = shuffleArray(allQuestions);
+            timeRemaining = 20;
+        } else if (quizMode === 'bullet') {
+            questions = shuffleArray(allQuestions).slice(0, 50);
+            timeRemaining = Infinity;
+        } else {
+            questions = shuffleArray(allQuestions).slice(0, modeInfo.questions);
+            timeRemaining = modeInfo.time;
+        }
+
+        questions = questions.map(q => randomizeAnswerPositions(q));
+
+        userAnswers = new Array(questions.length).fill(null);
+        currentQuestionIndex = 0;
+        score = 0;
+        questionsAttempted = 0;
+        startTime = Date.now();
+
+        document.getElementById('startScreen').style.display = 'none';
+        document.getElementById('quizScreen').style.display = 'block';
+        document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
+        
+        const jumpSection = document.getElementById('jumpSection');
+        jumpSection.style.display = (quizMode === 'bullet') ? 'flex' : 'none';
+        
+        showQuestion();
+        startTimer();
+    }
+
+    function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        
+        timerInterval = setInterval(function() {
+            if (timeRemaining !== Infinity) {
+                timeRemaining--;
+                updateTimerDisplay();
+                saveQuizProgress();
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    alert('Time is up! Test ended.');
+                    forceEndTest();
+                }
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        if (timeRemaining === Infinity) {
+            document.getElementById('timerDisplay').textContent = 'No Limit';
+        } else {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            const timerDisplay = document.getElementById('timerDisplay');
+            timerDisplay.textContent = display;
+
+            if (timeRemaining > 300) {
+                timerDisplay.classList.remove('warning', 'danger');
+            } else if (timeRemaining > 60) {
+                timerDisplay.classList.remove('danger');
+                timerDisplay.classList.add('warning');
+            } else {
+                timerDisplay.classList.add('danger');
+            }
+        }
+    }
+
+    function showQuestion() {
+        const question = questions[currentQuestionIndex];
+
+        const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+        document.getElementById('progressBar').style.width = progress + '%';
+
+        document.getElementById('questionCounter').textContent = 
+            `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+        document.getElementById('topicBadge').textContent = question.topic.replace('Topic ', '');
+
+        document.getElementById('questionText').textContent = question.question;
+
+        const optionsContainer = document.getElementById('optionsContainer');
+        optionsContainer.innerHTML = '';
+
+        const optionLetters = ['A', 'B', 'C', 'D', 'E'];
+        const userAnswer = userAnswers[currentQuestionIndex];
+
+        optionLetters.forEach(letter => {
+            if (question.options[letter]) {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.type = 'button';
+
+                if (userAnswer) {
+                    if (letter === question.correct_answer) {
+                        btn.classList.add('correct');
+                    } else if (letter === userAnswer.selected && userAnswer.selected !== question.correct_answer) {
+                        btn.classList.add('incorrect');
+                    }
+                    btn.disabled = true;
+                }
+
+                btn.innerHTML = `<span class="option-letter">${letter}</span>${question.options[letter]}`;
+                btn.onclick = () => selectOption(letter);
+                optionsContainer.appendChild(btn);
+            }
+        });
+
+        const feedback = document.getElementById('feedback');
+        feedback.style.display = 'none';
+
+        document.getElementById('prevBtn').style.visibility = 
+            currentQuestionIndex > 0 ? 'visible' : 'hidden';
+        document.getElementById('nextBtn').textContent = 
+            currentQuestionIndex === questions.length - 1 ? 'Finish Quiz ✓' : 'Next Question →';
+
+        document.getElementById('jumpInput').max = questions.length;
+    }
+
+    function selectOption(selectedLetter) {
+        if (userAnswers[currentQuestionIndex]) return;
+
+        const question = questions[currentQuestionIndex];
+        const isCorrect = selectedLetter === question.correct_answer;
+
+        userAnswers[currentQuestionIndex] = {
+            selected: selectedLetter,
+            isCorrect: isCorrect
+        };
+
+        if (isCorrect) score++;
+        questionsAttempted++;
+
+        saveQuizProgress();
+
+        const buttons = document.querySelectorAll('.option-btn');
+        const optionLetters = ['A', 'B', 'C', 'D', 'E'];
+
+        buttons.forEach((btn, index) => {
+            const letter = optionLetters[index];
+            btn.disabled = true;
+
+            if (letter === question.correct_answer) {
+                btn.classList.add('correct');
+            } else if (letter === selectedLetter && !isCorrect) {
+                btn.classList.add('incorrect');
+            }
+        });
+
+        const feedback = document.getElementById('feedback');
+        feedback.style.display = 'block';
+        if (isCorrect) {
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = '✓ Correct! Well done.';
+        } else {
+            feedback.className = 'feedback incorrect';
+            feedback.innerHTML = `✗ Incorrect. The correct answer is <strong>${question.correct_answer}</strong>.`;
+        }
+
+        document.getElementById('nextBtn').disabled = false;
+    }
+
+    function nextQuestion() {
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion();
+            saveQuizProgress();
+        } else {
+            showResults();
+        }
+    }
+
+    function previousQuestion() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestion();
+            saveQuizProgress();
+        }
+    }
+
+    function jumpToQuestion() {
+        const jumpNum = parseInt(document.getElementById('jumpInput').value);
+        if (isNaN(jumpNum) || jumpNum < 1 || jumpNum > questions.length) {
+            alert(`Please enter a number between 1 and ${questions.length}`);
+            return;
+        }
+        currentQuestionIndex = jumpNum - 1;
+        showQuestion();
+        document.getElementById('jumpInput').value = '';
+        saveQuizProgress();
+    }
+
+    function endTestEarly() {
+        if (confirm('Are you sure you want to end the test early? Your current results will be shown.')) {
+            forceEndTest();
+        }
+    }
+
+    function forceEndTest() {
+        clearInterval(timerInterval);
+        showResults();
+    }
+
+    function showResults() {
+        clearInterval(timerInterval);
+        localStorage.removeItem('quizProgress');
+        
+        document.getElementById('quizScreen').style.display = 'none';
+        document.getElementById('resultsScreen').style.display = 'block';
+
+        const totalTime = Math.floor((Date.now() - startTime) / 1000);
+        const percentage = questionsAttempted > 0 ? Math.round((score / questionsAttempted) * 100) : 0;
+        const incorrect = questionsAttempted - score;
+        const avgTimePerQ = questionsAttempted > 0 ? Math.floor(totalTime / questionsAttempted) : 0;
+
+        const modeInfo = getModeInfo(quizMode);
+        const modeDisplay = modeInfo.name;
+
+        document.getElementById('resultUsername').textContent = username;
+        document.getElementById('scoreNumber').textContent = percentage + '%';
+        document.getElementById('resultScoreNumber').textContent = percentage + '%';
+        document.getElementById('resultName').textContent = `${username} - ${percentage}%`;
+        document.getElementById('resultMode').textContent = `Mode: ${modeDisplay}`;
+        document.getElementById('examMode').textContent = modeDisplay;
+        document.getElementById('totalTime').textContent = formatTime(totalTime);
+        document.getElementById('questionsAttempted').textContent = questionsAttempted;
+        document.getElementById('correctAnswers').textContent = score;
+        document.getElementById('incorrectAnswers').textContent = incorrect;
+        document.getElementById('accuracyPercent').textContent = percentage + '%';
+        document.getElementById('avgTimePerQ').textContent = avgTimePerQ + 's';
+
+        const reviewContainer = document.getElementById('reviewContainer');
+        const incorrectAnswers = userAnswers
+            .map((answer, index) => ({...answer, index}))
+            .filter(answer => answer !== null && !answer.isCorrect);
+
+        if (incorrectAnswers.length > 0) {
+            document.getElementById('reviewSection').style.display = 'block';
+            reviewContainer.innerHTML = '';
+
+            incorrectAnswers.forEach(answer => {
+                if (answer.index < questionsAttempted) {
+                    const question = questions[answer.index];
+                    const div = document.createElement('div');
+                    div.className = 'review-item';
+                    div.innerHTML = `
+                        <div class="review-question">Q${answer.index + 1}: ${question.question}</div>
+                        <div class="review-answer">
+                            Your answer: <strong>${answer.selected}</strong> | 
+                            Correct answer: <strong>${question.correct_answer}</strong>
+                        </div>
+                    `;
+                    reviewContainer.appendChild(div);
+                }
+            });
+        }
+
+        // Save to admin panel
+        const testResult = {
+            username,
+            mode: modeDisplay,
+            accuracy: percentage,
+            correctAnswers: score,
+            questionsAttempted,
+            totalQuestions: questions.length,
+            totalTime: formatTime(totalTime),
+            avgTimePerQuestion: avgTimePerQ,
+            timestamp: new Date().getTime(),
+            status: 'completed'
+        };
+
+        let completedTests = JSON.parse(localStorage.getItem('quizCompletedTests') || '[]');
+        completedTests.push(testResult);
+        localStorage.setItem('quizCompletedTests', JSON.stringify(completedTests));
+    }
+
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}m ${secs}s`;
+    }
+
+    function restartQuiz() {
+        currentQuestionIndex = 0;
+        userAnswers = [];
+        score = 0;
+        timeRemaining = 0;
+        questionsAttempted = 0;
+        
+        clearInterval(timerInterval);
+        localStorage.removeItem('quizProgress');
+        
+        document.getElementById('usernameInput').value = '';
+        document.getElementById('jumpInput').value = '';
+        document.querySelectorAll('.mode-card').forEach(card => card.classList.remove('selected'));
+        document.getElementById('selectedMode').value = '';
+        
+        document.getElementById('resultsScreen').style.display = 'none';
+        document.getElementById('startScreen').style.display = 'block';
+        checkForSavedQuiz();
+    }
+
+    function backToStart() {
+        clearInterval(timerInterval);
+        document.getElementById('resultsScreen').style.display = 'none';
+        document.getElementById('usernameInput').value = '';
+        document.getElementById('jumpInput').value = '';
+        document.querySelectorAll('.mode-card').forEach(card => card.classList.remove('selected'));
+        document.getElementById('selectedMode').value = '';
+        document.getElementById('startScreen').style.display = 'block';
+        checkForSavedQuiz();
+    }
+
+    function shareResults() {
+        document.getElementById('shareModal').classList.add('show');
+    }
+
+    function closeShareModal() {
+        document.getElementById('shareModal').classList.remove('show');
+    }
+
+    function downloadImage() {
+        const element = document.getElementById('resultsImage');
+        element.classList.add('show');
+        
+        html2canvas(element, {
+            backgroundColor: '#ffffff',
+            scale: 2
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = `${username}_quiz_results.png`;
+            link.click();
+            element.classList.remove('show');
+        });
+    }
+
+    function shareViaWhatsApp() {
+        const percentage = Math.round((score / questionsAttempted) * 100);
+        const modeInfo = getModeInfo(quizMode);
+        const text = `🎉 I scored ${percentage}% on ${modeInfo.name}!\n\n✓ Correct: ${score}/${questionsAttempted}\n✗ Incorrect: ${questionsAttempted - score}\n\nPlayer: ${username}`;
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/?text=${encodedText}`);
+        closeShareModal();
+    }
+
+    function shareViaEmail() {
+        const percentage = Math.round((score / questionsAttempted) * 100);
+        const modeInfo = getModeInfo(quizMode);
+        const subject = `Quiz Results - ${username}`;
+        const body = `Hi,\n\nI scored ${percentage}% on ${modeInfo.name}!\n\nCorrect Answers: ${score}/${questionsAttempted}\nIncorrect Answers: ${questionsAttempted - score}\n\nBest regards,\n${username}`;
+        window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        closeShareModal();
+    }
+
+    function copyToClipboard() {
+        const percentage = Math.round((score / questionsAttempted) * 100);
+        const modeInfo = getModeInfo(quizMode);
+        const text = `🎉 Quiz Results for ${username}\n\nMode: ${modeInfo.name}\nScore: ${percentage}%\nCorrect: ${score}/${questionsAttempted}\nIncorrect: ${questionsAttempted - score}`;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Results copied to clipboard!');
+            closeShareModal();
+        });
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('shareModal');
+        const adminModal = document.getElementById('adminLoginModal');
+        if (event.target == modal) {
+            closeShareModal();
+        }
+        if (event.target == adminModal) {
+            closeAdminModal();
+        }
+    }
+
+    window.addEventListener('beforeunload', () => {
+        if (document.getElementById('quizScreen').style.display === 'block') {
+            saveQuizProgress();
+        }
+    });
+</script>
 </body>
 </html>
