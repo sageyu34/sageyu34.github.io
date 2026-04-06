@@ -487,11 +487,11 @@
     </div>
 
     <script>
-        // Admin credentials (change these!)
+        // ✅ ADMIN CREDENTIALS - Change these as needed!
         const ADMIN_CREDENTIALS = {
+            'sage': 'adminsage',
             'admin': 'admin123',
-            'teacher': 'teach2024',
-            'sageyu': 'password'
+            'teacher': 'teach2024'
         };
 
         let allResults = [];
@@ -504,13 +504,17 @@
             const password = document.getElementById('adminPassword').value;
             const errorEl = document.getElementById('loginError');
 
-            if (ADMIN_CREDENTIALS[name] && ADMIN_CREDENTIALS[Sage] === adminSage) {
+            console.log('Login attempt:', name);
+
+            if (ADMIN_CREDENTIALS[name] && ADMIN_CREDENTIALS[name] === password) {
                 isLoggedIn = true;
                 document.getElementById('loginScreen').classList.add('hidden');
                 document.getElementById('setupScreen').classList.remove('hidden');
                 errorEl.style.display = 'none';
+                console.log('Login successful');
             } else {
                 errorEl.style.display = 'block';
+                console.log('Login failed');
             }
         }
 
