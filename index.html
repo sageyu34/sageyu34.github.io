@@ -95,6 +95,35 @@
             margin-right: 8px;
         }
 
+        .form-group {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
         .btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -129,9 +158,33 @@
             box-shadow: 0 6px 20px rgba(108, 117, 125, 0.6);
         }
 
+        .btn-danger {
+            background: #dc3545;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
+        }
+
         /* Quiz Screen */
         .quiz-screen {
             display: none;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .username-display {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1em;
         }
 
         .progress-bar {
@@ -274,6 +327,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .jump-to-question {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .jump-to-question input {
+            width: 80px;
+            padding: 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .jump-to-question button {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            margin: 0;
         }
 
         /* Results Screen */
@@ -281,6 +358,16 @@
             display: none;
             text-align: center;
             padding: 40px 20px;
+        }
+
+        .results-header {
+            margin-bottom: 30px;
+        }
+
+        .results-header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 10px;
         }
 
         .score-circle {
@@ -411,13 +498,30 @@
                 padding: 12px 30px;
                 font-size: 1em;
             }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .navigation button {
+                width: 100%;
+            }
+
+            .jump-to-question {
+                flex-direction: column;
+            }
+
+            .jump-to-question input,
+            .jump-to-question button {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🧬 Reproductive Physiology Quiz</h1>
+            <h1>🫄 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
@@ -430,7 +534,7 @@
 
             <!-- Error Screen -->
             <div id="errorScreen" class="error-message" style="display: none;">
-                <p>⚠️ Failed to load questions. Please make sure questions.json is in the same folder as this HTML file.</p>
+                <p>⚠️ Failed to load questions. Please refresh the page.</p>
                 <button class="btn" onclick="location.reload()">Try Again</button>
             </div>
 
@@ -447,18 +551,35 @@
                         <li>Detailed results with review</li>
                     </ul>
                 </div>
+
+                <div class="form-group">
+                    <label for="usernameInput">📝 Enter Your Username:</label>
+                    <input type="text" id="usernameInput" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficultySelect">⚙️ Select Test Type:</label>
+                    <select id="difficultySelect">
+                        <option value="beginner">🟢 Beginner (20 Questions)</option>
+                        <option value="advanced">🔴 Advanced (50 Questions)</option>
+                    </select>
+                </div>
+
                 <button class="btn" onclick="startQuiz()">Start Quiz</button>
-                <button class="btn btn-secondary" onclick="startCustomQuiz()">Custom Quiz (20 Questions)</button>
             </div>
 
             <!-- Quiz Screen -->
             <div id="quizScreen" class="quiz-screen">
+                <div class="quiz-header">
+                    <span class="username-display" id="usernameDisplay"></span>
+                </div>
+
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressBar"></div>
                 </div>
 
                 <div class="question-info">
-                    <span id="questionCounter">Question 1 of 300</span>
+                    <span id="questionCounter">Question 1 of 20</span>
                     <span class="topic-badge" id="topicBadge">Topic</span>
                 </div>
 
@@ -469,14 +590,24 @@
                 <div class="feedback" id="feedback"></div>
 
                 <div class="navigation">
-                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" style="visibility: hidden;">Previous</button>
-                    <button class="btn" onclick="nextQuestion()" id="nextBtn" disabled>Next Question</button>
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" style="visibility: hidden;">← Previous</button>
+                    <button class="btn" onclick="nextQuestion()" id="nextBtn" disabled>Next Question →</button>
+                    <button class="btn btn-danger" onclick="endTestEarly()" id="endTestBtn">⏹️ End Test</button>
+                </div>
+
+                <div class="jump-to-question">
+                    <label for="jumpInput">Jump to Question:</label>
+                    <input type="number" id="jumpInput" min="1" placeholder="Enter #">
+                    <button class="btn btn-secondary" onclick="jumpToQuestion()">Go</button>
                 </div>
             </div>
 
             <!-- Results Screen -->
             <div id="resultsScreen" class="results-screen">
-                <h2>Quiz Complete! 🎉</h2>
+                <div class="results-header">
+                    <h2>Quiz Complete! 🎉</h2>
+                    <p>Great job, <strong id="resultUsername"></strong>!</p>
+                </div>
 
                 <div class="score-circle">
                     <div class="score-number" id="scoreNumber">0%</div>
@@ -508,8 +639,8 @@
                     <div id="reviewContainer"></div>
                 </div>
 
-                <button class="btn" onclick="restartQuiz()">Restart Quiz</button>
-                <button class="btn btn-secondary" onclick="backToStart()">Back to Menu</button>
+                <button class="btn" onclick="backToStart()">← Back to Menu</button>
+                <button class="btn btn-secondary" onclick="startQuiz()">Take Another Quiz</button>
             </div>
         </div>
     </div>
@@ -521,7 +652,8 @@
         let currentQuestionIndex = 0;
         let userAnswers = [];
         let score = 0;
-        let quizMode = 'full'; // 'full' or 'custom'
+        let username = '';
+        let quizMode = 'beginner';
 
         // Load questions when page loads
         window.onload = function() {
@@ -558,26 +690,23 @@
         }
 
         function startQuiz() {
-            quizMode = 'full';
-            questions = shuffleArray(allQuestions);
+            username = document.getElementById('usernameInput').value.trim();
+            if (!username) {
+                alert('Please enter your username');
+                return;
+            }
+
+            quizMode = document.getElementById('difficultySelect').value;
+            const questionCount = quizMode === 'beginner' ? 20 : 50;
+
+            questions = shuffleArray(allQuestions).slice(0, questionCount);
             userAnswers = new Array(questions.length).fill(null);
             currentQuestionIndex = 0;
             score = 0;
 
             document.getElementById('startScreen').style.display = 'none';
             document.getElementById('quizScreen').style.display = 'block';
-            showQuestion();
-        }
-
-        function startCustomQuiz() {
-            quizMode = 'custom';
-            questions = shuffleArray(allQuestions).slice(0, 20);
-            userAnswers = new Array(questions.length).fill(null);
-            currentQuestionIndex = 0;
-            score = 0;
-
-            document.getElementById('startScreen').style.display = 'none';
-            document.getElementById('quizScreen').style.display = 'block';
+            document.getElementById('usernameDisplay').textContent = `👤 ${username}`;
             showQuestion();
         }
 
@@ -607,6 +736,7 @@
                 if (question.options[letter]) {
                     const btn = document.createElement('button');
                     btn.className = 'option-btn';
+                    btn.type = 'button';
 
                     // Show correct/incorrect styling if already answered
                     if (userAnswer) {
@@ -645,11 +775,14 @@
             document.getElementById('prevBtn').style.visibility = 
                 currentQuestionIndex > 0 ? 'visible' : 'hidden';
             document.getElementById('nextBtn').textContent = 
-                currentQuestionIndex === questions.length - 1 ? 'Finish Quiz' : 'Next Question';
+                currentQuestionIndex === questions.length - 1 ? 'Finish Quiz ✓' : 'Next Question →';
+
+            // Update jump input max
+            document.getElementById('jumpInput').max = questions.length;
         }
 
         function selectOption(selectedLetter) {
-            if (userAnswers[currentQuestionIndex]) return; // Already answered
+            if (userAnswers[currentQuestionIndex]) return;
 
             const question = questions[currentQuestionIndex];
             const isCorrect = selectedLetter === question.correct_answer;
@@ -706,6 +839,23 @@
             }
         }
 
+        function jumpToQuestion() {
+            const jumpNum = parseInt(document.getElementById('jumpInput').value);
+            if (isNaN(jumpNum) || jumpNum < 1 || jumpNum > questions.length) {
+                alert(`Please enter a number between 1 and ${questions.length}`);
+                return;
+            }
+            currentQuestionIndex = jumpNum - 1;
+            showQuestion();
+            document.getElementById('jumpInput').value = '';
+        }
+
+        function endTestEarly() {
+            if (confirm('Are you sure you want to end the test early? Your current results will be shown.')) {
+                showResults();
+            }
+        }
+
         function showResults() {
             document.getElementById('quizScreen').style.display = 'none';
             document.getElementById('resultsScreen').style.display = 'block';
@@ -713,6 +863,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const incorrect = questions.length - score;
 
+            document.getElementById('resultUsername').textContent = username;
             document.getElementById('scoreNumber').textContent = percentage + '%';
             document.getElementById('totalQuestions').textContent = questions.length;
             document.getElementById('correctAnswers').textContent = score;
@@ -722,7 +873,7 @@
             // Show review of incorrect answers
             const reviewContainer = document.getElementById('reviewContainer');
             const incorrectAnswers = userAnswers.map((answer, index) => ({...answer, index}))
-                .filter(answer => !answer.isCorrect);
+                .filter(answer => answer && !answer.isCorrect);
 
             if (incorrectAnswers.length > 0) {
                 document.getElementById('reviewSection').style.display = 'block';
@@ -744,16 +895,10 @@
             }
         }
 
-        function restartQuiz() {
-            if (quizMode === 'custom') {
-                startCustomQuiz();
-            } else {
-                startQuiz();
-            }
-        }
-
         function backToStart() {
             document.getElementById('resultsScreen').style.display = 'none';
+            document.getElementById('usernameInput').value = '';
+            document.getElementById('jumpInput').value = '';
             document.getElementById('startScreen').style.display = 'block';
         }
     </script>
