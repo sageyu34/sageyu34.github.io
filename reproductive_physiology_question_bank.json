@@ -1,0 +1,4025 @@
+{
+  "title": "Reproductive Physiology Comprehensive Examination Question Bank",
+  "description": "300 Multiple Choice Questions and 20 Essay Questions covering all course topics",
+  "metadata": {
+    "total_mcq_questions": 300,
+    "total_essay_questions": 20,
+    "topics_covered": [
+      "Male & Female Reproductive Anatomy",
+      "Hormonal Regulation (HPG Axis)",
+      "Gametogenesis",
+      "Menstrual Cycle & Ovulation",
+      "Fertilization & Implantation",
+      "Pregnancy & Parturition",
+      "Lactation",
+      "Reproductive Endocrinology",
+      "Fertility, Contraception & Reproductive Technologies"
+    ]
+  },
+  "sections": {
+    "multiple_choice_questions": [
+      {
+        "id": 1,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Which of the following structures is NOT part of the male reproductive system?",
+        "options": {
+          "A": "Epididymis",
+          "B": "Seminal vesicle",
+          "C": "Bulbourethral gland",
+          "D": "Bartholin's gland",
+          "E": "Prostate gland"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 2,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The testes are located outside the abdominal cavity in the scrotum primarily to:",
+        "options": {
+          "A": "Protect them from trauma",
+          "B": "Maintain a temperature 2-3 degrees below body temperature",
+          "C": "Facilitate sperm transport",
+          "D": "Allow for hormone secretion",
+          "E": "Prevent infection"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 3,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The blood-testis barrier is formed by:",
+        "options": {
+          "A": "Leydig cells",
+          "B": "Sertoli cells",
+          "C": "Germ cells",
+          "D": "Myoid cells",
+          "E": "Endothelial cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 4,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Which cells in the testis are responsible for testosterone production?",
+        "options": {
+          "A": "Sertoli cells",
+          "B": "Spermatogonia",
+          "C": "Leydig cells",
+          "D": "Myoid cells",
+          "E": "Germ cells"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 5,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The epididymis functions primarily in:",
+        "options": {
+          "A": "Sperm production",
+          "B": "Sperm maturation and storage",
+          "C": "Testosterone synthesis",
+          "D": "Semen production",
+          "E": "Ejaculation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 6,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The seminal vesicles contribute approximately what percentage of the total semen volume?",
+        "options": {
+          "A": "10%",
+          "B": "30%",
+          "C": "50%",
+          "D": "60-70%",
+          "E": "90%"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 7,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Which of the following is the correct pathway for sperm transport?",
+        "options": {
+          "A": "Seminiferous tubules -> Epididymis -> Vas deferens -> Ejaculatory duct -> Urethra",
+          "B": "Epididymis -> Seminiferous tubules -> Vas deferens -> Urethra",
+          "C": "Seminiferous tubules -> Vas deferens -> Epididymis -> Urethra",
+          "D": "Epididymis -> Vas deferens -> Seminiferous tubules -> Urethra",
+          "E": "Vas deferens -> Epididymis -> Ejaculatory duct -> Urethra"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 8,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The prostate gland secretes fluid that is:",
+        "options": {
+          "A": "Acidic and contains fructose",
+          "B": "Alkaline and contains citric acid",
+          "C": "Neutral and contains glucose",
+          "D": "Acidic and contains enzymes",
+          "E": "Alkaline and contains fructose"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 9,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The cremaster muscle functions to:",
+        "options": {
+          "A": "Produce testosterone",
+          "B": "Regulate testicular temperature",
+          "C": "Transport sperm",
+          "D": "Produce seminal fluid",
+          "E": "Support the penis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 10,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Which structure produces a lubricating fluid that neutralizes acidic urine in the urethra before ejaculation?",
+        "options": {
+          "A": "Prostate gland",
+          "B": "Seminal vesicles",
+          "C": "Bulbourethral (Cowper's) glands",
+          "D": "Epididymis",
+          "E": "Testes"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 11,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The tunica albuginea is:",
+        "options": {
+          "A": "The outer connective tissue covering of the testis",
+          "B": "The inner lining of the scrotum",
+          "C": "A layer of muscle surrounding the epididymis",
+          "D": "The membrane lining the seminiferous tubules",
+          "E": "The connective tissue surrounding the penis"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 12,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Sertoli cells provide all of the following functions EXCEPT:",
+        "options": {
+          "A": "Nourishment of developing sperm cells",
+          "B": "Formation of blood-testis barrier",
+          "C": "Production of testosterone",
+          "D": "Phagocytosis of residual bodies",
+          "E": "Secretion of inhibin"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 13,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The dartos muscle is found in:",
+        "options": {
+          "A": "The testis",
+          "B": "The scrotum",
+          "C": "The epididymis",
+          "D": "The prostate",
+          "E": "The penis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 14,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Which of the following structures is responsible for the forceful expulsion of semen during ejaculation?",
+        "options": {
+          "A": "Bulbourethral glands",
+          "B": "Vas deferens",
+          "C": "Ejaculatory duct",
+          "D": "Urethral glands",
+          "E": "Smooth muscles of the reproductive tract"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 15,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The mediastinum testis is:",
+        "options": {
+          "A": "A septum that divides the testis into lobules",
+          "B": "A network of connective tissue extending into the testis from the tunica albuginea",
+          "C": "The central region where seminiferous tubules converge",
+          "D": "The blood vessel network supplying the testis",
+          "E": "The lymphatic drainage system of the testis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 16,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The rete testis is:",
+        "options": {
+          "A": "The site of sperm production",
+          "B": "A network of channels connecting seminiferous tubules to the epididymis",
+          "C": "The hormone-producing region of the testis",
+          "D": "The blood-testis barrier",
+          "E": "The lymphatic drainage system"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 17,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "Which of the following is TRUE regarding the penis?",
+        "options": {
+          "A": "It contains three cylindrical masses of erectile tissue",
+          "B": "The corpus spongiosum surrounds the urethra",
+          "C": "The corpora cavernosa are paired structures",
+          "D": "All of the above",
+          "E": "None of the above"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 18,
+        "topic": "Topic 1: Male Reproductive System Anatomy",
+        "question": "The ejaculatory duct is formed by the union of:",
+        "options": {
+          "A": "Vas deferens and seminal vesicle duct",
+          "B": "Epididymis and vas deferens",
+          "C": "Seminal vesicle and prostate duct",
+          "D": "Bulbourethral gland and urethra",
+          "E": "Vas deferens and urethra"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 19,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The ovarian ligament connects the ovary to the:",
+        "options": {
+          "A": "Uterine fundus",
+          "B": "Uterine cornu",
+          "C": "Broad ligament",
+          "D": "Round ligament",
+          "E": "Suspensory ligament"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 20,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Which layer of the uterus is shed during menstruation?",
+        "options": {
+          "A": "Perimetrium",
+          "B": "Myometrium",
+          "C": "Endometrium",
+          "D": "Basalis layer",
+          "E": "Cervical epithelium"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 21,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The fallopian tube is divided into segments. Which segment is closest to the ovary?",
+        "options": {
+          "A": "Isthmus",
+          "B": "Ampulla",
+          "C": "Infundibulum",
+          "D": "Interstitial",
+          "E": "Cervical"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 22,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Fimbriae are:",
+        "options": {
+          "A": "Finger-like projections at the end of the fallopian tube",
+          "B": "Muscular layers of the uterus",
+          "C": "Glandular structures in the cervix",
+          "D": "Ovarian follicles",
+          "E": "Ligaments supporting the uterus"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 23,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The functional layer of the endometrium is also called the:",
+        "options": {
+          "A": "Basalis layer",
+          "B": "Compact layer",
+          "C": "Spongy layer",
+          "D": "Functionalis layer",
+          "E": "Myometrial layer"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 24,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Which of the following structures produces oocytes and hormones?",
+        "options": {
+          "A": "Uterus",
+          "B": "Fallopian tube",
+          "C": "Ovary",
+          "D": "Cervix",
+          "E": "Vagina"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 25,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The cervix produces mucus that:",
+        "options": {
+          "A": "Always facilitates sperm penetration",
+          "B": "Changes consistency during the menstrual cycle",
+          "C": "Prevents all sperm entry",
+          "D": "Has no effect on fertility",
+          "E": "Is constant throughout life"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 26,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The myometrium is composed of:",
+        "options": {
+          "A": "Glandular epithelium",
+          "B": "Smooth muscle",
+          "C": "Connective tissue only",
+          "D": "Skeletal muscle",
+          "E": "Nervous tissue"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 27,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Which ligament extends from the lateral surface of the uterus to the pelvic wall?",
+        "options": {
+          "A": "Round ligament",
+          "B": "Broad ligament",
+          "C": "Ovarian ligament",
+          "D": "Cardinal ligament",
+          "E": "Uterosacral ligament"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 28,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The suspensory ligament of the ovary contains:",
+        "options": {
+          "A": "Only connective tissue",
+          "B": "Ovarian vessels and nerves",
+          "C": "Only lymphatic vessels",
+          "D": "Smooth muscle fibers",
+          "E": "Skeletal muscle fibers"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 29,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The vaginal epithelium is:",
+        "options": {
+          "A": "Simple squamous",
+          "B": "Simple cuboidal",
+          "C": "Stratified squamous non-keratinized",
+          "D": "Stratified squamous keratinized",
+          "E": "Simple columnar"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 30,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Bartholin's glands are homologous to:",
+        "options": {
+          "A": "Prostate gland",
+          "B": "Bulbourethral glands",
+          "C": "Seminal vesicles",
+          "D": "Testes",
+          "E": "Epididymis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 31,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The clitoris is homologous to the:",
+        "options": {
+          "A": "Scrotum",
+          "B": "Penis",
+          "C": "Prostate",
+          "D": "Testis",
+          "E": "Epididymis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 32,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Which of the following is TRUE about the labia majora?",
+        "options": {
+          "A": "They are homologous to the scrotum",
+          "B": "They contain erectile tissue",
+          "C": "They are lined by mucous membrane",
+          "D": "They contain sebaceous glands",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 33,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The fornix of the vagina is:",
+        "options": {
+          "A": "The anterior recess around the cervix",
+          "B": "The posterior recess around the cervix",
+          "C": "The recess around the cervix (both anterior and posterior)",
+          "D": "The opening of the vagina",
+          "E": "The muscular layer of the vagina"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 34,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The endometrium consists of two layers. Which statement is CORRECT?",
+        "options": {
+          "A": "The functionalis layer is permanent",
+          "B": "The basalis layer regenerates the functionalis layer",
+          "C": "Both layers are shed during menstruation",
+          "D": "The basalis layer is shed during menstruation",
+          "E": "Neither layer is shed"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 35,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "The ovarian cortex contains:",
+        "options": {
+          "A": "Blood vessels and nerves only",
+          "B": "Ovarian follicles at various stages of development",
+          "C": "Smooth muscle tissue",
+          "D": "Lymphatic tissue only",
+          "E": "Nerve tissue only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 36,
+        "topic": "Topic 2: Female Reproductive System Anatomy",
+        "question": "Which structure provides the most common site for fertilization?",
+        "options": {
+          "A": "Ovary",
+          "B": "Infundibulum of fallopian tube",
+          "C": "Ampulla of fallopian tube",
+          "D": "Isthmus of fallopian tube",
+          "E": "Uterine cavity"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 37,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "GnRH is secreted by:",
+        "options": {
+          "A": "Anterior pituitary",
+          "B": "Posterior pituitary",
+          "C": "Hypothalamus",
+          "D": "Gonads",
+          "E": "Pineal gland"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 38,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "GnRH secretion occurs in a:",
+        "options": {
+          "A": "Continuous steady pattern",
+          "B": "Pulsatile pattern",
+          "C": "Daily single pulse",
+          "D": "Monthly pattern",
+          "E": "Annual pattern"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 39,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "LH and FSH are produced by which cells of the anterior pituitary?",
+        "options": {
+          "A": "Somatotrophs",
+          "B": "Corticotrophs",
+          "C": "Gonadotrophs",
+          "D": "Thyrotrophs",
+          "E": "Lactotrophs"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 40,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "In males, LH primarily stimulates:",
+        "options": {
+          "A": "Spermatogenesis directly",
+          "B": "Testosterone production by Leydig cells",
+          "C": "Sertoli cell function",
+          "D": "Prostate secretion",
+          "E": "Seminal vesicle function"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 41,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "In males, FSH primarily acts on:",
+        "options": {
+          "A": "Leydig cells",
+          "B": "Sertoli cells",
+          "C": "Germ cells",
+          "D": "Epididymal cells",
+          "E": "Prostate cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 42,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Testosterone exerts negative feedback primarily on:",
+        "options": {
+          "A": "Hypothalamus only",
+          "B": "Anterior pituitary only",
+          "C": "Both hypothalamus and anterior pituitary",
+          "D": "Testes only",
+          "E": "No feedback mechanism"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 43,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Inhibin is produced by:",
+        "options": {
+          "A": "Leydig cells",
+          "B": "Sertoli cells in males and granulosa cells in females",
+          "C": "Germ cells",
+          "D": "Hypothalamic neurons",
+          "E": "Pituitary gonadotrophs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 44,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Inhibin primarily inhibits the secretion of:",
+        "options": {
+          "A": "LH",
+          "B": "FSH",
+          "C": "GnRH",
+          "D": "Testosterone",
+          "E": "Estrogen"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 45,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Activin is structurally related to inhibin and:",
+        "options": {
+          "A": "Inhibits FSH secretion",
+          "B": "Stimulates FSH secretion",
+          "C": "Has no effect on FSH",
+          "D": "Inhibits LH secretion",
+          "E": "Stimulates testosterone production"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 46,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "The frequency and amplitude of GnRH pulses affect:",
+        "options": {
+          "A": "Only LH secretion",
+          "B": "Only FSH secretion",
+          "C": "The relative secretion of LH and FSH",
+          "D": "Only testosterone secretion",
+          "E": "Only estrogen secretion"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 47,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "High-frequency GnRH pulses favor:",
+        "options": {
+          "A": "FSH secretion",
+          "B": "LH secretion",
+          "C": "Equal secretion of both",
+          "D": "Inhibition of both",
+          "E": "No effect"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 48,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Low-frequency GnRH pulses favor:",
+        "options": {
+          "A": "FSH secretion",
+          "B": "LH secretion",
+          "C": "Equal secretion of both",
+          "D": "Inhibition of both",
+          "E": "No effect"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 49,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Kisspeptin neurons in the hypothalamus:",
+        "options": {
+          "A": "Inhibit GnRH secretion",
+          "B": "Stimulate GnRH secretion",
+          "C": "Have no effect on GnRH",
+          "D": "Produce GnRH",
+          "E": "Inhibit pituitary function directly"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 50,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Which hormone is responsible for the mid-cycle LH surge in females?",
+        "options": {
+          "A": "Progesterone",
+          "B": "Estrogen positive feedback",
+          "C": "Inhibin",
+          "D": "Testosterone",
+          "E": "Prolactin"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 51,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "The HPG axis is active during which life stages?",
+        "options": {
+          "A": "Only fetal life",
+          "B": "Only puberty and adulthood",
+          "C": "Fetal life, neonatal period, puberty, and adulthood",
+          "D": "Only adulthood",
+          "E": "Continuously throughout life"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 52,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "During the neonatal period, the HPG axis:",
+        "options": {
+          "A": "Is completely inactive",
+          "B": "Shows a transient activation (mini-puberty)",
+          "C": "Is fully active like in adults",
+          "D": "Only produces FSH",
+          "E": "Only produces LH"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 53,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Leptin plays a role in reproductive function by:",
+        "options": {
+          "A": "Inhibiting GnRH secretion",
+          "B": "Providing a signal about energy stores to the reproductive system",
+          "C": "Directly stimulating testosterone production",
+          "D": "Inhibiting estrogen production",
+          "E": "Having no role in reproduction"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 54,
+        "topic": "Topic 3: Hypothalamic-Pituitary-Gonadal Axis",
+        "question": "Disruption of the HPG axis can result from:",
+        "options": {
+          "A": "Excessive exercise",
+          "B": "Malnutrition",
+          "C": "Chronic stress",
+          "D": "All of the above",
+          "E": "None of the above"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 55,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Spermatogenesis occurs in the:",
+        "options": {
+          "A": "Epididymis",
+          "B": "Seminiferous tubules",
+          "C": "Vas deferens",
+          "D": "Prostate gland",
+          "E": "Seminal vesicles"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 56,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "The duration of spermatogenesis in humans is approximately:",
+        "options": {
+          "A": "24 hours",
+          "B": "7 days",
+          "C": "2-3 weeks",
+          "D": "64-72 days",
+          "E": "6 months"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 57,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Spermatogonia are located:",
+        "options": {
+          "A": "In the lumen of seminiferous tubules",
+          "B": "On the basement membrane of seminiferous tubules",
+          "C": "In the epididymis",
+          "D": "In the rete testis",
+          "E": "In the vas deferens"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 58,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Type A spermatogonia function as:",
+        "options": {
+          "A": "Cells that differentiate directly into sperm",
+          "B": "Stem cells that maintain the germ cell population",
+          "C": "Support cells for spermatids",
+          "D": "Hormone-producing cells",
+          "E": "Phagocytic cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 59,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Primary spermatocytes are:",
+        "options": {
+          "A": "Haploid cells",
+          "B": "Diploid cells that undergo meiosis I",
+          "C": "Cells that have completed meiosis",
+          "D": "Sperm cells",
+          "E": "Sertoli cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 60,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Secondary spermatocytes are:",
+        "options": {
+          "A": "Diploid",
+          "B": "Haploid and undergo meiosis II",
+          "C": "Mature sperm cells",
+          "D": "Spermatogonia",
+          "E": "Sertoli cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 61,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Spermatids undergo which process to become spermatozoa?",
+        "options": {
+          "A": "Mitosis",
+          "B": "Meiosis",
+          "C": "Spermiogenesis",
+          "D": "Oogenesis",
+          "E": "Fertilization"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 62,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "During spermiogenesis, the acrosome is formed from:",
+        "options": {
+          "A": "Mitochondria",
+          "B": "Golgi apparatus",
+          "C": "Endoplasmic reticulum",
+          "D": "Nucleus",
+          "E": "Centrioles"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 63,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "The flagellum (tail) of the sperm is derived from:",
+        "options": {
+          "A": "Golgi apparatus",
+          "B": "Mitochondria",
+          "C": "Centrioles",
+          "D": "Nucleus",
+          "E": "Endoplasmic reticulum"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 64,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Residual bodies formed during spermiogenesis are:",
+        "options": {
+          "A": "Incorporated into the sperm",
+          "B": "Phagocytosed by Sertoli cells",
+          "C": "Released into the lumen",
+          "D": "Converted to Leydig cells",
+          "E": "Destroyed by germ cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 65,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Which of the following is NOT a structural component of mature sperm?",
+        "options": {
+          "A": "Acrosome",
+          "B": "Nucleus",
+          "C": "Mitochondrial sheath",
+          "D": "Golgi apparatus",
+          "E": "Flagellum"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 66,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "The acrosome contains enzymes important for:",
+        "options": {
+          "A": "Energy production",
+          "B": "Penetration of the egg during fertilization",
+          "C": "Motility",
+          "D": "DNA condensation",
+          "E": "Protein synthesis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 67,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Spermatogenesis is regulated by:",
+        "options": {
+          "A": "FSH only",
+          "B": "Testosterone only",
+          "C": "FSH and testosterone",
+          "D": "LH only",
+          "E": "Estrogen only"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 68,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "FSH acts on Sertoli cells to stimulate production of:",
+        "options": {
+          "A": "Testosterone",
+          "B": "Androgen-binding protein (ABP)",
+          "C": "Estrogen",
+          "D": "LH",
+          "E": "GnRH"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 69,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Androgen-binding protein (ABP) functions to:",
+        "options": {
+          "A": "Transport testosterone within the blood",
+          "B": "Maintain high testosterone concentration in seminiferous tubules",
+          "C": "Bind estrogen",
+          "D": "Inhibit FSH secretion",
+          "E": "Transport sperm"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 70,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Daily sperm production in a healthy adult male is approximately:",
+        "options": {
+          "A": "100-500 sperm",
+          "B": "1,000-5,000 sperm",
+          "C": "100 million-300 million sperm",
+          "D": "1 billion-5 billion sperm",
+          "E": "10 billion sperm"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 71,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Which of the following can negatively affect spermatogenesis?",
+        "options": {
+          "A": "Elevated scrotal temperature",
+          "B": "Radiation exposure",
+          "C": "Certain medications",
+          "D": "All of the above",
+          "E": "None of the above"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 72,
+        "topic": "Topic 4: Spermatogenesis",
+        "question": "Sperm released from the testis are:",
+        "options": {
+          "A": "Fully mature and motile",
+          "B": "Immature and non-motile",
+          "C": "Capable of fertilization",
+          "D": "Stored in the vas deferens",
+          "E": "Ready for ejaculation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 73,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Oogenesis begins:",
+        "options": {
+          "A": "At puberty",
+          "B": "During fetal development",
+          "C": "At birth",
+          "D": "During each menstrual cycle",
+          "E": "At menopause"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 74,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "The maximum number of oocytes in the fetal ovary is reached at approximately:",
+        "options": {
+          "A": "4 weeks gestation",
+          "B": "12-16 weeks gestation",
+          "C": "20-24 weeks gestation",
+          "D": "32 weeks gestation",
+          "E": "At birth"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 75,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "At birth, a female has approximately how many oocytes?",
+        "options": {
+          "A": "100,000",
+          "B": "500,000",
+          "C": "1-2 million",
+          "D": "10 million",
+          "E": "50 million"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 76,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "By puberty, the number of oocytes has decreased to approximately:",
+        "options": {
+          "A": "1,000",
+          "B": "10,000",
+          "C": "300,000-400,000",
+          "D": "1 million",
+          "E": "100,000"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 77,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Primary oocytes are arrested in prophase I of meiosis:",
+        "options": {
+          "A": "Until puberty",
+          "B": "Until ovulation",
+          "C": "From fetal life until just before ovulation",
+          "D": "Only during pregnancy",
+          "E": "Only during menstruation"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 78,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Completion of meiosis I occurs:",
+        "options": {
+          "A": "At puberty",
+          "B": "Just before ovulation",
+          "C": "After fertilization",
+          "D": "At birth",
+          "E": "During fetal life"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 79,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Meiosis II is completed:",
+        "options": {
+          "A": "Before ovulation",
+          "B": "At ovulation",
+          "C": "Only after fertilization",
+          "D": "At puberty",
+          "E": "During fetal life"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 80,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "A primordial follicle consists of:",
+        "options": {
+          "A": "A primary oocyte surrounded by a single layer of flattened granulosa cells",
+          "B": "A secondary oocyte surrounded by multiple layers of granulosa cells",
+          "C": "A primary oocyte surrounded by theca cells",
+          "D": "A mature ovum only",
+          "E": "Granulosa cells only"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 81,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "The zona pellucida is:",
+        "options": {
+          "A": "A layer of granulosa cells",
+          "B": "A glycoprotein layer surrounding the oocyte",
+          "C": "The outer layer of the follicle",
+          "D": "A layer of theca cells",
+          "E": "The basement membrane"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 82,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "During follicular development, the granulosa cells proliferate to form:",
+        "options": {
+          "A": "The zona pellucida",
+          "B": "Multiple layers in the primary and secondary follicles",
+          "C": "The theca layer",
+          "D": "The corpus luteum",
+          "E": "The corpus albicans"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 83,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Theca cells differentiate into:",
+        "options": {
+          "A": "Granulosa cells",
+          "B": "Theca interna and theca externa",
+          "C": "Zona pellucida",
+          "D": "Cumulus oophorus",
+          "E": "Corona radiata"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 84,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Theca interna cells produce:",
+        "options": {
+          "A": "Estrogen directly",
+          "B": "Androgens that are converted to estrogen by granulosa cells",
+          "C": "Progesterone",
+          "D": "LH",
+          "E": "FSH"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 85,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Granulosa cells convert androgens to estrogen through the action of:",
+        "options": {
+          "A": "5-alpha reductase",
+          "B": "Aromatase",
+          "C": "17-beta hydroxysteroid dehydrogenase",
+          "D": "3-beta hydroxysteroid dehydrogenase",
+          "E": "Cholesterol desmolase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 86,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "The two-cell, two-gonadotropin theory refers to:",
+        "options": {
+          "A": "The need for both LH and FSH in follicular estrogen production",
+          "B": "The cooperation between theca and granulosa cells in estrogen synthesis",
+          "C": "The two types of oocytes",
+          "D": "The two layers of theca cells",
+          "E": "The two hormones produced by the pituitary"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 87,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "The cumulus oophorus is:",
+        "options": {
+          "A": "The layer of granulosa cells directly attached to the zona pellucida",
+          "B": "The mass of granulosa cells surrounding the oocyte that will ovulate",
+          "C": "The theca cell layer",
+          "D": "The outer ovarian cortex",
+          "E": "The inner ovarian medulla"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 88,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Atresia refers to:",
+        "options": {
+          "A": "Ovulation",
+          "B": "Degeneration of follicles",
+          "C": "Formation of corpus luteum",
+          "D": "Fertilization",
+          "E": "Implantation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 89,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "The corona radiata is:",
+        "options": {
+          "A": "The outer layer of theca cells",
+          "B": "The layer of granulosa cells immediately surrounding the zona pellucida",
+          "C": "The outer shell of the ovary",
+          "D": "The cumulus cells",
+          "E": "The oocyte itself"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 90,
+        "topic": "Topic 5: Oogenesis and Follicular Development",
+        "question": "Which hormone is primarily responsible for the selection and growth of the dominant follicle?",
+        "options": {
+          "A": "LH",
+          "B": "FSH",
+          "C": "Estrogen",
+          "D": "Progesterone",
+          "E": "Testosterone"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 91,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The average length of the menstrual cycle is:",
+        "options": {
+          "A": "14 days",
+          "B": "21 days",
+          "C": "28 days (range 21-35 days)",
+          "D": "35 days",
+          "E": "42 days"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 92,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The menstrual cycle is divided into how many phases?",
+        "options": {
+          "A": "2",
+          "B": "3 (follicular, ovulatory, luteal)",
+          "C": "4",
+          "D": "5",
+          "E": "6"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 93,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The follicular phase is characterized by:",
+        "options": {
+          "A": "High progesterone levels",
+          "B": "Rising estrogen levels and follicular development",
+          "C": "Corpus luteum formation",
+          "D": "Low FSH levels",
+          "E": "High LH levels throughout"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 94,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "During the early follicular phase, which hormone is highest?",
+        "options": {
+          "A": "Estrogen",
+          "B": "Progesterone",
+          "C": "FSH",
+          "D": "LH",
+          "E": "hCG"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 95,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The LH surge typically occurs:",
+        "options": {
+          "A": "At the beginning of the cycle",
+          "B": "24-36 hours before ovulation",
+          "C": "After ovulation",
+          "D": "During menstruation",
+          "E": "In the middle of the luteal phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 96,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "Ovulation is triggered by:",
+        "options": {
+          "A": "A sudden drop in estrogen",
+          "B": "The LH surge",
+          "C": "Rising progesterone",
+          "D": "Falling FSH",
+          "E": "High inhibin levels"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 97,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The luteal phase typically lasts:",
+        "options": {
+          "A": "7 days",
+          "B": "14 days (relatively constant)",
+          "C": "21 days",
+          "D": "28 days",
+          "E": "Variable from cycle to cycle"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 98,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The corpus luteum is formed from:",
+        "options": {
+          "A": "The remaining theca cells",
+          "B": "The granulosa and theca cells of the ruptured follicle",
+          "C": "The oocyte",
+          "D": "The endometrium",
+          "E": "The pituitary gland"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 99,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The corpus luteum primarily secretes:",
+        "options": {
+          "A": "Estrogen only",
+          "B": "Progesterone only",
+          "C": "Both estrogen and progesterone",
+          "D": "LH and FSH",
+          "E": "Testosterone only"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 100,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "If pregnancy does not occur, the corpus luteum degenerates into:",
+        "options": {
+          "A": "A new follicle",
+          "B": "The corpus albicans",
+          "C": "The cumulus oophorus",
+          "D": "The zona pellucida",
+          "E": "The theca externa"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 101,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "Menstruation occurs because of:",
+        "options": {
+          "A": "Rising estrogen levels",
+          "B": "Falling progesterone and estrogen levels",
+          "C": "Rising LH levels",
+          "D": "The LH surge",
+          "E": "Rising FSH levels"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 102,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "During the follicular phase, endometrial changes include:",
+        "options": {
+          "A": "Glandular secretion",
+          "B": "Proliferation of the functionalis layer",
+          "C": "Decidualization",
+          "D": "Breakdown and shedding",
+          "E": "No changes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 103,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "During the luteal phase, endometrial changes include:",
+        "options": {
+          "A": "Continued proliferation",
+          "B": "Glandular secretion and preparation for implantation",
+          "C": "Menstrual shedding",
+          "D": "No changes",
+          "E": "Breakdown of the basalis layer"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 104,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "Basal body temperature:",
+        "options": {
+          "A": "Decreases after ovulation",
+          "B": "Increases by 0.3-0.5 degrees Celsius after ovulation due to progesterone",
+          "C": "Remains constant throughout the cycle",
+          "D": "Increases before ovulation",
+          "E": "Is not affected by hormones"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 105,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "Cervical mucus changes during the menstrual cycle. At ovulation, it becomes:",
+        "options": {
+          "A": "Thick and sticky",
+          "B": "Thin, watery, and stretchy (spinnbarkeit)",
+          "C": "Absent",
+          "D": "Acidic",
+          "E": "Unchanged"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 106,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The proliferative phase of the endometrium corresponds to which ovarian phase?",
+        "options": {
+          "A": "Luteal phase",
+          "B": "Follicular phase",
+          "C": "Menstrual phase",
+          "D": "Secretory phase",
+          "E": "Ovulatory phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 107,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "The secretory phase of the endometrium corresponds to which ovarian phase?",
+        "options": {
+          "A": "Follicular phase",
+          "B": "Luteal phase",
+          "C": "Menstrual phase",
+          "D": "Proliferative phase",
+          "E": "Ovulatory phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 108,
+        "topic": "Topic 6: Menstrual Cycle",
+        "question": "Which of the following is NOT a symptom of premenstrual syndrome (PMS)?",
+        "options": {
+          "A": "Mood changes",
+          "B": "Bloating",
+          "C": "Breast tenderness",
+          "D": "High fever",
+          "E": "Fatigue"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 109,
+        "topic": "Topic 7: Fertilization",
+        "question": "Fertilization typically occurs in the:",
+        "options": {
+          "A": "Ovary",
+          "B": "Uterus",
+          "C": "Ampulla of the fallopian tube",
+          "D": "Cervix",
+          "E": "Vagina"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 110,
+        "topic": "Topic 7: Fertilization",
+        "question": "Before fertilization, sperm must undergo capacitation, which occurs in the:",
+        "options": {
+          "A": "Testis",
+          "B": "Epididymis",
+          "C": "Female reproductive tract",
+          "D": "Vas deferens",
+          "E": "Seminal vesicles"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 111,
+        "topic": "Topic 7: Fertilization",
+        "question": "Capacitation involves:",
+        "options": {
+          "A": "Removal of cholesterol from the sperm plasma membrane",
+          "B": "Addition of proteins to the sperm membrane",
+          "C": "Condensation of the nucleus",
+          "D": "Formation of the acrosome",
+          "E": "Mitochondrial replication"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 112,
+        "topic": "Topic 7: Fertilization",
+        "question": "The acrosome reaction is triggered by:",
+        "options": {
+          "A": "Contact with the zona pellucida",
+          "B": "Contact with the oocyte membrane",
+          "C": "Contact with corona radiata cells",
+          "D": "Contact with the endometrium",
+          "E": "Contact with cervical mucus"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 113,
+        "topic": "Topic 7: Fertilization",
+        "question": "The acrosome reaction releases enzymes that help sperm:",
+        "options": {
+          "A": "Move faster",
+          "B": "Penetrate the zona pellucida",
+          "C": "Produce energy",
+          "D": "Undergo capacitation",
+          "E": "Bind to the oocyte membrane"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 114,
+        "topic": "Topic 7: Fertilization",
+        "question": "The zona pellucida glycoprotein that binds to sperm is:",
+        "options": {
+          "A": "ZP1",
+          "B": "ZP2",
+          "C": "ZP3",
+          "D": "ZP4",
+          "E": "All of the above equally"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 115,
+        "topic": "Topic 7: Fertilization",
+        "question": "After one sperm penetrates the zona pellucida, the block to polyspermy is mediated by:",
+        "options": {
+          "A": "Cortical granules releasing enzymes that modify ZP2",
+          "B": "Changes in the oocyte membrane only",
+          "C": "Sperm enzymes",
+          "D": "Corona radiata cells",
+          "E": "Cumulus cells"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 116,
+        "topic": "Topic 7: Fertilization",
+        "question": "The cortical reaction occurs:",
+        "options": {
+          "A": "Before sperm penetration",
+          "B": "Immediately after sperm-oocyte fusion",
+          "C": "During capacitation",
+          "D": "During the acrosome reaction",
+          "E": "After mitosis begins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 117,
+        "topic": "Topic 7: Fertilization",
+        "question": "Upon sperm entry, the secondary oocyte completes:",
+        "options": {
+          "A": "Meiosis I",
+          "B": "Meiosis II",
+          "C": "Mitosis",
+          "D": "DNA replication",
+          "E": "None of the above"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 118,
+        "topic": "Topic 7: Fertilization",
+        "question": "Fusion of male and female pronuclei results in:",
+        "options": {
+          "A": "A diploid zygote",
+          "B": "A haploid cell",
+          "C": "A tetraploid cell",
+          "D": "Two separate cells",
+          "E": "A polar body"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 119,
+        "topic": "Topic 7: Fertilization",
+        "question": "The second polar body is extruded:",
+        "options": {
+          "A": "At ovulation",
+          "B": "After sperm penetration",
+          "C": "Before ovulation",
+          "D": "During fertilization in the uterus",
+          "E": "During implantation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 120,
+        "topic": "Topic 7: Fertilization",
+        "question": "Sperm can survive in the female reproductive tract for up to:",
+        "options": {
+          "A": "1-2 hours",
+          "B": "12-24 hours",
+          "C": "3-5 days",
+          "D": "2 weeks",
+          "E": "1 month"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 121,
+        "topic": "Topic 7: Fertilization",
+        "question": "The oocyte is typically viable for fertilization for:",
+        "options": {
+          "A": "1-2 hours after ovulation",
+          "B": "12-24 hours after ovulation",
+          "C": "3-5 days after ovulation",
+          "D": "1 week after ovulation",
+          "E": "2 weeks after ovulation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 122,
+        "topic": "Topic 7: Fertilization",
+        "question": "The fertilization window is approximately:",
+        "options": {
+          "A": "1 day",
+          "B": "2-3 days around ovulation",
+          "C": "1 week",
+          "D": "2 weeks",
+          "E": "The entire menstrual cycle"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 123,
+        "topic": "Topic 7: Fertilization",
+        "question": "Polyspermy results in:",
+        "options": {
+          "A": "Normal development",
+          "B": "A triploid zygote that is typically non-viable",
+          "C": "Twin pregnancy",
+          "D": "Enhanced embryo quality",
+          "E": "No effect on development"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 124,
+        "topic": "Topic 7: Fertilization",
+        "question": "The fast block to polyspermy involves:",
+        "options": {
+          "A": "Cortical granule release",
+          "B": "Depolarization of the oocyte plasma membrane",
+          "C": "Zona pellucida modification",
+          "D": "Sperm enzyme inhibition",
+          "E": "Corona radiata expansion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 125,
+        "topic": "Topic 7: Fertilization",
+        "question": "The slow block to polyspermy involves:",
+        "options": {
+          "A": "Membrane depolarization only",
+          "B": "Cortical granule release and zona pellucida modification",
+          "C": "Sperm capacitation",
+          "D": "Acrosome reaction",
+          "E": "Pronuclear fusion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 126,
+        "topic": "Topic 7: Fertilization",
+        "question": "After fertilization, the zygote begins to divide by:",
+        "options": {
+          "A": "Meiosis",
+          "B": "Mitosis",
+          "C": "Binary fission",
+          "D": "Budding",
+          "E": "Fragmentation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 127,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The first cell division of the zygote typically occurs approximately:",
+        "options": {
+          "A": "6 hours after fertilization",
+          "B": "24-30 hours after fertilization",
+          "C": "3 days after fertilization",
+          "D": "1 week after fertilization",
+          "E": "2 weeks after fertilization"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 128,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The morula stage is reached at approximately:",
+        "options": {
+          "A": "2-cell stage",
+          "B": "8-16 cell stage (day 3)",
+          "C": "Blastocyst stage",
+          "D": "32-cell stage",
+          "E": "64-cell stage"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 129,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The blastocyst consists of:",
+        "options": {
+          "A": "Only inner cell mass",
+          "B": "Only trophoblast",
+          "C": "Inner cell mass and trophoblast",
+          "D": "Zona pellucida and corona radiata",
+          "E": "Polar bodies"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 130,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The inner cell mass will develop into:",
+        "options": {
+          "A": "The placenta",
+          "B": "The embryo proper",
+          "C": "The chorion",
+          "D": "The amnion",
+          "E": "The yolk sac"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 131,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The trophoblast will develop into:",
+        "options": {
+          "A": "The embryo",
+          "B": "The fetal membranes and contribute to the placenta",
+          "C": "The umbilical cord only",
+          "D": "The amniotic fluid",
+          "E": "The yolk sac only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 132,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The blastocyst hatches from the zona pellucida approximately:",
+        "options": {
+          "A": "1 day after fertilization",
+          "B": "5-6 days after fertilization",
+          "C": "2 weeks after fertilization",
+          "D": "At ovulation",
+          "E": "During implantation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 133,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "Compaction in the morula involves:",
+        "options": {
+          "A": "Cell division only",
+          "B": "Formation of tight junctions between blastomeres",
+          "C": "Hatching from the zona pellucida",
+          "D": "Formation of the blastocoel",
+          "E": "Differentiation of trophoblast"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 134,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The blastocoel is:",
+        "options": {
+          "A": "A solid mass of cells",
+          "B": "A fluid-filled cavity in the blastocyst",
+          "C": "The inner cell mass",
+          "D": "The trophoblast layer",
+          "E": "The zona pellucida"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 135,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "During cleavage, the embryo:",
+        "options": {
+          "A": "Increases in total mass",
+          "B": "Does not increase in total mass (cells become smaller)",
+          "C": "Doubles in size with each division",
+          "D": "Triples in size",
+          "E": "Quadruples in size"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 136,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The cells of the early cleavage stage are called:",
+        "options": {
+          "A": "Trophoblasts",
+          "B": "Blastomeres",
+          "C": "Morulae",
+          "D": "Embryoblasts",
+          "E": "Cytotrophoblasts"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 137,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The process of gastrulation establishes:",
+        "options": {
+          "A": "The blastocyst",
+          "B": "The three germ layers (ectoderm, mesoderm, endoderm)",
+          "C": "The placenta",
+          "D": "The amniotic sac",
+          "E": "The yolk sac"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 138,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The primitive streak appears during:",
+        "options": {
+          "A": "Cleavage",
+          "B": "Gastrulation (week 3)",
+          "C": "Neurulation",
+          "D": "Organogenesis",
+          "E": "Implantation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 139,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The notochord is derived from:",
+        "options": {
+          "A": "Ectoderm",
+          "B": "Mesoderm",
+          "C": "Endoderm",
+          "D": "Trophoblast",
+          "E": "Extraembryonic mesoderm"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 140,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "Neurulation results in formation of:",
+        "options": {
+          "A": "The heart",
+          "B": "The neural tube (future brain and spinal cord)",
+          "C": "The limbs",
+          "D": "The digestive tract",
+          "E": "The lungs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 141,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The neural tube is derived from:",
+        "options": {
+          "A": "Endoderm",
+          "B": "Ectoderm",
+          "C": "Mesoderm",
+          "D": "Trophoblast",
+          "E": "Yolk sac"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 142,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "Somites are:",
+        "options": {
+          "A": "Blocks of ectoderm",
+          "B": "Blocks of mesoderm that give rise to vertebrae and skeletal muscle",
+          "C": "Blocks of endoderm",
+          "D": "Part of the trophoblast",
+          "E": "Extraembryonic structures"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 143,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The yolk sac in humans:",
+        "options": {
+          "A": "Is large and contains yolk",
+          "B": "Is small and functions in early hematopoiesis and germ cell formation",
+          "C": "Provides nutrition to the embryo",
+          "D": "Is the same as in birds",
+          "E": "Is not present"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 144,
+        "topic": "Topic 8: Early Embryonic Development",
+        "question": "The amnion is derived from:",
+        "options": {
+          "A": "Trophoblast only",
+          "B": "Both embryoblast and trophoblast",
+          "C": "Endoderm only",
+          "D": "Mesoderm only",
+          "E": "Yolk sac"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 145,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Implantation typically occurs:",
+        "options": {
+          "A": "1 day after fertilization",
+          "B": "6-7 days after fertilization",
+          "C": "14 days after fertilization",
+          "D": "At ovulation",
+          "E": "1 month after fertilization"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 146,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Implantation occurs in the:",
+        "options": {
+          "A": "Ovary",
+          "B": "Fallopian tube",
+          "C": "Endometrium of the uterus",
+          "D": "Cervix",
+          "E": "Vagina"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 147,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The endometrium during implantation is in which phase?",
+        "options": {
+          "A": "Menstrual phase",
+          "B": "Proliferative phase",
+          "C": "Secretory phase (under influence of progesterone)",
+          "D": "Atrophic phase",
+          "E": "Resting phase"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 148,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The syncytiotrophoblast is formed by:",
+        "options": {
+          "A": "Fusion of cytotrophoblast cells",
+          "B": "Division of inner cell mass",
+          "C": "Endometrial cells",
+          "D": "Sperm cells",
+          "E": "Oocyte cells"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 149,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The syncytiotrophoblast produces:",
+        "options": {
+          "A": "LH",
+          "B": "FSH",
+          "C": "Human chorionic gonadotropin (hCG)",
+          "D": "Estrogen only",
+          "E": "Progesterone only"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 150,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "hCG maintains the corpus luteum during early pregnancy by:",
+        "options": {
+          "A": "Inhibiting LH receptors",
+          "B": "Binding to LH receptors",
+          "C": "Stimulating FSH secretion",
+          "D": "Inhibiting GnRH",
+          "E": "Directly producing progesterone"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 151,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "hCG can be detected in maternal urine or blood approximately:",
+        "options": {
+          "A": "1 day after fertilization",
+          "B": "8-10 days after fertilization (around the time of missed period)",
+          "C": "1 month after fertilization",
+          "D": "At implantation",
+          "E": "3 months after fertilization"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 152,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The cytotrophoblast gives rise to:",
+        "options": {
+          "A": "Only syncytiotrophoblast",
+          "B": "Syncytiotrophoblast and chorionic villi",
+          "C": "The embryo",
+          "D": "The amnion",
+          "E": "The yolk sac"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 153,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Chorionic villi are:",
+        "options": {
+          "A": "Finger-like projections of the trophoblast that invade the endometrium",
+          "B": "Part of the embryo proper",
+          "C": "Extensions of the yolk sac",
+          "D": "Part of the amnion",
+          "E": "Umbilical cord structures"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 154,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Primary chorionic villi consist of:",
+        "options": {
+          "A": "Syncytiotrophoblast only",
+          "B": "Syncytiotrophoblast and cytotrophoblast",
+          "C": "Cytotrophoblast only",
+          "D": "Mesoderm",
+          "E": "Blood vessels"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 155,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Secondary chorionic villi contain:",
+        "options": {
+          "A": "Only trophoblast layers",
+          "B": "Trophoblast layers plus extraembryonic mesoderm",
+          "C": "Blood vessels",
+          "D": "Maternal blood",
+          "E": "Embryonic tissue"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 156,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Tertiary chorionic villi are characterized by:",
+        "options": {
+          "A": "Presence of fetal blood vessels",
+          "B": "Absence of mesoderm",
+          "C": "Presence of maternal tissue only",
+          "D": "Absence of trophoblast",
+          "E": "Presence of amniotic fluid"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 157,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The placental barrier (placental membrane) consists of:",
+        "options": {
+          "A": "Maternal blood only",
+          "B": "Fetal blood only",
+          "C": "Syncytiotrophoblast, cytotrophoblast, basement membrane, connective tissue, and fetal endothelium",
+          "D": "Amniotic membrane",
+          "E": "Yolk sac membrane"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 158,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Maternal blood in the intervillous space is separated from fetal blood by:",
+        "options": {
+          "A": "Nothing - they mix directly",
+          "B": "The placental barrier",
+          "C": "Only one cell layer",
+          "D": "Amniotic fluid",
+          "E": "The yolk sac"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 159,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The placenta produces which hormones?",
+        "options": {
+          "A": "hCG only",
+          "B": "hCG, progesterone, and estrogen",
+          "C": "LH and FSH",
+          "D": "Prolactin only",
+          "E": "Oxytocin only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 160,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The decidua basalis is:",
+        "options": {
+          "A": "The portion of endometrium between the chorion and myometrium",
+          "B": "The portion of endometrium directly beneath the implanted embryo",
+          "C": "The portion of endometrium opposite the implantation site",
+          "D": "The myometrium",
+          "E": "The perimetrium"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 161,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "The decidua parietalis is:",
+        "options": {
+          "A": "The decidua beneath the embryo",
+          "B": "The decidua lining the rest of the uterus",
+          "C": "The myometrium",
+          "D": "The chorion",
+          "E": "The amnion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 162,
+        "topic": "Topic 9: Implantation and Placentation",
+        "question": "Ectopic pregnancy refers to:",
+        "options": {
+          "A": "Pregnancy in the uterus",
+          "B": "Implantation outside the uterine cavity (most commonly in fallopian tube)",
+          "C": "Twin pregnancy",
+          "D": "Molar pregnancy",
+          "E": "Pregnancy with genetic abnormalities"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 163,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The average duration of human pregnancy is:",
+        "options": {
+          "A": "36 weeks",
+          "B": "38 weeks from fertilization (40 weeks from LMP)",
+          "C": "42 weeks",
+          "D": "32 weeks",
+          "E": "44 weeks"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 164,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "During pregnancy, progesterone is produced by:",
+        "options": {
+          "A": "Corpus luteum only",
+          "B": "Placenta only",
+          "C": "Corpus luteum (early) and placenta (later)",
+          "D": "Pituitary only",
+          "E": "Hypothalamus only"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 165,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The corpus luteum of pregnancy is maintained by:",
+        "options": {
+          "A": "LH",
+          "B": "FSH",
+          "C": "hCG",
+          "D": "Estrogen",
+          "E": "Prolactin"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 166,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The placenta takes over progesterone production around:",
+        "options": {
+          "A": "4 weeks",
+          "B": "8-10 weeks",
+          "C": "20 weeks",
+          "D": "28 weeks",
+          "E": "36 weeks"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 167,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "During pregnancy, estrogen levels:",
+        "options": {
+          "A": "Decrease",
+          "B": "Remain constant",
+          "C": "Increase dramatically",
+          "D": "Fluctuate randomly",
+          "E": "Are undetectable"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 168,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Estriol is:",
+        "options": {
+          "A": "The main estrogen in non-pregnant women",
+          "B": "A weak estrogen produced by the fetoplacental unit",
+          "C": "Produced only by the ovary",
+          "D": "A form of progesterone",
+          "E": "A male hormone"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 169,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The fetoplacental unit refers to:",
+        "options": {
+          "A": "The fetus only",
+          "B": "The placenta only",
+          "C": "The cooperative interaction between fetus and placenta in hormone production",
+          "D": "The uterus only",
+          "E": "The amniotic sac"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 170,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Human placental lactogen (hPL) functions to:",
+        "options": {
+          "A": "Stimulate milk production",
+          "B": "Decrease maternal glucose utilization and increase lipolysis",
+          "C": "Stimulate uterine contractions",
+          "D": "Maintain the corpus luteum",
+          "E": "Inhibit prolactin"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 171,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "During pregnancy, maternal blood volume:",
+        "options": {
+          "A": "Decreases by 10%",
+          "B": "Increases by 40-50%",
+          "C": "Remains unchanged",
+          "D": "Decreases by 25%",
+          "E": "Increases by 100%"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 172,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Cardiac output during pregnancy:",
+        "options": {
+          "A": "Decreases",
+          "B": "Increases by 30-50%",
+          "C": "Remains unchanged",
+          "D": "Doubles",
+          "E": "Decreases by half"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 173,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The physiological anemia of pregnancy is due to:",
+        "options": {
+          "A": "Decreased red blood cell production",
+          "B": "Plasma volume expansion exceeding red blood cell increase",
+          "C": "Iron deficiency",
+          "D": "Folate deficiency",
+          "E": "Vitamin B12 deficiency"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 174,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "During pregnancy, systemic vascular resistance:",
+        "options": {
+          "A": "Increases",
+          "B": "Decreases",
+          "C": "Remains unchanged",
+          "D": "Doubles",
+          "E": "Triples"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 175,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Progesterone causes smooth muscle relaxation, leading to:",
+        "options": {
+          "A": "Increased gastrointestinal motility",
+          "B": "Decreased gastrointestinal motility (constipation)",
+          "C": "Increased blood pressure",
+          "D": "Decreased cardiac output",
+          "E": "Increased respiratory rate"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 176,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The glomerular filtration rate (GFR) during pregnancy:",
+        "options": {
+          "A": "Decreases",
+          "B": "Increases by 40-50%",
+          "C": "Remains unchanged",
+          "D": "Doubles",
+          "E": "Decreases by half"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 177,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Morning sickness typically occurs:",
+        "options": {
+          "A": "Only in the evening",
+          "B": "During the first trimester",
+          "C": "During the third trimester",
+          "D": "Throughout pregnancy",
+          "E": "Only after eating"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 178,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "The relaxation of pelvic ligaments during pregnancy is caused by:",
+        "options": {
+          "A": "Estrogen only",
+          "B": "Progesterone only",
+          "C": "Relaxin produced by the corpus luteum and placenta",
+          "D": "hCG",
+          "E": "hPL"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 179,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Tidal volume during pregnancy:",
+        "options": {
+          "A": "Decreases",
+          "B": "Increases by 30-40%",
+          "C": "Remains unchanged",
+          "D": "Decreases by half",
+          "E": "Doubles"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 180,
+        "topic": "Topic 10: Pregnancy Physiology",
+        "question": "Minute ventilation during pregnancy:",
+        "options": {
+          "A": "Decreases",
+          "B": "Increases by 30-50%",
+          "C": "Remains unchanged",
+          "D": "Decreases by 25%",
+          "E": "Doubles"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 181,
+        "topic": "Topic 11: Parturition",
+        "question": "Parturition refers to:",
+        "options": {
+          "A": "Fertilization",
+          "B": "Implantation",
+          "C": "The process of giving birth",
+          "D": "Lactation",
+          "E": "Menstruation"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 182,
+        "topic": "Topic 11: Parturition",
+        "question": "The three stages of labor are:",
+        "options": {
+          "A": "Dilation, expulsion, and placental",
+          "B": "Contraction, relaxation, and recovery",
+          "C": "Early, active, and transition",
+          "D": "First, second, and third trimesters",
+          "E": "Ovulation, fertilization, and implantation"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 183,
+        "topic": "Topic 11: Parturition",
+        "question": "The first stage of labor involves:",
+        "options": {
+          "A": "Delivery of the baby",
+          "B": "Dilation and effacement of the cervix",
+          "C": "Delivery of the placenta",
+          "D": "Rupture of membranes only",
+          "E": "Contractions only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 184,
+        "topic": "Topic 11: Parturition",
+        "question": "The second stage of labor involves:",
+        "options": {
+          "A": "Cervical dilation",
+          "B": "Expulsion of the fetus",
+          "C": "Delivery of the placenta",
+          "D": "Rupture of membranes",
+          "E": "Contractions only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 185,
+        "topic": "Topic 11: Parturition",
+        "question": "The third stage of labor involves:",
+        "options": {
+          "A": "Cervical dilation",
+          "B": "Expulsion of the fetus",
+          "C": "Delivery of the placenta and membranes",
+          "D": "Rupture of membranes",
+          "E": "Contractions only"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 186,
+        "topic": "Topic 11: Parturition",
+        "question": "The hormone primarily responsible for uterine contractions during labor is:",
+        "options": {
+          "A": "Estrogen",
+          "B": "Progesterone",
+          "C": "Oxytocin",
+          "D": "Prolactin",
+          "E": "hCG"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 187,
+        "topic": "Topic 11: Parturition",
+        "question": "Oxytocin is produced by:",
+        "options": {
+          "A": "Anterior pituitary",
+          "B": "Posterior pituitary (released from hypothalamic production)",
+          "C": "Placenta",
+          "D": "Corpus luteum",
+          "E": "Uterus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 188,
+        "topic": "Topic 11: Parturition",
+        "question": "The Ferguson reflex refers to:",
+        "options": {
+          "A": "A decrease in oxytocin during labor",
+          "B": "A positive feedback loop where cervical stretching stimulates oxytocin release",
+          "C": "A decrease in uterine contractions",
+          "D": "Inhibition of labor",
+          "E": "A hormonal block to delivery"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 189,
+        "topic": "Topic 11: Parturition",
+        "question": "Before labor, the progesterone to estrogen ratio:",
+        "options": {
+          "A": "Increases",
+          "B": "Decreases (progesterone withdrawal)",
+          "C": "Remains constant",
+          "D": "Becomes equal",
+          "E": "Has no effect on labor"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 190,
+        "topic": "Topic 11: Parturition",
+        "question": "Prostaglandins play a role in parturition by:",
+        "options": {
+          "A": "Inhibiting uterine contractions",
+          "B": "Promoting cervical ripening and uterine contractions",
+          "C": "Blocking oxytocin receptors",
+          "D": "Increasing progesterone",
+          "E": "Decreasing estrogen"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 191,
+        "topic": "Topic 11: Parturition",
+        "question": "Cervical ripening involves:",
+        "options": {
+          "A": "Hardening of the cervix",
+          "B": "Softening and thinning of the cervix",
+          "C": "Closure of the cervical canal",
+          "D": "No change",
+          "E": "Thickening of cervical mucus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 192,
+        "topic": "Topic 11: Parturition",
+        "question": "The latent phase of the first stage of labor is characterized by:",
+        "options": {
+          "A": "Rapid cervical dilation",
+          "B": "Slow cervical dilation to approximately 3-4 cm",
+          "C": "Delivery of the baby",
+          "D": "Strong, frequent contractions",
+          "E": "Delivery of the placenta"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 193,
+        "topic": "Topic 11: Parturition",
+        "question": "The active phase of the first stage of labor is characterized by:",
+        "options": {
+          "A": "Slow dilation",
+          "B": "More rapid cervical dilation from approximately 4 cm to full dilation (10 cm)",
+          "C": "Delivery of the baby",
+          "D": "Weak contractions",
+          "E": "Delivery of the placenta"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 194,
+        "topic": "Topic 11: Parturition",
+        "question": "Transition phase refers to:",
+        "options": {
+          "A": "The beginning of labor",
+          "B": "The period from 8-10 cm dilation with intense contractions",
+          "C": "The delivery of the placenta",
+          "D": "The postpartum period",
+          "E": "The first trimester"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 195,
+        "topic": "Topic 11: Parturition",
+        "question": "Rupture of membranes (breaking of waters) typically occurs:",
+        "options": {
+          "A": "Before labor begins",
+          "B": "During active labor",
+          "C": "After the baby is delivered",
+          "D": "Only during cesarean section",
+          "E": "Never occurs naturally"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 196,
+        "topic": "Topic 11: Parturition",
+        "question": "After delivery of the placenta, the uterus contracts to prevent hemorrhage through:",
+        "options": {
+          "A": "Vasodilation",
+          "B": "Constriction of uterine blood vessels by myometrial contraction",
+          "C": "Increased blood flow",
+          "D": "Clotting factors only",
+          "E": "No mechanism"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 197,
+        "topic": "Topic 11: Parturition",
+        "question": "Oxytocin is commonly used to:",
+        "options": {
+          "A": "Stop labor",
+          "B": "Induce or augment labor",
+          "C": "Prevent pregnancy",
+          "D": "Treat morning sickness",
+          "E": "Block prostaglandins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 198,
+        "topic": "Topic 11: Parturition",
+        "question": "Preterm labor is defined as labor occurring before:",
+        "options": {
+          "A": "28 weeks",
+          "B": "37 weeks of gestation",
+          "C": "40 weeks",
+          "D": "42 weeks",
+          "E": "20 weeks"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 199,
+        "topic": "Topic 12: Lactation",
+        "question": "The mammary glands are modified:",
+        "options": {
+          "A": "Sweat glands",
+          "B": "Sebaceous glands",
+          "C": "Apocrine sweat glands",
+          "D": "Salivary glands",
+          "E": "Lacrimal glands"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 200,
+        "topic": "Topic 12: Lactation",
+        "question": "Breast development during puberty is primarily stimulated by:",
+        "options": {
+          "A": "Progesterone only",
+          "B": "Estrogen",
+          "C": "Prolactin",
+          "D": "Oxytocin",
+          "E": "Testosterone"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 201,
+        "topic": "Topic 12: Lactation",
+        "question": "During pregnancy, breast development is further stimulated by:",
+        "options": {
+          "A": "Estrogen only",
+          "B": "Progesterone only",
+          "C": "Estrogen, progesterone, prolactin, and hPL",
+          "D": "Oxytocin only",
+          "E": "hCG only"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 202,
+        "topic": "Topic 12: Lactation",
+        "question": "Prolactin is produced by:",
+        "options": {
+          "A": "Posterior pituitary",
+          "B": "Anterior pituitary lactotrophs",
+          "C": "Hypothalamus",
+          "D": "Placenta",
+          "E": "Ovaries"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 203,
+        "topic": "Topic 12: Lactation",
+        "question": "During pregnancy, prolactin levels:",
+        "options": {
+          "A": "Decrease",
+          "B": "Remain unchanged",
+          "C": "Increase, but lactation is inhibited by high progesterone and estrogen",
+          "D": "Are undetectable",
+          "E": "Fluctuate randomly"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 204,
+        "topic": "Topic 12: Lactation",
+        "question": "After delivery, lactation begins because:",
+        "options": {
+          "A": "Prolactin decreases",
+          "B": "Progesterone and estrogen levels drop, allowing prolactin to stimulate milk production",
+          "C": "Oxytocin decreases",
+          "D": "hCG increases",
+          "E": "FSH increases"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 205,
+        "topic": "Topic 12: Lactation",
+        "question": "The hormone responsible for milk ejection (let-down reflex) is:",
+        "options": {
+          "A": "Prolactin",
+          "B": "Oxytocin",
+          "C": "Estrogen",
+          "D": "Progesterone",
+          "E": "hPL"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 206,
+        "topic": "Topic 12: Lactation",
+        "question": "The let-down reflex is triggered by:",
+        "options": {
+          "A": "Suckling at the breast",
+          "B": "Hearing a baby cry",
+          "C": "Thinking about the baby",
+          "D": "All of the above",
+          "E": "None of the above"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 207,
+        "topic": "Topic 12: Lactation",
+        "question": "Colostrum is:",
+        "options": {
+          "A": "The first milk produced after delivery, rich in antibodies",
+          "B": "Mature milk",
+          "C": "A hormone",
+          "D": "A type of formula",
+          "E": "Not produced in humans"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 208,
+        "topic": "Topic 12: Lactation",
+        "question": "Colostrum contains high levels of:",
+        "options": {
+          "A": "Fat",
+          "B": "Immunoglobulin A (IgA)",
+          "C": "Lactose",
+          "D": "Estrogen",
+          "E": "Progesterone"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 209,
+        "topic": "Topic 12: Lactation",
+        "question": "Mature breast milk contains approximately:",
+        "options": {
+          "A": "1% protein, 10% carbohydrate, 90% fat",
+          "B": "7% carbohydrate (lactose), 3-5% fat, 0.9% protein",
+          "C": "50% protein, 50% fat",
+          "D": "No carbohydrates",
+          "E": "No fat"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 210,
+        "topic": "Topic 12: Lactation",
+        "question": "Prolactin release is inhibited by:",
+        "options": {
+          "A": "Dopamine from the hypothalamus",
+          "B": "Oxytocin",
+          "C": "Estrogen",
+          "D": "Suckling",
+          "E": "None of the above"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 211,
+        "topic": "Topic 12: Lactation",
+        "question": "Breastfeeding frequency affects milk production through:",
+        "options": {
+          "A": "Inhibition of prolactin",
+          "B": "More frequent suckling leads to more prolactin release and more milk production",
+          "C": "No effect",
+          "D": "Inhibition of oxytocin",
+          "E": "Decreased blood flow"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 212,
+        "topic": "Topic 12: Lactation",
+        "question": "The alveoli of the breast are lined by:",
+        "options": {
+          "A": "Sertoli cells",
+          "B": "Lactocytes (milk-producing epithelial cells)",
+          "C": "Leydig cells",
+          "D": "Granulosa cells",
+          "E": "Theca cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 213,
+        "topic": "Topic 12: Lactation",
+        "question": "Milk synthesis occurs in the:",
+        "options": {
+          "A": "Ducts",
+          "B": "Alveoli",
+          "C": "Nipple",
+          "D": "Areola",
+          "E": "Lobules"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 214,
+        "topic": "Topic 12: Lactation",
+        "question": "The hormone most responsible for breast growth during pregnancy is:",
+        "options": {
+          "A": "Prolactin",
+          "B": "Human placental lactogen (hPL)",
+          "C": "Estrogen and progesterone",
+          "D": "Oxytocin",
+          "E": "hCG"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 215,
+        "topic": "Topic 12: Lactation",
+        "question": "Lactational amenorrhea refers to:",
+        "options": {
+          "A": "Increased fertility during breastfeeding",
+          "B": "Absence of menstruation during breastfeeding due to prolactin inhibiting GnRH",
+          "C": "Increased menstrual flow",
+          "D": "Painful menstruation",
+          "E": "Irregular cycles only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 216,
+        "topic": "Topic 12: Lactation",
+        "question": "Breast milk provides all of the following EXCEPT:",
+        "options": {
+          "A": "Antibodies",
+          "B": "Optimal nutrition",
+          "C": "Vitamin K (in adequate amounts for the first few days)",
+          "D": "Growth factors",
+          "E": "Immune cells"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 217,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Testosterone is synthesized from:",
+        "options": {
+          "A": "Glucose",
+          "B": "Cholesterol",
+          "C": "Amino acids",
+          "D": "Fatty acids",
+          "E": "Glycogen"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 218,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "The rate-limiting step in steroid hormone synthesis is:",
+        "options": {
+          "A": "Conversion of testosterone to DHT",
+          "B": "Conversion of cholesterol to pregnenolone by cholesterol desmolase (CYP11A1)",
+          "C": "Aromatization of androgens to estrogens",
+          "D": "Conversion of progesterone to androgens",
+          "E": "Conversion of estradiol to estriol"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 219,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Dihydrotestosterone (DHT) is formed from testosterone by the action of:",
+        "options": {
+          "A": "Aromatase",
+          "B": "5-alpha reductase",
+          "C": "17-beta hydroxysteroid dehydrogenase",
+          "D": "3-beta hydroxysteroid dehydrogenase",
+          "E": "Cholesterol desmolase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 220,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "DHT is more potent than testosterone in causing:",
+        "options": {
+          "A": "Muscle growth",
+          "B": "Prostate growth and male pattern baldness",
+          "C": "Erythropoiesis",
+          "D": "Bone growth",
+          "E": "All effects equally"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 221,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Aromatase converts:",
+        "options": {
+          "A": "Testosterone to DHT",
+          "B": "Androgens to estrogens",
+          "C": "Progesterone to androgens",
+          "D": "Cholesterol to pregnenolone",
+          "E": "Cortisol to cortisone"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 222,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "In males, most circulating testosterone is bound to:",
+        "options": {
+          "A": "Albumin",
+          "B": "Sex hormone-binding globulin (SHBG)",
+          "C": "Cortisol-binding globulin",
+          "D": "Free in plasma",
+          "E": "Immunoglobulins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 223,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "SHBG is produced by:",
+        "options": {
+          "A": "Testes",
+          "B": "Liver",
+          "C": "Adrenal glands",
+          "D": "Pituitary",
+          "E": "Hypothalamus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 224,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Estrogen increases SHBG production, while:",
+        "options": {
+          "A": "Testosterone also increases SHBG",
+          "B": "Testosterone decreases SHBG",
+          "C": "Progesterone has no effect",
+          "D": "hCG increases SHBG",
+          "E": "Prolactin increases SHBG"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 225,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "The principal estrogen in non-pregnant women of reproductive age is:",
+        "options": {
+          "A": "Estrone (E1)",
+          "B": "Estradiol (E2)",
+          "C": "Estriol (E3)",
+          "D": "Estetrol (E4)",
+          "E": "Equilin"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 226,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Estradiol is produced primarily by:",
+        "options": {
+          "A": "Adrenal glands only",
+          "B": "Ovarian follicles and corpus luteum",
+          "C": "Placenta only",
+          "D": "Adipose tissue only",
+          "E": "Liver only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 227,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Progesterone is produced primarily by:",
+        "options": {
+          "A": "Ovarian follicles",
+          "B": "Corpus luteum and placenta",
+          "C": "Adrenal cortex only",
+          "D": "Testes",
+          "E": "Hypothalamus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 228,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "In the two-cell, two-gonadotropin theory of estrogen synthesis:",
+        "options": {
+          "A": "LH stimulates granulosa cells to produce androgens",
+          "B": "LH stimulates theca cells to produce androgens, which are converted to estrogen by granulosa cells under FSH stimulation",
+          "C": "FSH stimulates theca cells",
+          "D": "Only one cell type is involved",
+          "E": "Only one gonadotropin is needed"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 229,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Anti-Mullerian hormone (AMH) is produced by:",
+        "options": {
+          "A": "Hypothalamus",
+          "B": "Sertoli cells in males and granulosa cells in females",
+          "C": "Leydig cells",
+          "D": "Pituitary gonadotrophs",
+          "E": "Placental syncytiotrophoblast"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 230,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "AMH functions to:",
+        "options": {
+          "A": "Stimulate Mullerian duct development in males",
+          "B": "Cause regression of Mullerian ducts in males and inhibit follicle recruitment in females",
+          "C": "Stimulate testosterone production",
+          "D": "Inhibit Wolffian duct development",
+          "E": "Stimulate spermatogenesis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 231,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Inhibin B is produced primarily by:",
+        "options": {
+          "A": "Leydig cells",
+          "B": "Sertoli cells in males and granulosa cells in females",
+          "C": "Germ cells",
+          "D": "Pituitary",
+          "E": "Hypothalamus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 232,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Inhibin B levels are used clinically as a marker for:",
+        "options": {
+          "A": "Ovarian reserve in females and spermatogenesis in males",
+          "B": "Only testosterone levels",
+          "C": "Only estrogen levels",
+          "D": "Progesterone levels",
+          "E": "Cortisol levels"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 233,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "Steroid hormones exert their effects primarily by:",
+        "options": {
+          "A": "Binding to cell surface receptors",
+          "B": "Binding to intracellular receptors that act as transcription factors",
+          "C": "Activating second messenger systems only",
+          "D": "Opening ion channels",
+          "E": "Inhibiting enzymes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 234,
+        "topic": "Topic 13: Reproductive Endocrinology",
+        "question": "The half-life of peptide hormones (like LH and FSH) is:",
+        "options": {
+          "A": "Hours to days",
+          "B": "Minutes",
+          "C": "Weeks",
+          "D": "Months",
+          "E": "Years"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 235,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Infertility is clinically defined as inability to conceive after:",
+        "options": {
+          "A": "1 month of unprotected intercourse",
+          "B": "6 months of unprotected intercourse",
+          "C": "12 months of unprotected intercourse (or 6 months if female partner is over 35)",
+          "D": "2 years of unprotected intercourse",
+          "E": "5 years of unprotected intercourse"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 236,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Male factor infertility accounts for approximately:",
+        "options": {
+          "A": "10% of infertility cases",
+          "B": "30-40% of infertility cases",
+          "C": "70% of infertility cases",
+          "D": "90% of infertility cases",
+          "E": "Combined male and female factors account for about 40-50%"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 237,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Female factor infertility accounts for approximately:",
+        "options": {
+          "A": "10% of infertility cases",
+          "B": "30-40% of infertility cases",
+          "C": "50% of infertility cases",
+          "D": "70% of infertility cases",
+          "E": "Combined male and female factors account for about 40-50%"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 238,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Common causes of male infertility include:",
+        "options": {
+          "A": "Low sperm count (oligospermia)",
+          "B": "Poor sperm motility (asthenospermia)",
+          "C": "Abnormal sperm morphology (teratospermia)",
+          "D": "All of the above",
+          "E": "None of the above"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 239,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Azoospermia refers to:",
+        "options": {
+          "A": "Low sperm count",
+          "B": "Absence of sperm in semen",
+          "C": "Poor sperm motility",
+          "D": "Abnormal sperm morphology",
+          "E": "High sperm count"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 240,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Varicocele can cause infertility by:",
+        "options": {
+          "A": "Increasing scrotal temperature",
+          "B": "Decreasing blood flow",
+          "C": "Increasing testosterone",
+          "D": "Decreasing estrogen",
+          "E": "No effect on fertility"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 241,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Common causes of female infertility include:",
+        "options": {
+          "A": "Ovulatory disorders",
+          "B": "Tubal factors",
+          "C": "Endometriosis",
+          "D": "Uterine factors",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 242,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Polycystic ovary syndrome (PCOS) is characterized by:",
+        "options": {
+          "A": "Regular ovulation",
+          "B": "Irregular or absent ovulation, hyperandrogenism, and polycystic ovaries",
+          "C": "High FSH levels",
+          "D": "Low LH levels",
+          "E": "Normal menstrual cycles"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 243,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Endometriosis can cause infertility by:",
+        "options": {
+          "A": "Improving tubal function",
+          "B": "Causing inflammation, adhesions, and affecting egg quality",
+          "C": "Increasing ovulation",
+          "D": "Enhancing implantation",
+          "E": "No effect on fertility"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 244,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Tubal factor infertility can result from:",
+        "options": {
+          "A": "Previous pelvic inflammatory disease",
+          "B": "Endometriosis",
+          "C": "Previous ectopic pregnancy",
+          "D": "All of the above",
+          "E": "None of the above"
+        },
+        "correct_answer": "D"
+      },
+      {
+        "id": 245,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Advanced maternal age affects fertility because:",
+        "options": {
+          "A": "Ovarian reserve decreases and egg quality declines",
+          "B": "Uterine function improves",
+          "C": "Hormone levels increase",
+          "D": "Ovulation becomes more regular",
+          "E": "No effect on fertility"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 246,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Ovarian reserve can be assessed by measuring:",
+        "options": {
+          "A": "LH levels only",
+          "B": "FSH, estradiol, and AMH levels, and antral follicle count",
+          "C": "Testosterone only",
+          "D": "Prolactin only",
+          "E": "Cortisol only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 247,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Semen analysis evaluates:",
+        "options": {
+          "A": "Sperm count only",
+          "B": "Sperm count, motility, morphology, and volume",
+          "C": "Hormone levels only",
+          "D": "Testicular size only",
+          "E": "Blood count only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 248,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Normal sperm count according to WHO criteria is:",
+        "options": {
+          "A": "Less than 1 million per mL",
+          "B": "At least 15 million per mL",
+          "C": "At least 100 million per mL",
+          "D": "At least 1 billion per mL",
+          "E": "Any number is normal"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 249,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Hysterosalpingography (HSG) is used to evaluate:",
+        "options": {
+          "A": "Ovarian function",
+          "B": "Uterine cavity and tubal patency",
+          "C": "Cervical mucus",
+          "D": "Male factor infertility",
+          "E": "Hormone levels"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 250,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Ovulation can be detected by:",
+        "options": {
+          "A": "Basal body temperature charting",
+          "B": "Urine LH kits",
+          "C": "Ultrasound monitoring",
+          "D": "Blood progesterone levels",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 251,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "Lifestyle factors that can affect fertility include:",
+        "options": {
+          "A": "Smoking",
+          "B": "Excessive alcohol consumption",
+          "C": "Obesity or being underweight",
+          "D": "Stress",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 252,
+        "topic": "Topic 14: Fertility and Infertility",
+        "question": "The fertile window in the menstrual cycle is:",
+        "options": {
+          "A": "The day of ovulation only",
+          "B": "Approximately 5 days before ovulation and the day of ovulation",
+          "C": "The entire menstrual cycle",
+          "D": "Only during menstruation",
+          "E": "Only during the luteal phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 253,
+        "topic": "Topic 15: Contraception",
+        "question": "Combined oral contraceptive pills contain:",
+        "options": {
+          "A": "Estrogen only",
+          "B": "Progestin only",
+          "C": "Both estrogen and progestin",
+          "D": "Testosterone",
+          "E": "hCG"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 254,
+        "topic": "Topic 15: Contraception",
+        "question": "Combined oral contraceptives primarily work by:",
+        "options": {
+          "A": "Creating a physical barrier",
+          "B": "Inhibiting ovulation through suppression of GnRH, LH, and FSH",
+          "C": "Killing sperm",
+          "D": "Preventing implantation only",
+          "E": "Causing abortion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 255,
+        "topic": "Topic 15: Contraception",
+        "question": "Progestin-only contraceptives work by:",
+        "options": {
+          "A": "Only inhibiting ovulation",
+          "B": "Thickening cervical mucus, thinning endometrium, and sometimes inhibiting ovulation",
+          "C": "Killing sperm only",
+          "D": "Preventing fertilization only",
+          "E": "No effect"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 256,
+        "topic": "Topic 15: Contraception",
+        "question": "Emergency contraception (morning-after pill) works primarily by:",
+        "options": {
+          "A": "Terminating an established pregnancy",
+          "B": "Delaying or inhibiting ovulation",
+          "C": "Killing sperm",
+          "D": "Preventing implantation only",
+          "E": "Causing abortion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 257,
+        "topic": "Topic 15: Contraception",
+        "question": "Intrauterine devices (IUDs) work by:",
+        "options": {
+          "A": "Only preventing ovulation",
+          "B": "Creating a spermicidal environment and preventing fertilization",
+          "C": "Killing the embryo",
+          "D": "No known mechanism",
+          "E": "Only thickening cervical mucus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 258,
+        "topic": "Topic 15: Contraception",
+        "question": "Copper IUDs work by:",
+        "options": {
+          "A": "Hormonal effects",
+          "B": "Copper ions being toxic to sperm and ova",
+          "C": "Physical barrier only",
+          "D": "Preventing ovulation",
+          "E": "Killing the embryo"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 259,
+        "topic": "Topic 15: Contraception",
+        "question": "Hormonal IUDs work primarily by:",
+        "options": {
+          "A": "Thickening cervical mucus and thinning the endometrium",
+          "B": "Killing sperm",
+          "C": "Preventing ovulation completely",
+          "D": "Physical barrier",
+          "E": "No effect"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 260,
+        "topic": "Topic 15: Contraception",
+        "question": "Male condoms work by:",
+        "options": {
+          "A": "Hormonal effects",
+          "B": "Creating a physical barrier that prevents sperm from entering the female reproductive tract",
+          "C": "Killing sperm",
+          "D": "Preventing ovulation",
+          "E": "Thinning the endometrium"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 261,
+        "topic": "Topic 15: Contraception",
+        "question": "Female condoms work by:",
+        "options": {
+          "A": "Hormonal effects",
+          "B": "Creating a physical barrier inside the vagina",
+          "C": "Killing sperm",
+          "D": "Preventing ovulation",
+          "E": "Thinning the endometrium"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 262,
+        "topic": "Topic 15: Contraception",
+        "question": "Spermicides work by:",
+        "options": {
+          "A": "Hormonal effects",
+          "B": "Killing or immobilizing sperm",
+          "C": "Preventing ovulation",
+          "D": "Physical barrier",
+          "E": "Thinning the endometrium"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 263,
+        "topic": "Topic 15: Contraception",
+        "question": "The diaphragm works by:",
+        "options": {
+          "A": "Hormonal effects",
+          "B": "Covering the cervix to block sperm entry",
+          "C": "Killing sperm",
+          "D": "Preventing ovulation",
+          "E": "Thinning the endometrium"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 264,
+        "topic": "Topic 15: Contraception",
+        "question": "Natural family planning methods include:",
+        "options": {
+          "A": "Taking hormonal pills",
+          "B": "Fertility awareness-based methods tracking menstrual cycle, basal body temperature, and cervical mucus",
+          "C": "Using IUDs",
+          "D": "Using condoms",
+          "E": "Taking emergency contraception"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 265,
+        "topic": "Topic 15: Contraception",
+        "question": "Tubal ligation is a method of:",
+        "options": {
+          "A": "Temporary contraception",
+          "B": "Permanent female sterilization",
+          "C": "Male sterilization",
+          "D": "Emergency contraception",
+          "E": "Natural family planning"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 266,
+        "topic": "Topic 15: Contraception",
+        "question": "Vasectomy is a method of:",
+        "options": {
+          "A": "Temporary contraception",
+          "B": "Permanent male sterilization",
+          "C": "Female sterilization",
+          "D": "Emergency contraception",
+          "E": "Natural family planning"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 267,
+        "topic": "Topic 15: Contraception",
+        "question": "The lactational amenorrhea method (LAM) is effective when:",
+        "options": {
+          "A": "The mother is breastfeeding exclusively, has not had a period, and baby is under 6 months",
+          "B": "The mother is partially breastfeeding",
+          "C": "The baby is over 1 year",
+          "D": "The mother has had a period",
+          "E": "Anytime during breastfeeding"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 268,
+        "topic": "Topic 15: Contraception",
+        "question": "Depot medroxyprogesterone acetate (DMPA) injection is given:",
+        "options": {
+          "A": "Daily",
+          "B": "Weekly",
+          "C": "Every 3 months",
+          "D": "Every year",
+          "E": "Once in a lifetime"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 269,
+        "topic": "Topic 15: Contraception",
+        "question": "Contraceptive implants work by:",
+        "options": {
+          "A": "Releasing progestin slowly over several years",
+          "B": "Creating a physical barrier",
+          "C": "Killing sperm",
+          "D": "Preventing ovulation completely",
+          "E": "No effect"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 270,
+        "topic": "Topic 15: Contraception",
+        "question": "Contraceptive patches work by:",
+        "options": {
+          "A": "Releasing hormones transdermally",
+          "B": "Creating a physical barrier",
+          "C": "Killing sperm",
+          "D": "No hormonal effect",
+          "E": "Only local effect"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 271,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Menopause is defined as:",
+        "options": {
+          "A": "The last menstrual period",
+          "B": "12 consecutive months without menstruation",
+          "C": "The beginning of hormonal changes",
+          "D": "The end of fertility",
+          "E": "All of the above"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 272,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "The average age of menopause is:",
+        "options": {
+          "A": "35 years",
+          "B": "45 years",
+          "C": "51 years",
+          "D": "60 years",
+          "E": "65 years"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 273,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Perimenopause refers to:",
+        "options": {
+          "A": "The time after menopause",
+          "B": "The transition period before menopause with hormonal fluctuations",
+          "C": "The time of first menstruation",
+          "D": "Pregnancy",
+          "E": "Puberty"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 274,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "During menopause, which hormone decreases significantly?",
+        "options": {
+          "A": "FSH",
+          "B": "LH",
+          "C": "Estrogen",
+          "D": "Prolactin",
+          "E": "hCG"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 275,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "During menopause, FSH and LH levels:",
+        "options": {
+          "A": "Decrease",
+          "B": "Remain unchanged",
+          "C": "Increase due to loss of negative feedback from estrogen",
+          "D": "Fluctuate randomly",
+          "E": "Become undetectable"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 276,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Common symptoms of menopause include:",
+        "options": {
+          "A": "Hot flashes",
+          "B": "Night sweats",
+          "C": "Vaginal dryness",
+          "D": "Mood changes",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 277,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Hot flashes are thought to be caused by:",
+        "options": {
+          "A": "High estrogen levels",
+          "B": "Changes in hypothalamic thermoregulation due to hormonal fluctuations",
+          "C": "High progesterone levels",
+          "D": "Low FSH levels",
+          "E": "High testosterone levels"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 278,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Long-term consequences of decreased estrogen after menopause include:",
+        "options": {
+          "A": "Increased bone density",
+          "B": "Osteoporosis",
+          "C": "Decreased cardiovascular risk",
+          "D": "Improved skin elasticity",
+          "E": "No changes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 279,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Hormone replacement therapy (HRT) for menopausal symptoms:",
+        "options": {
+          "A": "Is contraindicated for all women",
+          "B": "Can be effective but has risks that must be weighed against benefits",
+          "C": "Has no risks",
+          "D": "Is the only treatment option",
+          "E": "Is recommended for all women"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 280,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Postmenopausal hormone production occurs primarily in:",
+        "options": {
+          "A": "Ovaries",
+          "B": "Adrenal glands and adipose tissue (conversion of androgens to estrogens)",
+          "C": "Pituitary",
+          "D": "Hypothalamus",
+          "E": "Uterus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 281,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Andropause (late-onset hypogonadism) in males is characterized by:",
+        "options": {
+          "A": "A sudden drop in testosterone like menopause",
+          "B": "A gradual decline in testosterone levels with age",
+          "C": "No change in testosterone",
+          "D": "Increased testosterone",
+          "E": "No symptoms"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 282,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Symptoms of andropause may include:",
+        "options": {
+          "A": "Decreased libido",
+          "B": "Fatigue",
+          "C": "Decreased muscle mass",
+          "D": "Mood changes",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 283,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Testosterone replacement therapy in older men:",
+        "options": {
+          "A": "Should be given to all men over 50",
+          "B": "Should be considered only in men with symptomatic testosterone deficiency after discussing risks and benefits",
+          "C": "Has no risks",
+          "D": "Is contraindicated for all men",
+          "E": "Is only for cosmetic purposes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 284,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "The term 'andropause' is:",
+        "options": {
+          "A": "More accurate than 'late-onset hypogonadism'",
+          "B": "Less preferred than 'late-onset hypogonadism' because the decline is gradual, not abrupt like menopause",
+          "C": "The only correct term",
+          "D": "Not related to testosterone",
+          "E": "Only used for women"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 285,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Premature ovarian insufficiency (POI) is defined as:",
+        "options": {
+          "A": "Menopause occurring after age 55",
+          "B": "Menopause occurring before age 40",
+          "C": "Normal menopause",
+          "D": "Delayed puberty",
+          "E": "Pregnancy after menopause"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 286,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Causes of premature ovarian insufficiency include:",
+        "options": {
+          "A": "Genetic factors",
+          "B": "Autoimmune disorders",
+          "C": "Chemotherapy or radiation",
+          "D": "Surgical removal of ovaries",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 287,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Bone health after menopause is important because:",
+        "options": {
+          "A": "Estrogen protects bone density, and its loss increases osteoporosis risk",
+          "B": "Bones become stronger",
+          "C": "There is no change in bone density",
+          "D": "Calcium absorption improves",
+          "E": "Exercise is not needed"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 288,
+        "topic": "Topic 16: Menopause and Andropause",
+        "question": "Cardiovascular disease risk after menopause:",
+        "options": {
+          "A": "Decreases",
+          "B": "Increases as estrogen's protective effect is lost",
+          "C": "Remains unchanged",
+          "D": "Is not affected by hormones",
+          "E": "Only affects men"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 289,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "In vitro fertilization (IVF) involves:",
+        "options": {
+          "A": "Fertilization inside the body",
+          "B": "Fertilization of egg by sperm outside the body in a laboratory",
+          "C": "Artificial insemination only",
+          "D": "Surrogacy only",
+          "E": "Adoption"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 290,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Intracytoplasmic sperm injection (ICSI) is used when:",
+        "options": {
+          "A": "There is severe male factor infertility",
+          "B": "The woman has blocked tubes",
+          "C": "There is unexplained infertility",
+          "D": "For all IVF cases",
+          "E": "For donor sperm only"
+        },
+        "correct_answer": "A"
+      },
+      {
+        "id": 291,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "ICSI involves:",
+        "options": {
+          "A": "Mixing sperm and egg in a dish",
+          "B": "Injecting a single sperm directly into an egg",
+          "C": "Artificial insemination",
+          "D": "Embryo freezing only",
+          "E": "Egg donation only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 292,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Controlled ovarian hyperstimulation in IVF involves:",
+        "options": {
+          "A": "Using medications to suppress ovulation",
+          "B": "Using gonadotropins to stimulate development of multiple follicles",
+          "C": "Using only Clomid",
+          "D": "No medication",
+          "E": "Using birth control pills only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 293,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "hCG is administered in IVF cycles to:",
+        "options": {
+          "A": "Prevent ovulation",
+          "B": "Trigger final oocyte maturation and ovulation timing",
+          "C": "Support the luteal phase only",
+          "D": "Suppress FSH",
+          "E": "Thin the endometrium"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 294,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Embryo transfer in IVF typically occurs:",
+        "options": {
+          "A": "At the time of egg retrieval",
+          "B": "3-5 days after fertilization",
+          "C": "2 weeks after fertilization",
+          "D": "1 month after fertilization",
+          "E": "Before fertilization"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 295,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Preimplantation genetic testing (PGT) involves:",
+        "options": {
+          "A": "Testing the mother only",
+          "B": "Testing embryos for genetic abnormalities before transfer",
+          "C": "Testing sperm only",
+          "D": "Testing after pregnancy is established",
+          "E": "No testing"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 296,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Cryopreservation of embryos allows:",
+        "options": {
+          "A": "Immediate use only",
+          "B": "Storage for future use",
+          "C": "Only short-term storage",
+          "D": "No storage",
+          "E": "Destruction of embryos"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 297,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Oocyte cryopreservation (egg freezing) is used for:",
+        "options": {
+          "A": "Fertility preservation in women undergoing cancer treatment",
+          "B": "Social reasons (delaying childbearing)",
+          "C": "Both A and B",
+          "D": "Only for women over 50",
+          "E": "Only for women under 20"
+        },
+        "correct_answer": "C"
+      },
+      {
+        "id": 298,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Intrauterine insemination (IUI) involves:",
+        "options": {
+          "A": "In vitro fertilization",
+          "B": "Placement of prepared sperm directly into the uterus",
+          "C": "Embryo transfer",
+          "D": "Egg donation",
+          "E": "Surrogacy"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 299,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "Third-party reproduction includes:",
+        "options": {
+          "A": "Use of donor sperm",
+          "B": "Use of donor eggs",
+          "C": "Use of donor embryos",
+          "D": "Gestational surrogacy",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      },
+      {
+        "id": 300,
+        "topic": "Topic 17: Reproductive Technologies",
+        "question": "The success rate of IVF depends on:",
+        "options": {
+          "A": "Maternal age",
+          "B": "Cause of infertility",
+          "C": "Quality of gametes and embryos",
+          "D": "Clinic expertise",
+          "E": "All of the above"
+        },
+        "correct_answer": "E"
+      }
+    ],
+    "essay_questions": [
+      {
+        "id": 1,
+        "title": "Male Reproductive Anatomy and Function",
+        "prompt": "Describe the anatomy of the male reproductive system, including the testes, epididymis, vas deferens, accessory glands, and penis. Explain the function of each structure in sperm production, maturation, storage, and delivery. Include the roles of Sertoli cells and Leydig cells in testicular function."
+      },
+      {
+        "id": 2,
+        "title": "Female Reproductive Anatomy and Function",
+        "prompt": "Describe the anatomy of the female reproductive system, including the ovaries, fallopian tubes, uterus, cervix, and vagina. Explain the function of each structure in gamete production, transport, fertilization, and fetal development. Include the structure and function of the endometrium and its cyclic changes."
+      },
+      {
+        "id": 3,
+        "title": "Hypothalamic-Pituitary-Gonadal Axis",
+        "prompt": "Explain the hypothalamic-pituitary-gonadal (HPG) axis in detail. Describe the hormones involved (GnRH, LH, FSH, testosterone, estrogen, progesterone, inhibin), their sites of production, target tissues, and feedback mechanisms. Compare the HPG axis in males and females, highlighting the differences in regulation."
+      },
+      {
+        "id": 4,
+        "title": "Spermatogenesis",
+        "prompt": "Describe the process of spermatogenesis in detail, including the stages from spermatogonia to mature spermatozoa. Explain the hormonal regulation of spermatogenesis and the role of Sertoli cells. Discuss the duration of spermatogenesis and factors that can affect sperm production."
+      },
+      {
+        "id": 5,
+        "title": "Oogenesis and Follicular Development",
+        "prompt": "Describe the process of oogenesis from fetal development through adulthood. Explain follicular development, including the different types of follicles and their characteristics. Discuss the two-cell, two-gonadotropin theory of estrogen synthesis and the role of the zona pellucida."
+      },
+      {
+        "id": 6,
+        "title": "The Menstrual Cycle",
+        "prompt": "Describe the menstrual cycle in detail, including the ovarian cycle (follicular phase, ovulation, luteal phase) and the endometrial cycle (menstrual, proliferative, and secretory phases). Explain the hormonal changes throughout the cycle and how they coordinate the events of the cycle. Include the mechanism of the LH surge."
+      },
+      {
+        "id": 7,
+        "title": "Fertilization",
+        "prompt": "Describe the process of fertilization from sperm deposition to fusion of pronuclei. Explain capacitation, the acrosome reaction, sperm-zona pellucida binding, the blocks to polyspermy (fast and slow), and completion of meiosis in the oocyte. Discuss the timing and location of fertilization."
+      },
+      {
+        "id": 8,
+        "title": "Early Embryonic Development",
+        "prompt": "Describe the events of early embryonic development from the zygote to the blastocyst stage. Explain cleavage, compaction, blastocyst formation, and differentiation of the inner cell mass and trophoblast. Discuss the process of hatching from the zona pellucida."
+      },
+      {
+        "id": 9,
+        "title": "Implantation and Placentation",
+        "prompt": "Describe the process of implantation, including the stages and the interaction between the blastocyst and endometrium. Explain the development of the placenta, including chorionic villi formation and the structure and function of the placental barrier. Discuss the hormones produced by the placenta and their functions."
+      },
+      {
+        "id": 10,
+        "title": "Pregnancy Physiology",
+        "prompt": "Describe the physiological changes that occur during pregnancy, including hormonal changes (hCG, progesterone, estrogen, hPL), cardiovascular changes, hematological changes, respiratory changes, and gastrointestinal changes. Explain the purpose of these adaptations for supporting the pregnancy."
+      },
+      {
+        "id": 11,
+        "title": "Parturition",
+        "prompt": "Describe the process of parturition (labor and delivery), including the three stages of labor. Explain the hormonal and mechanical factors that initiate and maintain labor, including the roles of estrogen, progesterone, oxytocin, prostaglandins, and the Ferguson reflex. Discuss the mechanisms that prevent excessive bleeding after delivery."
+      },
+      {
+        "id": 12,
+        "title": "Lactation",
+        "prompt": "Describe the anatomy of the breast and the process of lactation. Explain breast development during pregnancy, the hormones involved in milk production (prolactin) and milk ejection (oxytocin), and the composition of colostrum and mature milk. Discuss the mechanisms that regulate milk production and the benefits of breastfeeding."
+      },
+      {
+        "id": 13,
+        "title": "Reproductive Endocrinology",
+        "prompt": "Explain the synthesis and regulation of the major reproductive hormones (testosterone, estrogen, progesterone). Describe the steroidogenic pathways and the enzymes involved. Discuss the mechanisms of hormone transport in blood, including protein binding, and the mechanisms of hormone action at target cells."
+      },
+      {
+        "id": 14,
+        "title": "Male Infertility",
+        "prompt": "Discuss the causes, evaluation, and treatment of male infertility. Describe the components of semen analysis and what abnormalities may be found. Explain the various factors that can impair spermatogenesis and sperm function, including genetic, hormonal, anatomical, environmental, and lifestyle factors."
+      },
+      {
+        "id": 15,
+        "title": "Female Infertility",
+        "prompt": "Discuss the causes, evaluation, and treatment of female infertility. Describe the various factors that can impair female fertility, including ovulatory disorders, tubal factors, endometriosis, uterine abnormalities, and age-related decline in ovarian reserve. Explain the diagnostic tests used in evaluating female infertility."
+      },
+      {
+        "id": 16,
+        "title": "Contraception",
+        "prompt": "Discuss the various methods of contraception available, including hormonal methods (combined and progestin-only), barrier methods, intrauterine devices, emergency contraception, and permanent methods. Explain the mechanisms of action, effectiveness, advantages, and disadvantages of each method. Include both male and female contraceptive options."
+      },
+      {
+        "id": 17,
+        "title": "Menopause",
+        "prompt": "Describe the physiological changes that occur during menopause and the perimenopausal transition. Explain the hormonal changes (declining estrogen, rising FSH and LH) and their effects on various body systems. Discuss the symptoms of menopause, long-term health consequences, and treatment options including hormone replacement therapy."
+      },
+      {
+        "id": 18,
+        "title": "Assisted Reproductive Technologies",
+        "prompt": "Describe the various assisted reproductive technologies (ART) available, including in vitro fertilization (IVF), intracytoplasmic sperm injection (ICSI), intrauterine insemination (IUI), and third-party reproduction (donor gametes, surrogacy). Explain the indications for each procedure, the steps involved, success rates, and ethical considerations."
+      },
+      {
+        "id": 19,
+        "title": "Sexual Differentiation",
+        "prompt": "Describe the process of sexual differentiation in humans, including genetic sex determination, gonadal differentiation, and development of internal and external genitalia. Explain the roles of SRY, testosterone, AMH, and DHT in male development, and what happens in the absence of these factors. Discuss common disorders of sexual development."
+      },
+      {
+        "id": 20,
+        "title": "Puberty",
+        "prompt": "Describe the physiological changes that occur during puberty in both males and females. Explain the hormonal mechanisms that initiate puberty, including the roles of kisspeptin, GnRH, and gonadotropins. Discuss the physical changes (growth spurt, development of secondary sexual characteristics, gonadal maturation) and the variations in timing of puberty."
+      }
+    ]
+  }
+}
