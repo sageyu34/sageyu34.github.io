@@ -873,11 +873,12 @@
                     };
                     localStorage.setItem('quizActivation', JSON.stringify(activationData));
                     
+                    // Show appropriate message
                     document.getElementById('activatedName').textContent = result.name;
                     document.querySelector('.login-screen').classList.remove('active');
                     document.querySelector('.activation-screen').classList.add('active');
                 } else {
-                    if (result.message && result.message.includes('revoked')) {
+                    if (result.revoked) {
                         showRevokedScreen(token);
                     } else {
                         errorEl.textContent = result.message || 'Invalid token';
