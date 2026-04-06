@@ -740,7 +740,6 @@
                 scr.colorDepth,
                 new Date().getTimezoneOffset()
             ].join('|');
-
             let hash = 0;
             for (let i = 0; i < deviceInfo.length; i++) {
                 const char = deviceInfo.charCodeAt(i);
@@ -758,23 +757,19 @@
         async function checkExistingActivation() {
             const savedToken = localStorage.getItem('quizActivation');
             if (!savedToken) return;
-
             const activationData = JSON.parse(savedToken);
             currentToken = activationData.token;
-
             try {
                 const result = await fetchWithTimeout(
                     `${SCRIPT_URL}?action=verify&token=${encodeURIComponent(currentToken)}&deviceId=${encodeURIComponent(getDeviceFingerprint())}`,
                     { method: 'GET' },
                     5000
                 );
-
                 if (result.revoked) {
                     localStorage.removeItem('quizActivation');
                     showRevokedScreen(currentToken);
                     return;
                 }
-
                 if (result.valid) {
                     activatedName = result.name;
                     offlineMode = false;
@@ -854,12 +849,10 @@
                     { method: 'GET' },
                     10000
                 );
-
                 if (result.success) {
                     currentToken = token;
                     activatedName = result.name;
                     offlineMode = false;
-
                     const activationData = {
                         token: token,
                         name: result.name,
@@ -867,7 +860,6 @@
                         activatedAt: new Date().toISOString()
                     };
                     localStorage.setItem('quizActivation', JSON.stringify(activationData));
-
                     document.getElementById('activatedName').textContent = result.name;
                     document.querySelector('.login-screen').classList.remove('active');
                     document.querySelector('.activation-screen').classList.add('active');
@@ -950,7 +942,6 @@
             const savedState = sessionStorage.getItem('quizState');
             if (!savedState) return;
             const state = JSON.parse(savedState);
-
             currentQuestions = state.currentQuestions;
             currentQuestionIndex = state.currentQuestionIndex;
             userAnswers = state.userAnswers;
@@ -961,10 +952,8 @@
             quizSubmitted = false;
             fameModeActive = selectedMode === 'fame';
             fameQuestionsAttempted = state.fameQuestionsAttempted || 0;
-
             document.querySelector('.resume-screen').classList.remove('active');
             document.querySelector('.quiz-screen').classList.add('active');
-
             const mode = TEST_MODES[selectedMode];
             if (mode.time > 0) {
                 startTimer();
@@ -1020,7 +1009,6 @@
         function startQuiz() {
             const name = document.getElementById('studentName').value.trim();
             const id   = document.getElementById('studentId').value.trim();
-
             if (!name || !id) {
                 alert('Please enter both your name and ID/email');
                 return;
@@ -1029,7 +1017,6 @@
                 document.getElementById('modeError').classList.remove('hidden');
                 return;
             }
-
             const mode = TEST_MODES[selectedMode];
             studentInfo = {
                 name: name,
@@ -1039,26 +1026,21 @@
             };
             startTime = Date.now();
             fameModeActive = selectedMode === 'fame';
-
             if (selectedMode === 'fame') {
                 currentQuestions = [...questions].sort(() => Math.random() - 0.5);
                 fameQuestionsAttempted = 0;
             } else {
                 currentQuestions = [...questions].sort(() => Math.random() - 0.5).slice(0, mode.questions);
             }
-
             userAnswers = new Array(currentQuestions.length).fill(null);
             timeRemaining = mode.time;
-
             document.querySelector('.start-screen').classList.remove('active');
             document.querySelector('.quiz-screen').classList.add('active');
-
             if (mode.time > 0) {
                 startTimer();
             } else {
                 document.getElementById('timer').textContent = 'No limit';
             }
-
             saveState();
             displayQuestion();
         }
@@ -1091,19 +1073,15 @@
             const total = currentQuestions.length;
             const progress = ((currentQuestionIndex + 1) / total) * 100;
             document.getElementById('progressBar').style.width = `${progress}%`;
-
             document.getElementById('questionNumber').textContent =
                 selectedMode === 'fame'
                     ? `Question ${currentQuestionIndex + 1} (Attempted: ${fameQuestionsAttempted})`
                     : `Question ${currentQuestionIndex + 1} of ${total}`;
-
             document.getElementById('topicDisplay').textContent = question.topic;
             document.getElementById('topicBadge').textContent   = question.topic;
             document.getElementById('questionText').textContent  = question.question;
-
             const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
-
             ['A', 'B', 'C', 'D', 'E'].forEach(letter => {
                 if (!question.options[letter]) return;
                 const option = document.createElement('div');
@@ -1116,7 +1094,6 @@
                 option.onclick = () => selectOption(letter);
                 optionsContainer.appendChild(option);
             });
-
             document.getElementById('prevBtn').style.visibility =
                 currentQuestionIndex === 0 ? 'hidden' : 'visible';
             document.getElementById('nextBtn').textContent =
@@ -1126,21 +1103,17 @@
 
         function selectOption(letter) {
             if (quizSubmitted) return;
-
             if (selectedMode === 'fame' && !userAnswers[currentQuestionIndex]) {
                 fameQuestionsAttempted++;
             }
-
             userAnswers[currentQuestionIndex] = letter;
             saveState();
-
             document.querySelectorAll('.option').forEach(opt => {
                 opt.classList.remove('selected');
                 if (opt.querySelector('.option-letter').textContent === letter) {
                     opt.classList.add('selected');
                 }
             });
-
             if (selectedMode === 'fame') {
                 setTimeout(() => {
                     if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
@@ -1184,19 +1157,15 @@
             if (quizSubmitted) return;
             quizSubmitted = true;
             clearInterval(timerInterval);
-
             const timeTaken = Math.floor((Date.now() - startTime) / 1000);
-
             let questionsToGrade = currentQuestions;
             let answersToGrade   = userAnswers;
-
             if (selectedMode === 'fame') {
                 const attempted = userAnswers.map((a, i) => a !== null ? i : -1).filter(i => i !== -1);
                 questionsToGrade = attempted.map(i => currentQuestions[i]);
                 answersToGrade   = attempted.map(i => userAnswers[i]);
                 fameQuestionsAttempted = attempted.length;
             }
-
             let correctCount = 0;
             const detailedResults = questionsToGrade.map((q, index) => {
                 const userAnswer = answersToGrade[index];
@@ -1211,10 +1180,8 @@
                     options:       q.options
                 };
             });
-
             const totalQuestions = questionsToGrade.length;
             const score = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
-
             const resultData = {
                 studentName:    studentInfo.name,
                 studentId:      studentInfo.id,
@@ -1225,14 +1192,10 @@
                 timeTaken:      timeTaken,
                 details:        detailedResults
             };
-
             saveState();
-
             document.querySelector('.quiz-screen').classList.remove('active');
             document.querySelector('.results-screen').classList.add('active');
-
             displayResults(resultData);
-
             if (!offlineMode) {
                 await saveToGoogleSheets(resultData);
             } else {
@@ -1246,7 +1209,6 @@
             const statusEl = document.getElementById('savingStatus');
             statusEl.classList.remove('hidden', 'error', 'success');
             statusEl.textContent = 'Saving results...';
-
             try {
                 const payload = {
                     action: 'saveResult',
@@ -1258,11 +1220,10 @@
                         totalQuestions: data.totalQuestions,
                         totalTime:      data.timeTaken,
                         deviceId:       getDeviceFingerprint(),
-                        mode:           data.mode
+                        mode:           data.mode,
                         details:        data.details
                     }
                 };
-
                 const result = await fetchWithTimeout(
                     SCRIPT_URL,
                     {
@@ -1271,7 +1232,6 @@
                     },
                     10000
                 );
-
                 if (result.success) {
                     statusEl.classList.add('success');
                     statusEl.textContent = '✅ Results saved successfully!';
@@ -1292,18 +1252,14 @@
             document.getElementById('statScore').textContent     = `${resultData.score}%`;
             document.getElementById('statCorrect').textContent   = resultData.correctAnswers;
             document.getElementById('statTotal').textContent     = resultData.totalQuestions;
-
             const minutes = Math.floor(resultData.timeTaken / 60);
             const seconds = resultData.timeTaken % 60;
             document.getElementById('statTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-
             const reviewContainer = document.getElementById('reviewContainer');
             reviewContainer.innerHTML = '';
-
             resultData.details.forEach((detail, index) => {
                 const reviewItem = document.createElement('div');
                 reviewItem.className = `review-item ${detail.isCorrect ? 'correct' : 'incorrect'}`;
-
                 let answerHtml = `
                     <div class="review-question">Q${index + 1}: ${detail.question}</div>
                     <div class="review-answer">
@@ -1313,7 +1269,6 @@
                         </span>
                     </div>
                 `;
-
                 if (!detail.isCorrect) {
                     answerHtml += `
                         <div class="review-answer">
@@ -1324,7 +1279,6 @@
                         </div>
                     `;
                 }
-
                 reviewItem.innerHTML = answerHtml;
                 reviewContainer.appendChild(reviewItem);
             });
@@ -1332,21 +1286,19 @@
 
         function restartQuiz() {
             sessionStorage.removeItem('quizState');
-            currentQuestions      = [];
-            currentQuestionIndex  = 0;
-            userAnswers           = [];
-            studentInfo           = {};
-            timeRemaining         = 0;
-            quizSubmitted         = false;
-            selectedMode          = null;
-            fameModeActive        = false;
+            currentQuestions       = [];
+            currentQuestionIndex   = 0;
+            userAnswers            = [];
+            studentInfo            = {};
+            timeRemaining          = 0;
+            quizSubmitted          = false;
+            selectedMode           = null;
+            fameModeActive         = false;
             fameQuestionsAttempted = 0;
-
             document.getElementById('studentName').value = '';
             document.getElementById('studentId').value   = '';
             document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
             document.getElementById('savingStatus').classList.add('hidden');
-
             document.querySelector('.results-screen').classList.remove('active');
             document.querySelector('.start-screen').classList.add('active');
         }
