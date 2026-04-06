@@ -15,798 +15,471 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 10px;
-            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
         .container {
-            min-width: 320px;
-            max-width: 1200px;
-            margin: 0 auto;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: clamp(1.5em, 5vw, 2.5em);
-            margin-bottom: 10px;
-        }
-
-        .admin-content {
-            padding: 20px;
-        }
-
-        .login-box {
-            max-width: 400px;
-            margin: 40px auto;
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .login-box h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input {
+            padding: 40px;
+            max-width: 800px;
             width: 100%;
-            padding: 12px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Login Form Styles */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            padding: 12px 16px;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-size: 1em;
+            font-size: 16px;
+            transition: border-color 0.3s;
         }
 
-        .form-group input:focus {
+        .input-group input:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            text-align: center;
-            display: none;
-        }
-
         .btn {
+            padding: 14px 28px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 12px 30px;
-            font-size: 1em;
-            border-radius: 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .setup-box {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            color: #856404;
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            padding: 10px;
+            background: #fdf2f2;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+        }
+
+        .admin-panel.show {
+            display: block;
+        }
+
+        .sheet-input-section {
+            background: #f8f9fa;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
         }
 
-        .stats-overview {
+        .sheet-input-section p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .input-row input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .results-section {
+            margin-top: 30px;
+        }
+
+        .loading {
+            text-align: center;
+            color: #667eea;
+            padding: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-with-logout {
+            position: relative;
+            padding-top: 60px;
+        }
+
+        .stats-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
         }
 
-        .stat-value {
-            font-size: clamp(1.8em, 5vw, 2.5em);
-            font-weight: bold;
+        .stat-card h3 {
+            font-size: 32px;
             margin-bottom: 5px;
         }
 
-        .stat-label {
+        .stat-card p {
+            font-size: 14px;
             opacity: 0.9;
-            font-size: 0.9em;
         }
 
-        .controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 200px;
-            padding: 10px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 0.95em;
-        }
-
-        .filter-select {
-            padding: 10px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 0.95em;
-            background: white;
-        }
-
-        .btn-small {
-            padding: 8px 15px;
-            font-size: 0.9em;
-            width: auto;
-            white-space: nowrap;
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin-top: 20px;
-            border-radius: 10px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .results-table {
-            width: 100%;
-            min-width: 700px;
-            border-collapse: collapse;
-        }
-
-        .results-table th,
-        .results-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-            white-space: nowrap;
-        }
-
-        .results-table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #333;
-            position: sticky;
-            top: 0;
-        }
-
-        .results-table tr:hover {
-            background: #f8f9fa;
-        }
-
-        .score-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-weight: bold;
+        .welcome-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            font-size: 0.9em;
-        }
-
-        .score-excellent { background: #4caf50; }
-        .score-good { background: #8bc34a; }
-        .score-average { background: #ffc107; color: #333; }
-        .score-poor { background: #ff9800; }
-        .score-fail { background: #f44336; }
-
-        .detail-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .detail-modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 800px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .modal-header {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e0e0e0;
         }
 
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .student-info {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .info-row {
-            display: flex;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .info-label {
+        .welcome-banner span {
             font-weight: 600;
-            width: 120px;
-            color: #667eea;
-        }
-
-        .info-value {
-            color: #333;
-            flex: 1;
-        }
-
-        .review-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .review-item.correct {
-            border-left-color: #4caf50;
-        }
-
-        .review-item.incorrect {
-            border-left-color: #f44336;
-        }
-
-        .review-question {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        .correct-answer {
-            color: #4caf50;
-            font-weight: 600;
-        }
-
-        .user-answer {
-            color: #f44336;
-            font-weight: 600;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .hidden {
-            display: none !important;
         }
 
         @media (max-width: 600px) {
             .container {
-                margin: 0;
-                border-radius: 0;
+                padding: 20px;
             }
-            
-            body {
-                padding: 0;
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .input-row input {
+                min-width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
             }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>👨‍💼 Admin Panel</h1>
-            <p>Quiz Results Management</p>
+        <!-- Login Section -->
+        <div id="loginSection" class="login-section">
+            <h1>🔐 Admin Login</h1>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <div id="errorMessage" class="error-message">
+                    Invalid username or password!
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
         </div>
 
-        <div class="admin-content">
-            <a href="index.html" class="back-link">← Back to Quiz</a>
+        <!-- Admin Panel Section -->
+        <div id="adminPanel" class="admin-panel">
+            <div class="welcome-banner">
+                <span>👋 Welcome, sage!</span>
+                <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
+            </div>
 
-            <!-- Login Screen -->
-            <div id="loginScreen">
-                <div class="login-box">
-                    <h2>Admin Login</h2>
-                    <div class="form-group">
-                        <label for="adminName">Admin Name</label>
-                        <input type="text" id="adminName" placeholder="Enter admin name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="adminPassword">Password</label>
-                        <input type="password" id="adminPassword" placeholder="Enter password" required>
-                    </div>
-                    <div id="loginError" class="error-message">Invalid credentials</div>
-                    <button class="btn" onclick="login()">Login</button>
+            <h2>📊 Connect to Google Sheet</h2>
+
+            <div class="sheet-input-section">
+                <p><strong>How to find Sheet ID:</strong> Open your Google Sheet, copy the ID from the URL (between <code>/d/</code> and <code>/edit</code>)</p>
+                <div class="input-row">
+                    <input type="text" id="sheetId" placeholder="Enter Google Sheet ID (e.g., 1abc123...)">
+                    <button id="connectBtn" class="btn">Connect</button>
                 </div>
             </div>
 
-            <!-- Setup Screen (After Login) -->
-            <div id="setupScreen" class="hidden">
-                <div class="setup-box">
-                    <h3 style="margin-bottom: 15px;">📊 Connect to Google Sheet</h3>
-                    <p style="margin-bottom: 15px;">Enter your Google Sheet ID to view results:</p>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <input type="text" id="sheetIdInput" placeholder="Paste Sheet ID here..." 
-                               style="flex: 1; min-width: 250px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                        <button class="btn btn-small" onclick="loadFromSheet()" style="width: auto;">Load Results</button>
-                    </div>
-                    <p style="margin-top: 10px; font-size: 0.9em;">
-                        <strong>How to find Sheet ID:</strong> Open your Google Sheet, copy the ID from the URL 
-                        (between <code>/d/</code> and <code>/edit</code>)
-                    </p>
+            <div id="statsContainer" class="stats-cards" style="display: none;">
+                <div class="stat-card">
+                    <h3 id="totalParticipants">0</h3>
+                    <p>Total Participants</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="avgScore">0</h3>
+                    <p>Average Score</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="highScore">0</h3>
+                    <p>Highest Score</p>
                 </div>
             </div>
 
-            <!-- Main Dashboard -->
-            <div id="dashboard" class="hidden">
-                <div class="stats-overview" id="statsOverview">
-                    <div class="stat-card">
-                        <div class="stat-value" id="totalTests">0</div>
-                        <div class="stat-label">Total Tests</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="avgScore">0%</div>
-                        <div class="stat-label">Average Score</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="highestScore">0%</div>
-                        <div class="stat-label">Highest Score</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="passRate">0%</div>
-                        <div class="stat-label">Pass Rate</div>
-                    </div>
-                </div>
-
-                <div class="controls">
-                    <input type="text" class="search-box" id="searchBox" 
-                           placeholder="Search by name or ID..." onkeyup="filterResults()">
-                    <select class="filter-select" id="scoreFilter" onchange="filterResults()">
-                        <option value="all">All Scores</option>
-                        <option value="excellent">Excellent (90-100%)</option>
-                        <option value="good">Good (70-89%)</option>
-                        <option value="average">Average (60-69%)</option>
-                        <option value="poor">Poor (40-59%)</option>
-                        <option value="fail">Fail (<40%)</option>
-                    </select>
-                    <select class="filter-select" id="sortBy" onchange="sortResults()">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                        <option value="score-high">Highest Score</option>
-                        <option value="score-low">Lowest Score</option>
-                        <option value="name">Name (A-Z)</option>
-                    </select>
-                    <button class="btn btn-small btn-success" onclick="exportResults()">📥 Export CSV</button>
-                    <button class="btn btn-small" onclick="refreshData()">🔄 Refresh</button>
-                    <button class="btn btn-small" onclick="logout()" style="background: #666;">Logout</button>
-                </div>
-
-                <div class="table-container">
-                    <table class="results-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Mode</th>
-                                <th>Student Name</th>
-                                <th>Student ID</th>
-                                <th>Score</th>
-                                <th>Correct</th>
-                                <th>Time</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="resultsTableBody">
-                        </tbody>
-                    </table>
-                </div>
-
-                <div id="noResults" class="no-results hidden">
-                    <div style="font-size: 3em; margin-bottom: 15px;">📭</div>
-                    <h3>No Results Found</h3>
+            <div class="results-section">
+                <h2>📋 Quiz Results</h2>
+                <div id="resultsContainer">
+                    <p class="no-data">Enter a Google Sheet ID above to view results</p>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Detail Modal -->
-    <div id="detailModal" class="detail-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Test Result Details</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
-            </div>
-            <div id="modalContent"></div>
         </div>
     </div>
 
     <script>
-        // ✅ ADMIN CREDENTIALS - Change these as needed!
-        const ADMIN_CREDENTIALS = {
-            'Sage': 'adminsage',
-            'Admin': 'admin123',
-            'Teacher': 'teach2024'
-        };
+        // Configuration
+        const ADMIN_USERNAME = 'sage';
+        const ADMIN_PASSWORD = 'adminsage';
+        const SESSION_KEY = 'adminSession';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
 
-        let allResults = [];
-        let filteredResults = [];
-        let sheetId = '';
-        let isLoggedIn = false;
+        // DOM Elements
+        const loginSection = document.getElementById('loginSection');
+        const adminPanel = document.getElementById('adminPanel');
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const connectBtn = document.getElementById('connectBtn');
+        const sheetIdInput = document.getElementById('sheetId');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const statsContainer = document.getElementById('statsContainer');
 
-        function login() {
-            const name = document.getElementById('adminName').value.trim();
-            const password = document.getElementById('adminPassword').value;
-            const errorEl = document.getElementById('loginError');
-
-            console.log('Login attempt:', name);
-
-            if (ADMIN_CREDENTIALS[name] && ADMIN_CREDENTIALS[name] === password) {
-                isLoggedIn = true;
-                document.getElementById('loginScreen').classList.add('hidden');
-                document.getElementById('setupScreen').classList.remove('hidden');
-                errorEl.style.display = 'none';
-                console.log('Login successful');
-            } else {
-                errorEl.style.display = 'block';
-                console.log('Login failed');
+        // Check for existing session on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const session = sessionStorage.getItem(SESSION_KEY);
+            if (session === 'active') {
+                showAdminPanel();
             }
+        });
+
+        // Login Form Handler
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Create session
+                sessionStorage.setItem(SESSION_KEY, 'active');
+                errorMessage.classList.remove('show');
+                showAdminPanel();
+            } else {
+                errorMessage.classList.add('show');
+                document.getElementById('password').value = '';
+            }
+        });
+
+        // Logout Handler
+        logoutBtn.addEventListener('click', function() {
+            sessionStorage.removeItem(SESSION_KEY);
+            hideAdminPanel();
+            loginForm.reset();
+        });
+
+        // Show Admin Panel
+        function showAdminPanel() {
+            loginSection.style.display = 'none';
+            adminPanel.classList.add('show');
         }
 
-        function logout() {
-            isLoggedIn = false;
-            sheetId = '';
-            allResults = [];
-            filteredResults = [];
-            
-            document.getElementById('adminName').value = '';
-            document.getElementById('adminPassword').value = '';
-            document.getElementById('sheetIdInput').value = '';
-            
-            document.getElementById('dashboard').classList.add('hidden');
-            document.getElementById('setupScreen').classList.add('hidden');
-            document.getElementById('loginScreen').classList.remove('hidden');
+        // Hide Admin Panel
+        function hideAdminPanel() {
+            adminPanel.classList.remove('show');
+            loginSection.style.display = 'block';
         }
 
-        async function loadFromSheet() {
-            sheetId = document.getElementById('sheetIdInput').value.trim();
-            
+        // Connect to Google Sheet
+        connectBtn.addEventListener('click', async function() {
+            const sheetId = sheetIdInput.value.trim();
+
             if (!sheetId) {
                 alert('Please enter a Google Sheet ID');
                 return;
             }
 
-            sheetId = sheetId.replace(/.*\/d\//, '').replace(/\/.*$/, '');
+            resultsContainer.innerHTML = '<div class="loading">Loading results...</div>';
 
             try {
-                const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
-                const response = await fetch(csvUrl);
-                
-                if (!response.ok) throw new Error('Cannot access sheet');
+                const response = await fetch(`${SCRIPT_URL}?sheetId=${sheetId}`);
+                const data = await response.json();
 
-                const csvText = await response.text();
-                const results = parseCSV(csvText);
-                
-                allResults = results.map((row, index) => ({
-                    id: index,
-                    date: row[0] || '',
-                    studentName: row[1] || '',
-                    studentId: row[2] || '',
-                    mode: row[3] || 'Unknown',
-                    score: parseInt(row[4]) || 0,
-                    correctAnswers: parseInt(row[5]) || 0,
-                    totalQuestions: parseInt(row[6]) || 0,
-                    timeTaken: parseInt(row[7]) || 0,
-                    details: row[8] || '[]'
-                })).filter(r => r.studentName);
+                if (data.error) {
+                    resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">Error: ${data.error}</p>`;
+                    statsContainer.style.display = 'none';
+                    return;
+                }
 
-                document.getElementById('setupScreen').classList.add('hidden');
-                document.getElementById('dashboard').classList.remove('hidden');
-                
-                filteredResults = [...allResults];
-                updateStats();
-                displayResults();
+                displayResults(data);
+                updateStats(data);
+                statsContainer.style.display = 'grid';
 
             } catch (error) {
-                alert('Error: ' + error.message + '\n\nMake sure the sheet is shared with "Anyone with the link"');
+                resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">Failed to load data. Please check the Sheet ID and try again.</p>`;
+                statsContainer.style.display = 'none';
             }
-        }
-
-        function parseCSV(csvText) {
-            const lines = csvText.split('\n');
-            return lines.slice(1).map(line => {
-                const result = [];
-                let current = '';
-                let inQuotes = false;
-                
-                for (let i = 0; i < line.length; i++) {
-                    const char = line[i];
-                    if (char === '"') inQuotes = !inQuotes;
-                    else if (char === ',' && !inQuotes) {
-                        result.push(current.trim());
-                        current = '';
-                    } else current += char;
-                }
-                result.push(current.trim());
-                return result;
-            }).filter(row => row.length > 1);
-        }
-
-        function updateStats() {
-            const total = allResults.length;
-            document.getElementById('totalTests').textContent = total;
-
-            if (total === 0) {
-                document.getElementById('avgScore').textContent = '0%';
-                document.getElementById('highestScore').textContent = '0%';
-                document.getElementById('passRate').textContent = '0%';
-                return;
-            }
-
-            const avgScore = Math.round(allResults.reduce((sum, r) => sum + r.score, 0) / total);
-            const highestScore = Math.max(...allResults.map(r => r.score));
-            const passCount = allResults.filter(r => r.score >= 60).length;
-            const passRate = Math.round((passCount / total) * 100);
-
-            document.getElementById('avgScore').textContent = `${avgScore}%`;
-            document.getElementById('highestScore').textContent = `${highestScore}%`;
-            document.getElementById('passRate').textContent = `${passRate}%`;
-        }
-
-        function displayResults() {
-            const tbody = document.getElementById('resultsTableBody');
-            const noResults = document.getElementById('noResults');
-
-            if (filteredResults.length === 0) {
-                noResults.classList.remove('hidden');
-                tbody.innerHTML = '';
-                return;
-            }
-
-            noResults.classList.add('hidden');
-
-            tbody.innerHTML = filteredResults.map(result => {
-                const date = new Date(result.date).toLocaleString();
-                const minutes = Math.floor(result.timeTaken / 60);
-                const seconds = result.timeTaken % 60;
-                const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                
-                let scoreClass = 'score-fail';
-                if (result.score >= 90) scoreClass = 'score-excellent';
-                else if (result.score >= 70) scoreClass = 'score-good';
-                else if (result.score >= 60) scoreClass = 'score-average';
-                else if (result.score >= 40) scoreClass = 'score-poor';
-
-                return `
-                    <tr>
-                        <td>${date}</td>
-                        <td>${result.mode}</td>
-                        <td>${escapeHtml(result.studentName)}</td>
-                        <td>${escapeHtml(result.studentId)}</td>
-                        <td><span class="score-badge ${scoreClass}">${result.score}%</span></td>
-                        <td>${result.correctAnswers}/${result.totalQuestions}</td>
-                        <td>${timeStr}</td>
-                        <td>
-                            <button class="btn btn-small" onclick="viewDetails(${result.id})">View</button>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        function filterResults() {
-            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
-            const scoreFilter = document.getElementById('scoreFilter').value;
-
-            filteredResults = allResults.filter(result => {
-                const matchesSearch = 
-                    result.studentName.toLowerCase().includes(searchTerm) ||
-                    result.studentId.toLowerCase().includes(searchTerm);
-                
-                let matchesScore = true;
-                if (scoreFilter === 'excellent') matchesScore = result.score >= 90;
-                else if (scoreFilter === 'good') matchesScore = result.score >= 70 && result.score < 90;
-                else if (scoreFilter === 'average') matchesScore = result.score >= 60 && result.score < 70;
-                else if (scoreFilter === 'poor') matchesScore = result.score >= 40 && result.score < 60;
-                else if (scoreFilter === 'fail') matchesScore = result.score < 40;
-
-                return matchesSearch && matchesScore;
-            });
-
-            sortResults();
-        }
-
-        function sortResults() {
-            const sortBy = document.getElementById('sortBy').value;
-            
-            filteredResults.sort((a, b) => {
-                switch(sortBy) {
-                    case 'newest': return new Date(b.date) - new Date(a.date);
-                    case 'oldest': return new Date(a.date) - new Date(b.date);
-                    case 'score-high': return b.score - a.score;
-                    case 'score-low': return a.score - b.score;
-                    case 'name': return a.studentName.localeCompare(b.studentName);
-                    default: return 0;
-                }
-            });
-
-            displayResults();
-        }
-
-        function viewDetails(id) {
-            const result = allResults.find(r => r.id === id);
-            if (!result) return;
-
-            const modalContent = document.getElementById('modalContent');
-            const minutes = Math.floor(result.timeTaken / 60);
-            const seconds = result.timeTaken % 60;
-
-            let detailsHtml = `
-                <div class="student-info">
-                    <div class="info-row">
-                        <div class="info-label">Name:</div>
-                        <div class="info-value">${escapeHtml(result.studentName)}</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">ID:</div>
-                        <div class="info-value">${escapeHtml(result.studentId)}</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Mode:</div>
-                        <div class="info-value">${result.mode}</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Score:</div>
-                        <div class="info-value" style="color: ${result.score >= 60 ? '#4caf50' : '#f44336'}; font-weight: bold;">
-                            ${result.score}% (${result.correctAnswers}/${result.totalQuestions})
-                        </div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Time:</div>
-                        <div class="info-value">${minutes}:${seconds.toString().padStart(2, '0')}</div>
-                    </div>
-                </div>
-                <h3 style="margin-bottom: 15px;">Question Review</h3>
-            `;
-
-            try {
-                const details = JSON.parse(result.details);
-                details.forEach((detail, index) => {
-                    const isCorrect = detail.isCorrect;
-                    detailsHtml += `
-                        <div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">
-                            <div class="review-question">Q${index + 1}: ${detail.question}</div>
-                            <div style="color: #666; font-size: 0.85em; margin-bottom: 5px;">${detail.topic}</div>
-                            <div class="${isCorrect ? 'correct-answer' : 'user-answer'}">
-                                Your: ${detail.userAnswer || 'Not answered'} - 
-                                ${detail.userAnswer ? detail.options[detail.userAnswer] : 'No answer'}
-                            </div>
-                            ${!isCorrect ? `
-                                <div class="correct-answer" style="margin-top: 5px;">
-                                    Correct: ${detail.correctAnswer} - ${detail.options[detail.correctAnswer]}
-                                </div>
-                            ` : ''}
-                        </div>
-                    `;
-                });
-            } catch (e) {
-                detailsHtml += '<p>Error loading details</p>';
-            }
-
-            modalContent.innerHTML = detailsHtml;
-            document.getElementById('detailModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('detailModal').classList.remove('active');
-        }
-
-        function refreshData() {
-            if (sheetId) loadFromSheet();
-        }
-
-        function exportResults() {
-            if (allResults.length === 0) {
-                alert('No results to export!');
-                return;
-            }
-
-            let csv = 'Date,Mode,Student Name,Student ID,Score %,Correct,Total,Time (sec),Pass/Fail\n';
-            
-            allResults.forEach(r => {
-                const passFail = r.score >= 60 ? 'Pass' : 'Fail';
-                csv += `"${r.date}","${r.mode}","${r.studentName}","${r.studentId}",${r.score},${r.correctAnswers},${r.totalQuestions},${r.timeTaken},${passFail}\n`;
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `quiz-results-${new Date().toISOString().split('T')[0]}.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        document.getElementById('detailModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
         });
 
-        // Allow Enter key for login
-        document.getElementById('adminPassword').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') login();
+        // Display Results in Table
+        function displayResults(data) {
+            if (!data || data.length === 0) {
+                resultsContainer.innerHTML = '<p class="no-data">No results found in this sheet</p>';
+                return;
+            }
+
+            let html = '<table><thead><tr>';
+
+            // Get headers from first row
+            const headers = Object.keys(data[0]);
+            headers.forEach(header => {
+                html += `<th>${header}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+
+            // Add data rows
+            data.forEach(row => {
+                html += '<tr>';
+                headers.forEach(header => {
+                    html += `<td>${row[header] || '-'}</td>`;
+                });
+                html += '</tr>';
+            });
+
+            html += '</tbody></table>';
+            resultsContainer.innerHTML = html;
+        }
+
+        // Update Statistics
+        function updateStats(data) {
+            if (!data || data.length === 0) return;
+
+            document.getElementById('totalParticipants').textContent = data.length;
+
+            // Calculate average and high score if Score column exists
+            const scores = data.map(row => parseFloat(row.Score || row.score || 0)).filter(s => !isNaN(s));
+            if (scores.length > 0) {
+                const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+                const max = Math.max(...scores);
+                document.getElementById('avgScore').textContent = avg.toFixed(1);
+                document.getElementById('highScore').textContent = max;
+            }
+        }
+
+        // Allow Enter key to connect
+        sheetIdInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                connectBtn.click();
+            }
         });
     </script>
 </body>
