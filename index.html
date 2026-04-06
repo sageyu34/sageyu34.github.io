@@ -15,11 +15,13 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
+            overflow-x: auto;
         }
 
         .container {
-            max-width: 800px;
+            min-width: 320px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -30,34 +32,29 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
+            padding: 20px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: clamp(1.5em, 5vw, 2.5em);
             margin-bottom: 10px;
         }
 
-        .header p {
-            opacity: 0.9;
-            font-size: 1.1em;
-        }
-
         .quiz-content {
-            padding: 30px;
+            padding: 20px;
         }
 
-        .start-screen, .quiz-screen, .results-screen {
+        .start-screen, .quiz-screen, .results-screen, .login-screen {
             display: none;
         }
 
-        .start-screen.active, .quiz-screen.active, .results-screen.active {
+        .start-screen.active, .quiz-screen.active, .results-screen.active, .login-screen.active {
             display: block;
         }
 
-        .student-form {
-            max-width: 400px;
+        .student-form, .login-form {
+            max-width: 500px;
             margin: 0 auto;
         }
 
@@ -72,7 +69,7 @@
             color: #333;
         }
 
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px;
             border: 2px solid #e0e0e0;
@@ -81,9 +78,51 @@
             transition: border-color 0.3s;
         }
 
-        .form-group input:focus {
+        .form-group input:focus, .form-group select:focus {
             outline: none;
             border-color: #667eea;
+        }
+
+        .mode-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .mode-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .mode-card:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .mode-card.selected {
+            border-color: #667eea;
+            background: #e8ecff;
+        }
+
+        .mode-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .mode-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .mode-desc {
+            font-size: 0.9em;
+            color: #666;
         }
 
         .btn {
@@ -97,6 +136,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .btn:hover {
@@ -114,7 +154,7 @@
             background: #e0e0e0;
             height: 10px;
             border-radius: 5px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
 
@@ -131,17 +171,20 @@
             margin-bottom: 20px;
             color: #666;
             font-weight: 500;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .question-card {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            min-width: 280px;
         }
 
         .question-text {
-            font-size: 1.2em;
+            font-size: clamp(1em, 4vw, 1.2em);
             color: #333;
             margin-bottom: 20px;
             line-height: 1.6;
@@ -156,12 +199,13 @@
         .option {
             background: white;
             border: 2px solid #e0e0e0;
-            padding: 15px 20px;
+            padding: 15px;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            gap: 10px;
         }
 
         .option:hover {
@@ -178,18 +222,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
+            min-width: 30px;
             height: 30px;
             background: #667eea;
             color: white;
             border-radius: 50%;
-            margin-right: 15px;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         .timer {
             text-align: center;
-            font-size: 1.5em;
+            font-size: clamp(1.2em, 4vw, 1.5em);
             color: #667eea;
             margin-bottom: 20px;
             font-weight: bold;
@@ -212,17 +256,19 @@
         .navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            margin-top: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .results-summary {
             text-align: center;
-            padding: 40px;
+            padding: 20px;
         }
 
         .score-circle {
-            width: 200px;
-            height: 200px;
+            width: clamp(150px, 40vw, 200px);
+            height: clamp(150px, 40vw, 200px);
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
@@ -230,26 +276,26 @@
             justify-content: center;
             margin: 0 auto 30px;
             color: white;
-            font-size: 3em;
+            font-size: clamp(2em, 6vw, 3em);
             font-weight: bold;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
             margin-top: 30px;
         }
 
         .stat-card {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             text-align: center;
         }
 
         .stat-value {
-            font-size: 2em;
+            font-size: clamp(1.5em, 4vw, 2em);
             font-weight: bold;
             color: #667eea;
         }
@@ -257,16 +303,19 @@
         .stat-label {
             color: #666;
             margin-top: 5px;
+            font-size: 0.9em;
         }
 
         .review-section {
-            margin-top: 40px;
+            margin-top: 30px;
             text-align: left;
+            max-height: 60vh;
+            overflow-y: auto;
         }
 
         .review-item {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
             border-left: 4px solid #667eea;
@@ -284,11 +333,13 @@
             font-weight: 600;
             margin-bottom: 10px;
             color: #333;
+            font-size: clamp(0.9em, 3vw, 1em);
         }
 
         .review-answer {
             color: #666;
             margin-bottom: 5px;
+            font-size: clamp(0.85em, 3vw, 0.95em);
         }
 
         .review-correct {
@@ -344,23 +395,67 @@
             color: #667eea;
             font-weight: 600;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
         }
 
         .hidden {
             display: none !important;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            body {
+                padding: 0;
+            }
+            
+            .mode-selection {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤰🏽Reproductive Physiology Quiz</h1>
+            <h1>🧬 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
         </div>
 
         <div class="quiz-content">
+            <!-- Login Screen -->
+            <div class="login-screen active">
+                <div class="login-form">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Access Token</h2>
+                    <div class="form-group">
+                        <label for="accessToken">Access Token</label>
+                        <input type="password" id="accessToken" placeholder="Enter your access token" required>
+                        <div id="tokenError" class="error-message hidden">Invalid access token</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn" onclick="verifyToken()">Continue</button>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
+                        Contact administrator for access token
+                    </p>
+                </div>
+            </div>
+
             <!-- Start Screen -->
-            <div class="start-screen active">
+            <div class="start-screen">
                 <div class="student-form">
                     <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Your Details</h2>
                     <div class="form-group">
@@ -371,19 +466,41 @@
                         <label for="studentId">Student ID / Email</label>
                         <input type="text" id="studentId" placeholder="Enter your ID or email" required>
                     </div>
+                    
+                    <h3 style="margin: 30px 0 15px; color: #333;">Select Test Mode</h3>
+                    <div class="mode-selection">
+                        <div class="mode-card" onclick="selectMode('beginner')" data-mode="beginner">
+                            <div class="mode-icon">🌱</div>
+                            <div class="mode-title">Beginner</div>
+                            <div class="mode-desc">20 questions<br>15 minutes</div>
+                        </div>
+                        <div class="mode-card" onclick="selectMode('advanced')" data-mode="advanced">
+                            <div class="mode-icon">🎯</div>
+                            <div class="mode-title">Advanced</div>
+                            <div class="mode-desc">50 questions<br>30 minutes</div>
+                        </div>
+                        <div class="mode-card" onclick="selectMode('bullet')" data-mode="bullet">
+                            <div class="mode-icon">⚡</div>
+                            <div class="mode-title">Bullet</div>
+                            <div class="mode-desc">50 questions<br>No time limit</div>
+                        </div>
+                        <div class="mode-card" onclick="selectMode('fame')" data-mode="fame">
+                            <div class="mode-icon">🔥</div>
+                            <div class="mode-title">60 Seconds of Fame</div>
+                            <div class="mode-desc">Unlimited questions<br>60 seconds only!</div>
+                        </div>
+                    </div>
+                    <div id="modeError" class="error-message hidden" style="text-align: center;">Please select a test mode</div>
+                    
                     <div style="text-align: center; margin-top: 30px;">
                         <button class="btn" onclick="startQuiz()">Start Quiz</button>
                     </div>
-                    <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
-                        Quiz consists of 20 random questions<br>
-                        Time limit: 20 minutes
-                    </p>
                 </div>
             </div>
 
             <!-- Quiz Screen -->
             <div class="quiz-screen">
-                <div class="timer" id="timer">20:00</div>
+                <div class="timer" id="timer">00:00</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressBar" style="width: 0%"></div>
                 </div>
@@ -425,20 +542,20 @@
                         </div>
                         <div class="stat-card">
                             <div class="stat-value" id="statCorrect">0</div>
-                            <div class="stat-label">Correct Answers</div>
+                            <div class="stat-label">Correct</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-value" id="statTotal">0</div>
-                            <div class="stat-label">Total Questions</div>
+                            <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-value" id="statTime">0:00</div>
-                            <div class="stat-label">Time Taken</div>
+                            <div class="stat-label">Time</div>
                         </div>
                     </div>
 
                     <div id="savingStatus" class="saving-status hidden">
-                        Saving results to database...
+                        Saving results...
                     </div>
 
                     <div class="review-section" id="reviewSection">
@@ -454,11 +571,14 @@
         </div>
     </div>
 
-    <a href="admin.html" class="admin-link">👤 Admin Panel</a>
+    <a href="admin.html" class="admin-link">👤 Admin</a>
 
     <script>
-        // ✅ YOUR GOOGLE APPS SCRIPT URL - NOW CONFIGURED!
+        // ✅ YOUR GOOGLE APPS SCRIPT URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
+        
+        // ✅ VALID ACCESS TOKENS (add more as needed)
+        const VALID_TOKENS = ['TOKEN123', 'TEST2024', 'ADMIN99', 'STUDENT1'];
         
         let questions = [];
         let currentQuestions = [];
@@ -466,11 +586,20 @@
         let userAnswers = [];
         let studentInfo = {};
         let timerInterval;
-        let timeRemaining = 1200; // 20 minutes in seconds
+        let timeRemaining = 0;
         let startTime;
         let quizSubmitted = false;
+        let selectedMode = null;
+        let fameModeActive = false;
+        let fameQuestionsAttempted = 0;
 
-        // Load questions from JSON
+        const TEST_MODES = {
+            beginner: { questions: 20, time: 900, name: 'Beginner' },      // 15 mins
+            advanced: { questions: 50, time: 1800, name: 'Advanced' },   // 30 mins
+            bullet: { questions: 50, time: 0, name: 'Bullet' },         // No limit
+            fame: { questions: 999, time: 60, name: '60 Seconds of Fame' } // 60 secs, unlimited
+        };
+
         async function loadQuestions() {
             try {
                 const response = await fetch('reproductive_physiology_question_bank.json');
@@ -482,6 +611,28 @@
             }
         }
 
+        function verifyToken() {
+            const token = document.getElementById('accessToken').value.trim().toUpperCase();
+            const errorEl = document.getElementById('tokenError');
+            
+            if (VALID_TOKENS.includes(token)) {
+                errorEl.classList.add('hidden');
+                document.querySelector('.login-screen').classList.remove('active');
+                document.querySelector('.start-screen').classList.add('active');
+            } else {
+                errorEl.classList.remove('hidden');
+            }
+        }
+
+        function selectMode(mode) {
+            selectedMode = mode;
+            document.querySelectorAll('.mode-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
+            document.getElementById('modeError').classList.add('hidden');
+        }
+
         function startQuiz() {
             const name = document.getElementById('studentName').value.trim();
             const id = document.getElementById('studentId').value.trim();
@@ -491,25 +642,46 @@
                 return;
             }
 
-            studentInfo = { name, id, startTime: new Date().toISOString() };
+            if (!selectedMode) {
+                document.getElementById('modeError').classList.remove('hidden');
+                return;
+            }
+
+            const mode = TEST_MODES[selectedMode];
+            studentInfo = { 
+                name, 
+                id, 
+                mode: mode.name,
+                startTime: new Date().toISOString() 
+            };
             startTime = Date.now();
+            fameModeActive = selectedMode === 'fame';
 
-            // Select 20 random questions
-            currentQuestions = [...questions]
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 20);
+            // Select questions based on mode
+            if (selectedMode === 'fame') {
+                // For fame mode, shuffle all questions but we'll only use what they can answer
+                currentQuestions = [...questions].sort(() => Math.random() - 0.5);
+                fameQuestionsAttempted = 0;
+            } else {
+                currentQuestions = [...questions]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, mode.questions);
+            }
 
-            // Initialize user answers array (null = not answered)
             userAnswers = new Array(currentQuestions.length).fill(null);
 
-            // Hide start screen, show quiz screen
+            // Set timer
+            timeRemaining = mode.time;
+            if (mode.time === 0) {
+                document.getElementById('timer').textContent = 'No limit';
+            }
+
             document.querySelector('.start-screen').classList.remove('active');
             document.querySelector('.quiz-screen').classList.add('active');
 
-            // Start timer
-            startTimer();
-
-            // Display first question
+            if (mode.time > 0) {
+                startTimer();
+            }
             displayQuestion();
         }
 
@@ -532,9 +704,9 @@
             timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
             
             timerEl.classList.remove('warning', 'danger');
-            if (timeRemaining < 300) { // Less than 5 minutes
+            if (timeRemaining < 10) {
                 timerEl.classList.add('danger');
-            } else if (timeRemaining < 600) { // Less than 10 minutes
+            } else if (timeRemaining < 60) {
                 timerEl.classList.add('warning');
             }
         }
@@ -543,24 +715,23 @@
             const question = currentQuestions[currentQuestionIndex];
             
             // Update progress
-            const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+            const total = selectedMode === 'fame' ? Math.max(fameQuestionsAttempted, 1) : currentQuestions.length;
+            const progress = ((currentQuestionIndex + 1) / total) * 100;
             document.getElementById('progressBar').style.width = `${progress}%`;
             
-            // Update question info
             document.getElementById('questionNumber').textContent = 
-                `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
+                selectedMode === 'fame' 
+                    ? `Question ${currentQuestionIndex + 1} (Attempted: ${fameQuestionsAttempted})`
+                    : `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
             document.getElementById('topicDisplay').textContent = question.topic;
             document.getElementById('topicBadge').textContent = question.topic;
-            
-            // Update question text
             document.getElementById('questionText').textContent = question.question;
             
-            // Generate options
             const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
             
             const optionLetters = ['A', 'B', 'C', 'D', 'E'];
-            optionLetters.forEach((letter, index) => {
+            optionLetters.forEach((letter) => {
                 if (question.options[letter]) {
                     const option = document.createElement('div');
                     option.className = 'option';
@@ -578,19 +749,22 @@
                 }
             });
 
-            // Update navigation buttons
             document.getElementById('prevBtn').style.visibility = 
                 currentQuestionIndex === 0 ? 'hidden' : 'visible';
             document.getElementById('nextBtn').textContent = 
-                currentQuestionIndex === currentQuestions.length - 1 ? 'Finish' : 'Next';
+                (selectedMode === 'fame' || currentQuestionIndex === currentQuestions.length - 1) 
+                    ? 'Finish' : 'Next';
         }
 
         function selectOption(letter) {
             if (quizSubmitted) return;
             
+            if (selectedMode === 'fame' && !userAnswers[currentQuestionIndex]) {
+                fameQuestionsAttempted++;
+            }
+            
             userAnswers[currentQuestionIndex] = letter;
             
-            // Update visual selection
             const options = document.querySelectorAll('.option');
             options.forEach(opt => {
                 opt.classList.remove('selected');
@@ -598,14 +772,33 @@
                     opt.classList.add('selected');
                 }
             });
+
+            // Auto-advance in fame mode after short delay
+            if (selectedMode === 'fame') {
+                setTimeout(() => {
+                    if (currentQuestionIndex < currentQuestions.length - 1) {
+                        currentQuestionIndex++;
+                        displayQuestion();
+                    }
+                }, 300);
+            }
         }
 
         function nextQuestion() {
-            if (currentQuestionIndex < currentQuestions.length - 1) {
-                currentQuestionIndex++;
-                displayQuestion();
+            if (selectedMode === 'fame') {
+                if (currentQuestionIndex < currentQuestions.length - 1 && timeRemaining > 0) {
+                    currentQuestionIndex++;
+                    displayQuestion();
+                } else {
+                    submitQuiz();
+                }
             } else {
-                submitQuiz();
+                if (currentQuestionIndex < currentQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    displayQuestion();
+                } else {
+                    submitQuiz();
+                }
             }
         }
 
@@ -620,16 +813,27 @@
             if (quizSubmitted) return;
             quizSubmitted = true;
 
-            // Stop timer
             clearInterval(timerInterval);
             
             const endTime = Date.now();
             const timeTaken = Math.floor((endTime - startTime) / 1000);
 
+            // For fame mode, only count attempted questions
+            let questionsToGrade = currentQuestions;
+            let answersToGrade = userAnswers;
+            
+            if (selectedMode === 'fame') {
+                // Only include questions that were attempted (seen/answered)
+                const attemptedIndices = userAnswers.map((a, i) => a !== null ? i : -1).filter(i => i !== -1);
+                questionsToGrade = attemptedIndices.map(i => currentQuestions[i]);
+                answersToGrade = attemptedIndices.map(i => userAnswers[i]);
+                fameQuestionsAttempted = attemptedIndices.length;
+            }
+
             // Calculate score
             let correctCount = 0;
-            const detailedResults = currentQuestions.map((q, index) => {
-                const userAnswer = userAnswers[index];
+            const detailedResults = questionsToGrade.map((q, index) => {
+                const userAnswer = answersToGrade[index];
                 const isCorrect = userAnswer === q.correct_answer;
                 if (isCorrect) correctCount++;
                 
@@ -643,54 +847,46 @@
                 };
             });
 
-            const score = Math.round((correctCount / currentQuestions.length) * 100);
+            const totalQuestions = questionsToGrade.length;
+            const score = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
 
-            // Prepare result data
             const resultData = {
                 studentName: studentInfo.name,
                 studentId: studentInfo.id,
+                mode: studentInfo.mode,
                 score: score,
                 correctAnswers: correctCount,
-                totalQuestions: currentQuestions.length,
+                totalQuestions: totalQuestions,
                 timeTaken: timeTaken,
                 details: detailedResults
             };
 
-            // Show results screen
             document.querySelector('.quiz-screen').classList.remove('active');
             document.querySelector('.results-screen').classList.add('active');
 
-            // Display results
             displayResults(resultData);
-
-            // Save to Google Sheets
             await saveToGoogleSheets(resultData);
         }
 
         async function saveToGoogleSheets(data) {
             const statusEl = document.getElementById('savingStatus');
             statusEl.classList.remove('hidden', 'error', 'success');
-            statusEl.textContent = 'Saving results to database...';
+            statusEl.textContent = 'Saving results...';
 
             try {
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Required for Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
 
-                // Since mode is 'no-cors', we can't read the response
-                // But if we get here without error, it likely succeeded
                 statusEl.classList.add('success');
-                statusEl.textContent = '✅ Results saved successfully! Admin can view all scores.';
+                statusEl.textContent = '✅ Results saved!';
                 
             } catch (error) {
-                console.error('Error saving:', error);
                 statusEl.classList.add('error');
-                statusEl.textContent = '⚠️ Could not save to database. Results shown locally only.';
+                statusEl.textContent = '⚠️ Save failed';
             }
         }
 
@@ -703,10 +899,8 @@
             
             const minutes = Math.floor(resultData.timeTaken / 60);
             const seconds = resultData.timeTaken % 60;
-            document.getElementById('statTime').textContent = 
-                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('statTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
-            // Display review section with correct answers revealed
             const reviewContainer = document.getElementById('reviewContainer');
             reviewContainer.innerHTML = '';
 
@@ -741,27 +935,26 @@
         }
 
         function restartQuiz() {
-            // Reset all variables
             currentQuestions = [];
             currentQuestionIndex = 0;
             userAnswers = [];
             studentInfo = {};
-            timeRemaining = 1200;
+            timeRemaining = 0;
             quizSubmitted = false;
+            selectedMode = null;
+            fameModeActive = false;
+            fameQuestionsAttempted = 0;
             
-            // Clear inputs
             document.getElementById('studentName').value = '';
             document.getElementById('studentId').value = '';
-            
-            // Hide status
+            document.getElementById('accessToken').value = '';
+            document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
             document.getElementById('savingStatus').classList.add('hidden');
             
-            // Show start screen
             document.querySelector('.results-screen').classList.remove('active');
-            document.querySelector('.start-screen').classList.add('active');
+            document.querySelector('.login-screen').classList.add('active');
         }
 
-        // Initialize
         loadQuestions();
     </script>
 </body>
