@@ -26,7 +26,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             padding: 40px;
-            max-width: 900px;
+            max-width: 1200px;
             width: 100%;
         }
 
@@ -111,6 +111,24 @@
         .btn-secondary:hover {
             background: #e0e0e0;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60 0%, #219a52 100%);
+            color: white;
+        }
+
+        .btn-success:hover {
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4);
         }
 
         .btn-whatsapp {
@@ -331,6 +349,118 @@
             margin-bottom: 15px;
             font-size: 14px;
         }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Token Management Styles */
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .token-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .token-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .token-card.available { border-left-color: #27ae60; }
+        .token-card.activated { border-left-color: #f39c12; }
+        .token-card.revoked { border-left-color: #e74c3c; opacity: 0.7; }
+
+        .token-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .token-code {
+            font-family: monospace;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .token-status {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .token-status.available { background: #d4edda; color: #155724; }
+        .token-status.activated { background: #fff3cd; color: #856404; }
+        .token-status.revoked { background: #f8d7da; color: #721c24; }
+
+        .token-info {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .token-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge-available { background: #d4edda; color: #155724; }
+        .badge-activated { background: #fff3cd; color: #856404; }
+        .badge-revoked { background: #f8d7da; color: #721c24; }
 
         /* Modal Styles */
         .modal-overlay {
@@ -575,6 +705,14 @@
             .student-info-grid {
                 grid-template-columns: 1fr;
             }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .token-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
     <base target="_blank">
@@ -619,36 +757,67 @@
                 </div>
             </div>
 
-            <h2>📊 Connect to Google Sheet</h2>
-
-            <div class="sheet-input-section">
-                <p><strong>How to find Sheet ID:</strong> Open your Google Sheet, copy the ID from the URL (between <code>/d/</code> and <code>/edit</code>)</p>
-                <div class="input-row">
-                    <input type="text" id="sheetId" placeholder="Enter Google Sheet ID (e.g., 1abc123...)">
-                    <button id="connectBtn" class="btn">Connect</button>
-                </div>
-                <div id="connectionStatus"></div>
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('results')">📊 Quiz Results</button>
+                <button class="tab" onclick="switchTab('tokens')">🎟️ Token Management</button>
             </div>
 
-            <div id="statsContainer" class="stats-cards" style="display: none;">
-                <div class="stat-card">
-                    <h3 id="totalParticipants">0</h3>
-                    <p>Total Participants</p>
+            <!-- Results Tab -->
+            <div id="resultsTab" class="tab-content active">
+                <h2>📊 Connect to Google Sheet</h2>
+
+                <div class="sheet-input-section">
+                    <p><strong>How to find Sheet ID:</strong> Open your Google Sheet, copy the ID from the URL (between <code>/d/</code> and <code>/edit</code>)</p>
+                    <div class="input-row">
+                        <input type="text" id="sheetId" placeholder="Enter Google Sheet ID (e.g., 1abc123...)">
+                        <button id="connectBtn" class="btn">Connect</button>
+                    </div>
+                    <div id="connectionStatus"></div>
                 </div>
-                <div class="stat-card">
-                    <h3 id="avgScore">0</h3>
-                    <p>Average Score</p>
+
+                <div id="statsContainer" class="stats-cards" style="display: none;">
+                    <div class="stat-card">
+                        <h3 id="totalParticipants">0</h3>
+                        <p>Total Participants</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="avgScore">0</h3>
+                        <p>Average Score</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="highScore">0</h3>
+                        <p>Highest Score</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <h3 id="highScore">0</h3>
-                    <p>Highest Score</p>
+
+                <div class="results-section">
+                    <h2>📋 Quiz Results</h2>
+                    <div id="resultsContainer">
+                        <p class="no-data">Enter a Google Sheet ID above to view results</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="results-section">
-                <h2>📋 Quiz Results</h2>
-                <div id="resultsContainer">
-                    <p class="no-data">Enter a Google Sheet ID above to view results</p>
+            <!-- Tokens Tab -->
+            <div id="tokensTab" class="tab-content">
+                <h2>🎟️ Token Management</h2>
+                
+                <div class="sheet-input-section">
+                    <h3>Add New Token</h3>
+                    <div class="input-row" style="margin-bottom: 15px;">
+                        <input type="text" id="newToken" placeholder="Enter token code (e.g., ABC123)">
+                        <input type="text" id="newStudentName" placeholder="Student name (optional)">
+                        <button id="addTokenBtn" class="btn btn-success">Add Token</button>
+                    </div>
+                    <div id="tokenMessage"></div>
+                </div>
+
+                <div class="results-section">
+                    <h2>All Tokens <span id="tokenCount" class="badge badge-available">0</span></h2>
+                    <div id="tokensContainer">
+                        <p class="no-data">Loading tokens...</p>
+                    </div>
                 </div>
             </div>
 
@@ -673,6 +842,7 @@
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
 
         let currentResults = [];
+        let currentTokens = [];
         let currentAdmin = null;
 
         // DOM Elements
@@ -698,10 +868,26 @@
                 currentAdmin = sessionData.username;
                 document.getElementById('adminName').textContent = currentAdmin;
                 showAdminPanel();
+                loadTokens(); // Load tokens on startup
             }
         });
 
-        // Login Form Handler - Server-side authentication
+        // Tab Switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'results') {
+                document.querySelector('.tab:nth-child(1)').classList.add('active');
+                document.getElementById('resultsTab').classList.add('active');
+            } else {
+                document.querySelector('.tab:nth-child(2)').classList.add('active');
+                document.getElementById('tokensTab').classList.add('active');
+                loadTokens();
+            }
+        }
+
+        // Login Form Handler
         loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -722,7 +908,6 @@
                 const result = await response.json();
 
                 if (result.success) {
-                    // Save session
                     sessionStorage.setItem(SESSION_KEY, JSON.stringify({
                         username: result.username,
                         sessionToken: result.sessionToken
@@ -731,6 +916,7 @@
                     document.getElementById('adminName').textContent = currentAdmin;
                     errorMessage.classList.remove('show');
                     showAdminPanel();
+                    loadTokens(); // Load tokens after login
                     loginForm.reset();
                 } else {
                     errorMessage.textContent = result.message || 'Invalid username or password';
@@ -763,7 +949,7 @@
             loginSection.style.display = 'block';
         }
 
-        // Change Password - Server-side
+        // Change Password
         async function changePassword() {
             const oldPass = prompt('Enter current password:');
             if (!oldPass) return;
@@ -870,17 +1056,21 @@
             html += '</tr></thead><tbody>';
 
             data.forEach((row, index) => {
-                const score = row.percentage || row.Score || row.score || 0;
-                const correct = row.correctAnswers || row.Correct || row.correct || 0;
-                const total = row.totalQuestions || row.Total || row.total || 0;
-                const time = row.totalTime || row.Time || row.time || 0;
+                // Handle both old and new field names
+                const score = parseFloat(row.percentage || row.Score || row.score || 0);
+                const correct = parseInt(row.correctAnswers || row.Correct || row.correct || 0);
+                const total = parseInt(row.totalQuestions || row.Total || row.total || 0);
+                const time = parseInt(row.totalTime || row.Time || row.time || row['Time Taken'] || 0);
                 const minutes = Math.floor(time / 60);
                 const seconds = time % 60;
+                const name = row.name || row.Name || row['Student Name'] || '-';
+                const userId = row.userId || row.ID || row.id || row['Student ID'] || '-';
+                const mode = row.mode || row.Mode || row['Test Mode'] || '-';
 
                 html += '<tr>';
-                html += `<td>${row.name || row.Name || '-'}</td>`;
-                html += `<td>${row.userId || row.ID || row.id || '-'}</td>`;
-                html += `<td>${row.mode || row.Mode || '-'}</td>`;
+                html += `<td>${name}</td>`;
+                html += `<td>${userId}</td>`;
+                html += `<td>${mode}</td>`;
                 html += `<td><strong>${score}%</strong></td>`;
                 html += `<td>${correct}</td>`;
                 html += `<td>${total}</td>`;
@@ -898,26 +1088,29 @@
             if (!result) return;
 
             const details = result.details || [];
-            const score = result.percentage || result.Score || result.score || 0;
-            const correct = result.correctAnswers || result.Correct || result.correct || 0;
-            const total = result.totalQuestions || result.Total || result.total || 0;
-            const time = result.totalTime || result.Time || result.time || 0;
+            const score = parseFloat(result.percentage || result.Score || result.score || 0);
+            const correct = parseInt(result.correctAnswers || result.Correct || result.correct || 0);
+            const total = parseInt(result.totalQuestions || result.Total || result.total || 0);
+            const time = parseInt(result.totalTime || result.Time || result.time || result['Time Taken'] || 0);
             const minutes = Math.floor(time / 60);
             const seconds = time % 60;
+            const name = result.name || result.Name || result['Student Name'] || 'N/A';
+            const userId = result.userId || result.ID || result.id || result['Student ID'] || 'N/A';
+            const mode = result.mode || result.Mode || result['Test Mode'] || 'N/A';
 
             let html = `
                 <div class="student-info-grid">
                     <div class="student-info-item">
                         <span class="student-info-label">Student Name</span>
-                        <span class="student-info-value">${result.name || result.Name || 'N/A'}</span>
+                        <span class="student-info-value">${name}</span>
                     </div>
                     <div class="student-info-item">
                         <span class="student-info-label">Student ID</span>
-                        <span class="student-info-value">${result.userId || result.ID || result.id || 'N/A'}</span>
+                        <span class="student-info-value">${userId}</span>
                     </div>
                     <div class="student-info-item">
                         <span class="student-info-label">Test Mode</span>
-                        <span class="student-info-value">${result.mode || result.Mode || 'N/A'}</span>
+                        <span class="student-info-value">${mode}</span>
                     </div>
                     <div class="student-info-item">
                         <span class="student-info-label">Date Taken</span>
@@ -926,10 +1119,10 @@
                 </div>
 
                 <div class="review-summary">
-                    <div class="review-score-circle">${score}%</div>
+                    <div class="review-score-circle">${Math.round(score)}%</div>
                     <div class="review-stats">
                         <div class="review-stat">
-                            <div class="review-stat-value">${score}%</div>
+                            <div class="review-stat-value">${Math.round(score)}%</div>
                             <div class="review-stat-label">Score</div>
                         </div>
                         <div class="review-stat">
@@ -963,13 +1156,13 @@
 
                             <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
                                 <div class="review-answer-label">Student Answer:</div>
-                                <div><strong>${detail.userAnswer || 'Not answered'}</strong> - ${detail.options ? detail.options[detail.userAnswer] : 'N/A'}</div>
+                                <div><strong>${detail.userAnswer || 'Not answered'}</strong>${detail.options && detail.options[detail.userAnswer] ? ' - ' + detail.options[detail.userAnswer] : ''}</div>
                             </div>
 
                             ${!isCorrect ? `
                                 <div class="review-answer correct">
                                     <div class="review-answer-label">Correct Answer:</div>
-                                    <div><strong>${detail.correctAnswer}</strong> - ${detail.options ? detail.options[detail.correctAnswer] : 'N/A'}</div>
+                                    <div><strong>${detail.correctAnswer}</strong>${detail.options && detail.options[detail.correctAnswer] ? ' - ' + detail.options[detail.correctAnswer] : ''}</div>
                                 </div>
                             ` : ''}
                         </div>
@@ -996,13 +1189,9 @@
 
             document.getElementById('totalParticipants').textContent = data.length;
 
-            const scoreKeys = ['percentage', 'Score', 'score', 'Percentage'];
-            let scores = [];
-
-            for (let key of scoreKeys) {
-                scores = data.map(row => parseFloat(row[key])).filter(s => !isNaN(s));
-                if (scores.length > 0) break;
-            }
+            const scores = data.map(row => {
+                return parseFloat(row.percentage || row.Score || row.score || 0);
+            }).filter(s => !isNaN(s));
 
             if (scores.length > 0) {
                 const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
@@ -1012,6 +1201,165 @@
             } else {
                 document.getElementById('avgScore').textContent = '-';
                 document.getElementById('highScore').textContent = '-';
+            }
+        }
+
+        // ============ TOKEN MANAGEMENT ============
+
+        async function loadTokens() {
+            const container = document.getElementById('tokensContainer');
+            container.innerHTML = '<div class="loading">Loading tokens...</div>';
+            
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=getTokens&t=${Date.now()}`, {
+                    method: 'GET',
+                    mode: 'cors'
+                });
+                
+                const result = await response.json();
+                
+                if (result.tokens) {
+                    currentTokens = result.tokens;
+                    displayTokens(result.tokens);
+                } else {
+                    container.innerHTML = '<p class="no-data">No tokens found</p>';
+                }
+            } catch (error) {
+                console.error('Error loading tokens:', error);
+                container.innerHTML = `<p class="no-data" style="color: #e74c3c;">Error loading tokens: ${error.message}</p>`;
+            }
+        }
+
+        function displayTokens(tokens) {
+            const container = document.getElementById('tokensContainer');
+            const countBadge = document.getElementById('tokenCount');
+            
+            countBadge.textContent = tokens.length;
+            
+            if (tokens.length === 0) {
+                container.innerHTML = '<p class="no-data">No tokens found. Add some tokens above!</p>';
+                return;
+            }
+
+            let html = '<div class="token-grid">';
+            
+            tokens.forEach(token => {
+                const status = (token.Status || 'AVAILABLE').toString().trim().toLowerCase();
+                const tokenCode = token.Token || token.token || 'Unknown';
+                const studentName = token.StudentName || token.studentName || '';
+                const date = token.Date ? new Date(token.Date).toLocaleDateString() : '';
+                const device = token.Activated || '';
+                
+                html += `
+                    <div class="token-card ${status}">
+                        <div class="token-header">
+                            <span class="token-code">${tokenCode}</span>
+                            <span class="token-status ${status}">${status}</span>
+                        </div>
+                        <div class="token-info">
+                            ${studentName ? `<div>👤 ${studentName}</div>` : ''}
+                            ${date ? `<div>📅 ${date}</div>` : ''}
+                            ${device ? `<div>📱 ${device.substring(0, 15)}...</div>` : ''}
+                        </div>
+                        <div class="token-actions">
+                            ${status === 'available' ? 
+                                `<button class="btn btn-danger btn-small" onclick="revokeToken('${tokenCode}')">Revoke</button>` :
+                                status === 'revoked' ?
+                                `<button class="btn btn-success btn-small" onclick="deleteToken('${tokenCode}')">Delete</button>` :
+                                `<button class="btn btn-danger btn-small" onclick="revokeToken('${tokenCode}')">Revoke</button>`
+                            }
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Add Token
+        document.getElementById('addTokenBtn').addEventListener('click', async function() {
+            const tokenInput = document.getElementById('newToken');
+            const nameInput = document.getElementById('newStudentName');
+            const messageDiv = document.getElementById('tokenMessage');
+            
+            const token = tokenInput.value.trim();
+            const studentName = nameInput.value.trim();
+            
+            if (!token) {
+                messageDiv.innerHTML = '<p style="color: #e74c3c;">Please enter a token code</p>';
+                return;
+            }
+
+            const btn = document.getElementById('addTokenBtn');
+            btn.disabled = true;
+            btn.textContent = 'Adding...';
+            
+            try {
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=addToken&token=${encodeURIComponent(token)}&studentName=${encodeURIComponent(studentName)}`,
+                    { method: 'GET', mode: 'cors' }
+                );
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    messageDiv.innerHTML = '<p class="success-message">✅ Token added successfully!</p>';
+                    tokenInput.value = '';
+                    nameInput.value = '';
+                    loadTokens();
+                } else {
+                    messageDiv.innerHTML = `<p style="color: #e74c3c;">❌ ${result.message}</p>`;
+                }
+            } catch (error) {
+                messageDiv.innerHTML = `<p style="color: #e74c3c;">❌ Error: ${error.message}</p>`;
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Add Token';
+            }
+        });
+
+        // Revoke Token
+        async function revokeToken(token) {
+            if (!confirm(`Are you sure you want to revoke token ${token}?`)) return;
+            
+            try {
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=revokeToken&token=${encodeURIComponent(token)}`,
+                    { method: 'GET', mode: 'cors' }
+                );
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    loadTokens();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // Delete Token
+        async function deleteToken(token) {
+            if (!confirm(`Are you sure you want to permanently delete token ${token}?`)) return;
+            
+            try {
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=deleteToken&token=${encodeURIComponent(token)}`,
+                    { method: 'GET', mode: 'cors' }
+                );
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    loadTokens();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
             }
         }
 
