@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Reproductive Physiology Quiz</title>
     <style>
         * {
@@ -11,12 +11,16 @@
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 10px;
-            overflow-x: auto;
+            overflow-x: hidden;
         }
 
         .container {
@@ -27,6 +31,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
+            position: relative;
         }
 
         .header {
@@ -34,11 +39,195 @@
             color: white;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
             font-size: clamp(1.5em, 5vw, 2.5em);
             margin-bottom: 10px;
+        }
+
+        /* NOTIFICATION BELL */
+        .notification-bell {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .notification-bell:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .notification-bell.has-unread {
+            animation: bellShake 2s infinite;
+        }
+
+        @keyframes bellShake {
+            0%, 100% { transform: rotate(0); }
+            10%, 30%, 50% { transform: rotate(10deg); }
+            20%, 40% { transform: rotate(-10deg); }
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 6px;
+        }
+
+        /* NOTIFICATION PANEL */
+        .notification-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .notification-panel.open {
+            right: 0;
+        }
+
+        .notification-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-panel {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notification-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .notification-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .notification-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .notification-item.unread {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .notification-item.result {
+            border-left-color: #4caf50;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .notification-message {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .notification-time {
+            color: #999;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+
+        .empty-notifications {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* PUSHED RESULT VIEW */
+        .pushed-result-screen {
+            display: none;
+            padding: 20px;
+        }
+
+        .pushed-result-screen.active {
+            display: block;
+        }
+
+        .back-to-quiz {
+            margin-bottom: 20px;
         }
 
         .quiz-content {
@@ -480,6 +669,10 @@
             .mode-selection {
                 grid-template-columns: 1fr;
             }
+
+            .notification-panel {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -488,12 +681,36 @@
         <div class="header">
             <h1>🤱🏽 Reproductive Physiology Quiz</h1>
             <p>Test your knowledge with 300+ questions</p>
+            
+            <!-- Notification Bell -->
+            <div class="notification-bell hidden" id="notificationBell" onclick="openNotificationPanel()">
+                🔔
+                <span class="notification-badge hidden" id="notificationBadge">0</span>
+            </div>
+        </div>
+
+        <!-- Notification Panel -->
+        <div class="overlay" id="overlay" onclick="closeNotificationPanel()"></div>
+        <div class="notification-panel" id="notificationPanel">
+            <div class="notification-header">
+                <h3>🔔 Notifications</h3>
+                <button class="close-panel" onclick="closeNotificationPanel()">×</button>
+            </div>
+            <div class="notification-list" id="notificationList">
+                <div class="empty-notifications">No notifications yet</div>
+            </div>
         </div>
 
         <div class="quiz-content">
 
+            <!-- Pushed Result Screen -->
+            <div class="pushed-result-screen" id="pushedResultScreen">
+                <button class="btn btn-secondary back-to-quiz" onclick="backToQuiz()">← Back to Quiz</button>
+                <div id="pushedResultContent"></div>
+            </div>
+
             <!-- Login/Activation Screen -->
-            <div class="login-screen active">
+            <div class="login-screen active" id="loginScreen">
                 <div class="login-form">
                     <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Activate Your Token</h2>
                     <div class="form-group">
@@ -514,7 +731,7 @@
             </div>
 
             <!-- Activation Success Screen -->
-            <div class="activation-screen">
+            <div class="activation-screen" id="activationScreen">
                 <div class="activation-box">
                     <h2 style="margin-bottom: 20px; color: #2e7d32;">✅ Activation Successful!</h2>
                     <p style="margin-bottom: 15px; color: #333;">
@@ -529,7 +746,7 @@
             </div>
 
             <!-- Revoked Screen -->
-            <div class="revoked-screen">
+            <div class="revoked-screen" id="revokedScreen">
                 <div class="revoked-box">
                     <h2 style="margin-bottom: 20px; color: #c62828;">🚫 Access Revoked</h2>
                     <p style="margin-bottom: 15px; color: #333;">
@@ -544,7 +761,7 @@
             </div>
 
             <!-- Offline/Network Error Screen -->
-            <div class="offline-screen">
+            <div class="offline-screen" id="offlineScreen">
                 <div class="offline-box">
                     <h2 style="margin-bottom: 20px; color: #e65100;">⚠️ Connection Issue</h2>
                     <p style="margin-bottom: 15px; color: #333;">
@@ -565,7 +782,7 @@
             </div>
 
             <!-- Resume Screen -->
-            <div class="resume-screen">
+            <div class="resume-screen" id="resumeScreen">
                 <div class="resume-box">
                     <h2 style="margin-bottom: 20px; color: #1976d2;">⏸️ Test in Progress</h2>
                     <p style="margin-bottom: 10px; color: #333; font-size: 1.1em;">
@@ -584,7 +801,7 @@
             </div>
 
             <!-- Start Screen -->
-            <div class="start-screen">
+            <div class="start-screen" id="startScreen">
                 <div class="student-form">
                     <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Enter Your Details</h2>
                     <div class="form-group">
@@ -628,7 +845,7 @@
             </div>
 
             <!-- Quiz Screen -->
-            <div class="quiz-screen">
+            <div class="quiz-screen" id="quizScreen">
                 <div class="timer" id="timer">00:00</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressBar" style="width: 0%"></div>
@@ -655,7 +872,7 @@
             </div>
 
             <!-- Results Screen -->
-            <div class="results-screen">
+            <div class="results-screen" id="resultsScreen">
                 <div class="results-summary">
                     <h2 style="margin-bottom: 20px; color: #333;">Quiz Complete! 🎉</h2>
                     <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">
@@ -721,6 +938,9 @@
         let currentToken = null;
         let activatedName = '';
         let offlineMode = false;
+        let heartbeatInterval = null;
+        let notifications = [];
+        let currentScreen = 'login';
 
         const TEST_MODES = {
             beginner: { questions: 20, time: 900,  name: 'Beginner' },
@@ -754,6 +974,247 @@
             checkExistingActivation();
         });
 
+        // ============ HEARTBEAT & NOTIFICATIONS ============
+
+        function startHeartbeat() {
+            if (heartbeatInterval) clearInterval(heartbeatInterval);
+            
+            // Immediate first beat
+            sendHeartbeat();
+            
+            // Then every 30 seconds
+            heartbeatInterval = setInterval(sendHeartbeat, 30000);
+        }
+
+        function stopHeartbeat() {
+            if (heartbeatInterval) {
+                clearInterval(heartbeatInterval);
+                heartbeatInterval = null;
+            }
+        }
+
+        async function sendHeartbeat() {
+            if (!currentToken) return;
+            
+            const state = detectCurrentState();
+            const progress = getTestProgress();
+            
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=heartbeat`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        token: currentToken,
+                        deviceId: getDeviceFingerprint(),
+                        state: state,
+                        progress: progress,
+                        userAgent: navigator.userAgent.substring(0, 100)
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.notifications && result.notifications.length > 0) {
+                    handleNewNotifications(result.notifications);
+                }
+            } catch (error) {
+                console.error('Heartbeat failed:', error);
+            }
+        }
+
+        function detectCurrentState() {
+            if (document.getElementById('loginScreen').classList.contains('active')) return 'login';
+            if (document.getElementById('quizScreen').classList.contains('active')) return 'testing';
+            if (document.getElementById('resultsScreen').classList.contains('active')) return 'reviewing';
+            if (document.getElementById('pushedResultScreen').classList.contains('active')) return 'reviewing';
+            if (document.getElementById('startScreen').classList.contains('active')) return 'idle';
+            return 'idle';
+        }
+
+        function getTestProgress() {
+            if (!document.getElementById('quizScreen').classList.contains('active')) {
+                return { current: 0, total: 0, timeRemaining: 0 };
+            }
+            return {
+                current: currentQuestionIndex + 1,
+                total: currentQuestions.length,
+                timeRemaining: timeRemaining
+            };
+        }
+
+        function handleNewNotifications(newNotifications) {
+            const unreadCount = newNotifications.filter(n => !n.read).length;
+            
+            if (unreadCount > 0) {
+                showNotificationBadge(unreadCount);
+            }
+            
+            notifications = newNotifications;
+            renderNotificationList();
+        }
+
+        function showNotificationBadge(count) {
+            const bell = document.getElementById('notificationBell');
+            const badge = document.getElementById('notificationBadge');
+            
+            bell.classList.remove('hidden');
+            badge.classList.remove('hidden');
+            badge.textContent = count > 9 ? '9+' : count;
+            
+            if (count > 0) {
+                bell.classList.add('has-unread');
+            } else {
+                bell.classList.remove('has-unread');
+            }
+        }
+
+        function openNotificationPanel() {
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById('notificationPanel').classList.add('open');
+            renderNotificationList();
+        }
+
+        function closeNotificationPanel() {
+            document.getElementById('overlay').classList.remove('show');
+            document.getElementById('notificationPanel').classList.remove('open');
+        }
+
+        function renderNotificationList() {
+            const list = document.getElementById('notificationList');
+            
+            if (notifications.length === 0) {
+                list.innerHTML = '<div class="empty-notifications">No notifications yet</div>';
+                return;
+            }
+            
+            list.innerHTML = notifications.map(n => `
+                <div class="notification-item ${n.read ? '' : 'unread'} ${n.type}" onclick="handleNotificationClick('${n.id}')">
+                    <div class="notification-title">${n.title}</div>
+                    <div class="notification-message">${n.message}</div>
+                    <div class="notification-time">${formatTime(n.created)}</div>
+                </div>
+            `).join('');
+        }
+
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleString();
+        }
+
+        async function handleNotificationClick(id) {
+            const notification = notifications.find(n => n.id === id);
+            if (!notification) return;
+            
+            // Mark as read
+            if (!notification.read) {
+                try {
+                    await fetch(`${SCRIPT_URL}?action=markNotificationRead`, {
+                        method: 'POST',
+                        body: JSON.stringify({ id: id, token: currentToken })
+                    });
+                    
+                    notification.read = true;
+                    const unreadCount = notifications.filter(n => !n.read).length;
+                    showNotificationBadge(unreadCount);
+                    renderNotificationList();
+                } catch (error) {
+                    console.error('Failed to mark as read:', error);
+                }
+            }
+            
+            // Handle based on type
+            if (notification.type === 'result_pushed' && notification.payload) {
+                displayPushedResult(notification.payload);
+            }
+            
+            closeNotificationPanel();
+        }
+
+        function displayPushedResult(payload) {
+            // Hide all screens
+            document.querySelectorAll('.login-screen, .activation-screen, .revoked-screen, .offline-screen, .resume-screen, .start-screen, .quiz-screen, .results-screen').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show pushed result screen
+            document.getElementById('pushedResultScreen').classList.add('active');
+            
+            // Render result
+            const content = document.getElementById('pushedResultContent');
+            
+            const minutes = Math.floor(payload.timeTaken / 60);
+            const seconds = payload.timeTaken % 60;
+            
+            let detailsHtml = '';
+            if (payload.details && payload.details.length > 0) {
+                detailsHtml = `
+                    <div class="review-section">
+                        <h3 style="margin-bottom: 20px; color: #333;">Question Review</h3>
+                        ${payload.details.map((d, i) => `
+                            <div class="review-item ${d.isCorrect ? 'correct' : 'incorrect'}">
+                                <div class="review-question">Q${i + 1}: ${d.question}</div>
+                                <div class="review-answer">
+                                    <span class="${d.isCorrect ? 'review-correct' : 'review-user'}">
+                                        Your answer: ${d.userAnswer || 'Not answered'}
+                                    </span>
+                                </div>
+                                ${!d.isCorrect ? `
+                                    <div class="review-answer">
+                                        <span class="review-correct">Correct: ${d.correctAnswer}</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            content.innerHTML = `
+                <div class="results-summary">
+                    <h2 style="margin-bottom: 20px; color: #333;">📋 Your Test Results</h2>
+                    <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">
+                        Sent by your instructor
+                    </p>
+                    
+                    <div class="score-circle">${payload.score}%</div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${payload.score}%</div>
+                            <div class="stat-label">Score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${payload.correctAnswers}</div>
+                            <div class="stat-label">Correct</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${payload.totalQuestions}</div>
+                            <div class="stat-label">Total</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${minutes}:${seconds.toString().padStart(2, '0')}</div>
+                            <div class="stat-label">Time</div>
+                        </div>
+                    </div>
+                    
+                    ${detailsHtml}
+                </div>
+            `;
+        }
+
+        function backToQuiz() {
+            document.getElementById('pushedResultScreen').classList.remove('active');
+            
+            // Return to appropriate screen based on state
+            const savedState = sessionStorage.getItem('quizState');
+            if (savedState && !JSON.parse(savedState).submitted) {
+                document.getElementById('resumeScreen').classList.add('active');
+            } else {
+                document.getElementById('startScreen').classList.add('active');
+            }
+        }
+
+        // ============ EXISTING FUNCTIONS ============
+
         async function checkExistingActivation() {
             const savedToken = localStorage.getItem('quizActivation');
             if (!savedToken) return;
@@ -773,6 +1234,8 @@
                 if (result.valid) {
                     activatedName = result.name;
                     offlineMode = false;
+                    startHeartbeat(); // Start heartbeat on valid activation
+                    showNotificationBell();
                     checkForResume();
                 } else {
                     localStorage.removeItem('quizActivation');
@@ -782,11 +1245,17 @@
                 if (activationData.deviceId === getDeviceFingerprint()) {
                     activatedName = activationData.name;
                     offlineMode = true;
+                    startHeartbeat(); // Start even in offline mode
+                    showNotificationBell();
                     checkForResume();
                 } else {
                     localStorage.removeItem('quizActivation');
                 }
             }
+        }
+
+        function showNotificationBell() {
+            document.getElementById('notificationBell').classList.remove('hidden');
         }
 
         async function fetchWithTimeout(url, options = {}, timeout = 5000) {
@@ -808,14 +1277,20 @@
         }
 
         function showRevokedScreen(token) {
-            document.querySelector('.login-screen').classList.remove('active');
-            document.querySelector('.revoked-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('revokedScreen').classList.add('active');
             document.getElementById('revokedToken').textContent = token;
         }
 
         function showOfflineScreen() {
-            document.querySelector('.login-screen').classList.remove('active');
-            document.querySelector('.offline-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('offlineScreen').classList.add('active');
+        }
+
+        function hideAllScreens() {
+            document.querySelectorAll('.login-screen, .activation-screen, .revoked-screen, .offline-screen, .resume-screen, .start-screen, .quiz-screen, .results-screen, .pushed-result-screen').forEach(el => {
+                el.classList.remove('active');
+            });
         }
 
         function clearAndGoBack() {
@@ -823,8 +1298,9 @@
             sessionStorage.removeItem('quizState');
             currentToken = null;
             activatedName = '';
-            document.querySelector('.revoked-screen').classList.remove('active');
-            document.querySelector('.login-screen').classList.add('active');
+            stopHeartbeat();
+            hideAllScreens();
+            document.getElementById('loginScreen').classList.add('active');
             document.getElementById('accessToken').value = '';
         }
 
@@ -861,8 +1337,12 @@
                     };
                     localStorage.setItem('quizActivation', JSON.stringify(activationData));
                     document.getElementById('activatedName').textContent = result.name;
-                    document.querySelector('.login-screen').classList.remove('active');
-                    document.querySelector('.activation-screen').classList.add('active');
+                    hideAllScreens();
+                    document.getElementById('activationScreen').classList.add('active');
+                    
+                    // Start heartbeat and show bell
+                    startHeartbeat();
+                    showNotificationBell();
                 } else {
                     if (result.revoked) {
                         showRevokedScreen(token);
@@ -882,8 +1362,8 @@
         }
 
         function retryConnection() {
-            document.querySelector('.offline-screen').classList.remove('active');
-            document.querySelector('.login-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('loginScreen').classList.add('active');
         }
 
         function tryOfflineMode() {
@@ -894,8 +1374,12 @@
                     currentToken = activationData.token;
                     activatedName = activationData.name;
                     offlineMode = true;
-                    document.querySelector('.offline-screen').classList.remove('active');
-                    proceedToQuiz();
+                    hideAllScreens();
+                    document.getElementById('activationScreen').classList.add('active');
+                    document.getElementById('activatedName').textContent = activatedName;
+                    
+                    startHeartbeat();
+                    showNotificationBell();
                 } else {
                     alert('No previous activation found for this device.');
                 }
@@ -905,12 +1389,12 @@
         }
 
         function proceedToQuiz() {
-            document.querySelector('.activation-screen').classList.remove('active');
+            hideAllScreens();
             const savedState = sessionStorage.getItem('quizState');
             if (savedState && !JSON.parse(savedState).submitted) {
-                document.querySelector('.resume-screen').classList.add('active');
+                document.getElementById('resumeScreen').classList.add('active');
             } else {
-                document.querySelector('.start-screen').classList.add('active');
+                document.getElementById('startScreen').classList.add('active');
             }
         }
 
@@ -919,8 +1403,8 @@
             if (savedState) {
                 const state = JSON.parse(savedState);
                 if (!state.submitted && state.studentInfo && state.studentInfo.name) {
-                    document.querySelector('.login-screen').classList.remove('active');
-                    document.querySelector('.resume-screen').classList.add('active');
+                    hideAllScreens();
+                    document.getElementById('resumeScreen').classList.add('active');
                     document.getElementById('resumeStudentName').textContent = state.studentInfo.name;
                     document.getElementById('resumeMode').textContent = state.modeName || 'Unknown';
                     document.getElementById('resumeQuestion').textContent = state.currentQuestionIndex + 1;
@@ -929,12 +1413,12 @@
                     const seconds = state.timeRemaining % 60;
                     document.getElementById('resumeTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
                 } else {
-                    document.querySelector('.login-screen').classList.remove('active');
-                    document.querySelector('.start-screen').classList.add('active');
+                    hideAllScreens();
+                    document.getElementById('startScreen').classList.add('active');
                 }
             } else {
-                document.querySelector('.login-screen').classList.remove('active');
-                document.querySelector('.start-screen').classList.add('active');
+                hideAllScreens();
+                document.getElementById('startScreen').classList.add('active');
             }
         }
 
@@ -952,8 +1436,8 @@
             quizSubmitted = false;
             fameModeActive = selectedMode === 'fame';
             fameQuestionsAttempted = state.fameQuestionsAttempted || 0;
-            document.querySelector('.resume-screen').classList.remove('active');
-            document.querySelector('.quiz-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('quizScreen').classList.add('active');
             const mode = TEST_MODES[selectedMode];
             if (mode.time > 0) {
                 startTimer();
@@ -966,8 +1450,8 @@
         function abandonQuiz() {
             if (!confirm('Are you sure you want to abandon your current test? This cannot be undone.')) return;
             sessionStorage.removeItem('quizState');
-            document.querySelector('.resume-screen').classList.remove('active');
-            document.querySelector('.start-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('startScreen').classList.add('active');
         }
 
         function saveState() {
@@ -1034,8 +1518,8 @@
             }
             userAnswers = new Array(currentQuestions.length).fill(null);
             timeRemaining = mode.time;
-            document.querySelector('.start-screen').classList.remove('active');
-            document.querySelector('.quiz-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('quizScreen').classList.add('active');
             if (mode.time > 0) {
                 startTimer();
             } else {
@@ -1193,8 +1677,8 @@
                 details:        detailedResults
             };
             saveState();
-            document.querySelector('.quiz-screen').classList.remove('active');
-            document.querySelector('.results-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('resultsScreen').classList.add('active');
             displayResults(resultData);
             if (!offlineMode) {
                 await saveToGoogleSheets(resultData);
@@ -1299,8 +1783,8 @@
             document.getElementById('studentId').value   = '';
             document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
             document.getElementById('savingStatus').classList.add('hidden');
-            document.querySelector('.results-screen').classList.remove('active');
-            document.querySelector('.start-screen').classList.add('active');
+            hideAllScreens();
+            document.getElementById('startScreen').classList.add('active');
         }
 
         window.addEventListener('beforeunload', function () {
