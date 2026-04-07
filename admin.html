@@ -44,7 +44,11 @@
             gap: 10px;
         }
 
-        /* Login Form Styles */
+        h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
         .login-form {
             display: flex;
             flex-direction: column;
@@ -122,6 +126,11 @@
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
         }
 
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
         .error-message {
             color: #e74c3c;
             text-align: center;
@@ -135,7 +144,15 @@
             display: block;
         }
 
-        /* Admin Panel Styles */
+        .success-message {
+            color: #27ae60;
+            text-align: center;
+            padding: 10px;
+            background: #d4edda;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
         .admin-panel {
             display: none;
         }
@@ -207,10 +224,11 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 14px;
         }
 
         th, td {
-            padding: 15px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
@@ -272,6 +290,7 @@
         .stat-card h3 {
             font-size: 32px;
             margin-bottom: 5px;
+            color: white;
         }
 
         .stat-card p {
@@ -287,20 +306,6 @@
             margin-top: 20px;
             font-size: 13px;
             color: #856404;
-        }
-
-        .debug-info strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .success-message {
-            color: #27ae60;
-            text-align: center;
-            padding: 10px;
-            background: #d4edda;
-            border-radius: 8px;
-            margin-top: 10px;
         }
 
         .contact-section {
@@ -327,6 +332,211 @@
             font-size: 14px;
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: white;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .review-summary {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .review-score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .review-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .review-stat {
+            text-align: center;
+        }
+
+        .review-stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .review-stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .review-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .review-item.correct {
+            border-left-color: #4caf50;
+            background: #f1f8e9;
+        }
+
+        .review-item.incorrect {
+            border-left-color: #f44336;
+            background: #ffebee;
+        }
+
+        .review-question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review-question-number {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .review-topic-badge {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .review-question-text {
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .review-answer {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .review-answer.correct {
+            background: #c8e6c9;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        .review-answer.incorrect {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .review-answer-label {
+            font-size: 0.85em;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .student-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 10px;
+        }
+
+        .student-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .student-info-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .student-info-value {
+            font-weight: 600;
+            color: #333;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -341,11 +551,11 @@
             }
 
             table {
-                font-size: 14px;
+                font-size: 12px;
             }
 
             th, td {
-                padding: 10px;
+                padding: 8px;
             }
 
             .welcome-banner {
@@ -357,32 +567,37 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .review-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .student-info-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-<base target="_blank">
+    <base target="_blank">
 </head>
 <body>
     <div class="container">
         <!-- Login Section -->
-        <div id="loginSection" class="login-section">
+        <div id="loginSection">
             <h1>🔐 Admin Login</h1>
             <form id="loginForm" class="login-form">
                 <div class="input-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                    <input type="text" id="username" placeholder="Enter username" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                    <input type="password" id="password" placeholder="Enter password" required>
                 </div>
-                <div id="errorMessage" class="error-message">
-                    Invalid username or password!
-                </div>
-                <button type="submit" class="btn">Login</button>
+                <div id="errorMessage" class="error-message"></div>
+                <button type="submit" class="btn" id="loginBtn">Login</button>
             </form>
 
-            <!-- Contact Admin Section on Login Page -->
-            <div class="contact-section" style="margin-top: 40px;">
+            <div class="contact-section" style="margin-top: 30px;">
                 <h3>📱 Need Help?</h3>
                 <p>Contact Sage for access tokens, technical support, or any questions</p>
                 <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp" target="_blank">
@@ -394,12 +609,13 @@
         <!-- Admin Panel Section -->
         <div id="adminPanel" class="admin-panel">
             <div class="welcome-banner">
-                <span>👋 Welcome, sage!</span>
+                <span>👋 Welcome, <span id="adminName">Admin</span>!</span>
                 <div class="welcome-actions">
-                    <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 14px;" target="_blank">
+                    <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp btn-small" target="_blank">
                         💬 Support
                     </a>
-                    <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
+                    <button class="btn btn-secondary btn-small" onclick="changePassword()">Change Password</button>
+                    <button id="logoutBtn" class="btn btn-secondary btn-small">Logout</button>
                 </div>
             </div>
 
@@ -440,12 +656,24 @@
         </div>
     </div>
 
+    <!-- Detailed Result Modal -->
+    <div id="detailModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📄 Detailed Result</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
     <script>
         // Configuration
-        const ADMIN_USERNAME = 'sage';
-        const ADMIN_PASSWORD = 'adminsage';
         const SESSION_KEY = 'adminSession';
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
+
+        let currentResults = [];
+        let currentAdmin = null;
 
         // DOM Elements
         const loginSection = document.getElementById('loginSection');
@@ -459,37 +687,70 @@
         const statsContainer = document.getElementById('statsContainer');
         const connectionStatus = document.getElementById('connectionStatus');
         const debugContainer = document.getElementById('debugContainer');
+        const detailModal = document.getElementById('detailModal');
+        const modalBody = document.getElementById('modalBody');
 
-        // Check for existing session on page load
+        // Check session on page load
         document.addEventListener('DOMContentLoaded', function() {
             const session = sessionStorage.getItem(SESSION_KEY);
-            if (session === 'active') {
+            if (session) {
+                const sessionData = JSON.parse(session);
+                currentAdmin = sessionData.username;
+                document.getElementById('adminName').textContent = currentAdmin;
                 showAdminPanel();
             }
         });
 
-        // Login Form Handler
-        loginForm.addEventListener('submit', function(e) {
+        // Login Form Handler - Server-side authentication
+        loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
 
-            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-                sessionStorage.setItem(SESSION_KEY, 'active');
-                errorMessage.classList.remove('show');
-                showAdminPanel();
-            } else {
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Logging in...';
+            errorMessage.classList.remove('show');
+
+            try {
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=adminLogin&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+                    { method: 'GET', mode: 'cors' }
+                );
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Save session
+                    sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+                        username: result.username,
+                        sessionToken: result.sessionToken
+                    }));
+                    currentAdmin = result.username;
+                    document.getElementById('adminName').textContent = currentAdmin;
+                    errorMessage.classList.remove('show');
+                    showAdminPanel();
+                    loginForm.reset();
+                } else {
+                    errorMessage.textContent = result.message || 'Invalid username or password';
+                    errorMessage.classList.add('show');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorMessage.textContent = 'Connection error. Please try again.';
                 errorMessage.classList.add('show');
-                document.getElementById('password').value = '';
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Login';
             }
         });
 
         // Logout Handler
         logoutBtn.addEventListener('click', function() {
             sessionStorage.removeItem(SESSION_KEY);
+            currentAdmin = null;
             hideAdminPanel();
-            loginForm.reset();
         });
 
         function showAdminPanel() {
@@ -502,7 +763,43 @@
             loginSection.style.display = 'block';
         }
 
-        // Connect to Google Sheet with multiple fallback methods
+        // Change Password - Server-side
+        async function changePassword() {
+            const oldPass = prompt('Enter current password:');
+            if (!oldPass) return;
+
+            const newPass = prompt('Enter new password (min 6 characters):');
+            if (!newPass || newPass.length < 6) {
+                alert('Password must be at least 6 characters!');
+                return;
+            }
+
+            const confirmNew = prompt('Confirm new password:');
+            if (newPass !== confirmNew) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=changeAdminPass&username=${encodeURIComponent(currentAdmin)}&oldPass=${encodeURIComponent(oldPass)}&newPass=${encodeURIComponent(newPass)}`,
+                    { method: 'GET', mode: 'cors' }
+                );
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Password changed successfully!');
+                } else {
+                    alert('Error: ' + (result.message || 'Failed to change password'));
+                }
+            } catch (error) {
+                console.error('Change password error:', error);
+                alert('Connection error. Please try again.');
+            }
+        }
+
+        // Connect to Google Sheet
         connectBtn.addEventListener('click', async function() {
             const sheetId = sheetIdInput.value.trim();
 
@@ -511,9 +808,8 @@
                 return;
             }
 
-            // Validate Sheet ID format (should be a long string of characters)
             if (sheetId.length < 20) {
-                connectionStatus.innerHTML = '<p style="color: #e74c3c; margin-top: 10px;">⚠️ Sheet ID looks too short. Please check you copied the full ID from the URL.</p>';
+                connectionStatus.innerHTML = '<p style="color: #e74c3c; margin-top: 10px;">⚠️ Sheet ID looks too short.</p>';
                 return;
             }
 
@@ -524,87 +820,39 @@
             debugContainer.innerHTML = '';
 
             try {
-                // Try method 1: Direct fetch with no-cors mode first to check if URL is accessible
-                console.log('Attempting to fetch data for Sheet ID:', sheetId);
-
-                // Build the URL with proper encoding
                 const url = `${SCRIPT_URL}?sheetId=${encodeURIComponent(sheetId)}&t=${Date.now()}`;
-                console.log('Request URL:', url);
-
                 const response = await fetch(url, {
                     method: 'GET',
                     mode: 'cors',
                     cache: 'no-cache',
-                    headers: {
-                        'Accept': 'application/json',
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
-                console.log('Response status:', response.status);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
                 const data = await response.json();
-                console.log('Response data:', data);
 
-                if (data.error) {
-                    throw new Error(data.error);
-                }
+                if (data.error) throw new Error(data.error);
 
-                if (data.message && !data.data) {
-                    // Some scripts return {message: "..."} format
-                    throw new Error(data.message);
-                }
-
-                // Handle different response formats
                 let results = data.data || data.results || data;
+                currentResults = results;
 
                 if (Array.isArray(results) && results.length === 0) {
-                    resultsContainer.innerHTML = '<p class="no-data">Sheet connected but no data found. Make sure the sheet has data in it.</p>';
+                    resultsContainer.innerHTML = '<p class="no-data">Sheet connected but no data found.</p>';
                     statsContainer.style.display = 'none';
                 } else if (results && results.length > 0) {
                     displayResults(results);
                     updateStats(results);
                     statsContainer.style.display = 'grid';
-                    connectionStatus.innerHTML = '<p class="success-message">✅ Successfully connected to Google Sheet!</p>';
+                    connectionStatus.innerHTML = '<p class="success-message">✅ Successfully connected!</p>';
                 } else {
-                    resultsContainer.innerHTML = '<p class="no-data">No results found in this sheet</p>';
+                    resultsContainer.innerHTML = '<p class="no-data">No results found</p>';
                     statsContainer.style.display = 'none';
                 }
-
             } catch (error) {
-                console.error('Error fetching data:', error);
-
-                let errorMsg = error.message;
-                let debugHtml = '';
-
-                if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-                    errorMsg = 'Network error: Cannot connect to the Google Apps Script. This might be due to:';
-                    debugHtml = `
-                        <div class="debug-info">
-                            <strong>Troubleshooting:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li>Google Apps Script not deployed correctly</li>
-                                <li>CORS restrictions - make sure the script returns proper headers</li>
-                                <li>Script URL might have changed</li>
-                                <li>Sheet is not shared with "Anyone with the link can view"</li>
-                            </ul>
-                            <p style="margin-top: 10px;"><strong>Sheet ID you entered:</strong> ${sheetId}</p>
-                            <p style="margin-top: 5px;"><strong>Script URL:</strong> ${SCRIPT_URL}</p>
-                        </div>
-                    `;
-                } else if (error.message.includes('Sheet not found')) {
-                    errorMsg = 'Sheet not found. Please check the Sheet ID is correct.';
-                }
-
-                resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">❌ ${errorMsg}</p>`;
+                console.error('Error:', error);
+                resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">❌ ${error.message}</p>`;
                 statsContainer.style.display = 'none';
-
-                if (debugHtml) {
-                    debugContainer.innerHTML = debugHtml;
-                }
             } finally {
                 connectBtn.disabled = false;
                 connectBtn.textContent = 'Connect';
@@ -618,23 +866,26 @@
             }
 
             let html = '<div style="overflow-x: auto;"><table><thead><tr>';
-
-            const headers = Object.keys(data[0]);
-            headers.forEach(header => {
-                html += `<th>${header}</th>`;
-            });
+            html += '<th>Name</th><th>ID</th><th>Mode</th><th>Score</th><th>Correct</th><th>Total</th><th>Time</th><th>Actions</th>';
             html += '</tr></thead><tbody>';
 
             data.forEach((row, index) => {
+                const score = row.percentage || row.Score || row.score || 0;
+                const correct = row.correctAnswers || row.Correct || row.correct || 0;
+                const total = row.totalQuestions || row.Total || row.total || 0;
+                const time = row.totalTime || row.Time || row.time || 0;
+                const minutes = Math.floor(time / 60);
+                const seconds = time % 60;
+
                 html += '<tr>';
-                headers.forEach(header => {
-                    let cellValue = row[header] || '-';
-                    // Truncate long text
-                    if (typeof cellValue === 'string' && cellValue.length > 100) {
-                        cellValue = cellValue.substring(0, 100) + '...';
-                    }
-                    html += `<td>${cellValue}</td>`;
-                });
+                html += `<td>${row.name || row.Name || '-'}</td>`;
+                html += `<td>${row.userId || row.ID || row.id || '-'}</td>`;
+                html += `<td>${row.mode || row.Mode || '-'}</td>`;
+                html += `<td><strong>${score}%</strong></td>`;
+                html += `<td>${correct}</td>`;
+                html += `<td>${total}</td>`;
+                html += `<td>${minutes}:${seconds.toString().padStart(2, '0')}</td>`;
+                html += `<td><button class="btn btn-small" onclick="viewDetails(${index})">View Details</button></td>`;
                 html += '</tr>';
             });
 
@@ -642,13 +893,110 @@
             resultsContainer.innerHTML = html;
         }
 
+        function viewDetails(index) {
+            const result = currentResults[index];
+            if (!result) return;
+
+            const details = result.details || [];
+            const score = result.percentage || result.Score || result.score || 0;
+            const correct = result.correctAnswers || result.Correct || result.correct || 0;
+            const total = result.totalQuestions || result.Total || result.total || 0;
+            const time = result.totalTime || result.Time || result.time || 0;
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+
+            let html = `
+                <div class="student-info-grid">
+                    <div class="student-info-item">
+                        <span class="student-info-label">Student Name</span>
+                        <span class="student-info-value">${result.name || result.Name || 'N/A'}</span>
+                    </div>
+                    <div class="student-info-item">
+                        <span class="student-info-label">Student ID</span>
+                        <span class="student-info-value">${result.userId || result.ID || result.id || 'N/A'}</span>
+                    </div>
+                    <div class="student-info-item">
+                        <span class="student-info-label">Test Mode</span>
+                        <span class="student-info-value">${result.mode || result.Mode || 'N/A'}</span>
+                    </div>
+                    <div class="student-info-item">
+                        <span class="student-info-label">Date Taken</span>
+                        <span class="student-info-value">${result.timestamp ? new Date(result.timestamp).toLocaleString() : 'N/A'}</span>
+                    </div>
+                </div>
+
+                <div class="review-summary">
+                    <div class="review-score-circle">${score}%</div>
+                    <div class="review-stats">
+                        <div class="review-stat">
+                            <div class="review-stat-value">${score}%</div>
+                            <div class="review-stat-label">Score</div>
+                        </div>
+                        <div class="review-stat">
+                            <div class="review-stat-value">${correct}</div>
+                            <div class="review-stat-label">Correct</div>
+                        </div>
+                        <div class="review-stat">
+                            <div class="review-stat-value">${total}</div>
+                            <div class="review-stat-label">Total</div>
+                        </div>
+                        <div class="review-stat">
+                            <div class="review-stat-value">${minutes}:${seconds.toString().padStart(2, '0')}</div>
+                            <div class="review-stat-label">Time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 20px;">Question Review</h3>
+            `;
+
+            if (details.length > 0) {
+                details.forEach((detail, i) => {
+                    const isCorrect = detail.isCorrect || detail.iscorrect || (detail.userAnswer === detail.correctAnswer);
+                    html += `
+                        <div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">
+                            <div class="review-question-header">
+                                <span class="review-question-number">Question ${i + 1}</span>
+                                <span class="review-topic-badge">${detail.topic || 'General'}</span>
+                            </div>
+                            <div class="review-question-text">${detail.question}</div>
+
+                            <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
+                                <div class="review-answer-label">Student Answer:</div>
+                                <div><strong>${detail.userAnswer || 'Not answered'}</strong> - ${detail.options ? detail.options[detail.userAnswer] : 'N/A'}</div>
+                            </div>
+
+                            ${!isCorrect ? `
+                                <div class="review-answer correct">
+                                    <div class="review-answer-label">Correct Answer:</div>
+                                    <div><strong>${detail.correctAnswer}</strong> - ${detail.options ? detail.options[detail.correctAnswer] : 'N/A'}</div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+            } else {
+                html += '<p style="text-align: center; color: #999; padding: 20px;">No detailed question data available.</p>';
+            }
+
+            modalBody.innerHTML = html;
+            detailModal.classList.add('show');
+        }
+
+        function closeModal() {
+            detailModal.classList.remove('show');
+        }
+
+        detailModal.addEventListener('click', function(e) {
+            if (e.target === detailModal) closeModal();
+        });
+
         function updateStats(data) {
             if (!data || data.length === 0) return;
 
             document.getElementById('totalParticipants').textContent = data.length;
 
-            // Look for score column (case insensitive)
-            const scoreKeys = ['Score', 'score', 'SCORE', 'Points', 'points', 'Total', 'total'];
+            const scoreKeys = ['percentage', 'Score', 'score', 'Percentage'];
             let scores = [];
 
             for (let key of scoreKeys) {
@@ -659,8 +1007,8 @@
             if (scores.length > 0) {
                 const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
                 const max = Math.max(...scores);
-                document.getElementById('avgScore').textContent = avg.toFixed(1);
-                document.getElementById('highScore').textContent = max;
+                document.getElementById('avgScore').textContent = avg.toFixed(1) + '%';
+                document.getElementById('highScore').textContent = max + '%';
             } else {
                 document.getElementById('avgScore').textContent = '-';
                 document.getElementById('highScore').textContent = '-';
@@ -668,9 +1016,7 @@
         }
 
         sheetIdInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                connectBtn.click();
-            }
+            if (e.key === 'Enter') connectBtn.click();
         });
     </script>
 </body>
