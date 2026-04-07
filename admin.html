@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Admin Panel - Quiz Results</title>
+    <title>Admin Panel - Command Center</title>
     <style>
         * {
             margin: 0;
@@ -31,7 +31,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             padding: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             margin: 10px auto;
         }
@@ -63,10 +63,13 @@
             font-size: 1rem;
         }
 
+        /* LOGIN FORM */
         .login-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .input-group {
@@ -156,10 +159,6 @@
             text-decoration: none;
         }
 
-        .btn-whatsapp:hover {
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-        }
-
         .btn-small {
             padding: 8px 14px;
             font-size: 13px;
@@ -197,108 +196,7 @@
             display: block;
         }
 
-        .sheet-input-section {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        .sheet-input-section p {
-            color: #666;
-            margin-bottom: 12px;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .input-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .input-row input {
-            flex: 1;
-            min-width: 200px;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-        }
-
-        .results-section {
-            margin-top: 20px;
-        }
-
-        .loading {
-            text-align: center;
-            color: #667eea;
-            padding: 30px;
-            font-size: 14px;
-        }
-
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #667eea;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            font-size: 13px;
-            display: block;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        thead, tbody {
-            display: table;
-            width: 100%;
-            min-width: 600px;
-        }
-
-        th, td {
-            padding: 10px 8px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: 600;
-            position: sticky;
-            top: 0;
-        }
-
-        tr:hover {
-            background: #f8f9fa;
-        }
-
-        .no-data {
-            text-align: center;
-            color: #999;
-            padding: 30px;
-            font-size: 14px;
-        }
-
+        /* WELCOME BANNER */
         .welcome-banner {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -324,67 +222,180 @@
             flex-wrap: wrap;
         }
 
-        .stats-cards {
+        /* LIVE STATS CARDS */
+        .live-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
             margin-bottom: 20px;
         }
 
-        .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .stat-card h3 {
-            font-size: 28px;
-            margin-bottom: 5px;
-            color: white;
-        }
-
-        .stat-card p {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .debug-info {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 12px;
-            color: #856404;
-            word-break: break-word;
-        }
-
-        .contact-section {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            border: 2px solid #4caf50;
+        .live-stat-card {
+            background: white;
             border-radius: 12px;
             padding: 20px;
-            margin-top: 25px;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
         }
 
-        .contact-section h3 {
-            color: #2e7d32;
-            margin-bottom: 10px;
+        .live-stat-card.online { border-top-color: #4caf50; }
+        .live-stat-card.away { border-top-color: #ff9800; }
+        .live-stat-card.offline { border-top-color: #9e9e9e; }
+        .live-stat-card.testing { border-top-color: #2196f3; }
+
+        .live-stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            line-height: 1;
+        }
+
+        .live-stat-label {
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        .live-indicator.online { background: #4caf50; }
+        .live-indicator.testing { background: #2196f3; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* COMMAND CENTER GRID */
+        .command-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .command-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .panel {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .panel-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .contact-section p {
-            color: #555;
             margin-bottom: 15px;
-            font-size: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
+        .refresh-indicator {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* ACTIVITY FEED */
+        .activity-feed {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .activity-item {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 13px;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-time {
+            color: #999;
+            font-size: 11px;
+        }
+
+        .activity-event {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .activity-details {
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* DEVICES TABLE */
+        .devices-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .devices-table th,
+        .devices-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .devices-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        .device-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .device-status.online {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .device-status.testing {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .device-status.idle {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .device-progress {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .device-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* TABS */
         .tabs {
             display: flex;
             gap: 5px;
@@ -425,90 +436,37 @@
             display: block;
         }
 
-        .token-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+        /* RESULTS TABLE */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
-        .token-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 15px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.2s;
+        .results-table thead,
+        .results-table tbody {
+            display: table;
+            width: 100%;
+            min-width: 600px;
         }
 
-        .token-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .results-table th,
+        .results-table td {
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
         }
 
-        .token-card.available { border-left-color: #27ae60; }
-        .token-card.activated { border-left-color: #f39c12; }
-        .token-card.revoked { border-left-color: #e74c3c; opacity: 0.7; }
-
-        .token-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .token-code {
-            font-family: monospace;
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-            word-break: break-all;
-        }
-
-        .token-status {
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 11px;
+        .results-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             font-weight: 600;
-            text-transform: uppercase;
-            flex-shrink: 0;
         }
 
-        .token-status.available { background: #d4edda; color: #155724; }
-        .token-status.activated { background: #fff3cd; color: #856404; }
-        .token-status.revoked { background: #f8d7da; color: #721c24; }
-
-        .token-info {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .token-info div {
-            word-break: break-all;
-        }
-
-        .token-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 8px;
-        }
-
-        .badge-available { background: #d4edda; color: #155724; }
-        .badge-activated { background: #fff3cd; color: #856404; }
-        .badge-revoked { background: #f8d7da; color: #721c24; }
-
-        /* MODAL STYLES - FIXED FOR RESPONSIVENESS */
+        /* MODAL */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -521,7 +479,6 @@
             justify-content: center;
             align-items: flex-end;
             padding: 0;
-            overflow: hidden;
         }
 
         .modal-overlay.show {
@@ -534,15 +491,32 @@
             max-width: 100%;
             width: 100%;
             max-height: 90vh;
-            height: auto;
             overflow-y: auto;
-            position: relative;
             animation: slideUp 0.3s ease-out;
         }
 
         @keyframes slideUp {
             from { transform: translateY(100%); }
             to { transform: translateY(0); }
+        }
+
+        @media (min-width: 768px) {
+            .modal-overlay {
+                align-items: center;
+                padding: 20px;
+            }
+
+            .modal-content {
+                border-radius: 20px;
+                max-width: 900px;
+                max-height: 85vh;
+                animation: fadeIn 0.3s ease-out;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; transform: scale(0.9); }
+                to { opacity: 1; transform: scale(1); }
+            }
         }
 
         .modal-header {
@@ -576,19 +550,55 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
-            flex-shrink: 0;
-        }
-
-        .modal-close:hover {
-            background: rgba(255,255,255,0.3);
         }
 
         .modal-body {
             padding: 20px;
         }
 
-        /* Modal Content Responsive Styles */
+        @media (min-width: 768px) {
+            .modal-body {
+                padding: 30px;
+            }
+        }
+
+        /* PUSH NOTIFICATION FORM */
+        .push-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .push-form h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-row input,
+        .form-row select,
+        .form-row textarea {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-row textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* REVIEW STYLES (from previous) */
         .review-summary {
             text-align: center;
             padding: 15px;
@@ -640,7 +650,6 @@
         .review-stat-label {
             font-size: 0.8em;
             color: #666;
-            margin-top: 3px;
         }
 
         .review-item {
@@ -661,100 +670,6 @@
             background: #ffebee;
         }
 
-        .review-question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .review-question-number {
-            font-weight: bold;
-            color: #333;
-            font-size: 0.95rem;
-            line-height: 1.3;
-            flex: 1;
-            min-width: 0;
-        }
-
-        .review-topic-badge {
-            background: #667eea;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            flex-shrink: 0;
-        }
-
-        .review-question-text {
-            color: #333;
-            margin-bottom: 12px;
-            line-height: 1.5;
-            font-size: 0.95rem;
-            word-wrap: break-word;
-        }
-
-        .review-answer {
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .review-answer.correct {
-            background: #c8e6c9;
-            color: #2e7d32;
-            font-weight: 600;
-        }
-
-        .review-answer.incorrect {
-            background: #ffcdd2;
-            color: #c62828;
-        }
-
-        .review-answer-label {
-            font-size: 0.8em;
-            margin-bottom: 4px;
-            opacity: 0.8;
-        }
-
-        .student-info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #e3f2fd;
-            border-radius: 10px;
-        }
-
-        @media (min-width: 480px) {
-            .student-info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .student-info-item {
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-        }
-
-        .student-info-label {
-            font-size: 0.8em;
-            color: #666;
-            margin-bottom: 3px;
-        }
-
-        .student-info-value {
-            font-weight: 600;
-            color: #333;
-            font-size: 0.95rem;
-            word-wrap: break-word;
-        }
-
         .questions-summary {
             background: #fff3e0;
             border-radius: 12px;
@@ -766,7 +681,6 @@
             color: #e65100;
             margin-bottom: 12px;
             text-align: center;
-            font-size: 1rem;
         }
 
         .summary-grid {
@@ -785,161 +699,115 @@
         .summary-number {
             font-size: 1.6em;
             font-weight: bold;
-            color: #667eea;
         }
 
         .summary-label {
             font-size: 0.8em;
             color: #666;
-            margin-top: 4px;
         }
 
-        /* Tablet and up */
-        @media (min-width: 768px) {
-            body {
-                padding: 20px;
-                align-items: center;
-            }
-
-            .container {
-                padding: 40px;
-                margin: 20px auto;
-            }
-
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-            }
-
-            .modal-overlay {
-                align-items: center;
-                padding: 20px;
-            }
-
-            .modal-content {
-                border-radius: 20px;
-                max-width: 800px;
-                max-height: 85vh;
-                height: auto;
-                animation: fadeIn 0.3s ease-out;
-            }
-
-            @keyframes fadeIn {
-                from { opacity: 0; transform: scale(0.9); }
-                to { opacity: 1; transform: scale(1); }
-            }
-
-            .modal-header {
-                border-radius: 20px 20px 0 0;
-                padding: 20px;
-            }
-
-            .modal-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .modal-body {
-                padding: 30px;
-            }
-
-            .review-score-circle {
-                width: 120px;
-                height: 120px;
-                font-size: 2em;
-            }
-
-            .review-stats {
-                gap: 15px;
-            }
-
-            .review-stat {
-                padding: 12px;
-            }
-
-            .review-stat-value {
-                font-size: 1.5em;
-            }
-
-            .review-item {
-                padding: 20px;
-            }
-
-            .student-info-grid {
-                gap: 15px;
-                padding: 20px;
-            }
-
-            .questions-summary {
-                padding: 20px;
-            }
-
-            .summary-grid {
-                gap: 15px;
-            }
-
-            .summary-item {
-                padding: 15px;
-            }
-
-            .summary-number {
-                font-size: 2em;
-            }
-
-            table {
-                display: table;
-                font-size: 14px;
-            }
-
-            thead, tbody {
-                display: table-header-group;
-                min-width: auto;
-            }
-
-            th, td {
-                padding: 12px;
-                white-space: normal;
-            }
+        /* TOKEN MANAGEMENT */
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
         }
 
-        /* Small mobile adjustments */
-        @media (max-width: 360px) {
+        .token-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .token-card.available { border-left-color: #27ae60; }
+        .token-card.activated { border-left-color: #f39c12; }
+        .token-card.revoked { border-left-color: #e74c3c; opacity: 0.7; }
+
+        .token-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .token-code {
+            font-family: monospace;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .token-status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .auto-refresh-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background: #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: #4caf50;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+
+        @media (max-width: 600px) {
             .container {
                 padding: 15px;
             }
 
-            .welcome-banner {
-                font-size: 12px;
-            }
-
-            .btn-small {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
-
-            .review-stats {
+            .live-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .summary-grid {
+            .command-grid {
                 grid-template-columns: 1fr;
             }
-
-            .token-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Prevent body scroll when modal is open */
-        body.modal-open {
-            overflow: hidden;
         }
     </style>
-    <base target="_blank">
 </head>
 <body>
     <div class="container">
@@ -968,92 +836,131 @@
             </div>
         </div>
 
-        <!-- Admin Panel Section -->
+        <!-- Admin Panel -->
         <div id="adminPanel" class="admin-panel">
             <div class="welcome-banner">
                 <span>👋 Welcome, <span id="adminName">Admin</span>!</span>
                 <div class="welcome-actions">
-                    <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp btn-small" target="_blank">
-                        💬 Support
-                    </a>
+                    <div class="auto-refresh-toggle">
+                        <span>Auto-refresh</span>
+                        <div class="toggle-switch active" id="autoRefreshToggle" onclick="toggleAutoRefresh()"></div>
+                    </div>
+                    <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp btn-small">💬 Support</a>
                     <button class="btn btn-secondary btn-small" onclick="changePassword()">Change Password</button>
                     <button id="logoutBtn" class="btn btn-secondary btn-small">Logout</button>
                 </div>
             </div>
 
+            <!-- Live Stats -->
+            <div class="live-stats" id="liveStats">
+                <div class="live-stat-card online">
+                    <div class="live-stat-number" id="onlineCount">0</div>
+                    <div class="live-stat-label"><span class="live-indicator online"></span>Online</div>
+                </div>
+                <div class="live-stat-card testing">
+                    <div class="live-stat-number" id="testingCount">0</div>
+                    <div class="live-stat-label"><span class="live-indicator testing"></span>Testing</div>
+                </div>
+                <div class="live-stat-card away">
+                    <div class="live-stat-number" id="awayCount">0</div>
+                    <div class="live-stat-label">🟡 Away</div>
+                </div>
+                <div class="live-stat-card offline">
+                    <div class="live-stat-number" id="offlineCount">-</div>
+                    <div class="live-stat-label">⚪ Offline</div>
+                </div>
+            </div>
+
             <!-- Tabs -->
             <div class="tabs">
-                <button class="tab active" onclick="switchTab('results')">📊 Quiz Results</button>
-                <button class="tab" onclick="switchTab('tokens')">🎟️ Token Management</button>
+                <button class="tab active" onclick="switchTab('command')">🎯 Command Center</button>
+                <button class="tab" onclick="switchTab('results')">📊 Quiz Results</button>
+                <button class="tab" onclick="switchTab('tokens')">🎟️ Tokens</button>
+            </div>
+
+            <!-- Command Center Tab -->
+            <div id="commandTab" class="tab-content active">
+                <div class="command-grid">
+                    <!-- Activity Feed -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>📡 Live Activity Feed</h3>
+                            <span class="refresh-indicator" id="lastRefresh">Just now</span>
+                        </div>
+                        <div class="activity-feed" id="activityFeed">
+                            <div style="text-align: center; color: #999; padding: 40px;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Active Devices -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>💻 Active Devices</h3>
+                            <button class="btn btn-small btn-secondary" onclick="refreshDevices()">🔄 Refresh</button>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table class="devices-table" id="devicesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Token</th>
+                                        <th>Status</th>
+                                        <th>Progress</th>
+                                        <th>Last Seen</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="devicesTableBody">
+                                    <tr>
+                                        <td colspan="5" style="text-align: center; color: #999;">Loading devices...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Results Tab -->
-            <div id="resultsTab" class="tab-content active">
-                <h2>📊 Connect to Google Sheet</h2>
-
-                <div class="sheet-input-section">
-                    <p><strong>How to find Sheet ID:</strong> Open your Google Sheet, copy the ID from the URL (between <code>/d/</code> and <code>/edit</code>)</p>
-                    <div class="input-row">
-                        <input type="text" id="sheetId" placeholder="Enter Google Sheet ID (e.g., 1abc123...)">
+            <div id="resultsTab" class="tab-content">
+                <div class="sheet-input-section" style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                    <p style="color: #666; margin-bottom: 12px; font-size: 13px;"><strong>How to find Sheet ID:</strong> Open your Google Sheet, copy the ID from the URL (between <code>/d/</code> and <code>/edit</code>)</p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="text" id="sheetId" placeholder="Enter Google Sheet ID" style="flex: 1; min-width: 200px; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px;">
                         <button id="connectBtn" class="btn">Connect</button>
                     </div>
                     <div id="connectionStatus"></div>
                 </div>
 
-                <div id="statsContainer" class="stats-cards" style="display: none;">
-                    <div class="stat-card">
-                        <h3 id="totalParticipants">0</h3>
-                        <p>Total Participants</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3 id="avgScore">0</h3>
-                        <p>Average Score</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3 id="highScore">0</h3>
-                        <p>Highest Score</p>
-                    </div>
-                </div>
-
-                <div class="results-section">
-                    <h2>📋 Quiz Results</h2>
-                    <div id="resultsContainer">
-                        <p class="no-data">Enter a Google Sheet ID above to view results</p>
-                    </div>
+                <div id="resultsContainer">
+                    <p style="text-align: center; color: #999; padding: 40px;">Enter a Google Sheet ID to view results</p>
                 </div>
             </div>
 
             <!-- Tokens Tab -->
             <div id="tokensTab" class="tab-content">
-                <h2>🎟️ Token Management</h2>
-                
-                <div class="sheet-input-section">
-                    <h3>Add New Token</h3>
-                    <div class="input-row" style="margin-bottom: 15px;">
-                        <input type="text" id="newToken" placeholder="Enter token code (e.g., ABC123)">
-                        <input type="text" id="newStudentName" placeholder="Student name (optional)">
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                    <h4>Add New Token</h4>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+                        <input type="text" id="newToken" placeholder="Token code (e.g., ABC123)" style="flex: 1; min-width: 150px; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px;">
+                        <input type="text" id="newStudentName" placeholder="Student name (optional)" style="flex: 1; min-width: 150px; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px;">
                         <button id="addTokenBtn" class="btn btn-success">Add Token</button>
                     </div>
                     <div id="tokenMessage"></div>
                 </div>
 
-                <div class="results-section">
-                    <h2>All Tokens <span id="tokenCount" class="badge badge-available">0</span></h2>
-                    <div id="tokensContainer">
-                        <p class="no-data">Loading tokens...</p>
-                    </div>
+                <h3>All Tokens <span id="tokenCount" style="background: #d4edda; color: #155724; padding: 4px 12px; border-radius: 12px; font-size: 14px;">0</span></h3>
+                <div class="token-grid" id="tokensContainer">
+                    <p style="text-align: center; color: #999; grid-column: 1/-1;">Loading tokens...</p>
                 </div>
             </div>
-
-            <div id="debugContainer"></div>
         </div>
     </div>
 
-    <!-- Detailed Result Modal -->
+    <!-- Result Detail Modal -->
     <div id="detailModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>📄 Detailed Result</h2>
+                <h2>📄 Result Details</h2>
                 <button class="modal-close" onclick="closeModal()">&times;</button>
             </div>
             <div class="modal-body" id="modalBody"></div>
@@ -1061,30 +968,16 @@
     </div>
 
     <script>
-        // Configuration
         const SESSION_KEY = 'adminSession';
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBmuw7b7GE9ASgSgIKsuawoBOKHiC_DHSzXXrYc7CQ08pd3qHBlLPo6LUwqNbA81M7/exec';
 
-        let currentResults = [];
-        let currentTokens = [];
         let currentAdmin = null;
+        let currentResults = [];
+        let autoRefreshInterval = null;
+        let autoRefreshEnabled = true;
+        let selectedResultForPush = null;
 
-        // DOM Elements
-        const loginSection = document.getElementById('loginSection');
-        const adminPanel = document.getElementById('adminPanel');
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const connectBtn = document.getElementById('connectBtn');
-        const sheetIdInput = document.getElementById('sheetId');
-        const resultsContainer = document.getElementById('resultsContainer');
-        const statsContainer = document.getElementById('statsContainer');
-        const connectionStatus = document.getElementById('connectionStatus');
-        const debugContainer = document.getElementById('debugContainer');
-        const detailModal = document.getElementById('detailModal');
-        const modalBody = document.getElementById('modalBody');
-
-        // Check session on page load
+        // Check session
         document.addEventListener('DOMContentLoaded', function() {
             const session = sessionStorage.getItem(SESSION_KEY);
             if (session) {
@@ -1092,43 +985,22 @@
                 currentAdmin = sessionData.username;
                 document.getElementById('adminName').textContent = currentAdmin;
                 showAdminPanel();
-                loadTokens();
+                startAutoRefresh();
             }
         });
 
-        // Tab Switching
-        function switchTab(tab) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            
-            if (tab === 'results') {
-                document.querySelector('.tab:nth-child(1)').classList.add('active');
-                document.getElementById('resultsTab').classList.add('active');
-            } else {
-                document.querySelector('.tab:nth-child(2)').classList.add('active');
-                document.getElementById('tokensTab').classList.add('active');
-                loadTokens();
-            }
-        }
-
-        // Login Form Handler
-        loginForm.addEventListener('submit', async function(e) {
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
-            const loginBtn = document.getElementById('loginBtn');
+            const btn = document.getElementById('loginBtn');
 
-            loginBtn.disabled = true;
-            loginBtn.textContent = 'Logging in...';
-            errorMessage.classList.remove('show');
+            btn.disabled = true;
+            btn.textContent = 'Logging in...';
 
             try {
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=adminLogin&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
-                    { method: 'GET', mode: 'cors' }
-                );
-
+                const response = await fetch(`${SCRIPT_URL}?action=adminLogin&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
                 const result = await response.json();
 
                 if (result.success) {
@@ -1138,500 +1010,443 @@
                     }));
                     currentAdmin = result.username;
                     document.getElementById('adminName').textContent = currentAdmin;
-                    errorMessage.classList.remove('show');
                     showAdminPanel();
-                    loadTokens();
-                    loginForm.reset();
+                    startAutoRefresh();
                 } else {
-                    errorMessage.textContent = result.message || 'Invalid username or password';
-                    errorMessage.classList.add('show');
+                    document.getElementById('errorMessage').textContent = result.message || 'Invalid credentials';
+                    document.getElementById('errorMessage').classList.add('show');
                 }
             } catch (error) {
-                console.error('Login error:', error);
-                errorMessage.textContent = 'Connection error. Please try again.';
-                errorMessage.classList.add('show');
+                document.getElementById('errorMessage').textContent = 'Connection error';
+                document.getElementById('errorMessage').classList.add('show');
             } finally {
-                loginBtn.disabled = false;
-                loginBtn.textContent = 'Login';
+                btn.disabled = false;
+                btn.textContent = 'Login';
             }
         });
 
-        // Logout Handler
-        logoutBtn.addEventListener('click', function() {
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            stopAutoRefresh();
             sessionStorage.removeItem(SESSION_KEY);
             currentAdmin = null;
             hideAdminPanel();
         });
 
         function showAdminPanel() {
-            loginSection.style.display = 'none';
-            adminPanel.classList.add('show');
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('show');
+            refreshCommandCenter();
         }
 
         function hideAdminPanel() {
-            adminPanel.classList.remove('show');
-            loginSection.style.display = 'block';
+            document.getElementById('adminPanel').classList.remove('show');
+            document.getElementById('loginSection').style.display = 'block';
         }
 
-        // Change Password
-        async function changePassword() {
-            const oldPass = prompt('Enter current password:');
-            if (!oldPass) return;
-
-            const newPass = prompt('Enter new password (min 6 characters):');
-            if (!newPass || newPass.length < 6) {
-                alert('Password must be at least 6 characters!');
-                return;
+        // Auto-refresh
+        function toggleAutoRefresh() {
+            autoRefreshEnabled = !autoRefreshEnabled;
+            document.getElementById('autoRefreshToggle').classList.toggle('active');
+            
+            if (autoRefreshEnabled) {
+                startAutoRefresh();
+            } else {
+                stopAutoRefresh();
             }
+        }
 
-            const confirmNew = prompt('Confirm new password:');
-            if (newPass !== confirmNew) {
-                alert('Passwords do not match!');
-                return;
+        function startAutoRefresh() {
+            if (autoRefreshInterval) clearInterval(autoRefreshInterval);
+            refreshCommandCenter();
+            autoRefreshInterval = setInterval(refreshCommandCenter, 10000); // 10 seconds
+        }
+
+        function stopAutoRefresh() {
+            if (autoRefreshInterval) {
+                clearInterval(autoRefreshInterval);
+                autoRefreshInterval = null;
             }
+        }
 
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'command') {
+                document.querySelector('.tab:nth-child(1)').classList.add('active');
+                document.getElementById('commandTab').classList.add('active');
+            } else if (tab === 'results') {
+                document.querySelector('.tab:nth-child(2)').classList.add('active');
+                document.getElementById('resultsTab').classList.add('active');
+            } else {
+                document.querySelector('.tab:nth-child(3)').classList.add('active');
+                document.getElementById('tokensTab').classList.add('active');
+                loadTokens();
+            }
+        }
+
+        // Command Center
+        async function refreshCommandCenter() {
+            if (!autoRefreshEnabled) return;
+            
             try {
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=changeAdminPass&username=${encodeURIComponent(currentAdmin)}&oldPass=${encodeURIComponent(oldPass)}&newPass=${encodeURIComponent(newPass)}`,
-                    { method: 'GET', mode: 'cors' }
-                );
-
-                const result = await response.json();
-
-                if (result.success) {
-                    alert('Password changed successfully!');
-                } else {
-                    alert('Error: ' + (result.message || 'Failed to change password'));
-                }
+                // Get online devices
+                const devicesResponse = await fetch(`${SCRIPT_URL}?action=getOnlineDevices&t=${Date.now()}`);
+                const devicesData = await devicesResponse.json();
+                
+                updateLiveStats(devicesData.devices);
+                updateDevicesTable(devicesData.devices);
+                
+                // Get activity log
+                const activityResponse = await fetch(`${SCRIPT_URL}?action=getActivityLog&limit=50&t=${Date.now()}`);
+                const activityData = await activityResponse.json();
+                
+                updateActivityFeed(activityData.events);
+                
+                document.getElementById('lastRefresh').textContent = new Date().toLocaleTimeString();
             } catch (error) {
-                console.error('Change password error:', error);
-                alert('Connection error. Please try again.');
+                console.error('Refresh failed:', error);
             }
         }
 
-        // Connect to Google Sheet
-        connectBtn.addEventListener('click', async function() {
-            const sheetId = sheetIdInput.value.trim();
+        function updateLiveStats(devices) {
+            const online = devices.filter(d => d.online).length;
+            const testing = devices.filter(d => d.state === 'testing').length;
+            const away = devices.filter(d => d.state === 'idle').length;
+            
+            document.getElementById('onlineCount').textContent = online;
+            document.getElementById('testingCount').textContent = testing;
+            document.getElementById('awayCount').textContent = away;
+        }
 
-            if (!sheetId) {
-                alert('Please enter a Google Sheet ID');
+        function updateDevicesTable(devices) {
+            const tbody = document.getElementById('devicesTableBody');
+            
+            if (devices.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #999;">No active devices</td></tr>';
                 return;
             }
+            
+            tbody.innerHTML = devices.map(d => {
+                let statusClass = 'idle';
+                let statusText = 'Idle';
+                
+                if (d.state === 'testing') {
+                    statusClass = 'testing';
+                    statusText = '📝 Testing';
+                } else if (d.state === 'reviewing') {
+                    statusClass = 'online';
+                    statusText = '👀 Reviewing';
+                } else if (d.state === 'login') {
+                    statusText = '🔐 Login';
+                }
+                
+                const progress = d.state === 'testing' 
+                    ? `Q${d.progress.current}/${d.progress.total}` 
+                    : '-';
+                
+                const lastSeen = new Date(d.lastSeen).toLocaleTimeString();
+                
+                return `
+                    <tr>
+                        <td><code>${d.token.substring(0, 8)}...</code></td>
+                        <td><span class="device-status ${statusClass}">${statusText}</span></td>
+                        <td class="device-progress">${progress}</td>
+                        <td>${lastSeen}</td>
+                        <td class="device-actions">
+                            <button class="btn btn-small btn-success" onclick="pushNotificationTo('${d.token}', '${d.deviceId}')">Push</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
 
-            if (sheetId.length < 20) {
-                connectionStatus.innerHTML = '<p style="color: #e74c3c; margin-top: 10px;">⚠️ Sheet ID looks too short.</p>';
+        function updateActivityFeed(events) {
+            const feed = document.getElementById('activityFeed');
+            
+            if (!events || events.length === 0) {
+                feed.innerHTML = '<div style="text-align: center; color: #999; padding: 40px;">No recent activity</div>';
                 return;
             }
+            
+            feed.innerHTML = events.map(e => `
+                <div class="activity-item">
+                    <div class="activity-time">${new Date(e.timestamp).toLocaleString()}</div>
+                    <div class="activity-event">${e.event}</div>
+                    <div class="activity-details">${e.details}</div>
+                </div>
+            `).join('');
+        }
 
-            connectBtn.disabled = true;
-            connectBtn.textContent = 'Connecting...';
-            resultsContainer.innerHTML = '<div class="loading">Loading results</div>';
-            connectionStatus.innerHTML = '';
-            debugContainer.innerHTML = '';
-
+        // Push Notification
+        async function pushNotificationTo(token, deviceId) {
+            const title = prompt('Notification title:', 'Your Test Results');
+            if (!title) return;
+            
+            const message = prompt('Message:', 'Your instructor has sent you your test results.');
+            
+            const payload = {
+                action: 'pushNotification',
+                token: token,
+                deviceId: deviceId,
+                type: 'custom',
+                title: title,
+                message: message || '',
+                adminName: currentAdmin
+            };
+            
             try {
-                const url = `${SCRIPT_URL}?sheetId=${encodeURIComponent(sheetId)}&t=${Date.now()}`;
-                const response = await fetch(url, {
-                    method: 'GET',
-                    mode: 'cors',
-                    cache: 'no-cache',
-                    headers: { 'Accept': 'application/json' }
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
                 });
-
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const data = await response.json();
-
-                if (data.error) throw new Error(data.error);
-
-                let results = data.data || data.results || data;
-                currentResults = results;
-
-                if (Array.isArray(results) && results.length === 0) {
-                    resultsContainer.innerHTML = '<p class="no-data">Sheet connected but no data found.</p>';
-                    statsContainer.style.display = 'none';
-                } else if (results && results.length > 0) {
-                    displayResults(results);
-                    updateStats(results);
-                    statsContainer.style.display = 'grid';
-                    connectionStatus.innerHTML = '<p class="success-message">✅ Successfully connected!</p>';
+                
+                const result = await response.json();
+                if (result.success) {
+                    alert('Notification sent successfully!');
                 } else {
-                    resultsContainer.innerHTML = '<p class="no-data">No results found</p>';
-                    statsContainer.style.display = 'none';
+                    alert('Failed: ' + result.error);
                 }
             } catch (error) {
-                console.error('Error:', error);
-                resultsContainer.innerHTML = `<p class="no-data" style="color: #e74c3c;">❌ ${error.message}</p>`;
-                statsContainer.style.display = 'none';
+                alert('Error sending notification');
+            }
+        }
+
+        // Results with Push
+        document.getElementById('connectBtn').addEventListener('click', async function() {
+            const sheetId = document.getElementById('sheetId').value.trim();
+            if (!sheetId) return alert('Enter Sheet ID');
+            
+            this.disabled = true;
+            this.textContent = 'Connecting...';
+            
+            try {
+                const response = await fetch(`${SCRIPT_URL}?sheetId=${encodeURIComponent(sheetId)}&t=${Date.now()}`);
+                const data = await response.json();
+                
+                if (data.error) throw new Error(data.error);
+                
+                currentResults = data.data || [];
+                displayResults(currentResults);
+                document.getElementById('connectionStatus').innerHTML = '<p class="success-message">✅ Connected!</p>';
+            } catch (error) {
+                document.getElementById('connectionStatus').innerHTML = `<p style="color: #e74c3c;">❌ ${error.message}</p>`;
             } finally {
-                connectBtn.disabled = false;
-                connectBtn.textContent = 'Connect';
+                this.disabled = false;
+                this.textContent = 'Connect';
             }
         });
 
         function displayResults(data) {
-            if (!data || data.length === 0) {
-                resultsContainer.innerHTML = '<p class="no-data">No results found</p>';
-                return;
-            }
-
-            let html = '<table><thead><tr>';
-            html += '<th>Name</th><th>ID</th><th>Mode</th><th>Score</th><th>Correct</th><th>Total</th><th>Time</th><th>Actions</th>';
+            const container = document.getElementById('resultsContainer');
+            
+            let html = '<table class="results-table"><thead><tr>';
+            html += '<th>Name</th><th>ID</th><th>Mode</th><th>Score</th><th>Time</th><th>Actions</th>';
             html += '</tr></thead><tbody>';
-
+            
             data.forEach((row, index) => {
-                const score = parseFloat(row.percentage || row.Score || row.score || 0);
-                const correct = parseInt(row.correctAnswers || row.Correct || row.correct || 0);
-                const total = parseInt(row.totalQuestions || row.Total || row.total || 0);
-                const time = parseInt(row.totalTime || row.Time || row.time || row['Time Taken'] || 0);
+                const score = parseFloat(row.percentage || row.Score || 0);
+                const time = parseInt(row.totalTime || row.Time || 0);
                 const minutes = Math.floor(time / 60);
                 const seconds = time % 60;
-                const name = row.name || row.Name || row['Student Name'] || '-';
-                const userId = row.userId || row.ID || row.id || row['Student ID'] || '-';
-                const mode = row.mode || row.Mode || row['Test Mode'] || '-';
-
-                html += '<tr>';
-                html += `<td>${name}</td>`;
-                html += `<td>${userId}</td>`;
-                html += `<td>${mode}</td>`;
-                html += `<td><strong>${score}%</strong></td>`;
-                html += `<td>${correct}</td>`;
-                html += `<td>${total}</td>`;
-                html += `<td>${minutes}:${seconds.toString().padStart(2, '0')}</td>`;
-                html += `<td><button class="btn btn-small" onclick="viewDetails(${index})">View Details</button></td>`;
-                html += '</tr>';
+                
+                html += `<tr>
+                    <td>${row.name || row.Name || '-'}</td>
+                    <td>${row.userId || row.ID || '-'}</td>
+                    <td>${row.mode || row.Mode || '-'}</td>
+                    <td><strong>${score}%</strong></td>
+                    <td>${minutes}:${seconds.toString().padStart(2, '0')}</td>
+                    <td><button class="btn btn-small" onclick="viewDetails(${index})">View & Push</button></td>
+                </tr>`;
             });
-
+            
             html += '</tbody></table>';
-            resultsContainer.innerHTML = html;
+            container.innerHTML = html;
         }
 
         function viewDetails(index) {
             const result = currentResults[index];
-            if (!result) return;
-
-            // Parse details if it's still a string
-            let details = result.details;
-            if (typeof details === 'string') {
-                try {
-                    details = JSON.parse(details);
-                } catch (e) {
-                    details = [];
-                }
-            }
-            if (!Array.isArray(details)) details = [];
-
-            const score = parseFloat(result.percentage || result.Score || result.score || 0);
-            const correct = parseInt(result.correctAnswers || result.Correct || result.correct || 0);
-            const total = parseInt(result.totalQuestions || result.Total || result.total || 0);
-            const time = parseInt(result.totalTime || result.Time || result.time || result['Time Taken'] || 0);
+            selectedResultForPush = result;
+            
+            const details = result.details || [];
+            const score = parseFloat(result.percentage || result.Score || 0);
+            const correct = parseInt(result.correctAnswers || result.Correct || 0);
+            const total = parseInt(result.totalQuestions || result.Total || 0);
+            const time = parseInt(result.totalTime || result.Time || 0);
             const minutes = Math.floor(time / 60);
             const seconds = time % 60;
-            const name = result.name || result.Name || result['Student Name'] || 'N/A';
-            const userId = result.userId || result.ID || result.id || result['Student ID'] || 'N/A';
-            const mode = result.mode || result.Mode || result['Test Mode'] || 'N/A';
             const incorrect = total - correct;
-            const unanswered = details.filter(d => !d.userAnswer && d.userAnswer !== 0 && d.userAnswer !== '0').length;
-
+            
+            // Build modal content with push form
             let html = `
-                <div class="student-info-grid">
-                    <div class="student-info-item">
-                        <span class="student-info-label">Student Name</span>
-                        <span class="student-info-value">${name}</span>
-                    </div>
-                    <div class="student-info-item">
-                        <span class="student-info-label">Student ID</span>
-                        <span class="student-info-value">${userId}</span>
-                    </div>
-                    <div class="student-info-item">
-                        <span class="student-info-label">Test Mode</span>
-                        <span class="student-info-value">${mode}</span>
-                    </div>
-                    <div class="student-info-item">
-                        <span class="student-info-label">Date Taken</span>
-                        <span class="student-info-value">${result.timestamp ? new Date(result.timestamp).toLocaleString() : 'N/A'}</span>
-                    </div>
-                </div>
-
                 <div class="review-summary">
                     <div class="review-score-circle">${Math.round(score)}%</div>
                     <div class="review-stats">
-                        <div class="review-stat">
-                            <div class="review-stat-value">${Math.round(score)}%</div>
-                            <div class="review-stat-label">Score</div>
-                        </div>
-                        <div class="review-stat">
-                            <div class="review-stat-value">${correct}</div>
-                            <div class="review-stat-label">Correct</div>
-                        </div>
-                        <div class="review-stat">
-                            <div class="review-stat-value">${total}</div>
-                            <div class="review-stat-label">Total</div>
-                        </div>
-                        <div class="review-stat">
-                            <div class="review-stat-value">${minutes}:${seconds.toString().padStart(2, '0')}</div>
-                            <div class="review-stat-label">Time</div>
-                        </div>
+                        <div class="review-stat"><div class="review-stat-value">${Math.round(score)}%</div><div class="review-stat-label">Score</div></div>
+                        <div class="review-stat"><div class="review-stat-value">${correct}</div><div class="review-stat-label">Correct</div></div>
+                        <div class="review-stat"><div class="review-stat-value">${total}</div><div class="review-stat-label">Total</div></div>
+                        <div class="review-stat"><div class="review-stat-value">${minutes}:${seconds.toString().padStart(2, '0')}</div><div class="review-stat-label">Time</div></div>
                     </div>
                 </div>
-
+                
                 <div class="questions-summary">
-                    <h4>📊 Questions Breakdown</h4>
+                    <h4>📊 Breakdown</h4>
                     <div class="summary-grid">
-                        <div class="summary-item">
-                            <div class="summary-number" style="color: #4caf50;">${correct}</div>
-                            <div class="summary-label">✅ Correct</div>
-                        </div>
-                        <div class="summary-item">
-                            <div class="summary-number" style="color: #f44336;">${incorrect}</div>
-                            <div class="summary-label">❌ Incorrect</div>
-                        </div>
-                        <div class="summary-item">
-                            <div class="summary-number" style="color: #ff9800;">${unanswered}</div>
-                            <div class="summary-label">⏭️ Unanswered</div>
-                        </div>
+                        <div class="summary-item"><div class="summary-number" style="color: #4caf50;">${correct}</div><div class="summary-label">✅ Correct</div></div>
+                        <div class="summary-item"><div class="summary-number" style="color: #f44336;">${incorrect}</div><div class="summary-label">❌ Incorrect</div></div>
                     </div>
                 </div>
-
-                <h3 style="margin-bottom: 15px; font-size: 1.1rem;">Question Review (${details.length} questions)</h3>
+                
+                <div class="push-form">
+                    <h4>📤 Push Result to Student's Device</h4>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                        This will send the complete result to the student's device immediately.
+                    </p>
+                    <div class="form-row">
+                        <input type="text" id="pushTitle" placeholder="Title" value="Your Test Results">
+                    </div>
+                    <div class="form-row">
+                        <textarea id="pushMessage" placeholder="Message">Your instructor has sent you your detailed test results.</textarea>
+                    </div>
+                    <button class="btn btn-success" onclick="pushThisResult()">Push to ${result.name || result.Name || 'Student'}</button>
+                </div>
+                
+                <h3 style="margin-top: 20px;">Question Review</h3>
             `;
-
+            
             if (details.length > 0) {
-                details.forEach((detail, i) => {
-                    const isCorrect = detail.isCorrect || detail.iscorrect || (detail.userAnswer === detail.correctAnswer);
-                    const hasAnswer = detail.userAnswer || detail.userAnswer === 0 || detail.userAnswer === '0';
-                    
-                    let statusClass = isCorrect ? 'correct' : 'incorrect';
-                    let statusText = isCorrect ? '✅ Correct' : (hasAnswer ? '❌ Wrong' : '⏭️ Skipped');
-                    
-                    html += `
-                        <div class="review-item ${statusClass}">
-                            <div class="review-question-header">
-                                <span class="review-question-number">Q${i + 1}: ${statusText}</span>
-                                <span class="review-topic-badge">${detail.topic || 'General'}</span>
+                html += details.map((d, i) => {
+                    const isCorrect = d.isCorrect || d.iscorrect || (d.userAnswer === d.correctAnswer);
+                    return `
+                        <div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <strong>Q${i + 1}</strong>
+                                <span style="font-size: 12px; color: #666;">${d.topic || 'General'}</span>
                             </div>
-                            <div class="review-question-text">${detail.question}</div>
-
-                            ${hasAnswer ? `
-                                <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
-                                    <div class="review-answer-label">Student Answer:</div>
-                                    <div><strong>${detail.userAnswer}</strong>${detail.options && detail.options[detail.userAnswer] ? ' - ' + detail.options[detail.userAnswer] : ''}</div>
-                                </div>
-                            ` : '<div class="review-answer incorrect"><div class="review-answer-label">Student Answer:</div><div><strong>Not answered</strong></div></div>'}
-
-                            ${!isCorrect ? `
-                                <div class="review-answer correct">
-                                    <div class="review-answer-label">Correct Answer:</div>
-                                    <div><strong>${detail.correctAnswer}</strong>${detail.options && detail.options[detail.correctAnswer] ? ' - ' + detail.options[detail.correctAnswer] : ''}</div>
-                                </div>
-                            ` : ''}
+                            <div style="margin-bottom: 10px;">${d.question}</div>
+                            <div style="padding: 8px; background: ${isCorrect ? '#c8e6c9' : '#ffcdd2'}; border-radius: 6px; font-size: 13px;">
+                                <strong>Answer:</strong> ${d.userAnswer || 'Not answered'} 
+                                ${d.options && d.options[d.userAnswer] ? '- ' + d.options[d.userAnswer] : ''}
+                            </div>
                         </div>
                     `;
-                });
-            } else {
-                html += '<p style="text-align: center; color: #999; padding: 20px;">No detailed question data available.</p>';
+                }).join('');
             }
+            
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('detailModal').classList.add('show');
+        }
 
-            modalBody.innerHTML = html;
-            detailModal.classList.add('show');
-            document.body.classList.add('modal-open');
+        async function pushThisResult() {
+            if (!selectedResultForPush) return;
+            
+            const title = document.getElementById('pushTitle').value;
+            const message = document.getElementById('pushMessage').value;
+            
+            // Find token from student ID
+            const studentId = selectedResultForPush.userId || selectedResultForPush.ID;
+            
+            // We need to look up the token from the result or use a mapping
+            // For now, we'll need the admin to know the token or we store it with results
+            
+            alert('Push functionality requires token mapping. Implementing...');
         }
 
         function closeModal() {
-            detailModal.classList.remove('show');
-            document.body.classList.remove('modal-open');
+            document.getElementById('detailModal').classList.remove('show');
+            selectedResultForPush = null;
         }
 
-        detailModal.addEventListener('click', function(e) {
-            if (e.target === detailModal) closeModal();
-        });
-
-        // Close modal on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && detailModal.classList.contains('show')) {
-                closeModal();
-            }
-        });
-
-        function updateStats(data) {
-            if (!data || data.length === 0) return;
-
-            document.getElementById('totalParticipants').textContent = data.length;
-
-            const scores = data.map(row => {
-                return parseFloat(row.percentage || row.Score || row.score || 0);
-            }).filter(s => !isNaN(s));
-
-            if (scores.length > 0) {
-                const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-                const max = Math.max(...scores);
-                document.getElementById('avgScore').textContent = avg.toFixed(1) + '%';
-                document.getElementById('highScore').textContent = max + '%';
-            } else {
-                document.getElementById('avgScore').textContent = '-';
-                document.getElementById('highScore').textContent = '-';
-            }
-        }
-
-        // ============ TOKEN MANAGEMENT ============
-
+        // Token Management
         async function loadTokens() {
             const container = document.getElementById('tokensContainer');
-            container.innerHTML = '<div class="loading">Loading tokens...</div>';
+            container.innerHTML = '<p style="text-align: center; color: #999;">Loading...</p>';
             
             try {
-                const response = await fetch(`${SCRIPT_URL}?action=getTokens&t=${Date.now()}`, {
-                    method: 'GET',
-                    mode: 'cors'
-                });
-                
+                const response = await fetch(`${SCRIPT_URL}?action=getTokens&t=${Date.now()}`);
                 const result = await response.json();
                 
                 if (result.tokens) {
-                    currentTokens = result.tokens;
                     displayTokens(result.tokens);
-                } else {
-                    container.innerHTML = '<p class="no-data">No tokens found</p>';
                 }
             } catch (error) {
-                console.error('Error loading tokens:', error);
-                container.innerHTML = `<p class="no-data" style="color: #e74c3c;">Error loading tokens: ${error.message}</p>`;
+                container.innerHTML = `<p style="color: #e74c3c;">Error: ${error.message}</p>`;
             }
         }
 
         function displayTokens(tokens) {
+            document.getElementById('tokenCount').textContent = tokens.length;
             const container = document.getElementById('tokensContainer');
-            const countBadge = document.getElementById('tokenCount');
-            
-            countBadge.textContent = tokens.length;
             
             if (tokens.length === 0) {
-                container.innerHTML = '<p class="no-data">No tokens found. Add some tokens above!</p>';
+                container.innerHTML = '<p style="text-align: center; color: #999;">No tokens</p>';
                 return;
             }
-
-            let html = '<div class="token-grid">';
             
-            tokens.forEach(token => {
-                const status = (token.Status || 'AVAILABLE').toString().trim().toLowerCase();
-                const tokenCode = token.Token || token.token || 'Unknown';
-                const studentName = token.StudentName || token.studentName || '';
-                const date = token.Date ? new Date(token.Date).toLocaleDateString() : '';
-                const device = token.Activated || '';
-                
-                html += `
+            container.innerHTML = tokens.map(t => {
+                const status = (t.Status || 'AVAILABLE').toString().trim().toLowerCase();
+                return `
                     <div class="token-card ${status}">
                         <div class="token-header">
-                            <span class="token-code">${tokenCode}</span>
-                            <span class="token-status ${status}">${status}</span>
+                            <span class="token-code">${t.Token || t.token}</span>
+                            <span class="token-status" style="background: ${status === 'available' ? '#d4edda' : status === 'activated' ? '#fff3cd' : '#f8d7da'}; color: ${status === 'available' ? '#155724' : status === 'activated' ? '#856404' : '#721c24'};">${status}</span>
                         </div>
-                        <div class="token-info">
-                            ${studentName ? `<div>👤 ${studentName}</div>` : ''}
-                            ${date ? `<div>📅 ${date}</div>` : ''}
-                            ${device ? `<div>📱 ${device.substring(0, 15)}...</div>` : ''}
+                        <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
+                            ${t.StudentName || t.studentName || 'No name'}
                         </div>
-                        <div class="token-actions">
-                            ${status === 'available' ? 
-                                `<button class="btn btn-danger btn-small" onclick="revokeToken('${tokenCode}')">Revoke</button>` :
-                                status === 'revoked' ?
-                                `<button class="btn btn-success btn-small" onclick="deleteToken('${tokenCode}')">Delete</button>` :
-                                `<button class="btn btn-danger btn-small" onclick="revokeToken('${tokenCode}')">Revoke</button>`
-                            }
+                        <div class="device-actions">
+                            ${status === 'available' ? `<button class="btn btn-small btn-danger" onclick="revokeToken('${t.Token || t.token}')">Revoke</button>` : ''}
+                            ${status === 'revoked' ? `<button class="btn btn-small" onclick="deleteToken('${t.Token || t.token}')">Delete</button>` : ''}
                         </div>
                     </div>
                 `;
-            });
-            
-            html += '</div>';
-            container.innerHTML = html;
+            }).join('');
         }
 
         document.getElementById('addTokenBtn').addEventListener('click', async function() {
-            const tokenInput = document.getElementById('newToken');
-            const nameInput = document.getElementById('newStudentName');
-            const messageDiv = document.getElementById('tokenMessage');
+            const token = document.getElementById('newToken').value.trim();
+            const name = document.getElementById('newStudentName').value.trim();
             
-            const token = tokenInput.value.trim();
-            const studentName = nameInput.value.trim();
-            
-            if (!token) {
-                messageDiv.innerHTML = '<p style="color: #e74c3c;">Please enter a token code</p>';
-                return;
-            }
-
-            const btn = document.getElementById('addTokenBtn');
-            btn.disabled = true;
-            btn.textContent = 'Adding...';
+            if (!token) return alert('Enter token');
             
             try {
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=addToken&token=${encodeURIComponent(token)}&studentName=${encodeURIComponent(studentName)}`,
-                    { method: 'GET', mode: 'cors' }
-                );
-                
+                const response = await fetch(`${SCRIPT_URL}?action=addToken&token=${encodeURIComponent(token)}&studentName=${encodeURIComponent(name)}`);
                 const result = await response.json();
                 
                 if (result.success) {
-                    messageDiv.innerHTML = '<p class="success-message">✅ Token added successfully!</p>';
-                    tokenInput.value = '';
-                    nameInput.value = '';
+                    document.getElementById('tokenMessage').innerHTML = '<p class="success-message">✅ Added!</p>';
+                    document.getElementById('newToken').value = '';
+                    document.getElementById('newStudentName').value = '';
                     loadTokens();
                 } else {
-                    messageDiv.innerHTML = `<p style="color: #e74c3c;">❌ ${result.message}</p>`;
+                    document.getElementById('tokenMessage').innerHTML = `<p style="color: #e74c3c;">❌ ${result.message}</p>`;
                 }
             } catch (error) {
-                messageDiv.innerHTML = `<p style="color: #e74c3c;">❌ Error: ${error.message}</p>`;
-            } finally {
-                btn.disabled = false;
-                btn.textContent = 'Add Token';
+                document.getElementById('tokenMessage').innerHTML = `<p style="color: #e74c3c;">Error</p>`;
             }
         });
 
-        async function revokeToken(token) {
-            if (!confirm(`Are you sure you want to revoke token ${token}?`)) return;
+        async function changePassword() {
+            const oldPass = prompt('Current password:');
+            if (!oldPass) return;
+            const newPass = prompt('New password (min 6 chars):');
+            if (!newPass || newPass.length < 6) return alert('Too short');
+            const confirm = prompt('Confirm new password:');
+            if (newPass !== confirm) return alert('Mismatch');
             
             try {
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=revokeToken&token=${encodeURIComponent(token)}`,
-                    { method: 'GET', mode: 'cors' }
-                );
-                
+                const response = await fetch(`${SCRIPT_URL}?action=changeAdminPass&username=${encodeURIComponent(currentAdmin)}&oldPass=${encodeURIComponent(oldPass)}&newPass=${encodeURIComponent(newPass)}`);
                 const result = await response.json();
-                
-                if (result.success) {
-                    loadTokens();
-                } else {
-                    alert('Error: ' + result.message);
-                }
+                alert(result.success ? '✅ Changed!' : '❌ ' + result.message);
             } catch (error) {
-                alert('Error: ' + error.message);
+                alert('Error');
             }
         }
 
-        async function deleteToken(token) {
-            if (!confirm(`Are you sure you want to permanently delete token ${token}?`)) return;
-            
-            try {
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=deleteToken&token=${encodeURIComponent(token)}`,
-                    { method: 'GET', mode: 'cors' }
-                );
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    loadTokens();
-                } else {
-                    alert('Error: ' + result.message);
-                }
-            } catch (error) {
-                alert('Error: ' + error.message);
-            }
+        function refreshDevices() {
+            refreshCommandCenter();
         }
-
-        sheetIdInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') connectBtn.click();
-        });
     </script>
 </body>
 </html>
