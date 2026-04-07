@@ -350,7 +350,6 @@
             font-size: 14px;
         }
 
-        /* Tabs */
         .tabs {
             display: flex;
             gap: 10px;
@@ -387,7 +386,6 @@
             display: block;
         }
 
-        /* Token Management Styles */
         .token-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -462,7 +460,6 @@
         .badge-activated { background: #fff3cd; color: #856404; }
         .badge-revoked { background: #f8d7da; color: #721c24; }
 
-        /* Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -484,7 +481,7 @@
         .modal-content {
             background: white;
             border-radius: 20px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -667,6 +664,44 @@
             color: #333;
         }
 
+        .questions-summary {
+            background: #fff3e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .questions-summary h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .summary-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .summary-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -711,6 +746,10 @@
             }
 
             .token-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -868,7 +907,7 @@
                 currentAdmin = sessionData.username;
                 document.getElementById('adminName').textContent = currentAdmin;
                 showAdminPanel();
-                loadTokens(); // Load tokens on startup
+                loadTokens();
             }
         });
 
@@ -916,7 +955,7 @@
                     document.getElementById('adminName').textContent = currentAdmin;
                     errorMessage.classList.remove('show');
                     showAdminPanel();
-                    loadTokens(); // Load tokens after login
+                    loadTokens();
                     loginForm.reset();
                 } else {
                     errorMessage.textContent = result.message || 'Invalid username or password';
@@ -1056,7 +1095,6 @@
             html += '</tr></thead><tbody>';
 
             data.forEach((row, index) => {
-                // Handle both old and new field names
                 const score = parseFloat(row.percentage || row.Score || row.score || 0);
                 const correct = parseInt(row.correctAnswers || row.Correct || row.correct || 0);
                 const total = parseInt(row.totalQuestions || row.Total || row.total || 0);
@@ -1087,16 +1125,28 @@
             const result = currentResults[index];
             if (!result) return;
 
-            const details = result.details || [];
+            // Parse details if it's still a string
+            let details = result.details;
+            if (typeof details === 'string') {
+                try {
+                    details = JSON.parse(details);
+                } catch (e) {
+                    details = [];
+                }
+            }
+            if (!Array.isArray(details)) details = [];
+
             const score = parseFloat(result.percentage || result.Score || result.score || 0);
             const correct = parseInt(result.correctAnswers || result.Correct || result.correct || 0);
-            const total = parseInt(result.totalQuestions || result.Total || result.total || 0);
+            const total = parseInt(result.totalQuestions || row.Total || result.total || 0);
             const time = parseInt(result.totalTime || result.Time || result.time || result['Time Taken'] || 0);
             const minutes = Math.floor(time / 60);
             const seconds = time % 60;
             const name = result.name || result.Name || result['Student Name'] || 'N/A';
             const userId = result.userId || result.ID || result.id || result['Student ID'] || 'N/A';
             const mode = result.mode || result.Mode || result['Test Mode'] || 'N/A';
+            const incorrect = total - correct;
+            const unanswered = details.filter(d => !d.userAnswer && d.userAnswer !== 0 && d.userAnswer !== '0').length;
 
             let html = `
                 <div class="student-info-grid">
@@ -1140,24 +1190,49 @@
                     </div>
                 </div>
 
-                <h3 style="margin-bottom: 20px;">Question Review</h3>
+                <div class="questions-summary">
+                    <h4>📊 Questions Breakdown</h4>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-number" style="color: #4caf50;">${correct}</div>
+                            <div class="summary-label">✅ Correct</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-number" style="color: #f44336;">${incorrect}</div>
+                            <div class="summary-label">❌ Incorrect</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-number" style="color: #ff9800;">${unanswered}</div>
+                            <div class="summary-label">⏭️ Unanswered</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 20px;">Question Review (${details.length} questions)</h3>
             `;
 
             if (details.length > 0) {
                 details.forEach((detail, i) => {
                     const isCorrect = detail.isCorrect || detail.iscorrect || (detail.userAnswer === detail.correctAnswer);
+                    const hasAnswer = detail.userAnswer || detail.userAnswer === 0 || detail.userAnswer === '0';
+                    
+                    let statusClass = isCorrect ? 'correct' : 'incorrect';
+                    let statusText = isCorrect ? '✅ Correct' : (hasAnswer ? '❌ Wrong' : '⏭️ Skipped');
+                    
                     html += `
-                        <div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="review-item ${statusClass}">
                             <div class="review-question-header">
-                                <span class="review-question-number">Question ${i + 1}</span>
+                                <span class="review-question-number">Question ${i + 1} - ${statusText}</span>
                                 <span class="review-topic-badge">${detail.topic || 'General'}</span>
                             </div>
                             <div class="review-question-text">${detail.question}</div>
 
-                            <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
-                                <div class="review-answer-label">Student Answer:</div>
-                                <div><strong>${detail.userAnswer || 'Not answered'}</strong>${detail.options && detail.options[detail.userAnswer] ? ' - ' + detail.options[detail.userAnswer] : ''}</div>
-                            </div>
+                            ${hasAnswer ? `
+                                <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
+                                    <div class="review-answer-label">Student Answer:</div>
+                                    <div><strong>${detail.userAnswer}</strong>${detail.options && detail.options[detail.userAnswer] ? ' - ' + detail.options[detail.userAnswer] : ''}</div>
+                                </div>
+                            ` : '<div class="review-answer incorrect"><div class="review-answer-label">Student Answer:</div><div><strong>Not answered</strong></div></div>'}
 
                             ${!isCorrect ? `
                                 <div class="review-answer correct">
@@ -1277,7 +1352,6 @@
             container.innerHTML = html;
         }
 
-        // Add Token
         document.getElementById('addTokenBtn').addEventListener('click', async function() {
             const tokenInput = document.getElementById('newToken');
             const nameInput = document.getElementById('newStudentName');
@@ -1319,7 +1393,6 @@
             }
         });
 
-        // Revoke Token
         async function revokeToken(token) {
             if (!confirm(`Are you sure you want to revoke token ${token}?`)) return;
             
@@ -1341,7 +1414,6 @@
             }
         }
 
-        // Delete Token
         async function deleteToken(token) {
             if (!confirm(`Are you sure you want to permanently delete token ${token}?`)) return;
             
