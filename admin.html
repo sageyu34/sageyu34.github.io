@@ -109,6 +109,19 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+        }
+
         .error-message {
             color: #e74c3c;
             text-align: center;
@@ -227,10 +240,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .welcome-banner span {
             font-weight: 600;
+        }
+
+        .welcome-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
         .stats-cards {
@@ -282,6 +303,30 @@
             margin-top: 10px;
         }
 
+        .contact-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-section p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -301,6 +346,16 @@
 
             th, td {
                 padding: 10px;
+            }
+
+            .welcome-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .welcome-actions {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -325,13 +380,27 @@
                 </div>
                 <button type="submit" class="btn">Login</button>
             </form>
+
+            <!-- Contact Admin Section on Login Page -->
+            <div class="contact-section" style="margin-top: 40px;">
+                <h3>📱 Need Help?</h3>
+                <p>Contact Sage for access tokens, technical support, or any questions</p>
+                <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp" target="_blank">
+                    💬 Chat on WhatsApp
+                </a>
+            </div>
         </div>
 
         <!-- Admin Panel Section -->
         <div id="adminPanel" class="admin-panel">
             <div class="welcome-banner">
                 <span>👋 Welcome, sage!</span>
-                <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
+                <div class="welcome-actions">
+                    <a href="https://wa.me/qr/CBGIVRZPCN66O1" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 14px;" target="_blank">
+                        💬 Support
+                    </a>
+                    <button id="logoutBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Logout</button>
+                </div>
             </div>
 
             <h2>📊 Connect to Google Sheet</h2>
