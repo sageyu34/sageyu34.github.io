@@ -974,15 +974,11 @@
             checkExistingActivation();
         });
 
-        // ============ HEARTBEAT & NOTIFICATIONS ============
+        // ==================== FIXED HEARTBEAT & NOTIFICATIONS ====================
 
         function startHeartbeat() {
             if (heartbeatInterval) clearInterval(heartbeatInterval);
-            
-            // Immediate first beat
             sendHeartbeat();
-            
-            // Then every 30 seconds
             heartbeatInterval = setInterval(sendHeartbeat, 30000);
         }
 
@@ -1000,25 +996,20 @@
             const progress = getTestProgress();
             
             try {
-                const response = await fetch(`${SCRIPT_URL}?action=heartbeat`, {
+                await fetch(SCRIPT_URL, {
                     method: 'POST',
                     body: JSON.stringify({
-                        token: currentToken,
-                        deviceId: getDeviceFingerprint(),
-                        state: state,
-                        progress: progress,
-                        userAgent: navigator.userAgent.substring(0, 100)
+                        action: 'heartbeat',
+                        data: {
+                            token: currentToken,
+                            deviceId: getDeviceFingerprint(),
+                            state: state,
+                            progress: progress,
+                            userAgent: navigator.userAgent.substring(0, 100)
+                        }
                     })
                 });
-                
-                const result = await response.json();
-                
-                if (result.notifications && result.notifications.length > 0) {
-                    handleNewNotifications(result.notifications);
-                }
-            } catch (error) {
-                console.error('Heartbeat failed:', error);
-            }
+            } catch (e) {}
         }
 
         function detectCurrentState() {
@@ -1043,11 +1034,7 @@
 
         function handleNewNotifications(newNotifications) {
             const unreadCount = newNotifications.filter(n => !n.read).length;
-            
-            if (unreadCount > 0) {
-                showNotificationBadge(unreadCount);
-            }
-            
+            if (unreadCount > 0) showNotificationBadge(unreadCount);
             notifications = newNotifications;
             renderNotificationList();
         }
@@ -1055,16 +1042,11 @@
         function showNotificationBadge(count) {
             const bell = document.getElementById('notificationBell');
             const badge = document.getElementById('notificationBadge');
-            
             bell.classList.remove('hidden');
             badge.classList.remove('hidden');
             badge.textContent = count > 9 ? '9+' : count;
-            
-            if (count > 0) {
-                bell.classList.add('has-unread');
-            } else {
-                bell.classList.remove('has-unread');
-            }
+            if (count > 0) bell.classList.add('has-unread');
+            else bell.classList.remove('has-unread');
         }
 
         function openNotificationPanel() {
@@ -1080,12 +1062,10 @@
 
         function renderNotificationList() {
             const list = document.getElementById('notificationList');
-            
             if (notifications.length === 0) {
                 list.innerHTML = '<div class="empty-notifications">No notifications yet</div>';
                 return;
             }
-            
             list.innerHTML = notifications.map(n => `
                 <div class="notification-item ${n.read ? '' : 'unread'} ${n.type}" onclick="handleNotificationClick('${n.id}')">
                     <div class="notification-title">${n.title}</div>
@@ -1102,45 +1082,35 @@
 
         async function handleNotificationClick(id) {
             const notification = notifications.find(n => n.id === id);
-            if (!notification) return;
-            
-            // Mark as read
-            if (!notification.read) {
-                try {
-                    await fetch(`${SCRIPT_URL}?action=markNotificationRead`, {
-                        method: 'POST',
-                        body: JSON.stringify({ id: id, token: currentToken })
-                    });
-                    
-                    notification.read = true;
-                    const unreadCount = notifications.filter(n => !n.read).length;
-                    showNotificationBadge(unreadCount);
-                    renderNotificationList();
-                } catch (error) {
-                    console.error('Failed to mark as read:', error);
-                }
-            }
-            
-            // Handle based on type
+            if (!notification || notification.read) return;
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'markNotificationRead',
+                        id: id,
+                        token: currentToken
+                    })
+                });
+                notification.read = true;
+                showNotificationBadge(notifications.filter(n => !n.read).length);
+                renderNotificationList();
+            } catch (e) {}
+
             if (notification.type === 'result_pushed' && notification.payload) {
                 displayPushedResult(notification.payload);
             }
-            
             closeNotificationPanel();
         }
 
         function displayPushedResult(payload) {
-            // Hide all screens
             document.querySelectorAll('.login-screen, .activation-screen, .revoked-screen, .offline-screen, .resume-screen, .start-screen, .quiz-screen, .results-screen').forEach(el => {
                 el.classList.remove('active');
             });
-            
-            // Show pushed result screen
             document.getElementById('pushedResultScreen').classList.add('active');
             
-            // Render result
             const content = document.getElementById('pushedResultContent');
-            
             const minutes = Math.floor(payload.timeTaken / 60);
             const seconds = payload.timeTaken % 60;
             
@@ -1171,31 +1141,14 @@
             content.innerHTML = `
                 <div class="results-summary">
                     <h2 style="margin-bottom: 20px; color: #333;">📋 Your Test Results</h2>
-                    <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">
-                        Sent by your instructor
-                    </p>
-                    
+                    <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">Sent by your instructor</p>
                     <div class="score-circle">${payload.score}%</div>
-                    
                     <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">${payload.score}%</div>
-                            <div class="stat-label">Score</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${payload.correctAnswers}</div>
-                            <div class="stat-label">Correct</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${payload.totalQuestions}</div>
-                            <div class="stat-label">Total</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${minutes}:${seconds.toString().padStart(2, '0')}</div>
-                            <div class="stat-label">Time</div>
-                        </div>
+                        <div class="stat-card"><div class="stat-value">${payload.score}%</div><div class="stat-label">Score</div></div>
+                        <div class="stat-card"><div class="stat-value">${payload.correctAnswers}</div><div class="stat-label">Correct</div></div>
+                        <div class="stat-card"><div class="stat-value">${payload.totalQuestions}</div><div class="stat-label">Total</div></div>
+                        <div class="stat-card"><div class="stat-value">${minutes}:${seconds.toString().padStart(2, '0')}</div><div class="stat-label">Time</div></div>
                     </div>
-                    
                     ${detailsHtml}
                 </div>
             `;
@@ -1203,8 +1156,6 @@
 
         function backToQuiz() {
             document.getElementById('pushedResultScreen').classList.remove('active');
-            
-            // Return to appropriate screen based on state
             const savedState = sessionStorage.getItem('quizState');
             if (savedState && !JSON.parse(savedState).submitted) {
                 document.getElementById('resumeScreen').classList.add('active');
@@ -1213,7 +1164,7 @@
             }
         }
 
-        // ============ EXISTING FUNCTIONS ============
+        // ==================== REST OF YOUR ORIGINAL JS ====================
 
         async function checkExistingActivation() {
             const savedToken = localStorage.getItem('quizActivation');
@@ -1234,7 +1185,7 @@
                 if (result.valid) {
                     activatedName = result.name;
                     offlineMode = false;
-                    startHeartbeat(); // Start heartbeat on valid activation
+                    startHeartbeat();
                     showNotificationBell();
                     checkForResume();
                 } else {
@@ -1245,7 +1196,7 @@
                 if (activationData.deviceId === getDeviceFingerprint()) {
                     activatedName = activationData.name;
                     offlineMode = true;
-                    startHeartbeat(); // Start even in offline mode
+                    startHeartbeat();
                     showNotificationBell();
                     checkForResume();
                 } else {
@@ -1339,8 +1290,6 @@
                     document.getElementById('activatedName').textContent = result.name;
                     hideAllScreens();
                     document.getElementById('activationScreen').classList.add('active');
-                    
-                    // Start heartbeat and show bell
                     startHeartbeat();
                     showNotificationBell();
                 } else {
@@ -1377,7 +1326,6 @@
                     hideAllScreens();
                     document.getElementById('activationScreen').classList.add('active');
                     document.getElementById('activatedName').textContent = activatedName;
-                    
                     startHeartbeat();
                     showNotificationBell();
                 } else {
