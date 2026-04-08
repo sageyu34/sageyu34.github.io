@@ -655,6 +655,80 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* OTHER COURSES SECTION */
+        .courses-section {
+            margin-top: 30px;
+            padding: 0 20px 20px;
+        }
+
+        .courses-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin-bottom: 20px;
+        }
+
+        .courses-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .courses-title {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .courses-dropdown-wrapper {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .courses-dropdown {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .courses-dropdown:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .courses-go-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .courses-go-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .courses-go-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         @media (max-width: 600px) {
             .container {
                 margin: 0;
@@ -672,6 +746,15 @@
 
             .notification-panel {
                 max-width: 100%;
+            }
+
+            .courses-dropdown-wrapper {
+                flex-direction: column;
+            }
+
+            .courses-dropdown,
+            .courses-go-btn {
+                width: 100%;
             }
         }
     </style>
@@ -911,6 +994,21 @@
 
                     <div style="text-align: center; margin-top: 40px;">
                         <button class="btn" onclick="restartQuiz()">Take Another Quiz</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Courses Section -->
+            <div class="courses-section" id="coursesSection" style="display: none;">
+                <div class="courses-divider"></div>
+                <div class="courses-container">
+                    <h3 class="courses-title">📚 Try Other Courses</h3>
+                    <div class="courses-dropdown-wrapper">
+                        <select class="courses-dropdown" id="coursesDropdown" onchange="navigateToCourse()">
+                            <option value="">Select a course...</option>
+                            <option value="Genetics-v2.html">🧬 Human Genetics</option>
+                        </select>
+                        <button class="courses-go-btn" onclick="navigateToCourse()">Go</button>
                     </div>
                 </div>
             </div>
@@ -1734,6 +1832,65 @@
             hideAllScreens();
             document.getElementById('startScreen').classList.add('active');
         }
+
+        // ==================== OTHER COURSES NAVIGATION ====================
+
+        function navigateToCourse() {
+            const dropdown = document.getElementById('coursesDropdown');
+            const selected = dropdown.value;
+            
+            if (!selected) {
+                alert('Please select a course first');
+                return;
+            }
+            
+            // Check if user is in the middle of a quiz
+            const savedState = sessionStorage.getItem('quizState');
+            const isInQuiz = document.getElementById('quizScreen').classList.contains('active') && 
+                             savedState && 
+                             !JSON.parse(savedState).submitted;
+            
+            if (isInQuiz) {
+                if (!confirm('You have a quiz in progress. Leaving will abandon your current progress. Continue?')) {
+                    dropdown.value = ''; // Reset dropdown
+                    return;
+                }
+                // Clear the quiz state
+                sessionStorage.removeItem('quizState');
+            }
+            
+            // Navigate to selected course
+            window.location.href = selected;
+        }
+
+        // Show courses section when appropriate
+        function updateCoursesVisibility() {
+            const coursesSection = document.getElementById('coursesSection');
+            const loginScreen = document.getElementById('loginScreen');
+            const startScreen = document.getElementById('startScreen');
+            const resultsScreen = document.getElementById('resultsScreen');
+            
+            // Show on login, start, and results screens (not during active quiz)
+            const shouldShow = loginScreen.classList.contains('active') || 
+                              startScreen.classList.contains('active') || 
+                              resultsScreen.classList.contains('active');
+            
+            coursesSection.style.display = shouldShow ? 'block' : 'none';
+        }
+
+        // Hook into your existing screen switching
+        const originalHideAllScreens = hideAllScreens;
+        hideAllScreens = function() {
+            originalHideAllScreens();
+            // Small delay to let the new screen become active
+            setTimeout(updateCoursesVisibility, 50);
+        };
+
+        // Also update on initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for your existing init
+            setTimeout(updateCoursesVisibility, 100);
+        });
 
         window.addEventListener('beforeunload', function () {
             if (!quizSubmitted && currentQuestions.length > 0) saveState();
