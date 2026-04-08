@@ -1,0 +1,5123 @@
+{
+  "title": "Human Genetics Comprehensive Examination Question Bank",
+  "description": "300 Multiple Choice Questions and 200 Fill-in-the-Blank Questions covering Chromosomes, DNA Replication, and Transcription",
+  "metadata": {
+    "total_mcq_questions": 300,
+    "total_fill_blank_questions": 200,
+    "topics_covered": [
+      "Chromosome Structure and Function",
+      "Chromosomal Abnormalities",
+      "DNA Replication - Enzymes and Mechanisms",
+      "DNA Replication - Prokaryotic vs Eukaryotic",
+      "Transcription - Components and Process",
+      "Post-Transcriptional Processing",
+      "Comparison of Replication and Transcription"
+    ]
+  },
+  "sections": {
+    "multiple_choice_questions": [
+      {
+        "id": 1,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromosomes are threadlike structures located in the:",
+        "options": {
+          "A": "Cytoplasm of all cells",
+          "B": "Nucleus of animal and plant cells",
+          "C": "Mitochondria only",
+          "D": "Cell membrane",
+          "E": "Endoplasmic reticulum"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 2,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Each chromosome is made of protein and a single molecule of:",
+        "options": {
+          "A": "Ribonucleic acid (RNA)",
+          "B": "Deoxyribonucleic acid (DNA)",
+          "C": "Adenosine triphosphate (ATP)",
+          "D": "Phospholipids",
+          "E": "Glycoproteins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 3,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromosomes carry genetic instructions necessary for:",
+        "options": {
+          "A": "Cell division only",
+          "B": "Development, function, and reproduction of all living organisms",
+          "C": "Protein synthesis only",
+          "D": "Energy production only",
+          "E": "Waste elimination only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 4,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Humans are diploid organisms, meaning they have:",
+        "options": {
+          "A": "One set of chromosomes",
+          "B": "Two sets of chromosomes, one from each parent",
+          "C": "Three sets of chromosomes",
+          "D": "Four sets of chromosomes",
+          "E": "Variable number of chromosome sets"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 5,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "A typical human somatic cell has how many chromosomes?",
+        "options": {
+          "A": "23 chromosomes",
+          "B": "46 chromosomes",
+          "C": "48 chromosomes",
+          "D": "22 chromosomes",
+          "E": "44 chromosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 6,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Human chromosomes are arranged into how many pairs?",
+        "options": {
+          "A": "22 pairs",
+          "B": "23 pairs",
+          "C": "24 pairs",
+          "D": "46 pairs",
+          "E": "44 pairs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 7,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "How many pairs of autosomes are present in humans?",
+        "options": {
+          "A": "21 pairs",
+          "B": "22 pairs",
+          "C": "23 pairs",
+          "D": "24 pairs",
+          "E": "20 pairs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 8,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Autosomes are numbered from:",
+        "options": {
+          "A": "1-21",
+          "B": "1-22",
+          "C": "1-23",
+          "D": "1-24",
+          "E": "1-20"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 9,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Which statement about autosomes is TRUE?",
+        "options": {
+          "A": "They differ between males and females",
+          "B": "They are the same in males and females",
+          "C": "They determine sex only",
+          "D": "They are only found in gametes",
+          "E": "They are not present in somatic cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 10,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The sex chromosomes in females are:",
+        "options": {
+          "A": "XY",
+          "B": "XX",
+          "C": "XO",
+          "D": "YY",
+          "E": "ZZ"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 11,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The sex chromosomes in males are:",
+        "options": {
+          "A": "XX",
+          "B": "XY",
+          "C": "XO",
+          "D": "YY",
+          "E": "ZZ"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 12,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromatids are defined as:",
+        "options": {
+          "A": "Two different chromosomes",
+          "B": "Two identical copies joined together after DNA replication",
+          "C": "Single stranded DNA molecules",
+          "D": "Protein structures only",
+          "E": "RNA molecules attached to DNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 13,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The centromere is best described as:",
+        "options": {
+          "A": "The end of a chromosome",
+          "B": "The constriction point where sister chromatids are joined",
+          "C": "A protein that initiates DNA replication",
+          "D": "The site of gene transcription",
+          "E": "The protective cap of the chromosome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 14,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Spindle fibers attach to chromosomes at the:",
+        "options": {
+          "A": "Telomeres",
+          "B": "Centromere",
+          "C": "Chromatid tips",
+          "D": "Nuclear envelope",
+          "E": "Nucleolus"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 15,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Telomeres function to:",
+        "options": {
+          "A": "Initiate DNA replication",
+          "B": "Protect the ends of chromosomes from degradation",
+          "C": "Bind sister chromatids together",
+          "D": "Synthesize RNA",
+          "E": "Produce energy for the cell"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 16,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The short arm of a chromosome is designated as:",
+        "options": {
+          "A": "q arm",
+          "B": "p arm",
+          "C": "r arm",
+          "D": "s arm",
+          "E": "t arm"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 17,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The long arm of a chromosome is designated as:",
+        "options": {
+          "A": "p arm",
+          "B": "q arm",
+          "C": "r arm",
+          "D": "s arm",
+          "E": "t arm"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 18,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The p and q arms are divided by which structure?",
+        "options": {
+          "A": "Telomere",
+          "B": "Centromere",
+          "C": "Nucleolus",
+          "D": "Nuclear envelope",
+          "E": "Chromatin"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 19,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chromosomal abnormalities occur due to changes in:",
+        "options": {
+          "A": "Only the number of chromosomes",
+          "B": "The number or structure of chromosomes",
+          "C": "Only the structure of chromosomes",
+          "D": "The size of the nucleus only",
+          "E": "The cytoplasm only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 20,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chromosomal abnormalities can arise during which cell division processes?",
+        "options": {
+          "A": "Mitosis only",
+          "B": "Meiosis or mitosis",
+          "C": "Binary fission only",
+          "D": "Budding only",
+          "E": "Fragmentation only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 21,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Potential consequences of chromosomal abnormalities include:",
+        "options": {
+          "A": "Enhanced athletic performance",
+          "B": "Genetic disorders, miscarriages, or developmental issues",
+          "C": "Increased intelligence",
+          "D": "Improved immune function",
+          "E": "Extended lifespan"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 22,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Numerical abnormalities involving a missing or extra chromosome are called:",
+        "options": {
+          "A": "Euploidy",
+          "B": "Aneuploidy",
+          "C": "Polyploidy only",
+          "D": "Haploidy",
+          "E": "Diploidy"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 23,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Nondisjunction refers to:",
+        "options": {
+          "A": "Normal separation of chromosomes",
+          "B": "Failure of chromosomes to separate properly during cell division",
+          "C": "Successful DNA replication",
+          "D": "Proper alignment of chromosomes",
+          "E": "Normal cytokinesis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 24,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Monosomy is defined as:",
+        "options": {
+          "A": "The gain of an extra chromosome (2n+1)",
+          "B": "The loss of one chromosome (2n-1)",
+          "C": "Having three copies of a chromosome",
+          "D": "Having normal chromosome number",
+          "E": "Having four sets of chromosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 25,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Turner syndrome is an example of:",
+        "options": {
+          "A": "Trisomy",
+          "B": "Monosomy (45,X)",
+          "C": "Polyploidy",
+          "D": "Normal female karyotype",
+          "E": "Klinefelter syndrome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 26,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "A female with Turner syndrome has which karyotype?",
+        "options": {
+          "A": "46,XX",
+          "B": "45,X",
+          "C": "47,XXX",
+          "D": "46,XY",
+          "E": "47,XXY"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 27,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Trisomy is defined as:",
+        "options": {
+          "A": "The loss of one chromosome (2n-1)",
+          "B": "The gain of an extra chromosome (2n+1)",
+          "C": "Normal chromosome number",
+          "D": "Having only one set of chromosomes",
+          "E": "Having two sets of chromosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 28,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Down syndrome is also known as:",
+        "options": {
+          "A": "Trisomy 13",
+          "B": "Trisomy 21",
+          "C": "Trisomy 18",
+          "D": "Monosomy X",
+          "E": "Trisomy 9"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 29,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Individuals with Down syndrome have how many copies of chromosome 21?",
+        "options": {
+          "A": "One copy",
+          "B": "Three copies",
+          "C": "Two copies",
+          "D": "Four copies",
+          "E": "No copies"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 30,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Edward syndrome is also known as:",
+        "options": {
+          "A": "Trisomy 21",
+          "B": "Trisomy 18",
+          "C": "Trisomy 13",
+          "D": "Monosomy X",
+          "E": "Trisomy 16"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 31,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Patau syndrome is also known as:",
+        "options": {
+          "A": "Trisomy 21",
+          "B": "Trisomy 13",
+          "C": "Trisomy 18",
+          "D": "Monosomy X",
+          "E": "Trisomy 15"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 32,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Polyploidy refers to:",
+        "options": {
+          "A": "Missing one chromosome",
+          "B": "Having more than two complete sets of chromosomes",
+          "C": "Having exactly two sets of chromosomes",
+          "D": "Having one set of chromosomes",
+          "E": "Normal chromosome complement"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 33,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Triploidy means having how many sets of chromosomes?",
+        "options": {
+          "A": "Two sets",
+          "B": "Three sets",
+          "C": "Four sets",
+          "D": "One set",
+          "E": "Five sets"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 34,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Polyploidy in humans is usually:",
+        "options": {
+          "A": "Compatible with normal life",
+          "B": "Lethal",
+          "C": "Associated with increased intelligence",
+          "D": "Beneficial for growth",
+          "E": "Required for development"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 35,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Structural abnormalities result from:",
+        "options": {
+          "A": "Normal DNA replication",
+          "B": "Breakage and rearrangement of chromosome segments",
+          "C": "Proper chromosome segregation",
+          "D": "Successful cell division",
+          "E": "Normal gene expression"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 36,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Which is the most common cause of chromosomal abnormalities?",
+        "options": {
+          "A": "Radiation exposure",
+          "B": "Nondisjunction - failure of chromosomes to separate properly during meiosis",
+          "C": "Proper nutrition",
+          "D": "Regular exercise",
+          "E": "Adequate sleep"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 37,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Advanced maternal age is a risk factor for:",
+        "options": {
+          "A": "Decreased chromosomal abnormalities",
+          "B": "Increased chromosomal abnormalities",
+          "C": "Improved DNA repair",
+          "D": "Enhanced fertility",
+          "E": "Reduced miscarriage rates"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 38,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Exposure to radiation can cause:",
+        "options": {
+          "A": "Improved chromosome structure",
+          "B": "Chromosomal abnormalities",
+          "C": "Enhanced DNA repair",
+          "D": "Increased telomere length",
+          "E": "Better cell division"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 39,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Mutagenic chemicals can lead to:",
+        "options": {
+          "A": "Normal chromosome structure",
+          "B": "Chromosomal abnormalities",
+          "C": "Improved genetic stability",
+          "D": "Enhanced protein synthesis",
+          "E": "Better enzyme function"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 40,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Errors in DNA repair mechanisms can result in:",
+        "options": {
+          "A": "Perfect chromosome maintenance",
+          "B": "Chromosomal abnormalities",
+          "C": "Enhanced genetic diversity",
+          "D": "Improved cell function",
+          "E": "Increased longevity"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 41,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Deletion in chromosomal abnormalities refers to:",
+        "options": {
+          "A": "Addition of extra chromosome material",
+          "B": "A portion of the chromosome is missing",
+          "C": "Reversal of chromosome segment",
+          "D": "Exchange between chromosomes",
+          "E": "Duplication of genetic material"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 42,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Cridu-chat syndrome is caused by:",
+        "options": {
+          "A": "Trisomy 21",
+          "B": "Deletion on chromosome 5",
+          "C": "Monosomy X",
+          "D": "Polyploidy",
+          "E": "Inversion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 43,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Duplication in chromosomal abnormalities refers to:",
+        "options": {
+          "A": "Missing chromosome segment",
+          "B": "A segment is repeated",
+          "C": "Reversed chromosome segment",
+          "D": "Exchange between non-homologous chromosomes",
+          "E": "Loss of centromere"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 44,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Inversion in chromosomal abnormalities refers to:",
+        "options": {
+          "A": "Missing chromosome segment",
+          "B": "A segment is reversed end-to-end",
+          "C": "Repeated chromosome segment",
+          "D": "Exchange between chromosomes",
+          "E": "Extra chromosome addition"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 45,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Translocation involves:",
+        "options": {
+          "A": "Deletion of chromosome segment",
+          "B": "A segment breaking off and attaching to a different, non-homologous chromosome",
+          "C": "Reversal of chromosome segment",
+          "D": "Duplication of genetic material",
+          "E": "Normal chromosome pairing"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 46,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Robertsonian translocation can be a cause of:",
+        "options": {
+          "A": "Enhanced fertility",
+          "B": "Recurrent miscarriages or carrier state for Down syndrome",
+          "C": "Improved chromosome stability",
+          "D": "Increased telomere length",
+          "E": "Better DNA repair"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 47,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Karyotyping is used to:",
+        "options": {
+          "A": "Sequence individual genes",
+          "B": "Diagnose chromosomal abnormalities",
+          "C": "Measure enzyme activity",
+          "D": "Detect viral infections",
+          "E": "Analyze protein structure"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 48,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "FISH (fluorescence in situ hybridization) is used for:",
+        "options": {
+          "A": "Treating chromosomal abnormalities",
+          "B": "Diagnosing chromosomal abnormalities",
+          "C": "Preventing mutations",
+          "D": "Enhancing DNA replication",
+          "E": "Improving cell division"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 49,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chromosomal microarray analysis is used to:",
+        "options": {
+          "A": "Treat genetic disorders",
+          "B": "Diagnose chromosomal abnormalities",
+          "C": "Prevent chromosome breakage",
+          "D": "Enhance protein synthesis",
+          "E": "Improve cell metabolism"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 50,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Some chromosomal abnormalities are incompatible with life, while others result in:",
+        "options": {
+          "A": "Enhanced physical features",
+          "B": "Distinct physical features, intellectual disabilities, and specific medical conditions",
+          "C": "Improved cognitive function",
+          "D": "Superior athletic ability",
+          "E": "Extended lifespan"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 51,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "DNA replication and transcription are fundamental processes that are:",
+        "options": {
+          "A": "Passive processes requiring no energy",
+          "B": "Enzyme-driven processes using DNA as a template",
+          "C": "Random events in the cell",
+          "D": "Only occurring in the cytoplasm",
+          "E": "Independent of proteins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 52,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "DNA replication and transcription occur primarily in the:",
+        "options": {
+          "A": "Cytoplasm",
+          "B": "Cell nucleus",
+          "C": "Mitochondria only",
+          "D": "Cell membrane",
+          "E": "Endoplasmic reticulum"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 53,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "The purpose of DNA replication is to:",
+        "options": {
+          "A": "Synthesize RNA molecules",
+          "B": "Duplicate the entire genome before cell division",
+          "C": "Produce proteins directly",
+          "D": "Break down DNA",
+          "E": "Repair single nucleotides only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 54,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "Transcription selectively copies:",
+        "options": {
+          "A": "The entire genome",
+          "B": "Specific genes into RNA molecules",
+          "C": "Only ribosomal RNA",
+          "D": "Only transfer RNA",
+          "E": "The entire DNA molecule without selection"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 55,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "RNA molecules produced by transcription direct:",
+        "options": {
+          "A": "DNA synthesis only",
+          "B": "Protein synthesis or have regulatory functions",
+          "C": "Cell membrane formation only",
+          "D": "Energy production only",
+          "E": "Waste elimination only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 56,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA replication is the process by which a cell makes:",
+        "options": {
+          "A": "An RNA copy of DNA",
+          "B": "An identical copy of its DNA",
+          "C": "A protein from DNA",
+          "D": "A different version of DNA",
+          "E": "A single-stranded DNA molecule"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 57,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA replication is described as semiconservative because:",
+        "options": {
+          "A": "Both strands are newly synthesized",
+          "B": "Each new DNA molecule consists of one original strand and one newly synthesized strand",
+          "C": "Only one strand is conserved",
+          "D": "No strands are conserved",
+          "E": "The process requires no template"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 58,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Helicase functions to:",
+        "options": {
+          "A": "Seal nicks in DNA",
+          "B": "Unwind the DNA double helix by breaking hydrogen bonds",
+          "C": "Synthesize RNA primers",
+          "D": "Remove RNA primers",
+          "E": "Stabilize single-stranded DNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 59,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Helicase creates which structure during replication?",
+        "options": {
+          "A": "Replication bubble",
+          "B": "Replication fork",
+          "C": "Okazaki fragments",
+          "D": "Telomeres",
+          "E": "Centromeres"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 60,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Single-strand binding proteins (SSBs) function to:",
+        "options": {
+          "A": "Break hydrogen bonds in DNA",
+          "B": "Stabilize single-stranded DNA and prevent reannealing",
+          "C": "Synthesize new DNA strands",
+          "D": "Remove RNA primers",
+          "E": "Seal nicks between DNA fragments"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 61,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Topoisomerase functions to:",
+        "options": {
+          "A": "Synthesize DNA",
+          "B": "Relieve supercoiling ahead of the replication fork",
+          "C": "Stabilize single-stranded DNA",
+          "D": "Synthesize RNA primers",
+          "E": "Remove RNA primers"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 62,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA gyrase is a type of topoisomerase found in:",
+        "options": {
+          "A": "Eukaryotes",
+          "B": "Bacteria",
+          "C": "Viruses",
+          "D": "Archaea only",
+          "E": "All organisms"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 63,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Primase synthesizes:",
+        "options": {
+          "A": "DNA primers",
+          "B": "Short RNA primers (~10 nucleotides)",
+          "C": "Long DNA sequences",
+          "D": "Proteins",
+          "E": "Lipids"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 64,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "RNA primers provide which essential group for DNA polymerases?",
+        "options": {
+          "A": "5'-phosphate group",
+          "B": "Free 3'-OH group",
+          "C": "Methyl group",
+          "D": "Acetyl group",
+          "E": "Carboxyl group"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 65,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "In prokaryotes, the main replicative polymerase is:",
+        "options": {
+          "A": "DNA polymerase I",
+          "B": "DNA polymerase III",
+          "C": "DNA polymerase II",
+          "D": "RNA polymerase",
+          "E": "Reverse transcriptase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 66,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "In eukaryotes, the main replicative polymerases are:",
+        "options": {
+          "A": "DNA polymerase α and β",
+          "B": "DNA polymerase δ and ε",
+          "C": "DNA polymerase γ only",
+          "D": "RNA polymerase I and II",
+          "E": "DNA polymerase I only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 67,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerases add nucleotides in which direction?",
+        "options": {
+          "A": "3' to 5'",
+          "B": "5' to 3'",
+          "C": "Both directions equally",
+          "D": "Random direction",
+          "E": "No specific direction"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 68,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerases have proofreading activity through:",
+        "options": {
+          "A": "5' to 3' exonuclease activity",
+          "B": "3' to 5' exonuclease activity",
+          "C": "Endonuclease activity only",
+          "D": "Ligase activity",
+          "E": "Helicase activity"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 69,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerase I in prokaryotes functions to:",
+        "options": {
+          "A": "Synthesize the leading strand only",
+          "B": "Remove RNA primers and fill in gaps with DNA",
+          "C": "Unwind the DNA helix",
+          "D": "Stabilize single-stranded DNA",
+          "E": "Relieve supercoiling"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 70,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA ligase functions to:",
+        "options": {
+          "A": "Break DNA strands",
+          "B": "Seal nicks between Okazaki fragments on the lagging strand",
+          "C": "Synthesize RNA primers",
+          "D": "Remove RNA primers",
+          "E": "Unwind DNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 71,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The three main steps of replication are:",
+        "options": {
+          "A": "Initiation, transcription, termination",
+          "B": "Initiation, elongation, termination",
+          "C": "Transcription, translation, replication",
+          "D": "Replication, recombination, repair",
+          "E": "Synthesis, degradation, recycling"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 72,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Replication begins at specific sequences called:",
+        "options": {
+          "A": "Termination sites",
+          "B": "Origins of replication",
+          "C": "Promoters",
+          "D": "Enhancers",
+          "E": "Silencers"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 73,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "In E. coli, the single origin of replication is called:",
+        "options": {
+          "A": "oriA",
+          "B": "oriC",
+          "C": "oriB",
+          "D": "oriD",
+          "E": "oriE"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 74,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Eukaryotes use how many origins of replication?",
+        "options": {
+          "A": "Single origin",
+          "B": "Multiple origins to speed up replication",
+          "C": "No origins",
+          "D": "Only two origins",
+          "E": "Origins only in mitochondria"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 75,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The replication fork proceeds in which direction(s)?",
+        "options": {
+          "A": "Unidirectional only",
+          "B": "Bidirectionally",
+          "C": "Random direction",
+          "D": "No specific direction",
+          "E": "Only in the 3' to 5' direction"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 76,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The leading strand is synthesized:",
+        "options": {
+          "A": "Discontinuously",
+          "B": "Continuously in the same direction as fork movement",
+          "C": "In fragments",
+          "D": "Only after the lagging strand",
+          "E": "Randomly"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 77,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The lagging strand is synthesized:",
+        "options": {
+          "A": "Continuously",
+          "B": "Discontinuously as short Okazaki fragments",
+          "C": "In one long piece",
+          "D": "Before the leading strand",
+          "E": "Simultaneously with the leading strand in the same direction"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 78,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Each Okazaki fragment requires:",
+        "options": {
+          "A": "No primer",
+          "B": "A new RNA primer",
+          "C": "A DNA primer only",
+          "D": "Multiple DNA primers",
+          "E": "Protein primer"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 79,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Forks meet at termination sequences in:",
+        "options": {
+          "A": "Eukaryotes only",
+          "B": "Both prokaryotes and eukaryotes",
+          "C": "Prokaryotes only",
+          "D": "Viruses only",
+          "E": "Bacteriophages only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 80,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "In prokaryotes, termination is controlled by:",
+        "options": {
+          "A": "Only Ter sites",
+          "B": "Ter sites and the Tus protein",
+          "C": "Only Tus protein",
+          "D": "RNA polymerase",
+          "E": "DNA polymerase I"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 81,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "In eukaryotes, forks converge when:",
+        "options": {
+          "A": "DNA polymerase stops",
+          "B": "Adjacent replicons meet",
+          "C": "RNA primers are removed",
+          "D": "Helicase stops",
+          "E": "Topoisomerase activates"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 82,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Prokaryotic DNA is typically:",
+        "options": {
+          "A": "Linear",
+          "B": "Circular",
+          "C": "Both linear and circular",
+          "D": "Fragmented",
+          "E": "Single-stranded"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 83,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Eukaryotic chromosomes are:",
+        "options": {
+          "A": "Circular",
+          "B": "Linear",
+          "C": "Both circular and linear",
+          "D": "Single-stranded",
+          "E": "RNA-based"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 84,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Prokaryotes have how many origin(s) of replication?",
+        "options": {
+          "A": "Multiple origins",
+          "B": "Single origin",
+          "C": "No origins",
+          "D": "Variable number",
+          "E": "Hundreds of origins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 85,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The replication rate in prokaryotes is approximately:",
+        "options": {
+          "A": "~50 nucleotides/sec",
+          "B": "~1000 nucleotides/sec",
+          "C": "~100 nucleotides/sec",
+          "D": "~10 nucleotides/sec",
+          "E": "~5000 nucleotides/sec"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 86,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The replication rate in eukaryotes is approximately:",
+        "options": {
+          "A": "~1000 nucleotides/sec",
+          "B": "~50 nucleotides/sec",
+          "C": "~500 nucleotides/sec",
+          "D": "~2000 nucleotides/sec",
+          "E": "~10,000 nucleotides/sec"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 87,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "In prokaryotes, which polymerases are primarily involved in replication?",
+        "options": {
+          "A": "DNA pol α and δ",
+          "B": "DNA pol III (main) and DNA pol I (primer removal)",
+          "C": "DNA pol β and γ",
+          "D": "RNA pol I and II",
+          "E": "DNA pol II only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 88,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "In eukaryotes, primer removal involves:",
+        "options": {
+          "A": "DNA polymerase I only",
+          "B": "RNase H1 and FEN1",
+          "C": "DNA polymerase III",
+          "D": "Primase only",
+          "E": "Helicase only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 89,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Telomeres are present in:",
+        "options": {
+          "A": "Prokaryotes",
+          "B": "Eukaryotes",
+          "C": "Both prokaryotes and eukaryotes",
+          "D": "Viruses only",
+          "E": "Bacteria only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 90,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Telomerase functions to:",
+        "options": {
+          "A": "Shorten telomeres",
+          "B": "Extend telomere ends to prevent shortening",
+          "C": "Remove telomeres",
+          "D": "Break down telomeres",
+          "E": "Inhibit DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 91,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Transcription is the synthesis of:",
+        "options": {
+          "A": "DNA from a DNA template",
+          "B": "RNA from a DNA template",
+          "C": "Protein from an RNA template",
+          "D": "DNA from an RNA template",
+          "E": "Lipids from a DNA template"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 92,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "During transcription, how many strands of DNA are transcribed?",
+        "options": {
+          "A": "Both strands simultaneously",
+          "B": "Only one strand, the template strand",
+          "C": "Neither strand",
+          "D": "Random strands",
+          "E": "All DNA strands in the cell"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 93,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The RNA produced by transcription is complementary to:",
+        "options": {
+          "A": "The coding strand",
+          "B": "The template strand",
+          "C": "Both DNA strands",
+          "D": "Neither DNA strand",
+          "E": "Only the promoter region"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 94,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The RNA produced is identical to which DNA strand (with U instead of T)?",
+        "options": {
+          "A": "The template strand",
+          "B": "The coding strand",
+          "C": "Both strands",
+          "D": "Neither strand",
+          "E": "Only the promoter"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 95,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase catalyzes:",
+        "options": {
+          "A": "Peptide bond formation",
+          "B": "Phosphodiester bond formation",
+          "C": "Hydrogen bond breaking",
+          "D": "Glycosidic bond formation",
+          "E": "Ester bond formation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 96,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase requires a primer for initiation:",
+        "options": {
+          "A": "True",
+          "B": "False - it does not require a primer",
+          "C": "Only sometimes",
+          "D": "Only in eukaryotes",
+          "E": "Only in prokaryotes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 97,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Bacteria have how many RNA polymerase?",
+        "options": {
+          "A": "Three",
+          "B": "Single RNA polymerase",
+          "C": "Five",
+          "D": "Two",
+          "E": "Multiple different polymerases"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 98,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Eukaryotes have how many main RNA polymerases?",
+        "options": {
+          "A": "One",
+          "B": "Three",
+          "C": "Two",
+          "D": "Five",
+          "E": "Four"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 99,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase I transcribes:",
+        "options": {
+          "A": "mRNA and most snRNAs",
+          "B": "rRNA genes (except 5S)",
+          "C": "tRNA and 5S rRNA",
+          "D": "All RNA types",
+          "E": "Only miRNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 100,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase II transcribes:",
+        "options": {
+          "A": "rRNA genes",
+          "B": "mRNA and most snRNAs",
+          "C": "tRNA only",
+          "D": "5S rRNA only",
+          "E": "All small RNAs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 101,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase III transcribes:",
+        "options": {
+          "A": "mRNA",
+          "B": "tRNA, 5S rRNA, and other small RNAs",
+          "C": "rRNA (except 5S)",
+          "D": "snRNAs only",
+          "E": "Long non-coding RNAs only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 102,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "A promoter is defined as:",
+        "options": {
+          "A": "A DNA sequence downstream of a gene",
+          "B": "A DNA sequence upstream of a gene where RNA polymerase binds",
+          "C": "A protein that binds RNA",
+          "D": "An RNA sequence",
+          "E": "A termination signal"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 103,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Prokaryotic promoters have which characteristic boxes?",
+        "options": {
+          "A": "TATA box only",
+          "B": "-10 box (Pribnow box) and -35 box",
+          "C": "CAAT box only",
+          "D": "GC box only",
+          "E": "Enhancer boxes only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 104,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The Pribnow box is located at approximately:",
+        "options": {
+          "A": "-35 position",
+          "B": "-10 position",
+          "C": "+10 position",
+          "D": "-30 position",
+          "E": "+1 position"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 105,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Eukaryotic RNA pol II promoters contain:",
+        "options": {
+          "A": "-10 and -35 boxes",
+          "B": "TATA box (around -30) and other regulatory elements",
+          "C": "Only enhancers",
+          "D": "Only silencers",
+          "E": "Pribnow box only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 106,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The TATA box in eukaryotes is located around position:",
+        "options": {
+          "A": "-10",
+          "B": "-30",
+          "C": "-35",
+          "D": "+1",
+          "E": "+10"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 107,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Transcription factors function to:",
+        "options": {
+          "A": "Synthesize RNA directly",
+          "B": "Assist RNA polymerase in binding and initiating transcription",
+          "C": "Degrade RNA",
+          "D": "Replicate DNA",
+          "E": "Translate proteins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 108,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The three steps of transcription are:",
+        "options": {
+          "A": "Replication, elongation, termination",
+          "B": "Initiation, elongation, termination",
+          "C": "Initiation, translation, termination",
+          "D": "Splicing, capping, polyadenylation",
+          "E": "Transcription, translation, replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 109,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "During initiation, RNA polymerase first forms:",
+        "options": {
+          "A": "An open complex immediately",
+          "B": "A closed complex with the promoter",
+          "C": "The final RNA product",
+          "D": "A termination signal",
+          "E": "A splicing complex"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 110,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The open complex involves:",
+        "options": {
+          "A": "Closing of DNA strands",
+          "B": "Separation of DNA strands",
+          "C": "Binding of RNA to DNA",
+          "D": "Protein synthesis",
+          "E": "DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 111,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The first ribonucleotide added is usually:",
+        "options": {
+          "A": "Always a pyrimidine",
+          "B": "Usually a purine",
+          "C": "Always cytosine",
+          "D": "Always thymine",
+          "E": "Always uracil"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 112,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "During elongation, RNA polymerase synthesizes RNA in which direction?",
+        "options": {
+          "A": "3' to 5'",
+          "B": "5' to 3'",
+          "C": "Both directions",
+          "D": "Random direction",
+          "E": "No specific direction"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 113,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "During elongation, what forms transiently behind the polymerase?",
+        "options": {
+          "A": "Permanent RNA-DNA hybrid",
+          "B": "A short RNA-DNA hybrid; DNA rewinds behind it",
+          "C": "Double-stranded RNA",
+          "D": "Single-stranded RNA only",
+          "E": "Protein-DNA complex"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 114,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "In prokaryotes, Rho-dependent termination involves:",
+        "options": {
+          "A": "Hairpin formation only",
+          "B": "Rho protein helicase dislodging RNA",
+          "C": "U-rich sequence only",
+          "D": "RNA polymerase continuing indefinitely",
+          "E": "No protein involvement"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 115,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "In prokaryotes, Rho-independent termination involves:",
+        "options": {
+          "A": "Rho protein only",
+          "B": "Hairpin followed by U-rich sequence causing dissociation",
+          "C": "No specific sequence",
+          "D": "Continuous transcription",
+          "E": "Protein synthesis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 116,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "In eukaryotes, RNA pol II transcribes past which signal?",
+        "options": {
+          "A": "TATA box",
+          "B": "Polyadenylation signal (AAUAAA)",
+          "C": "Pribnow box",
+          "D": "-35 box",
+          "E": "Enhancer sequence"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 117,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "After the polyadenylation signal, the transcript is:",
+        "options": {
+          "A": "Immediately degraded",
+          "B": "Cleaved, and polymerase eventually terminates after a downstream pause site",
+          "C": "Left intact",
+          "D": "Spliced immediately",
+          "E": "Exported to cytoplasm without cleavage"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 118,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "5' capping involves addition of:",
+        "options": {
+          "A": "Adenosine cap",
+          "B": "Methylated guanosine cap",
+          "C": "Cytosine cap",
+          "D": "Thymidine cap",
+          "E": "Uracil cap"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 119,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "When does 5' capping occur?",
+        "options": {
+          "A": "After transcription termination",
+          "B": "Shortly after initiation",
+          "C": "During splicing",
+          "D": "After export to cytoplasm",
+          "E": "Before transcription begins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 120,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The 5' cap functions to:",
+        "options": {
+          "A": "Degrade mRNA",
+          "B": "Protect from degradation and aid ribosome binding",
+          "C": "Prevent transcription",
+          "D": "Inhibit translation",
+          "E": "Promote splicing only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 121,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "3' polyadenylation involves cleavage at the:",
+        "options": {
+          "A": "5' end",
+          "B": "Poly(A) site",
+          "C": "Start codon",
+          "D": "Promoter region",
+          "E": "Intron-exon boundary"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 122,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Approximately how many A residues are added in the poly-A tail?",
+        "options": {
+          "A": "~10 A residues",
+          "B": "~200 A residues",
+          "C": "~50 A residues",
+          "D": "~1000 A residues",
+          "E": "~5 A residues"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 123,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The poly-A tail functions to:",
+        "options": {
+          "A": "Degrade mRNA",
+          "B": "Enhance stability and export",
+          "C": "Prevent translation",
+          "D": "Inhibit splicing",
+          "E": "Block ribosome binding"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 124,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Splicing involves removal of:",
+        "options": {
+          "A": "Exons",
+          "B": "Introns (non-coding sequences)",
+          "C": "Promoters",
+          "D": "Enhancers",
+          "E": "The 5' cap"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 125,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "During splicing, which sequences are joined together?",
+        "options": {
+          "A": "Introns",
+          "B": "Exons (coding sequences)",
+          "C": "Promoters",
+          "D": "Terminators",
+          "E": "Poly-A tails"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 126,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Splicing is carried out by the:",
+        "options": {
+          "A": "Ribosome",
+          "B": "Spliceosome (snRNPs and associated proteins)",
+          "C": "RNA polymerase",
+          "D": "DNA polymerase",
+          "E": "Helicase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 127,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Alternative splicing allows:",
+        "options": {
+          "A": "One gene to produce one protein only",
+          "B": "One gene to produce multiple protein isoforms",
+          "C": "Multiple genes to produce one protein",
+          "D": "Prevention of all protein synthesis",
+          "E": "DNA replication from RNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 128,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The purpose of replication is to:",
+        "options": {
+          "A": "Produce RNA copies of genes",
+          "B": "Duplicate the entire genome",
+          "C": "Synthesize proteins",
+          "D": "Break down DNA",
+          "E": "Repair single nucleotides"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 129,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The purpose of transcription is to:",
+        "options": {
+          "A": "Duplicate the entire genome",
+          "B": "Produce RNA copies of genes",
+          "C": "Synthesize DNA from RNA",
+          "D": "Degrade RNA",
+          "E": "Replicate mitochondria"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 130,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication uses which DNA strands as template?",
+        "options": {
+          "A": "Only one strand",
+          "B": "Both DNA strands",
+          "C": "Neither strand",
+          "D": "Only the coding strand",
+          "E": "Only RNA strands"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 131,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription uses which DNA strand as template?",
+        "options": {
+          "A": "Both strands",
+          "B": "One DNA strand (template strand)",
+          "C": "Neither strand",
+          "D": "Only RNA strands",
+          "E": "Both strands simultaneously"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 132,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication requires a primer:",
+        "options": {
+          "A": "False",
+          "B": "True - requires RNA primer",
+          "C": "Only sometimes",
+          "D": "Only in eukaryotes",
+          "E": "Only in prokaryotes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 133,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription requires a primer:",
+        "options": {
+          "A": "True",
+          "B": "False - no primer needed",
+          "C": "Only in prokaryotes",
+          "D": "Only in eukaryotes",
+          "E": "Only for rRNA genes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 134,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication enzymes include:",
+        "options": {
+          "A": "Only RNA polymerases",
+          "B": "DNA polymerases, helicase, primase, ligase",
+          "C": "Only helicase",
+          "D": "Only ligase",
+          "E": "Only topoisomerase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 135,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription enzymes include:",
+        "options": {
+          "A": "DNA polymerases only",
+          "B": "RNA polymerases",
+          "C": "Helicase and ligase only",
+          "D": "Primase and DNA polymerase",
+          "E": "Only topoisomerase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 136,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The product of replication is:",
+        "options": {
+          "A": "RNA (single-stranded)",
+          "B": "DNA (double-stranded)",
+          "C": "Protein",
+          "D": "Lipid",
+          "E": "Carbohydrate"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 137,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The product of transcription is:",
+        "options": {
+          "A": "DNA (double-stranded)",
+          "B": "RNA (single-stranded)",
+          "C": "Protein",
+          "D": "Double-stranded RNA",
+          "E": "DNA-RNA hybrid permanently"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 138,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication processivity involves:",
+        "options": {
+          "A": "Only selected regions copied",
+          "B": "Entire genome copied once per cell cycle",
+          "C": "Repeated copying of same region",
+          "D": "Random DNA synthesis",
+          "E": "No specific pattern"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 139,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription processivity involves:",
+        "options": {
+          "A": "Entire genome copied once",
+          "B": "Only selected regions transcribed, can be repeated",
+          "C": "Only one round per cell cycle",
+          "D": "Copying all genes equally",
+          "E": "No regulation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 140,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication fidelity is:",
+        "options": {
+          "A": "Low with many errors",
+          "B": "Very high (proofreading)",
+          "C": "Moderate",
+          "D": "Not important",
+          "E": "Variable"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 141,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription fidelity is:",
+        "options": {
+          "A": "Very high with proofreading",
+          "B": "Lower (no proofreading); errors tolerated",
+          "C": "Higher than replication",
+          "D": "Perfect",
+          "E": "Not measured"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 142,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Genetic instructions carried by chromosomes are called:",
+        "options": {
+          "A": "Proteins",
+          "B": "Genes",
+          "C": "Lipids",
+          "D": "Carbohydrates",
+          "E": "Nucleotides only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 143,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Somatic cells are also known as:",
+        "options": {
+          "A": "Gametes",
+          "B": "Body cells",
+          "C": "Germ cells",
+          "D": "Stem cells only",
+          "E": "Cancer cells only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 144,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The term 'diploid' means:",
+        "options": {
+          "A": "Having one set of chromosomes",
+          "B": "Having two complete sets of chromosomes",
+          "C": "Having three sets of chromosomes",
+          "D": "Having half the chromosome number",
+          "E": "Having no chromosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 145,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Haploid cells contain how many chromosomes?",
+        "options": {
+          "A": "46 chromosomes",
+          "B": "23 chromosomes",
+          "C": "22 chromosomes",
+          "D": "44 chromosomes",
+          "E": "48 chromosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 146,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Which cells in humans are haploid?",
+        "options": {
+          "A": "Skin cells",
+          "B": "Gametes (sperm and egg)",
+          "C": "Liver cells",
+          "D": "Muscle cells",
+          "E": "Nerve cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 147,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Sister chromatids are joined at the:",
+        "options": {
+          "A": "Telomeres",
+          "B": "Centromere",
+          "C": "Nuclear envelope",
+          "D": "Nucleolus",
+          "E": "Cell membrane"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 148,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromosomes are visible under a light microscope during:",
+        "options": {
+          "A": "Interphase",
+          "B": "Cell division (mitosis/meiosis)",
+          "C": "G1 phase only",
+          "D": "S phase only",
+          "E": "G0 phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 149,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromatin consists of:",
+        "options": {
+          "A": "DNA only",
+          "B": "DNA and proteins (histones)",
+          "C": "RNA only",
+          "D": "Proteins only",
+          "E": "Lipids and carbohydrates"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 150,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Euchromatin is described as:",
+        "options": {
+          "A": "Condensed and transcriptionally inactive",
+          "B": "Less condensed and transcriptionally active",
+          "C": "Absent from the nucleus",
+          "D": "Only found in prokaryotes",
+          "E": "Composed of RNA only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 151,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Heterochromatin is described as:",
+        "options": {
+          "A": "Less condensed and transcriptionally active",
+          "B": "Highly condensed and transcriptionally inactive",
+          "C": "Only found in the cytoplasm",
+          "D": "Composed of single-stranded DNA",
+          "E": "Absent from chromosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 152,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "A karyotype is:",
+        "options": {
+          "A": "A type of protein",
+          "B": "A visual profile of an individual's chromosomes",
+          "C": "A DNA sequence",
+          "D": "An enzyme",
+          "E": "A type of cell"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 153,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Karyotyping is performed during which phase of cell division?",
+        "options": {
+          "A": "Interphase",
+          "B": "Metaphase",
+          "C": "Prophase",
+          "D": "Telophase",
+          "E": "Cytokinesis"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 154,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "The incidence of Down syndrome increases with:",
+        "options": {
+          "A": "Paternal age only",
+          "B": "Advanced maternal age",
+          "C": "Young maternal age",
+          "D": "Proper nutrition",
+          "E": "Regular exercise"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 155,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Trisomy 18 (Edward syndrome) has a survival rate that is:",
+        "options": {
+          "A": "Very high",
+          "B": "Very low; most die within first year",
+          "C": "Normal lifespan",
+          "D": "Better than Down syndrome",
+          "E": "100%"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 156,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Trisomy 13 (Patau syndrome) is characterized by:",
+        "options": {
+          "A": "Normal development",
+          "B": "Severe congenital abnormalities; 90% die within first year",
+          "C": "Mild intellectual disability",
+          "D": "Enhanced physical strength",
+          "E": "Longer lifespan"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 157,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Klinefelter syndrome is characterized by which karyotype?",
+        "options": {
+          "A": "45,X",
+          "B": "47,XXY",
+          "C": "47,XXX",
+          "D": "46,XY",
+          "E": "45,Y"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 158,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Triple X syndrome (47,XXX) affects:",
+        "options": {
+          "A": "Only males",
+          "B": "Females",
+          "C": "Both sexes equally",
+          "D": "Only fetuses",
+          "E": "Only newborns"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 159,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "XYY syndrome occurs in:",
+        "options": {
+          "A": "Females",
+          "B": "Males",
+          "C": "Both sexes",
+          "D": "Only during pregnancy",
+          "E": "Only in adulthood"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 160,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Balanced translocation carriers are usually:",
+        "options": {
+          "A": "Severely affected",
+          "B": "Phenotypically normal but at risk for unbalanced gametes",
+          "C": "Unable to reproduce",
+          "D": "Always infertile",
+          "E": "Immune to genetic disorders"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 161,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Cri-du-chat syndrome is named for the characteristic:",
+        "options": {
+          "A": "Facial features",
+          "B": "Cat-like cry of affected infants",
+          "C": "Skin color",
+          "D": "Eye shape",
+          "E": "Hair texture"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 162,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Wolf-Hirschhorn syndrome is caused by deletion of the short arm of chromosome:",
+        "options": {
+          "A": "4",
+          "B": "4 (4p-)",
+          "C": "5",
+          "D": "21",
+          "E": "18"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 163,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chromosomal microarray analysis (CMA) can detect:",
+        "options": {
+          "A": "Only whole chromosome aneuploidy",
+          "B": "Submicroscopic deletions and duplications",
+          "C": "Only balanced translocations",
+          "D": "Only point mutations",
+          "E": "Only mitochondrial DNA changes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 164,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Fluorescence in situ hybridization (FISH) uses:",
+        "options": {
+          "A": "Radioactive probes",
+          "B": "Fluorescent probes to detect specific DNA sequences",
+          "C": "Enzyme-linked probes only",
+          "D": "Antibody probes only",
+          "E": "No probes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 165,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Amniocentesis is a procedure used to:",
+        "options": {
+          "A": "Treat genetic disorders",
+          "B": "Diagnose fetal chromosomal abnormalities",
+          "C": "Prevent pregnancy",
+          "D": "Enhance fertility",
+          "E": "Treat infections"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 166,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chorionic villus sampling (CVS) is performed during which trimester?",
+        "options": {
+          "A": "Third trimester",
+          "B": "First trimester",
+          "C": "Second trimester only",
+          "D": "Any trimester",
+          "E": "After delivery"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 167,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Non-invasive prenatal testing (NIPT) analyzes:",
+        "options": {
+          "A": "Amniotic fluid",
+          "B": "Cell-free fetal DNA in maternal blood",
+          "C": "Chorionic villi",
+          "D": "Fetal cells only",
+          "E": "Maternal DNA only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 168,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Mosaicism refers to:",
+        "options": {
+          "A": "All cells having the same chromosome complement",
+          "B": "Presence of two or more cell lines with different chromosome complements",
+          "C": "Normal chromosome number",
+          "D": "Only germ cells affected",
+          "E": "Only somatic cells normal"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 169,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Confined placental mosaicism means:",
+        "options": {
+          "A": "All tissues are affected",
+          "B": "Mosaicism is present only in the placenta, not the fetus",
+          "C": "Only the fetus is affected",
+          "D": "Both fetus and mother are affected",
+          "E": "No mosaicism present"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 170,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Uniparental disomy occurs when:",
+        "options": {
+          "A": "Both copies of a chromosome come from different parents",
+          "B": "Both copies of a chromosome come from one parent",
+          "C": "Only one copy of a chromosome is present",
+          "D": "Three copies of a chromosome are present",
+          "E": "No chromosomes are present"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 171,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Imprinting disorders can result from:",
+        "options": {
+          "A": "Normal biparental inheritance",
+          "B": "Uniparental disomy affecting imprinted genes",
+          "C": "Random chromosome assortment",
+          "D": "Normal meiosis",
+          "E": "Proper DNA repair"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 172,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Prader-Willi syndrome is often caused by:",
+        "options": {
+          "A": "Trisomy 21",
+          "B": "Deletion or uniparental disomy of chromosome 15 (paternal)",
+          "C": "Monosomy X",
+          "D": "Klinefelter syndrome",
+          "E": "Triple X syndrome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 173,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Angelman syndrome is often caused by:",
+        "options": {
+          "A": "Down syndrome",
+          "B": "Deletion or uniparental disomy of chromosome 15 (maternal)",
+          "C": "Turner syndrome",
+          "D": "Edward syndrome",
+          "E": "Patau syndrome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 174,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Fragile X syndrome is caused by:",
+        "options": {
+          "A": "Chromosomal deletion",
+          "B": "Trinucleotide repeat expansion (CGG) on X chromosome",
+          "C": "Chromosomal translocation",
+          "D": "Aneuploidy",
+          "E": "Chromosomal inversion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 175,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "The most common inherited cause of intellectual disability is:",
+        "options": {
+          "A": "Down syndrome",
+          "B": "Fragile X syndrome",
+          "C": "Turner syndrome",
+          "D": "Klinefelter syndrome",
+          "E": "Edward syndrome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 176,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "The central dogma of molecular biology states that information flows from:",
+        "options": {
+          "A": "Protein to RNA to DNA",
+          "B": "DNA to RNA to protein",
+          "C": "RNA to DNA to protein",
+          "D": "Protein to DNA to RNA",
+          "E": "DNA to protein directly"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 177,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "DNA replication occurs during which phase of the cell cycle?",
+        "options": {
+          "A": "G1 phase",
+          "B": "S phase",
+          "C": "G2 phase",
+          "D": "M phase",
+          "E": "G0 phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 178,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "The Meselson-Stahl experiment demonstrated that DNA replication is:",
+        "options": {
+          "A": "Conservative",
+          "B": "Semiconservative",
+          "C": "Dispersive",
+          "D": "Random",
+          "E": "Conservative and dispersive"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 179,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "In semiconservative replication, after one round of replication, each daughter DNA molecule contains:",
+        "options": {
+          "A": "Both old strands",
+          "B": "One old strand and one new strand",
+          "C": "Both new strands",
+          "D": "Mixed old and new segments in each strand",
+          "E": "Only RNA strands"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 180,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "The template for DNA synthesis is:",
+        "options": {
+          "A": "RNA",
+          "B": "Single-stranded DNA",
+          "C": "Protein",
+          "D": "Lipid",
+          "E": "Carbohydrate"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 181,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The energy for phosphodiester bond formation comes from:",
+        "options": {
+          "A": "ATP hydrolysis only",
+          "B": "Hydrolysis of deoxynucleoside triphosphates (dNTPs)",
+          "C": "GTP only",
+          "D": "Protein breakdown",
+          "E": "Lipid metabolism"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 182,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Pyrophosphate (PPi) is released when:",
+        "options": {
+          "A": "DNA is unwound",
+          "B": "A nucleotide is added to the growing DNA chain",
+          "C": "RNA primers are removed",
+          "D": "DNA ligase acts",
+          "E": "Helicase unwinds DNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 183,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The active site of DNA polymerase requires which metal ion?",
+        "options": {
+          "A": "Sodium",
+          "B": "Magnesium (Mg²⁺)",
+          "C": "Calcium",
+          "D": "Potassium",
+          "E": "Iron"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 184,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Processivity refers to:",
+        "options": {
+          "A": "The speed of replication",
+          "B": "The ability of an enzyme to catalyze multiple reactions without dissociating",
+          "C": "The accuracy of replication",
+          "D": "The number of origins used",
+          "E": "The length of Okazaki fragments"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 185,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The sliding clamp (PCNA in eukaryotes) increases:",
+        "options": {
+          "A": "Helicase activity",
+          "B": "Processivity of DNA polymerase",
+          "C": "Primase activity",
+          "D": "Ligase activity",
+          "E": "Topoisomerase activity"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 186,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Clamp loader is required to:",
+        "options": {
+          "A": "Remove RNA primers",
+          "B": "Load the sliding clamp onto DNA",
+          "C": "Synthesize DNA",
+          "D": "Unwind DNA",
+          "E": "Seal nicks"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 187,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The replisome refers to:",
+        "options": {
+          "A": "A single enzyme",
+          "B": "The multi-protein complex that carries out DNA replication",
+          "C": "Only the DNA polymerase",
+          "D": "Only the helicase",
+          "E": "The nuclear envelope"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 188,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerase III holoenzyme in E. coli includes:",
+        "options": {
+          "A": "Only the polymerase subunit",
+          "B": "Core polymerase, sliding clamp, and clamp loader",
+          "C": "Only helicase and primase",
+          "D": "Only ligase",
+          "E": "Only topoisomerase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 189,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The exonuclease activity of DNA polymerase that removes mismatched bases is:",
+        "options": {
+          "A": "5' to 3' exonuclease",
+          "B": "3' to 5' exonuclease",
+          "C": "Endonuclease",
+          "D": "RNase activity",
+          "E": "Helicase activity"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 190,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The mutation rate in DNA replication is approximately:",
+        "options": {
+          "A": "1 error per 100 nucleotides",
+          "B": "1 error per 10⁹ to 10¹⁰ nucleotides",
+          "C": "1 error per 1000 nucleotides",
+          "D": "1 error per 10 nucleotides",
+          "E": "No errors occur"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 191,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Licensing of replication origins involves:",
+        "options": {
+          "A": "DNA methylation only",
+          "B": "Binding of ORC and loading of MCM helicase during G1",
+          "C": "Transcription factor binding",
+          "D": "RNA polymerase binding",
+          "E": "Protein degradation only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 192,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The origin recognition complex (ORC) binds to:",
+        "options": {
+          "A": "Promoters",
+          "B": "Origins of replication",
+          "C": "Terminators",
+          "D": "Enhancers",
+          "E": "Telomeres"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 193,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "CDK (cyclin-dependent kinase) activity promotes:",
+        "options": {
+          "A": "Origin licensing in G1",
+          "B": "Origin firing and replication initiation in S phase",
+          "C": "Replication termination only",
+          "D": "DNA repair only",
+          "E": "Transcription only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 194,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Geminin inhibits:",
+        "options": {
+          "A": "DNA polymerase",
+          "B": "Re-replication by blocking MCM loading",
+          "C": "Helicase",
+          "D": "Primase",
+          "E": "Ligase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 195,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The pre-replication complex (pre-RC) forms during:",
+        "options": {
+          "A": "S phase",
+          "B": "G1 phase",
+          "C": "G2 phase",
+          "D": "M phase",
+          "E": "G0 phase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 196,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "DNA replication is prevented from re-occurring in the same cell cycle by:",
+        "options": {
+          "A": "Lack of dNTPs",
+          "B": "Rise of CDK activity and geminin",
+          "C": "Absence of helicase",
+          "D": "Lack of DNA polymerase",
+          "E": "Absence of primase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 197,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The checkpoint kinase ATR responds to:",
+        "options": {
+          "A": "Double-strand breaks",
+          "B": "Single-stranded DNA and replication stress",
+          "C": "Normal replication forks",
+          "D": "Telomere lengthening",
+          "E": "Transcription errors"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 198,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "ATM kinase responds primarily to:",
+        "options": {
+          "A": "Single-stranded DNA",
+          "B": "Double-strand breaks",
+          "C": "Normal replication",
+          "D": "Transcription initiation",
+          "E": "Translation errors"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 199,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "p53 is activated by:",
+        "options": {
+          "A": "Normal DNA replication",
+          "B": "DNA damage to cause cell cycle arrest or apoptosis",
+          "C": "Successful cell division",
+          "D": "Protein synthesis",
+          "E": "Lipid metabolism"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 200,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The G1/S checkpoint ensures that:",
+        "options": {
+          "A": "DNA replication is complete",
+          "B": "Cell is ready to replicate DNA",
+          "C": "Chromosomes are aligned",
+          "D": "Cell division is complete",
+          "E": "Protein synthesis is active"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 201,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The intra-S checkpoint monitors:",
+        "options": {
+          "A": "Chromosome segregation",
+          "B": "DNA replication progress and damage",
+          "C": "Protein synthesis",
+          "D": "Cell size only",
+          "E": "Membrane integrity"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 202,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Eukaryotic DNA is organized into:",
+        "options": {
+          "A": "Naked DNA",
+          "B": "Chromatin (DNA wrapped around histones)",
+          "C": "Circular chromosomes only",
+          "D": "Single-stranded DNA",
+          "E": "RNA-DNA hybrids"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 203,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Nucleosomes consist of DNA wrapped around:",
+        "options": {
+          "A": "A tetramer of histones",
+          "B": "An octamer of histones (two each of H2A, H2B, H3, H4)",
+          "C": "A dimer of histones",
+          "D": "Single histone H1 only",
+          "E": "Non-histone proteins"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 204,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Histone H1 binds to:",
+        "options": {
+          "A": "The core octamer only",
+          "B": "Linker DNA between nucleosomes",
+          "C": "Only the major groove",
+          "D": "Only the minor groove",
+          "E": "RNA only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 205,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "During replication, nucleosomes must be:",
+        "options": {
+          "A": "Permanently removed",
+          "B": "Disassembled ahead of the fork and reassembled behind",
+          "C": "Left unchanged",
+          "D": "Degraded",
+          "E": "Modified permanently"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 206,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Histone chaperones assist in:",
+        "options": {
+          "A": "DNA unwinding",
+          "B": "Nucleosome assembly and disassembly",
+          "C": "RNA synthesis",
+          "D": "Protein synthesis",
+          "E": "Lipid transport"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 207,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "CAF-1 (chromatin assembly factor 1) couples:",
+        "options": {
+          "A": "Transcription to translation",
+          "B": "Nucleosome assembly to DNA replication",
+          "C": "DNA repair to recombination",
+          "D": "Mitosis to cytokinesis",
+          "E": "Meiosis to gamete formation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 208,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The end replication problem occurs because:",
+        "options": {
+          "A": "DNA polymerase synthesizes too much",
+          "B": "DNA polymerase cannot fully replicate the ends of linear chromosomes",
+          "C": "Telomeres are too long",
+          "D": "There are too many origins",
+          "E": "Histones block replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 209,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Telomerase is a:",
+        "options": {
+          "A": "DNA polymerase",
+          "B": "Reverse transcriptase that adds telomeric repeats",
+          "C": "RNA polymerase",
+          "D": "Helicase",
+          "E": "Ligase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 210,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The RNA component of telomerase serves as:",
+        "options": {
+          "A": "A primer for DNA polymerase",
+          "B": "A template for telomeric repeat synthesis",
+          "C": "A catalyst for the reaction",
+          "D": "A structural component only",
+          "E": "A degradation signal"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 211,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Telomerase activity is high in:",
+        "options": {
+          "A": "Most somatic cells",
+          "B": "Germ cells, stem cells, and cancer cells",
+          "C": "Neurons only",
+          "D": "Muscle cells only",
+          "E": "All differentiated cells"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 212,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Progressive telomere shortening in somatic cells is associated with:",
+        "options": {
+          "A": "Cancer development",
+          "B": "Cellular senescence and aging",
+          "C": "Enhanced proliferation",
+          "D": "Increased DNA repair",
+          "E": "Stem cell expansion"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 213,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Mitochondrial DNA replication uses:",
+        "options": {
+          "A": "The same machinery as nuclear DNA",
+          "B": "DNA polymerase γ and distinct mechanisms",
+          "C": "RNA polymerase only",
+          "D": "Reverse transcriptase",
+          "E": "No polymerase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 214,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Mitochondrial DNA is:",
+        "options": {
+          "A": "Linear and double-stranded",
+          "B": "Circular and double-stranded",
+          "C": "Linear and single-stranded",
+          "D": "RNA-based",
+          "E": "Protein-based"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 215,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The D-loop is a structure found in:",
+        "options": {
+          "A": "Nuclear DNA replication",
+          "B": "Mitochondrial DNA replication",
+          "C": "Bacterial DNA replication",
+          "D": "Viral DNA replication",
+          "E": "All DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 216,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Rolling circle replication occurs in:",
+        "options": {
+          "A": "Eukaryotic nuclear DNA",
+          "B": "Some viruses and bacteria (plasmids, phages)",
+          "C": "Mitochondrial DNA only",
+          "D": "All linear chromosomes",
+          "E": "Telomeres only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 217,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The template strand is also called the:",
+        "options": {
+          "A": "Coding strand",
+          "B": "Antisense strand",
+          "C": "Sense strand",
+          "D": "Non-template strand",
+          "E": "Promoter strand"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 218,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The coding strand is also called the:",
+        "options": {
+          "A": "Template strand",
+          "B": "Sense strand",
+          "C": "Antisense strand",
+          "D": "Non-coding strand",
+          "E": "RNA strand"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 219,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA contains which base instead of thymine?",
+        "options": {
+          "A": "Cytosine",
+          "B": "Uracil",
+          "C": "Guanine",
+          "D": "Adenine",
+          "E": "Hypoxanthine"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 220,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The sugar in RNA is:",
+        "options": {
+          "A": "Deoxyribose",
+          "B": "Ribose",
+          "C": "Glucose",
+          "D": "Fructose",
+          "E": "Galactose"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 221,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA is typically:",
+        "options": {
+          "A": "Double-stranded",
+          "B": "Single-stranded",
+          "C": "Triple-stranded",
+          "D": "Quadruple-stranded",
+          "E": "Not a nucleic acid"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 222,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The core enzyme of bacterial RNA polymerase consists of:",
+        "options": {
+          "A": "Only α subunits",
+          "B": "Two α, one β, one β' subunits (α₂ββ')",
+          "C": "Only σ subunit",
+          "D": "Only β and β' subunits",
+          "E": "Only ω subunit"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 223,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The sigma (σ) factor is required for:",
+        "options": {
+          "A": "Elongation only",
+          "B": "Promoter recognition and initiation",
+          "C": "Termination only",
+          "D": "RNA processing",
+          "E": "DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 224,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The holoenzyme of bacterial RNA polymerase includes:",
+        "options": {
+          "A": "Only core enzyme",
+          "B": "Core enzyme plus sigma factor",
+          "C": "Only sigma factor",
+          "D": "Only α subunits",
+          "E": "Only β subunits"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 225,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "After initiation, the sigma factor:",
+        "options": {
+          "A": "Remains bound throughout transcription",
+          "B": "Is released, and core enzyme continues elongation",
+          "C": "Is degraded",
+          "D": "Binds to DNA permanently",
+          "E": "Becomes part of the RNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 226,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Eukaryotic RNA polymerases require general transcription factors because:",
+        "options": {
+          "A": "They cannot bind DNA at all",
+          "B": "They cannot bind DNA or open the double helix on their own",
+          "C": "They synthesize RNA too quickly",
+          "D": "They proofread DNA",
+          "E": "They replicate DNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 227,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "TFIID binds to which element in eukaryotic promoters?",
+        "options": {
+          "A": "CAAT box",
+          "B": "TATA box",
+          "C": "GC box",
+          "D": "Enhancer",
+          "E": "Silencer"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 228,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "TBP (TATA-binding protein) is a subunit of:",
+        "options": {
+          "A": "RNA polymerase I",
+          "B": "TFIID",
+          "C": "TFIIH only",
+          "D": "RNA polymerase III",
+          "E": "The spliceosome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 229,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "TFIIH has which enzymatic activity?",
+        "options": {
+          "A": "DNA polymerase",
+          "B": "Helicase and kinase activities",
+          "C": "Ligase",
+          "D": "Primase",
+          "E": "Protease"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 230,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The CTD (C-terminal domain) of RNA polymerase II is important for:",
+        "options": {
+          "A": "DNA unwinding only",
+          "B": "Coupling transcription to RNA processing",
+          "C": "Termination only",
+          "D": "Initiation only",
+          "E": "DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 231,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Phosphorylation of the CTD is required for:",
+        "options": {
+          "A": "Promoter binding",
+          "B": "Transition from initiation to elongation",
+          "C": "Termination only",
+          "D": "RNA export only",
+          "E": "DNA repair"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 232,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Enhancers are regulatory sequences that:",
+        "options": {
+          "A": "Decrease transcription",
+          "B": "Increase transcription and can be far from the promoter",
+          "C": "Block transcription",
+          "D": "Are only found in prokaryotes",
+          "E": "Are only found in promoters"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 233,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Silencers are regulatory sequences that:",
+        "options": {
+          "A": "Increase transcription",
+          "B": "Decrease transcription",
+          "C": "Have no effect on transcription",
+          "D": "Are only found in eukaryotes",
+          "E": "Are only found in prokaryotes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 234,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Insulators function to:",
+        "options": {
+          "A": "Increase transcription",
+          "B": "Block enhancer-promoter communication and prevent spread of heterochromatin",
+          "C": "Decrease transcription only",
+          "D": "Promote DNA replication",
+          "E": "Inhibit translation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 235,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Abortive initiation refers to:",
+        "options": {
+          "A": "Successful transcription",
+          "B": "Synthesis and release of short RNA transcripts before promoter escape",
+          "C": "Termination of transcription",
+          "D": "RNA processing",
+          "E": "DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 236,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Promoter clearance (escape) involves:",
+        "options": {
+          "A": "Binding of RNA polymerase to promoter",
+          "B": "Transition to stable elongation complex",
+          "C": "Termination of transcription",
+          "D": "RNA splicing",
+          "E": "DNA repair"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 237,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "During elongation, RNA polymerase moves along DNA at approximately:",
+        "options": {
+          "A": "1-10 nucleotides/sec",
+          "B": "20-50 nucleotides/sec (varies)",
+          "C": "1000 nucleotides/sec",
+          "D": "10,000 nucleotides/sec",
+          "E": "1 nucleotide/min"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 238,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Transcriptional pausing allows for:",
+        "options": {
+          "A": "Permanent termination",
+          "B": "Regulation and coordination with RNA processing",
+          "C": "DNA replication",
+          "D": "Protein synthesis",
+          "E": "Permanent arrest"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 239,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Backtracking occurs when:",
+        "options": {
+          "A": "RNA polymerase moves forward",
+          "B": "RNA polymerase moves backward, displacing the 3' end of RNA from the active site",
+          "C": "Transcription is completed",
+          "D": "RNA is exported",
+          "E": "DNA is replicated"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 240,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "GreA and GreB in bacteria help resolve:",
+        "options": {
+          "A": "DNA supercoiling",
+          "B": "Backtracked RNA polymerase",
+          "C": "RNA splicing",
+          "D": "DNA replication",
+          "E": "Translation initiation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 241,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "TFIIS in eukaryotes helps resolve:",
+        "options": {
+          "A": "DNA damage",
+          "B": "Backtracked RNA polymerase II",
+          "C": "RNA export",
+          "D": "DNA replication",
+          "E": "Protein folding"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 242,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Intrinsic (Rho-independent) terminators in bacteria contain:",
+        "options": {
+          "A": "Only A-rich sequence",
+          "B": "GC-rich hairpin followed by U-rich sequence",
+          "C": "AT-rich hairpin",
+          "D": "No specific sequence",
+          "E": "Only protein-binding sites"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 243,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The hairpin in Rho-independent termination causes:",
+        "options": {
+          "A": "Increased transcription",
+          "B": "RNA polymerase to pause and destabilize the complex",
+          "C": "Enhanced elongation",
+          "D": "RNA export",
+          "E": "DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 244,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Rho protein is a:",
+        "options": {
+          "A": "DNA polymerase",
+          "B": "ATP-dependent helicase/translocase",
+          "C": "RNA polymerase subunit",
+          "D": "DNA helicase",
+          "E": "Ligase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 245,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Rho binds to:",
+        "options": {
+          "A": "Double-stranded DNA",
+          "B": "Rut (Rho utilization) site on nascent RNA",
+          "C": "The promoter",
+          "D": "The terminator DNA sequence",
+          "E": "Proteins only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 246,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Cleavage and polyadenylation specificity factor (CPSF) recognizes:",
+        "options": {
+          "A": "TATA box",
+          "B": "AAUAAA polyadenylation signal",
+          "C": "5' cap",
+          "D": "Splice sites",
+          "E": "Promoter"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 247,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "CstF (cleavage stimulation factor) binds to:",
+        "options": {
+          "A": "AAUAAA",
+          "B": "GU/U-rich downstream element",
+          "C": "TATA box",
+          "D": "5' cap",
+          "E": "Splice donor site"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 248,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Poly(A) polymerase (PAP) adds:",
+        "options": {
+          "A": "GMP residues",
+          "B": "AMP residues to the 3' end",
+          "C": "CMP residues",
+          "D": "UMP residues",
+          "E": "TMP residues"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 249,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "Termination of RNA pol II transcription is coupled to:",
+        "options": {
+          "A": "Initiation",
+          "B": "3' end processing (cleavage and polyadenylation)",
+          "C": "5' capping",
+          "D": "Splicing only",
+          "E": "Translation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 250,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The torpedo model of transcription termination involves:",
+        "options": {
+          "A": "RNA polymerase moving faster",
+          "B": "Rat1/Xrn2 exonuclease degrading RNA and catching up to polymerase",
+          "C": "RNA polymerase moving slower",
+          "D": "DNA repair enzymes",
+          "E": "Ribosomes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 251,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Pre-mRNA refers to:",
+        "options": {
+          "A": "Fully processed mRNA",
+          "B": "The initial transcript before processing",
+          "C": "mRNA in the cytoplasm",
+          "D": "mRNA being translated",
+          "E": "Degraded mRNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 252,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The 5' cap structure is:",
+        "options": {
+          "A": "5'-5' triphosphate linkage of 7-methylguanosine",
+          "B": "5'-5' triphosphate linkage",
+          "C": "3'-5' phosphodiester bond",
+          "D": "2'-5' linkage",
+          "E": "No special linkage"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 253,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Capping occurs co-transcriptionally, meaning:",
+        "options": {
+          "A": "After transcription ends",
+          "B": "While RNA is still being synthesized",
+          "C": "Before transcription begins",
+          "D": "In the cytoplasm only",
+          "E": "After splicing"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 254,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The capping enzyme (guanylyltransferase) adds:",
+        "options": {
+          "A": "ATP",
+          "B": "GMP from GTP to the 5' end",
+          "C": "CTP",
+          "D": "UTP",
+          "E": "TTP"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 255,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Methylation of the cap occurs at position:",
+        "options": {
+          "A": "Only the ribose of the first nucleotide",
+          "B": "Position 7 of guanine and possibly ribose of first nucleotides",
+          "C": "Only the phosphate",
+          "D": "Only the base of the first nucleotide",
+          "E": "No methylation occurs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 256,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Cap binding complex (CBC) binds to:",
+        "options": {
+          "A": "The 3' end of RNA",
+          "B": "The 5' cap",
+          "C": "The poly-A tail",
+          "D": "Splice sites",
+          "E": "The promoter"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 257,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The poly-A tail is added to the:",
+        "options": {
+          "A": "5' end",
+          "B": "3' end",
+          "C": "Middle of the RNA",
+          "D": "Splice sites",
+          "E": "Cap site"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 258,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Polyadenylation signals are found in:",
+        "options": {
+          "A": "All RNAs",
+          "B": "Most protein-coding mRNAs (not histone mRNAs)",
+          "C": "Only rRNAs",
+          "D": "Only tRNAs",
+          "E": "Only snRNAs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 259,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Histone mRNAs are processed differently because they:",
+        "options": {
+          "A": "Have a poly-A tail",
+          "B": "End in a stem-loop structure instead of poly-A tail",
+          "C": "Are not capped",
+          "D": "Are not spliced",
+          "E": "Are degraded immediately"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 260,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Introns are removed by:",
+        "options": {
+          "A": "Ribosomes",
+          "B": "The spliceosome",
+          "C": "RNA polymerase",
+          "D": "DNA polymerase",
+          "E": "Helicase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 261,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The spliceosome is composed of:",
+        "options": {
+          "A": "Only proteins",
+          "B": "snRNPs (small nuclear ribonucleoproteins) and proteins",
+          "C": "Only RNA",
+          "D": "Only DNA",
+          "E": "Ribosomal subunits"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 262,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "snRNPs are composed of:",
+        "options": {
+          "A": "Only protein",
+          "B": "snRNA (small nuclear RNA) and proteins",
+          "C": "Only DNA",
+          "D": "Ribosomal RNA only",
+          "E": "mRNA only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 263,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "U1 snRNP recognizes the:",
+        "options": {
+          "A": "3' splice site",
+          "B": "5' splice site",
+          "C": "Branch point",
+          "D": "Poly-A signal",
+          "E": "TATA box"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 264,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "U2 snRNP recognizes the:",
+        "options": {
+          "A": "5' splice site",
+          "B": "Branch point sequence",
+          "C": "3' splice site",
+          "D": "Poly-A signal",
+          "E": "TATA box"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 265,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The branch point adenosine forms a:",
+        "options": {
+          "A": "3'-5' phosphodiester bond",
+          "B": "2'-5' phosphodiester bond (lariat structure)",
+          "C": "Peptide bond",
+          "D": "Glycosidic bond",
+          "E": "Hydrogen bond only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 266,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The lariat structure is formed during:",
+        "options": {
+          "A": "Capping",
+          "B": "First step of splicing",
+          "C": "Polyadenylation",
+          "D": "Translation",
+          "E": "DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 267,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The spliceosome catalyzes:",
+        "options": {
+          "A": "Two transesterification reactions",
+          "B": "Two transesterification reactions to join exons and release intron",
+          "C": "Hydrolysis reactions",
+          "D": "Phosphorylation",
+          "E": "DNA recombination"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 268,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Exon junction complexes (EJCs) are deposited:",
+        "options": {
+          "A": "At the 5' cap",
+          "B": "Upstream of exon-exon junctions after splicing",
+          "C": "At the poly-A tail",
+          "D": "In introns",
+          "E": "At the promoter"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 269,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "EJCs function in:",
+        "options": {
+          "A": "DNA replication",
+          "B": "Nonsense-mediated decay and mRNA export/translation",
+          "C": "Transcription initiation",
+          "D": "Protein folding",
+          "E": "Lipid metabolism"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 270,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Nonsense-mediated decay (NMD) degrades:",
+        "options": {
+          "A": "All mRNAs",
+          "B": "mRNAs with premature stop codons",
+          "C": "Only rRNAs",
+          "D": "Only tRNAs",
+          "E": "Only snRNAs"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 271,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Alternative splicing can produce different mRNAs by:",
+        "options": {
+          "A": "Changing the DNA sequence",
+          "B": "Including or excluding different exons",
+          "C": "Changing the promoter",
+          "D": "Modifying the poly-A tail only",
+          "E": "Removing the 5' cap"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 272,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Approximately what percentage of human genes undergo alternative splicing?",
+        "options": {
+          "A": "Less than 10%",
+          "B": "Over 95%",
+          "C": "Exactly 50%",
+          "D": "Only 25%",
+          "E": "No genes undergo alternative splicing"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 273,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "RNA editing changes:",
+        "options": {
+          "A": "DNA sequence",
+          "B": "RNA sequence after transcription",
+          "C": "Protein sequence after translation",
+          "D": "Lipid composition",
+          "E": "Carbohydrate structure"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 274,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "APOBEC1 edits the apolipoprotein B mRNA by:",
+        "options": {
+          "A": "Adding a base",
+          "B": "C to U deamination",
+          "C": "A to G change",
+          "D": "Deleting a base",
+          "E": "Adding a cap"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 275,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "RNA transport from nucleus to cytoplasm occurs through:",
+        "options": {
+          "A": "Passive diffusion",
+          "B": "Nuclear pore complexes",
+          "C": "Vesicle transport",
+          "D": "Direct membrane passage",
+          "E": "Mitochondrial pores"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 276,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "TAP/NXF1 is an export receptor for:",
+        "options": {
+          "A": "rRNA",
+          "B": "mRNA",
+          "C": "tRNA",
+          "D": "snRNA",
+          "E": "miRNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 277,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "mRNA localization to specific cellular regions is important for:",
+        "options": {
+          "A": "DNA replication",
+          "B": "Local protein synthesis and cell polarity",
+          "C": "RNA degradation only",
+          "D": "Transcription regulation",
+          "E": "Lipid metabolism"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 278,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "mRNA stability is regulated by:",
+        "options": {
+          "A": "Only the 5' cap",
+          "B": "Sequences in the 3' UTR and binding proteins",
+          "C": "Only the coding sequence",
+          "D": "Only introns",
+          "E": "The promoter only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 279,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "AU-rich elements (AREs) in the 3' UTR generally:",
+        "options": {
+          "A": "Stabilize mRNA",
+          "B": "Destabilize mRNA and promote degradation",
+          "C": "Have no effect",
+          "D": "Promote translation only",
+          "E": "Prevent export"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 280,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "MicroRNAs (miRNAs) regulate gene expression by:",
+        "options": {
+          "A": "Activating transcription",
+          "B": "Binding to target mRNAs and promoting degradation or translational repression",
+          "C": "Synthesizing proteins",
+          "D": "Replicating DNA",
+          "E": "Splicing pre-mRNA"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 281,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "miRNAs are processed by:",
+        "options": {
+          "A": "Only Dicer",
+          "B": "Drosha in nucleus and Dicer in cytoplasm",
+          "C": "Only Drosha",
+          "D": "RNA polymerase II only",
+          "E": "The spliceosome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 282,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "RNA interference (RNAi) is a mechanism of:",
+        "options": {
+          "A": "Gene activation",
+          "B": "Gene silencing",
+          "C": "DNA replication",
+          "D": "Protein synthesis enhancement",
+          "E": "Chromosome condensation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 283,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Small interfering RNAs (siRNAs) are:",
+        "options": {
+          "A": "Endogenous regulators",
+          "B": "Often exogenous (viral or experimental) that trigger RNAi",
+          "C": "Only found in prokaryotes",
+          "D": "Only found in mitochondria",
+          "E": "Not involved in gene regulation"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 284,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "RNA-induced silencing complex (RISC) contains:",
+        "options": {
+          "A": "Only miRNA",
+          "B": "Argonaute protein and small RNA",
+          "C": "Only siRNA",
+          "D": "RNA polymerase",
+          "E": "DNA polymerase"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 285,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Argonaute protein in RISC has:",
+        "options": {
+          "A": "Polymerase activity",
+          "B": "Slicer (endonuclease) activity",
+          "C": "Helicase activity",
+          "D": "Ligase activity",
+          "E": "Primase activity"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 286,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "piRNAs (PIWI-interacting RNAs) function primarily in:",
+        "options": {
+          "A": "Somatic cells",
+          "B": "Germ cells to silence transposable elements",
+          "C": "Neurons only",
+          "D": "Muscle cells only",
+          "E": "Liver cells only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 287,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Long non-coding RNAs (lncRNAs) are defined as:",
+        "options": {
+          "A": "RNAs shorter than 200 nucleotides",
+          "B": "RNAs longer than 200 nucleotides that do not code for proteins",
+          "C": "rRNAs only",
+          "D": "tRNAs only",
+          "E": "mRNAs only"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 288,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Xist RNA is involved in:",
+        "options": {
+          "A": "Activating X chromosome",
+          "B": "X chromosome inactivation",
+          "C": "Y chromosome inactivation",
+          "D": "Autosome regulation",
+          "E": "Mitochondrial DNA replication"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 289,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Barr body is:",
+        "options": {
+          "A": "An active X chromosome",
+          "B": "An inactive X chromosome in female cells",
+          "C": "A Y chromosome",
+          "D": "An autosome",
+          "E": "A mitochondrial chromosome"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 290,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Dosage compensation in mammals is achieved by:",
+        "options": {
+          "A": "Doubling X chromosome expression in females",
+          "B": "Inactivating one X chromosome in females",
+          "C": "Inactivating both X chromosomes",
+          "D": "Activating Y chromosome",
+          "E": "Deleting X chromosome genes"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 291,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Both replication and transcription require:",
+        "options": {
+          "A": "Only DNA template",
+          "B": "DNA template and nucleotide substrates",
+          "C": "Only RNA template",
+          "D": "Only protein template",
+          "E": "Lipid substrates"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 292,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Both replication and transcription occur in the:",
+        "options": {
+          "A": "Cytoplasm only",
+          "B": "Nucleus (in eukaryotes)",
+          "C": "Mitochondria only",
+          "D": "Cell membrane",
+          "E": "Endoplasmic reticulum"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 293,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Both processes synthesize new strands in the:",
+        "options": {
+          "A": "3' to 5' direction",
+          "B": "5' to 3' direction",
+          "C": "Both directions",
+          "D": "Random direction",
+          "E": "No specific direction"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 294,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Both processes use which chemical mechanism for polymerization?",
+        "options": {
+          "A": "Hydrolysis",
+          "B": "Nucleophilic attack by 3'-OH on α-phosphate of incoming nucleotide",
+          "C": "Oxidation",
+          "D": "Reduction",
+          "E": "Isomerization"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 295,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Both processes release what as a byproduct?",
+        "options": {
+          "A": "ATP",
+          "B": "Pyrophosphate (PPi)",
+          "C": "Carbon dioxide",
+          "D": "Water",
+          "E": "Oxygen"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 296,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The main difference in sugar between replication and transcription products is:",
+        "options": {
+          "A": "Both use ribose",
+          "B": "Replication produces deoxyribose-containing DNA; transcription produces ribose-containing RNA",
+          "C": "Both use deoxyribose",
+          "D": "Replication uses ribose; transcription uses deoxyribose",
+          "E": "Neither uses sugar"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 297,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication uses dNTPs; transcription uses:",
+        "options": {
+          "A": "dNTPs",
+          "B": "NTPs (ribonucleoside triphosphates)",
+          "C": "Amino acids",
+          "D": "Fatty acids",
+          "E": "Monosaccharides"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 298,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The error rate of replication is approximately:",
+        "options": {
+          "A": "10⁻³",
+          "B": "10⁻⁹ to 10⁻¹⁰ after proofreading",
+          "C": "10⁻¹",
+          "D": "10⁻⁵",
+          "E": "No errors occur"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 299,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The error rate of transcription is approximately:",
+        "options": {
+          "A": "10⁻⁹",
+          "B": "10⁻⁴ to 10⁻⁵",
+          "C": "10⁻¹⁰",
+          "D": "No errors occur",
+          "E": "10⁻¹"
+        },
+        "correct_answer": "B"
+      },
+      {
+        "id": 300,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Why is a lower fidelity acceptable in transcription compared to replication?",
+        "options": {
+          "A": "RNA is permanent",
+          "B": "RNA is temporary and multiple copies are made; errors are not inherited",
+          "C": "RNA is the genetic material",
+          "D": "Errors in RNA affect all cells",
+          "E": "RNA is not important"
+        },
+        "correct_answer": "B"
+      }
+    ],
+    "fill_blank_questions": [
+      {
+        "id": 1,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromosomes are threadlike structures located in the _______ of animal and plant cells.",
+        "correct_answer": "nucleus"
+      },
+      {
+        "id": 2,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Each chromosome is made of protein and a single molecule of _______.",
+        "correct_answer": "deoxyribonucleic acid"
+      },
+      {
+        "id": 3,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The abbreviation for deoxyribonucleic acid is _______.",
+        "correct_answer": "DNA"
+      },
+      {
+        "id": 4,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromosomes carry genetic instructions called _______ necessary for development and reproduction.",
+        "correct_answer": "genes"
+      },
+      {
+        "id": 5,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Humans are _______ organisms, meaning they have two sets of chromosomes.",
+        "correct_answer": "diploid"
+      },
+      {
+        "id": 6,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "A typical human somatic cell has _______ chromosomes arranged into 23 pairs.",
+        "correct_answer": "46"
+      },
+      {
+        "id": 7,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Of the 23 pairs of human chromosomes, _______ pairs are autosomes.",
+        "correct_answer": "22"
+      },
+      {
+        "id": 8,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Autosomes are numbered from _______ to 22.",
+        "correct_answer": "1"
+      },
+      {
+        "id": 9,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The sex chromosomes in females are designated as _______.",
+        "correct_answer": "XX"
+      },
+      {
+        "id": 10,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The sex chromosomes in males are designated as _______.",
+        "correct_answer": "XY"
+      },
+      {
+        "id": 11,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "________ are two identical copies of a chromosome joined together after DNA replication.",
+        "correct_answer": "Chromatids"
+      },
+      {
+        "id": 12,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The _______ is the constriction point where sister chromatids are joined.",
+        "correct_answer": "centromere"
+      },
+      {
+        "id": 13,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Spindle fibers attach to chromosomes at the _______ during cell division.",
+        "correct_answer": "centromere"
+      },
+      {
+        "id": 14,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "________ are protective caps at the ends of chromosomes that prevent degradation.",
+        "correct_answer": "Telomeres"
+      },
+      {
+        "id": 15,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The short arm of a chromosome is designated as the _______ arm.",
+        "correct_answer": "p"
+      },
+      {
+        "id": 16,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The long arm of a chromosome is designated as the _______ arm.",
+        "correct_answer": "q"
+      },
+      {
+        "id": 17,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The p and q arms are divided by the _______.",
+        "correct_answer": "centromere"
+      },
+      {
+        "id": 18,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chromosomal abnormalities occur due to changes in the number or _______ of chromosomes.",
+        "correct_answer": "structure"
+      },
+      {
+        "id": 19,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chromosomal abnormalities can arise during cell division, specifically _______ or mitosis.",
+        "correct_answer": "meiosis"
+      },
+      {
+        "id": 20,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ involve a missing or extra chromosome and are usually due to nondisjunction.",
+        "correct_answer": "Numerical abnormalities"
+      },
+      {
+        "id": 21,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "The term for having a missing or extra chromosome is _______.",
+        "correct_answer": "aneuploidy"
+      },
+      {
+        "id": 22,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is the failure of chromosomes to separate properly during cell division.",
+        "correct_answer": "Nondisjunction"
+      },
+      {
+        "id": 23,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is the loss of one chromosome (2n-1).",
+        "correct_answer": "Monosomy"
+      },
+      {
+        "id": 24,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Turner syndrome is an example of monosomy with karyotype _______.",
+        "correct_answer": "45,X"
+      },
+      {
+        "id": 25,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "A female with Turner syndrome is born with only one _______ chromosome.",
+        "correct_answer": "X"
+      },
+      {
+        "id": 26,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is the gain of an extra chromosome (2n+1).",
+        "correct_answer": "Trisomy"
+      },
+      {
+        "id": 27,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Down syndrome is also called _______ 21.",
+        "correct_answer": "Trisomy"
+      },
+      {
+        "id": 28,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Individuals with Down syndrome have _______ copies of chromosome 21.",
+        "correct_answer": "three"
+      },
+      {
+        "id": 29,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome is also known as Trisomy 18.",
+        "correct_answer": "Edward"
+      },
+      {
+        "id": 30,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome is also known as Trisomy 13.",
+        "correct_answer": "Patau"
+      },
+      {
+        "id": 31,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is having more than two complete sets of chromosomes.",
+        "correct_answer": "Polyploidy"
+      },
+      {
+        "id": 32,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ means having three sets of chromosomes.",
+        "correct_answer": "Triploidy"
+      },
+      {
+        "id": 33,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Polyploidy is usually _______ in humans.",
+        "correct_answer": "lethal"
+      },
+      {
+        "id": 34,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ abnormalities result from breakage and rearrangement of chromosome segments.",
+        "correct_answer": "Structural"
+      },
+      {
+        "id": 35,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Advanced _______ age is a risk factor for chromosomal abnormalities.",
+        "correct_answer": "maternal"
+      },
+      {
+        "id": 36,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Exposure to _______ can cause chromosomal abnormalities.",
+        "correct_answer": "radiation"
+      },
+      {
+        "id": 37,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ chemicals can lead to chromosomal abnormalities.",
+        "correct_answer": "Mutagenic"
+      },
+      {
+        "id": 38,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Errors in DNA _______ mechanisms can cause chromosomal abnormalities.",
+        "correct_answer": "repair"
+      },
+      {
+        "id": 39,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is when a portion of the chromosome is missing.",
+        "correct_answer": "Deletion"
+      },
+      {
+        "id": 40,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Cridu-chat syndrome is caused by deletion on chromosome _______.",
+        "correct_answer": "5"
+      },
+      {
+        "id": 41,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is when a chromosome segment is repeated.",
+        "correct_answer": "Duplication"
+      },
+      {
+        "id": 42,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is when a chromosome segment is reversed end-to-end.",
+        "correct_answer": "Inversion"
+      },
+      {
+        "id": 43,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is when a segment breaks off and attaches to a different, non-homologous chromosome.",
+        "correct_answer": "Translocation"
+      },
+      {
+        "id": 44,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ translocation can cause recurrent miscarriages.",
+        "correct_answer": "Robertsonian"
+      },
+      {
+        "id": 45,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is used to diagnose chromosomal abnormalities by visualizing chromosomes.",
+        "correct_answer": "Karyotyping"
+      },
+      {
+        "id": 46,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ (fluorescence in situ hybridization) uses fluorescent probes to detect chromosomal abnormalities.",
+        "correct_answer": "FISH"
+      },
+      {
+        "id": 47,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ analysis can detect submicroscopic chromosomal abnormalities.",
+        "correct_answer": "Chromosomal microarray"
+      },
+      {
+        "id": 48,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "DNA replication and transcription are _______-driven processes.",
+        "correct_answer": "enzyme"
+      },
+      {
+        "id": 49,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "Both DNA replication and transcription use _______ as a template.",
+        "correct_answer": "DNA"
+      },
+      {
+        "id": 50,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "DNA replication ensures duplication of the entire _______ before cell division.",
+        "correct_answer": "genome"
+      },
+      {
+        "id": 51,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "Transcription selectively copies specific genes into _______ molecules.",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 52,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA replication is described as _______ conservative.",
+        "correct_answer": "semi"
+      },
+      {
+        "id": 53,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Each new DNA molecule consists of one _______ strand and one newly synthesized strand.",
+        "correct_answer": "original"
+      },
+      {
+        "id": 54,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "_________ unwinds the DNA double helix by breaking hydrogen bonds.",
+        "correct_answer": "Helicase"
+      },
+      {
+        "id": 55,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "Helicase creates a replication _______ at the site of unwinding.",
+        "correct_answer": "fork"
+      },
+      {
+        "id": 56,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "_________-strand binding proteins stabilize single-stranded DNA.",
+        "correct_answer": "Single"
+      },
+      {
+        "id": 57,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The abbreviation for single-strand binding proteins is _______.",
+        "correct_answer": "SSBs"
+      },
+      {
+        "id": 58,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "_________ relieves supercoiling ahead of the replication fork.",
+        "correct_answer": "Topoisomerase"
+      },
+      {
+        "id": 59,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA _______ is a type of topoisomerase found in bacteria.",
+        "correct_answer": "gyrase"
+      },
+      {
+        "id": 60,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "_________ synthesizes short RNA primers.",
+        "correct_answer": "Primase"
+      },
+      {
+        "id": 61,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "RNA primers are approximately _______ nucleotides long.",
+        "correct_answer": "10"
+      },
+      {
+        "id": 62,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "RNA primers provide a free _______-OH group for DNA polymerases.",
+        "correct_answer": "3'"
+      },
+      {
+        "id": 63,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "In prokaryotes, DNA polymerase _______ is the main replicative polymerase.",
+        "correct_answer": "III"
+      },
+      {
+        "id": 64,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "In eukaryotes, DNA polymerase _______ and ε are the main replicative polymerases.",
+        "correct_answer": "δ"
+      },
+      {
+        "id": 65,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerases add nucleotides in the _______ to 3' direction.",
+        "correct_answer": "5'"
+      },
+      {
+        "id": 66,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerases proofread using _______ to 5' exonuclease activity.",
+        "correct_answer": "3'"
+      },
+      {
+        "id": 67,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerase _______ in prokaryotes removes RNA primers and fills gaps.",
+        "correct_answer": "I"
+      },
+      {
+        "id": 68,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "_________ seals nicks between Okazaki fragments.",
+        "correct_answer": "Ligase"
+      },
+      {
+        "id": 69,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The three steps of replication are initiation, _______, and termination.",
+        "correct_answer": "elongation"
+      },
+      {
+        "id": 70,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Replication begins at specific sequences called origins of _______.",
+        "correct_answer": "replication"
+      },
+      {
+        "id": 71,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "In E. coli, the origin of replication is called _______.",
+        "correct_answer": "oriC"
+      },
+      {
+        "id": 72,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Eukaryotes use _______ origins to speed up replication.",
+        "correct_answer": "multiple"
+      },
+      {
+        "id": 73,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The replication fork proceeds _______ (in both directions).",
+        "correct_answer": "bidirectionally"
+      },
+      {
+        "id": 74,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The _______ strand is synthesized continuously.",
+        "correct_answer": "leading"
+      },
+      {
+        "id": 75,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The _______ strand is synthesized discontinuously as Okazaki fragments.",
+        "correct_answer": "lagging"
+      },
+      {
+        "id": 76,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "_________ fragments are short DNA segments synthesized on the lagging strand.",
+        "correct_answer": "Okazaki"
+      },
+      {
+        "id": 77,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "In prokaryotes, termination is controlled by _______ sites and the Tus protein.",
+        "correct_answer": "Ter"
+      },
+      {
+        "id": 78,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Prokaryotic DNA is typically _______ in shape.",
+        "correct_answer": "circular"
+      },
+      {
+        "id": 79,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Eukaryotic chromosomes are _______.",
+        "correct_answer": "linear"
+      },
+      {
+        "id": 80,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Prokaryotes have a _______ origin of replication.",
+        "correct_answer": "single"
+      },
+      {
+        "id": 81,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Prokaryotic replication rate is approximately _______ nucleotides per second.",
+        "correct_answer": "1000"
+      },
+      {
+        "id": 82,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Eukaryotic replication rate is approximately _______ nucleotides per second.",
+        "correct_answer": "50"
+      },
+      {
+        "id": 83,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "In eukaryotes, _______ and FEN1 are involved in primer removal.",
+        "correct_answer": "RNase H1"
+      },
+      {
+        "id": 84,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "_________ are present at the ends of eukaryotic chromosomes.",
+        "correct_answer": "Telomeres"
+      },
+      {
+        "id": 85,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "_________ extends telomere ends to prevent shortening.",
+        "correct_answer": "Telomerase"
+      },
+      {
+        "id": 86,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Transcription is the synthesis of _______ from a DNA template.",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 87,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Only one strand of DNA, the _______ strand, is transcribed.",
+        "correct_answer": "template"
+      },
+      {
+        "id": 88,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The RNA produced is complementary to the _______ strand.",
+        "correct_answer": "template"
+      },
+      {
+        "id": 89,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA is identical to the _______ strand (with U instead of T).",
+        "correct_answer": "coding"
+      },
+      {
+        "id": 90,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase catalyzes _______ bond formation.",
+        "correct_answer": "phosphodiester"
+      },
+      {
+        "id": 91,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase does NOT require a _______ to initiate transcription.",
+        "correct_answer": "primer"
+      },
+      {
+        "id": 92,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Bacteria have a _______ RNA polymerase.",
+        "correct_answer": "single"
+      },
+      {
+        "id": 93,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Eukaryotes have _______ main RNA polymerases.",
+        "correct_answer": "three"
+      },
+      {
+        "id": 94,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase I transcribes _______ genes (except 5S).",
+        "correct_answer": "rRNA"
+      },
+      {
+        "id": 95,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase II transcribes _______ and most snRNAs.",
+        "correct_answer": "mRNA"
+      },
+      {
+        "id": 96,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "RNA polymerase III transcribes _______, 5S rRNA, and other small RNAs.",
+        "correct_answer": "tRNA"
+      },
+      {
+        "id": 97,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "A _______ is a DNA sequence upstream of a gene where RNA polymerase binds.",
+        "correct_answer": "promoter"
+      },
+      {
+        "id": 98,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Prokaryotic promoters have a -10 box called the _______ box.",
+        "correct_answer": "Pribnow"
+      },
+      {
+        "id": 99,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Prokaryotic promoters also have a _______ box at position -35.",
+        "correct_answer": "-35"
+      },
+      {
+        "id": 100,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "Eukaryotic RNA pol II promoters contain a _______ box around position -30.",
+        "correct_answer": "TATA"
+      },
+      {
+        "id": 101,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "_________ factors assist RNA polymerase in binding and initiating transcription.",
+        "correct_answer": "Transcription"
+      },
+      {
+        "id": 102,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The three steps of transcription are initiation, elongation, and _______.",
+        "correct_answer": "termination"
+      },
+      {
+        "id": 103,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "RNA polymerase first forms a _______ complex with the promoter.",
+        "correct_answer": "closed"
+      },
+      {
+        "id": 104,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "DNA strands separate to form an _______ complex.",
+        "correct_answer": "open"
+      },
+      {
+        "id": 105,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "The first ribonucleotide added is usually a _______ (purine).",
+        "correct_answer": "purine"
+      },
+      {
+        "id": 106,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "RNA polymerase synthesizes RNA in the _______ to 3' direction.",
+        "correct_answer": "5'"
+      },
+      {
+        "id": 107,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "A short _______-DNA hybrid forms transiently during elongation.",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 108,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "_________-dependent termination involves Rho protein helicase.",
+        "correct_answer": "Rho"
+      },
+      {
+        "id": 109,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "_________-independent termination involves a hairpin followed by U-rich sequence.",
+        "correct_answer": "Rho"
+      },
+      {
+        "id": 110,
+        "topic": "Topic 8: Transcription - Steps and Mechanism",
+        "question": "RNA pol II transcribes past the _______ signal (AAUAAA).",
+        "correct_answer": "polyadenylation"
+      },
+      {
+        "id": 111,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "5' capping adds a methylated _______ cap.",
+        "correct_answer": "guanosine"
+      },
+      {
+        "id": 112,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The 5' cap protects RNA from _______ and aids ribosome binding.",
+        "correct_answer": "degradation"
+      },
+      {
+        "id": 113,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "3' polyadenylation adds a poly-______ tail.",
+        "correct_answer": "A"
+      },
+      {
+        "id": 114,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The poly-A tail contains approximately _______ A residues.",
+        "correct_answer": "200"
+      },
+      {
+        "id": 115,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The poly-A tail enhances stability and _______.",
+        "correct_answer": "export"
+      },
+      {
+        "id": 116,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "_________ are non-coding sequences removed during splicing.",
+        "correct_answer": "Introns"
+      },
+      {
+        "id": 117,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "_________ are coding sequences joined together during splicing.",
+        "correct_answer": "Exons"
+      },
+      {
+        "id": 118,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "Splicing is carried out by the _______.",
+        "correct_answer": "spliceosome"
+      },
+      {
+        "id": 119,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "The spliceosome consists of snRNPs and associated _______.",
+        "correct_answer": "proteins"
+      },
+      {
+        "id": 120,
+        "topic": "Topic 9: Post-Transcriptional Processing in Eukaryotes",
+        "question": "_________ splicing allows one gene to produce multiple protein isoforms.",
+        "correct_answer": "Alternative"
+      },
+      {
+        "id": 121,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The purpose of replication is to _______ the entire genome.",
+        "correct_answer": "duplicate"
+      },
+      {
+        "id": 122,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The purpose of transcription is to produce _______ copies of genes.",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 123,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication uses _______ DNA strands as template.",
+        "correct_answer": "both"
+      },
+      {
+        "id": 124,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription uses _______ DNA strand as template.",
+        "correct_answer": "one"
+      },
+      {
+        "id": 125,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication requires an RNA _______.",
+        "correct_answer": "primer"
+      },
+      {
+        "id": 126,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription requires _______ primer.",
+        "correct_answer": "no"
+      },
+      {
+        "id": 127,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication enzymes include DNA polymerases, helicase, primase, and _______.",
+        "correct_answer": "ligase"
+      },
+      {
+        "id": 128,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription enzymes include _______ polymerases.",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 129,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The product of replication is _______ (double-stranded).",
+        "correct_answer": "DNA"
+      },
+      {
+        "id": 130,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "The product of transcription is _______ (single-stranded).",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 131,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication copies the entire genome _______ per cell cycle.",
+        "correct_answer": "once"
+      },
+      {
+        "id": 132,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription copies only _______ regions and can be repeated.",
+        "correct_answer": "selected"
+      },
+      {
+        "id": 133,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Replication fidelity is _______ (very high) due to proofreading.",
+        "correct_answer": "high"
+      },
+      {
+        "id": 134,
+        "topic": "Topic 10: Comparison of Replication and Transcription",
+        "question": "Transcription fidelity is _______; errors are tolerated.",
+        "correct_answer": "lower"
+      },
+      {
+        "id": 135,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "The study of chromosomes and their inheritance is called _______.",
+        "correct_answer": "cytogenetics"
+      },
+      {
+        "id": 136,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Chromosomes are most easily visualized during _______ of cell division.",
+        "correct_answer": "metaphase"
+      },
+      {
+        "id": 137,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "_________ chromatin is less condensed and transcriptionally active.",
+        "correct_answer": "Euchromatin"
+      },
+      {
+        "id": 138,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "_________ chromatin is highly condensed and transcriptionally inactive.",
+        "correct_answer": "Heterochromatin"
+      },
+      {
+        "id": 139,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Constitutive heterochromatin includes regions near the _______ and telomeres.",
+        "correct_answer": "centromere"
+      },
+      {
+        "id": 140,
+        "topic": "Topic 1: Chromosome Structure and Function",
+        "question": "Facultative heterochromatin can be converted to _______ chromatin.",
+        "correct_answer": "euchromatin"
+      },
+      {
+        "id": 141,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "A _______ is a visual profile of an individual's chromosomes.",
+        "correct_answer": "karyotype"
+      },
+      {
+        "id": 142,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Karyotyping is performed during _______ when chromosomes are most condensed.",
+        "correct_answer": "metaphase"
+      },
+      {
+        "id": 143,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "G-banding uses _______ stain to produce characteristic banding patterns.",
+        "correct_answer": "Giemsa"
+      },
+      {
+        "id": 144,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome is caused by trisomy 21.",
+        "correct_answer": "Down"
+      },
+      {
+        "id": 145,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "The risk of Down syndrome increases with advanced _______ age.",
+        "correct_answer": "maternal"
+      },
+      {
+        "id": 146,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome (47,XXY) affects males.",
+        "correct_answer": "Klinefelter"
+      },
+      {
+        "id": 147,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome (47,XXX) affects females and is usually mild.",
+        "correct_answer": "Triple X"
+      },
+      {
+        "id": 148,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "XYY syndrome males have an extra _______ chromosome.",
+        "correct_answer": "Y"
+      },
+      {
+        "id": 149,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "A _______ translocation involves exchange between non-homologous chromosomes.",
+        "correct_answer": "reciprocal"
+      },
+      {
+        "id": 150,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ translocation involves fusion at centromeres of two acrocentric chromosomes.",
+        "correct_answer": "Robertsonian"
+      },
+      {
+        "id": 151,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Chronic myelogenous leukemia is associated with the _______ chromosome.",
+        "correct_answer": "Philadelphia"
+      },
+      {
+        "id": 152,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "The Philadelphia chromosome results from translocation between chromosomes 9 and _______.",
+        "correct_answer": "22"
+      },
+      {
+        "id": 153,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is when both copies of a chromosome come from one parent.",
+        "correct_answer": "Uniparental disomy"
+      },
+      {
+        "id": 154,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ refers to the presence of two or more cell lines with different chromosome complements.",
+        "correct_answer": "Mosaicism"
+      },
+      {
+        "id": 155,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ is a technique using fluorescent probes to detect specific DNA sequences.",
+        "correct_answer": "FISH"
+      },
+      {
+        "id": 156,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ can detect submicroscopic deletions and duplications.",
+        "correct_answer": "CMA"
+      },
+      {
+        "id": 157,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Non-invasive prenatal testing analyzes cell-free _______ DNA in maternal blood.",
+        "correct_answer": "fetal"
+      },
+      {
+        "id": 158,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome is caused by deletion of 5p (cat-like cry).",
+        "correct_answer": "Cri-du-chat"
+      },
+      {
+        "id": 159,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "_________ syndrome is caused by deletion of 4p.",
+        "correct_answer": "Wolf-Hirschhorn"
+      },
+      {
+        "id": 160,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Williams syndrome is caused by deletion on chromosome _______.",
+        "correct_answer": "7"
+      },
+      {
+        "id": 161,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "DiGeorge syndrome is caused by deletion on chromosome _______.",
+        "correct_answer": "22"
+      },
+      {
+        "id": 162,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Prader-Willi syndrome involves imprinting on chromosome _______.",
+        "correct_answer": "15"
+      },
+      {
+        "id": 163,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Angelman syndrome involves imprinting on chromosome _______.",
+        "correct_answer": "15"
+      },
+      {
+        "id": 164,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Fragile X syndrome involves expansion of _______ repeats.",
+        "correct_answer": "CGG"
+      },
+      {
+        "id": 165,
+        "topic": "Topic 2: Chromosomal Abnormalities",
+        "question": "Huntington disease involves expansion of _______ repeats.",
+        "correct_answer": "CAG"
+      },
+      {
+        "id": 166,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "The central dogma states DNA → _______ → protein.",
+        "correct_answer": "RNA"
+      },
+      {
+        "id": 167,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "DNA replication occurs during the _______ phase of the cell cycle.",
+        "correct_answer": "S"
+      },
+      {
+        "id": 168,
+        "topic": "Topic 3: DNA Replication - Introduction and Overview",
+        "question": "The _______-Stahl experiment proved semiconservative replication.",
+        "correct_answer": "Meselson"
+      },
+      {
+        "id": 169,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerases require a free _______-OH group to add nucleotides.",
+        "correct_answer": "3'"
+      },
+      {
+        "id": 170,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The active site of DNA polymerase requires _______ ion.",
+        "correct_answer": "magnesium"
+      },
+      {
+        "id": 171,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "_________ refers to the ability of an enzyme to catalyze multiple reactions without dissociating.",
+        "correct_answer": "Processivity"
+      },
+      {
+        "id": 172,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "PCNA is the _______ clamp in eukaryotes.",
+        "correct_answer": "sliding"
+      },
+      {
+        "id": 173,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The _______ loader loads the sliding clamp onto DNA.",
+        "correct_answer": "clamp"
+      },
+      {
+        "id": 174,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "The _______ is the multi-protein complex that carries out DNA replication.",
+        "correct_answer": "replisome"
+      },
+      {
+        "id": 175,
+        "topic": "Topic 4: DNA Replication - Mechanism and Enzymes",
+        "question": "DNA polymerase III _______ includes core polymerase, sliding clamp, and clamp loader.",
+        "correct_answer": "holoenzyme"
+      },
+      {
+        "id": 176,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "Licensing of replication origins occurs during _______ phase.",
+        "correct_answer": "G1"
+      },
+      {
+        "id": 177,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "ORC stands for Origin _______ Complex.",
+        "correct_answer": "Recognition"
+      },
+      {
+        "id": 178,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "MCM proteins are _______ licensing factors.",
+        "correct_answer": "helicase"
+      },
+      {
+        "id": 179,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "_________ (cyclin-dependent kinase) activity promotes origin firing.",
+        "correct_answer": "CDK"
+      },
+      {
+        "id": 180,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "_________ inhibits re-replication by blocking MCM loading.",
+        "correct_answer": "Geminin"
+      },
+      {
+        "id": 181,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The pre-RC forms during _______ phase.",
+        "correct_answer": "G1"
+      },
+      {
+        "id": 182,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "The _______ checkpoint monitors DNA replication progress.",
+        "correct_answer": "intra-S"
+      },
+      {
+        "id": 183,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "_________ kinase responds to single-stranded DNA and replication stress.",
+        "correct_answer": "ATR"
+      },
+      {
+        "id": 184,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "_________ kinase responds primarily to double-strand breaks.",
+        "correct_answer": "ATM"
+      },
+      {
+        "id": 185,
+        "topic": "Topic 5: DNA Replication - Steps and Regulation",
+        "question": "_________ is a tumor suppressor activated by DNA damage.",
+        "correct_answer": "p53"
+      },
+      {
+        "id": 186,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Eukaryotic DNA is wrapped around _______ proteins to form nucleosomes.",
+        "correct_answer": "histone"
+      },
+      {
+        "id": 187,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "A nucleosome core consists of an _______ of histones (two each of H2A, H2B, H3, H4).",
+        "correct_answer": "octamer"
+      },
+      {
+        "id": 188,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Histone _______ binds to linker DNA between nucleosomes.",
+        "correct_answer": "H1"
+      },
+      {
+        "id": 189,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "_________ chaperones assist in nucleosome assembly and disassembly.",
+        "correct_answer": "Histone"
+      },
+      {
+        "id": 190,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "CAF-1 couples nucleosome assembly to DNA _______.",
+        "correct_answer": "replication"
+      },
+      {
+        "id": 191,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The end replication problem occurs because DNA polymerase cannot fully replicate the ends of _______ chromosomes.",
+        "correct_answer": "linear"
+      },
+      {
+        "id": 192,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Telomerase is a _______ transcriptase.",
+        "correct_answer": "reverse"
+      },
+      {
+        "id": 193,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The RNA component of telomerase serves as a _______ for telomeric repeat synthesis.",
+        "correct_answer": "template"
+      },
+      {
+        "id": 194,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Telomerase activity is high in germ cells, stem cells, and _______ cells.",
+        "correct_answer": "cancer"
+      },
+      {
+        "id": 195,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Progressive telomere shortening is associated with cellular _______ and aging.",
+        "correct_answer": "senescence"
+      },
+      {
+        "id": 196,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Mitochondrial DNA replication uses DNA polymerase _______.",
+        "correct_answer": "gamma"
+      },
+      {
+        "id": 197,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Mitochondrial DNA is _______ and double-stranded.",
+        "correct_answer": "circular"
+      },
+      {
+        "id": 198,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "The _______-loop is a structure found in mitochondrial DNA replication.",
+        "correct_answer": "D"
+      },
+      {
+        "id": 199,
+        "topic": "Topic 6: Prokaryotic vs Eukaryotic DNA Replication",
+        "question": "Rolling circle replication occurs in some _______ and bacteria.",
+        "correct_answer": "viruses"
+      },
+      {
+        "id": 200,
+        "topic": "Topic 7: Transcription - Introduction and Components",
+        "question": "The template strand is also called the _______ strand.",
+        "correct_answer": "antisense"
+      }
+    ]
+  }
+}
